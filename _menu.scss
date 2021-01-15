@@ -1,0 +1,171 @@
+nav {
+    background-color: $second-color;
+    position: relative;
+
+    .logo {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        margin-left: 20px;
+        background-color: $first-color;
+    }
+
+    .list {
+        position: absolute;
+        display: flex;
+
+        li {
+            list-style: none;
+
+            a {
+                text-decoration: none;
+                color: $first-color;
+            }
+        }
+    }
+
+    .burger {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        margin-right: 20px;
+        align-items: center;
+        justify-content: center;
+
+        .bar1,
+        .bar2,
+        .bar3 {
+            width: 25px;
+            height: 2px;
+            background: $first-color;
+
+        }
+
+        & .bar1 {
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+
+        & .bar2 {
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+            margin: 3px 3px;
+        }
+
+        & .bar3 {
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+    }
+
+    .burger.open {
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+
+        & .bar1 {
+            transform: rotate(45deg) translate(4px, 2px);
+        }
+
+        & .bar2 {
+            opacity: 0;
+        }
+
+        & .bar3 {
+            transform: rotate(-45deg) translate(6px, -3px);
+        }
+    }
+
+}
+
+@media (max-width:700px) {
+    nav {
+        height: 15vh;
+
+        .logo {
+            height: 50px;
+            width: 20%
+        }
+
+        .burger {
+            height: 50px;
+            width: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .list {
+            height: 90vh;
+            width: 100%;
+            right: 0;
+            top: 100%;
+            transform: translateX(-200%);
+            background-color: $second-color;
+            transition: linear .2s;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            li {
+                height: 70px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                a {
+                    font-size: 20px;
+                }
+            }
+        }
+
+
+        .showNav {
+            transform: translateX(0);
+        }
+    }
+}
+
+@media (min-width:700px) {
+    nav {
+        height: 10vh;
+
+        .logo {
+            height: calc(100% - 40px);
+            width: 10%;
+        }
+
+        .list {
+            height: calc(100% - 40px);
+            width: 60%;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            margin-right: 20px;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+
+            a {
+                font-size: 18px;
+            }
+        }
+
+        .burger {
+            display: none;
+        }
+
+
+    }
+
+}

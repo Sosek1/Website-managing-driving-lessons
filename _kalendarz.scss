@@ -1,0 +1,137 @@
+.day {
+    font-size: 15px;
+    border: 2px solid $second-color;
+    background: $first-color;
+    border-radius: 6px;
+}
+
+.week {
+    border: 1px solid $second-color;
+    background: $second-color;
+    border-radius: 6px;
+    color: $first-color;
+}
+
+.dayContainer {
+    min-height: 200vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+
+    .table {
+        height: 8vh;
+        width: 90%;
+        border: 1px solid $second-color;
+        border-radius: 6px;
+        margin-top: 10px;
+        display: flex;
+
+        .hour {
+            flex-basis: 20%;
+            height: 100%;
+            border-right: 1px solid $second-color;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+        }
+
+        .data {
+            height: 100%;
+            flex-basis: 60%;
+        }
+
+        .addRide {
+            height: 100%;
+            flex-basis: 20%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            i {
+                font-size: 15px;
+                color: $third-color;
+            }
+
+        }
+    }
+}
+
+.settle {
+
+    border: 2px solid $second-color;
+    background: $first-color;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+}
+
+
+@media (max-width:700px) {
+    .name {
+        font-size: 20px;
+        font-weight: 400;
+        margin: 20px;
+    }
+
+    .week {
+        width: 100px;
+        height: 40px;
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+
+    .day {
+        width: 100px;
+        height: 40px;
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+
+    .dayContainer {
+        align-items: center;
+    }
+
+    .settle {
+        width: 100px;
+        height: 40px;
+        margin: 10px auto;
+    }
+}
+
+@media (min-width:700px) {
+    .name {
+        font-size: 30px;
+        font-weight: 400;
+        margin: 30px;
+    }
+
+    .week {
+        width: 150px;
+        height: 50px;
+        margin-bottom: 30px;
+        margin-left: 30px;
+    }
+
+    .day {
+        width: 150px;
+        height: 50px;
+        margin-bottom: 30px;
+        margin-left: 30px;
+    }
+
+    .dayContainer {
+        align-items: flex-start;
+        margin-left: 30px;
+    }
+
+    .settle {
+        width: 150px;
+        height: 50px;
+        margin: 30px 0 30px 30px;
+    }
+}
