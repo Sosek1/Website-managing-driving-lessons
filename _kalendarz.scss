@@ -17,6 +17,7 @@
     justify-content: space-between;
     align-items: center;
     overflow: hidden;
+    display: none;
 
     .table {
         height: 8vh;
@@ -59,6 +60,7 @@
 
 .weekContainer {
     border: 2px solid $second-color;
+    display: none;
 
     .calendar {
         height: 100%;
@@ -84,11 +86,7 @@
 }
 
 .appear {
-    display: block;
-}
-
-.dissapear {
-    display: none
+    display: flex;
 }
 
 .settle {
@@ -126,6 +124,7 @@
     .dayContainer {
         align-items: center;
         min-height: 200vh;
+        margin-left: 0;
     }
 
     .weekContainer {
@@ -137,8 +136,6 @@
             width: 400vw;
         }
     }
-
-
 
     .settle {
         width: 100px;

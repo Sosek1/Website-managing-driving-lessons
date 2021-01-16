@@ -214,6 +214,7 @@ nav .burger.open .bar3 {
       -ms-flex-align: center;
           align-items: center;
   overflow: hidden;
+  display: none;
 }
 
 .dayContainer .table {
@@ -272,6 +273,7 @@ nav .burger.open .bar3 {
 
 .weekContainer {
   border: 2px solid #000;
+  display: none;
 }
 
 .weekContainer .calendar {
@@ -304,11 +306,9 @@ nav .burger.open .bar3 {
 }
 
 .appear {
-  display: block;
-}
-
-.dissapear {
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .settle {
@@ -350,6 +350,7 @@ nav .burger.open .bar3 {
         -ms-flex-align: center;
             align-items: center;
     min-height: 200vh;
+    margin-left: 0;
   }
   .weekContainer {
     height: 150vh;
