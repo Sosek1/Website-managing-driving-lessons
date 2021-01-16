@@ -203,16 +203,6 @@ nav .burger.open .bar3 {
 }
 
 .dayContainer {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   overflow: hidden;
   display: none;
 }
@@ -306,9 +296,7 @@ nav .burger.open .bar3 {
 }
 
 .appear {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
 }
 
 .settle {
@@ -349,8 +337,8 @@ nav .burger.open .bar3 {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    min-height: 200vh;
-    margin-left: 0;
+    min-height: 80vh;
+    margin-left: 20px;
   }
   .weekContainer {
     height: 150vh;

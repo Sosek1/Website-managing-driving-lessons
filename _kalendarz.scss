@@ -13,9 +13,9 @@
 }
 
 .dayContainer {
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    // flex-direction: column;
+    // justify-content: space-between;
+    // align-items: center;
     overflow: hidden;
     display: none;
 
@@ -86,7 +86,7 @@
 }
 
 .appear {
-    display: flex;
+    display: block;
 }
 
 .settle {
@@ -123,8 +123,8 @@
 
     .dayContainer {
         align-items: center;
-        min-height: 200vh;
-        margin-left: 0;
+        min-height: 80vh;
+        margin-left: 20px;
     }
 
     .weekContainer {
