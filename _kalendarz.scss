@@ -13,8 +13,6 @@
 }
 
 .dayContainer {
-    min-height: 200vh;
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -59,8 +57,41 @@
     }
 }
 
-.settle {
+.weekContainer {
+    border: 2px solid $second-color;
 
+    .calendar {
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(17, 1fr);
+        border: 1px solid $second-color;
+
+
+        .record {
+            border: 1px solid $second-color;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            p {
+                font-size: 15px;
+                color: $second-color;
+            }
+
+        }
+    }
+}
+
+.appear {
+    display: block;
+}
+
+.dissapear {
+    display: none
+}
+
+.settle {
     border: 2px solid $second-color;
     background: $first-color;
     border-radius: 6px;
@@ -94,7 +125,20 @@
 
     .dayContainer {
         align-items: center;
+        min-height: 200vh;
     }
+
+    .weekContainer {
+        height: 150vh;
+        margin: 0 20px;
+        overflow-x: auto;
+
+        .calendar {
+            width: 400vw;
+        }
+    }
+
+
 
     .settle {
         width: 100px;
@@ -127,6 +171,17 @@
     .dayContainer {
         align-items: flex-start;
         margin-left: 30px;
+        min-height: 120vh;
+    }
+
+    .weekContainer {
+        height: 60vh;
+        margin: 0 30px;
+        overflow-x: hidden;
+
+        .calendar {
+            width: 100%;
+        }
     }
 
     .settle {

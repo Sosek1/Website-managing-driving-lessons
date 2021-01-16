@@ -203,10 +203,6 @@ nav .burger.open .bar3 {
 }
 
 .dayContainer {
-  min-height: 200vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -274,6 +270,47 @@ nav .burger.open .bar3 {
   color: #9b9696;
 }
 
+.weekContainer {
+  border: 2px solid #000;
+}
+
+.weekContainer .calendar {
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[8];
+      grid-template-columns: repeat(8, 1fr);
+  -ms-grid-rows: (1fr)[17];
+      grid-template-rows: repeat(17, 1fr);
+  border: 1px solid #000;
+}
+
+.weekContainer .calendar .record {
+  border: 1px solid #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.weekContainer .calendar .record p {
+  font-size: 15px;
+  color: #000;
+}
+
+.appear {
+  display: block;
+}
+
+.dissapear {
+  display: none;
+}
+
 .settle {
   border: 2px solid #000;
   background: #fff;
@@ -312,6 +349,15 @@ nav .burger.open .bar3 {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    min-height: 200vh;
+  }
+  .weekContainer {
+    height: 150vh;
+    margin: 0 20px;
+    overflow-x: auto;
+  }
+  .weekContainer .calendar {
+    width: 400vw;
   }
   .settle {
     width: 100px;
@@ -343,6 +389,15 @@ nav .burger.open .bar3 {
         -ms-flex-align: start;
             align-items: flex-start;
     margin-left: 30px;
+    min-height: 120vh;
+  }
+  .weekContainer {
+    height: 60vh;
+    margin: 0 30px;
+    overflow-x: hidden;
+  }
+  .weekContainer .calendar {
+    width: 100%;
   }
   .settle {
     width: 150px;
