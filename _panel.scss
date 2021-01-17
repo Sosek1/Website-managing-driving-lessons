@@ -1,0 +1,118 @@
+.container {
+    height: 80vh;
+    margin: 25px auto;
+    grid-gap: 10px;
+
+    .heading {
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+    }
+
+    .border {
+        border-bottom: 1px solid $second-color;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+    }
+
+    .chooseCategory,
+    .chooseHour,
+    .chooseCar {
+        border-bottom: 1px solid $second-color;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+    }
+}
+
+@media (max-width:700px) {
+    .container {
+        width: 90vw;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(12, 1fr);
+        border: none;
+
+        ::placeholder {
+            font-size: 15px;
+            color: $third-color;
+        }
+
+        .heading {
+            grid-area: 1/1/2/1;
+            justify-content: center;
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .text {
+            color: $third-color;
+            font-size: 15px;
+            margin-bottom: 2px;
+        }
+
+        .info {
+            grid-area: 11/1/12/1;
+        }
+
+        .save {
+            grid-area: 12/1/12/1;
+        }
+    }
+}
+
+@media(min-width:700px) {
+    .container {
+        width: 70vw;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: repeat(8, 1fr);
+        border: 1px solid $second-color;
+        border-radius: 6px;
+
+        ::placeholder {
+            font-size: 20px;
+            color: $third-color;
+
+        }
+
+        .text {
+            color: $third-color;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+
+        .heading {
+            grid-area: 1/1/1/4;
+            justify-content: flex-start;
+            margin-left: 30px;
+            font-size: 30px;
+        }
+
+        .name2,
+        .chooseCategory {
+            margin-left: 20px;
+        }
+
+        .surname,
+        .chooseHour {
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+
+        .phoneNumber,
+        .chooseCar {
+            margin-right: 20px;
+        }
+
+        .info {
+            grid-area: 5/1/8/3;
+        }
+
+        .save {
+            grid-area: 8/1/8/1;
+        }
+    }
+}
