@@ -1,7 +1,11 @@
+@import 'mixins';
+
 .container {
+    display: grid;
     height: 80vh;
     margin: 25px auto;
     grid-gap: 10px;
+
 
     .heading {
         display: flex;
@@ -26,12 +30,11 @@
     }
 }
 
-@media (max-width:700px) {
+@include media-sm {
     .container {
         width: 90vw;
-        display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(12, 1fr);
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         border: none;
 
         ::placeholder {
@@ -62,12 +65,11 @@
     }
 }
 
-@media(min-width:700px) {
+@include media-md {
     .container {
         width: 70vw;
-        display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: repeat(8, 1fr);
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         border: 1px solid $second-color;
         border-radius: 6px;
 

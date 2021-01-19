@@ -87,7 +87,7 @@ nav .burger.open .bar3 {
           transform: rotate(-45deg) translate(6px, -3px);
 }
 
-@media (max-width: 700px) {
+@media screen and (max-width: 700px) {
   nav {
     height: 15vh;
   }
@@ -154,7 +154,7 @@ nav .burger.open .bar3 {
   }
 }
 
-@media (min-width: 700px) {
+@media screen and (min-width: 700px) {
   nav {
     height: 10vh;
   }
@@ -188,28 +188,71 @@ nav .burger.open .bar3 {
   }
 }
 
-.day {
+.dayWeek {
   font-size: 15px;
   border: 2px solid #000;
-  background: #fff;
   border-radius: 6px;
+  background-color: #000;
+  font-size: 15px;
+  text-decoration: none;
+  color: #fff;
 }
 
-.week {
-  border: 1px solid #000;
-  background: #000;
-  border-radius: 6px;
-  color: #fff;
+.arrowBox {
+  height: 8vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.arrowBox .prev {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.arrowBox .prev i {
+  font-size: 25px;
+  color: #000;
+}
+
+.arrowBox .next {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.arrowBox .next i {
+  font-size: 25px;
+  color: #000;
 }
 
 .dayContainer {
   overflow: hidden;
-  display: none;
+  display: block;
 }
 
 .dayContainer .table {
   height: 8vh;
-  width: 90%;
+  width: 100%;
   border: 1px solid #000;
   border-radius: 6px;
   margin-top: 10px;
@@ -261,19 +304,61 @@ nav .burger.open .bar3 {
   color: #9b9696;
 }
 
+.dayContainer .table .prev {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.dayContainer .table .prev i {
+  font-size: 25px;
+  color: #000;
+  margin: 0 20px;
+}
+
+.dayContainer .table .next {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.dayContainer .table .next i {
+  font-size: 25px;
+  color: #000;
+  margin: 0 20px;
+}
+
 .weekContainer {
   border: 2px solid #000;
-  display: none;
+  display: block;
 }
 
 .weekContainer .calendar {
   height: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[8];
-      grid-template-columns: repeat(8, 1fr);
-  -ms-grid-rows: (1fr)[17];
-      grid-template-rows: repeat(17, 1fr);
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   border: 1px solid #000;
 }
 
@@ -315,30 +400,27 @@ nav .burger.open .bar3 {
   font-size: 15px;
 }
 
-@media (max-width: 700px) {
+@media screen and (max-width: 700px) {
   .name {
     font-size: 20px;
     font-weight: 400;
     margin: 20px;
   }
-  .week {
+  .dayWeek {
     width: 100px;
     height: 40px;
     margin-bottom: 10px;
     margin-left: 20px;
   }
-  .day {
-    width: 100px;
-    height: 40px;
-    margin-bottom: 10px;
-    margin-left: 20px;
+  .arrowBox {
+    margin: 0 20px 10px 20px;
   }
   .dayContainer {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     min-height: 80vh;
-    margin-left: 20px;
+    margin: 0 20px;
   }
   .weekContainer {
     height: 150vh;
@@ -355,29 +437,26 @@ nav .burger.open .bar3 {
   }
 }
 
-@media (min-width: 700px) {
+@media screen and (min-width: 700px) {
   .name {
     font-size: 30px;
     font-weight: 400;
     margin: 30px;
   }
-  .week {
+  .dayWeek {
     width: 150px;
     height: 50px;
     margin-bottom: 30px;
     margin-left: 30px;
   }
-  .day {
-    width: 150px;
-    height: 50px;
-    margin-bottom: 30px;
-    margin-left: 30px;
+  .arrowBox {
+    margin: 0 30px 10px 30px;
   }
   .dayContainer {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
-    margin-left: 30px;
+    margin: 0 30px;
     min-height: 120vh;
   }
   .weekContainer {
@@ -396,6 +475,8 @@ nav .burger.open .bar3 {
 }
 
 .container {
+  display: -ms-grid;
+  display: grid;
   height: 80vh;
   margin: 25px auto;
   grid-gap: 10px;
@@ -433,15 +514,13 @@ nav .burger.open .bar3 {
           align-items: flex-end;
 }
 
-@media (max-width: 700px) {
+@media screen and (max-width: 700px) {
   .container {
     width: 90vw;
-    display: -ms-grid;
-    display: grid;
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-    -ms-grid-rows: (1fr)[12];
-        grid-template-rows: repeat(12, 1fr);
+    -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     border: none;
   }
   .container ::-webkit-input-placeholder {
@@ -489,15 +568,13 @@ nav .burger.open .bar3 {
   }
 }
 
-@media (min-width: 700px) {
+@media screen and (min-width: 700px) {
   .container {
     width: 70vw;
-    display: -ms-grid;
-    display: grid;
     -ms-grid-columns: 1fr 1fr 1fr;
         grid-template-columns: 1fr 1fr 1fr;
-    -ms-grid-rows: (1fr)[8];
-        grid-template-rows: repeat(8, 1fr);
+    -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     border: 1px solid #000;
     border-radius: 6px;
   }

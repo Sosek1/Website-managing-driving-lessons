@@ -1,27 +1,59 @@
-.day {
+@import 'mixins';
+
+.dayWeek {
     font-size: 15px;
     border: 2px solid $second-color;
-    background: $first-color;
     border-radius: 6px;
+    background-color: $second-color;
+
+    font-size: 15px;
+    text-decoration: none;
+    color: $first-color;
+
+    a {}
 }
 
-.week {
-    border: 1px solid $second-color;
-    background: $second-color;
-    border-radius: 6px;
-    color: $first-color;
+.arrowBox {
+    height: 8vh;
+    display: flex;
+
+    .prev {
+        flex-basis: 50%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        i {
+            font-size: 25px;
+            color: $second-color;
+
+        }
+    }
+
+    .next {
+        flex-basis: 50%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        i {
+            font-size: 25px;
+            color: $second-color;
+
+        }
+    }
 }
+
 
 .dayContainer {
-    // flex-direction: column;
-    // justify-content: space-between;
-    // align-items: center;
     overflow: hidden;
-    display: none;
+    display: block;
 
     .table {
         height: 8vh;
-        width: 90%;
+        width: 100%;
         border: 1px solid $second-color;
         border-radius: 6px;
         margin-top: 10px;
@@ -53,22 +85,48 @@
                 font-size: 15px;
                 color: $third-color;
             }
+        }
 
+        .prev {
+            flex-basis: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            i {
+                font-size: 25px;
+                color: $second-color;
+                margin: 0 20px;
+            }
+        }
+
+        .next {
+            flex-basis: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            i {
+                font-size: 25px;
+                color: $second-color;
+                margin: 0 20px;
+            }
         }
     }
 }
 
 .weekContainer {
     border: 2px solid $second-color;
-    display: none;
+    display: block;
 
     .calendar {
         height: 100%;
         display: grid;
-        grid-template-columns: repeat(8, 1fr);
-        grid-template-rows: repeat(17, 1fr);
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         border: 1px solid $second-color;
-
 
         .record {
             border: 1px solid $second-color;
@@ -80,7 +138,6 @@
                 font-size: 15px;
                 color: $second-color;
             }
-
         }
     }
 }
@@ -99,33 +156,28 @@
     font-size: 15px;
 }
 
-
-
-@media (max-width:700px) {
+@include media-sm {
     .name {
         font-size: 20px;
         font-weight: 400;
         margin: 20px;
     }
 
-    .week {
+    .dayWeek {
         width: 100px;
         height: 40px;
         margin-bottom: 10px;
         margin-left: 20px;
     }
 
-    .day {
-        width: 100px;
-        height: 40px;
-        margin-bottom: 10px;
-        margin-left: 20px;
+    .arrowBox {
+        margin: 0 20px 10px 20px;
     }
 
     .dayContainer {
         align-items: center;
         min-height: 80vh;
-        margin-left: 20px;
+        margin: 0 20px;
     }
 
     .weekContainer {
@@ -145,30 +197,27 @@
     }
 }
 
-@media (min-width:700px) {
+@include media-md {
     .name {
         font-size: 30px;
         font-weight: 400;
         margin: 30px;
     }
 
-    .week {
+    .dayWeek {
         width: 150px;
         height: 50px;
         margin-bottom: 30px;
         margin-left: 30px;
     }
 
-    .day {
-        width: 150px;
-        height: 50px;
-        margin-bottom: 30px;
-        margin-left: 30px;
+    .arrowBox {
+        margin: 0 30px 10px 30px;
     }
 
     .dayContainer {
         align-items: flex-start;
-        margin-left: 30px;
+        margin: 0 30px;
         min-height: 120vh;
     }
 

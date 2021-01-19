@@ -1,3 +1,5 @@
+@import 'mixins';
+
 nav {
     background-color: $second-color;
     position: relative;
@@ -87,7 +89,7 @@ nav {
 
 }
 
-@media (max-width:700px) {
+@include media-sm {
     nav {
         height: 15vh;
 
@@ -136,7 +138,7 @@ nav {
     }
 }
 
-@media (min-width:700px) {
+@include media-md {
     nav {
         height: 10vh;
 
