@@ -33,9 +33,102 @@
     .chooseCar {
         border-bottom: 1px solid $second-color;
         display: flex;
-        justify-content: flex-start;
+        justify-content: space-between;
         align-items: center;
         padding: 5px;
+        position: relative;
+    }
+
+    .chooseCategory,
+    .chooseHour,
+    .chooseCar:hover {
+        cursor: pointer;
+    }
+
+    .options {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        height: 0;
+        width: 100%;
+        transition: all 0.3s linear;
+        border: 0px solid $second-color;
+        background-color: $first-color;
+        z-index: 3;
+    }
+
+    .options.rollDown {
+        height: 100px;
+        border: 1px solid $second-color;
+        background-color: $first-color;
+        z-index: 3;
+    }
+
+    .arrow1 {
+        transition: .2s linear;
+    }
+
+    .arrow1.flip {
+        transform: rotate(180deg);
+    }
+
+    .arrow2 {
+        transition: .2s linear;
+    }
+
+    .arrow2.flip {
+        transform: rotate(180deg);
+    }
+
+    .arrow3 {
+        transition: .2s linear;
+    }
+
+    .arrow3.flip {
+        transform: rotate(180deg);
+    }
+
+
+    .options2 {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        height: 0;
+        width: 100%;
+        transition: all 0.3s linear;
+        border: 0px solid $second-color;
+        background-color: $first-color;
+        z-index: 3;
+    }
+
+    .options2.rollDown {
+        z-index: 3;
+        height: 100px;
+        border: 1px solid $second-color;
+        background-color: $first-color;
+    }
+
+    .options3 {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        height: 0;
+        width: 100%;
+        transition: all 0.3s linear;
+        border: 0px solid $second-color;
+        background-color: $first-color;
+        z-index: 3;
+    }
+
+    .options3.rollDown {
+        z-index: 3;
+        height: 100px;
+        border: 1px solid $second-color;
+        background-color: $first-color;
+    }
+
+    .fa-angle-down:hover {
+        cursor: pointer;
     }
 
     .city,
@@ -44,11 +137,54 @@
     .save {
         border-radius: 6px;
         background-color: $second-color;
+        border: 1px solid $second-color;
         font-size: 15px;
         color: $first-color;
         display: flex;
         align-items: center;
         justify-content: center;
+        transition: linear .1s;
+    }
+
+    .city,
+    .place,
+    .vehicle,
+    .save:hover {
+        cursor: pointer;
+    }
+
+    .city.white {
+        color: $second-color;
+        background-color: $first-color;
+    }
+
+    .place.white {
+        color: $second-color;
+        background-color: $first-color;
+    }
+
+    .vehicle.white {
+        color: $second-color;
+        background-color: $first-color;
+    }
+
+    .save.white {
+        color: $second-color;
+        background-color: $first-color;
+    }
+
+    .name2,
+    .surname,
+    .phoneNumber {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    input {
+        border: none;
+        height: 100%;
+        flex-basis: 90%;
     }
 
     .info {
@@ -99,6 +235,10 @@
             height: 40px;
         }
 
+        .fa-angle-down {
+            font-size: 20px;
+        }
+
         .info {
             grid-area: 11/1/16/1;
             width: 100%;
@@ -109,7 +249,6 @@
 
         .save {
             grid-area: 16/1/16/1;
-            border-radius: 0;
             width: 200px;
             height: 50px;
             margin: 0 auto;
@@ -159,6 +298,10 @@
             height: 40px;
         }
 
+        .fa-angle-down {
+            font-size: 25px;
+        }
+
         .name2 {
             grid-area: 2/1/2/4
         }
@@ -193,7 +336,6 @@
 
         .save {
             grid-area: 13/2/13/3;
-            border-radius: 0;
             width: 200px;
             height: 50px;
             margin: 0 auto;
@@ -212,6 +354,7 @@
         align-items: center;
         border: 1px solid $second-color;
         border-radius: 6px;
+        overflow: hidden;
 
         .heading {
             grid-area: 1/1/1/2;
@@ -252,6 +395,10 @@
             height: 40px;
         }
 
+        .fa-angle-down {
+            font-size: 30px;
+        }
+
         .name2 {
             grid-area: 2/1/2/2;
         }
@@ -286,7 +433,6 @@
 
         .save {
             grid-area: 8/1/8/2;
-            border-radius: 0;
             width: 200px;
             height: 50px;
             margin: 0 auto;

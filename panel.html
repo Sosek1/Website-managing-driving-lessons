@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel ustalania jazd</title>
     <link rel="stylesheet" href="./css/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2
+    ?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2e3d9b3214.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -34,12 +36,18 @@
         <input type="text" class="phoneNumber border " placeholder="Numer telefonu...">
         <div class="chooseCategory">
             <p class="text">Kategoria</p>
+            <i class="fas fa-angle-down arrow1" onclick="rollDown()"></i>
+            <div class="options"></div>
         </div>
         <div class="chooseHour ">
             <p class="text">Liczba godzin</p>
+            <i class="fas fa-angle-down arrow2" onclick="rollDown2()"></i>
+            <div class="options2"></div>
         </div>
         <div class="chooseCar ">
             <p class="text"> Pojazd</p>
+            <i class="fas fa-angle-down arrow3" onclick="rollDown3()"></i>
+            <div class="options3"></div>
         </div>
         <div class="city">miasto</div>
         <div class="place">plac</div>
@@ -50,6 +58,8 @@
     </div>
 
     <script src="burger.js"></script>
+    <script src="options.js"></script>
+    <script src="colorChange.js"></script>
 
 </body>
 

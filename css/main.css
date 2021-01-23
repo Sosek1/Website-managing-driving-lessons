@@ -18,6 +18,7 @@ nav .list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  z-index: 3;
 }
 
 nav .list li {
@@ -593,13 +594,114 @@ nav .burger.open .bar3 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   padding: 5px;
+  position: relative;
+}
+
+.container .chooseCategory,
+.container .chooseHour,
+.container .chooseCar:hover {
+  cursor: pointer;
+}
+
+.container .options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 0;
+  width: 100%;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  border: 0px solid #000;
+  background-color: #fff;
+  z-index: 3;
+}
+
+.container .options.rollDown {
+  height: 100px;
+  border: 1px solid #000;
+  background-color: #fff;
+  z-index: 3;
+}
+
+.container .arrow1 {
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+}
+
+.container .arrow1.flip {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.container .arrow2 {
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+}
+
+.container .arrow2.flip {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.container .arrow3 {
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+}
+
+.container .arrow3.flip {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.container .options2 {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 0;
+  width: 100%;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  border: 0px solid #000;
+  background-color: #fff;
+  z-index: 3;
+}
+
+.container .options2.rollDown {
+  z-index: 3;
+  height: 100px;
+  border: 1px solid #000;
+  background-color: #fff;
+}
+
+.container .options3 {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 0;
+  width: 100%;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  border: 0px solid #000;
+  background-color: #fff;
+  z-index: 3;
+}
+
+.container .options3.rollDown {
+  z-index: 3;
+  height: 100px;
+  border: 1px solid #000;
+  background-color: #fff;
+}
+
+.container .fa-angle-down:hover {
+  cursor: pointer;
 }
 
 .container .city,
@@ -608,6 +710,7 @@ nav .burger.open .bar3 {
 .container .save {
   border-radius: 6px;
   background-color: #000;
+  border: 1px solid #000;
   font-size: 15px;
   color: #fff;
   display: -webkit-box;
@@ -619,6 +722,56 @@ nav .burger.open .bar3 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-transition: linear .1s;
+  transition: linear .1s;
+}
+
+.container .city,
+.container .place,
+.container .vehicle,
+.container .save:hover {
+  cursor: pointer;
+}
+
+.container .city.white {
+  color: #000;
+  background-color: #fff;
+}
+
+.container .place.white {
+  color: #000;
+  background-color: #fff;
+}
+
+.container .vehicle.white {
+  color: #000;
+  background-color: #fff;
+}
+
+.container .save.white {
+  color: #000;
+  background-color: #fff;
+}
+
+.container .name2,
+.container .surname,
+.container .phoneNumber {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container input {
+  border: none;
+  height: 100%;
+  -ms-flex-preferred-size: 90%;
+      flex-basis: 90%;
 }
 
 .container .info {
@@ -681,6 +834,9 @@ nav .burger.open .bar3 {
     width: 150px;
     height: 40px;
   }
+  .container .fa-angle-down {
+    font-size: 20px;
+  }
   .container .info {
     -ms-grid-row: 11;
     -ms-grid-row-span: 5;
@@ -695,7 +851,6 @@ nav .burger.open .bar3 {
     -ms-grid-row: 16;
     -ms-grid-column: 1;
     grid-area: 16/1/16/1;
-    border-radius: 0;
     width: 200px;
     height: 50px;
     margin: 0 auto;
@@ -752,6 +907,9 @@ nav .burger.open .bar3 {
     width: 150px;
     height: 40px;
   }
+  .container .fa-angle-down {
+    font-size: 25px;
+  }
   .container .name2 {
     -ms-grid-row: 2;
     -ms-grid-column: 1;
@@ -804,7 +962,6 @@ nav .burger.open .bar3 {
     -ms-grid-column: 2;
     -ms-grid-column-span: 1;
     grid-area: 13/2/13/3;
-    border-radius: 0;
     width: 200px;
     height: 50px;
     margin: 0 auto;
@@ -824,6 +981,7 @@ nav .burger.open .bar3 {
             align-items: center;
     border: 1px solid #000;
     border-radius: 6px;
+    overflow: hidden;
   }
   .container .heading {
     -ms-grid-row: 1;
@@ -869,6 +1027,9 @@ nav .burger.open .bar3 {
   .container .vehicle {
     width: 150px;
     height: 40px;
+  }
+  .container .fa-angle-down {
+    font-size: 30px;
   }
   .container .name2 {
     -ms-grid-row: 2;
@@ -922,7 +1083,6 @@ nav .burger.open .bar3 {
     -ms-grid-column: 1;
     -ms-grid-column-span: 1;
     grid-area: 8/1/8/2;
-    border-radius: 0;
     width: 200px;
     height: 50px;
     margin: 0 auto;
