@@ -7,11 +7,11 @@ city.addEventListener('click', () => {
 })
 
 place.addEventListener('click', () => {
-    place.classList.add("white");
+    place.classList.toggle("white");
 })
 vehicle.addEventListener('click', () => {
-    vehicle.classList.add("white");
+    vehicle.classList.toggle("white");
 })
 save.addEventListener('click', () => {
-    save.classList.add("white");
+    save.classList.toggle("white");
 })

@@ -29,24 +29,35 @@
 
     <div class="container">
         <h1 class="heading">Panel ustalania jazd</h1>
-        <div class="empty"></div>
-        <div class="empty"></div>
+        <div class="datePlace">
+            <div class="prev2">
+                <i class="fas fa-angle-left"></i>
+            </div>
+            <p class="date">20.02.2021</p>
+            <div class="next2">
+                <i class="fas fa-angle-right"></i>
+            </div>
+        </div>
+        <div class="search">
+            <input type="text" class="searchInput">
+            <i class="fas fa-search"></i>
+        </div>
         <input type="text" class="name2 border " placeholder="Imię...">
         <input type="text" class="surname border " placeholder="Nazwisko...">
         <input type="text" class="phoneNumber border " placeholder="Numer telefonu...">
-        <div class="chooseCategory">
+        <div class="chooseCategory" onclick="rollDown()">
             <p class="text">Kategoria</p>
-            <i class="fas fa-angle-down arrow1" onclick="rollDown()"></i>
+            <i class="fas fa-angle-down arrow1"></i>
             <div class="options"></div>
         </div>
-        <div class="chooseHour ">
+        <div class="chooseHour" onclick="rollDown2()">
             <p class="text">Liczba godzin</p>
-            <i class="fas fa-angle-down arrow2" onclick="rollDown2()"></i>
+            <i class="fas fa-angle-down arrow2"></i>
             <div class="options2"></div>
         </div>
-        <div class="chooseCar ">
+        <div class="chooseCar" onclick="rollDown3()">
             <p class="text"> Pojazd</p>
-            <i class="fas fa-angle-down arrow3" onclick="rollDown3()"></i>
+            <i class="fas fa-angle-down arrow3"></i>
             <div class="options3"></div>
         </div>
         <div class="city">miasto</div>
