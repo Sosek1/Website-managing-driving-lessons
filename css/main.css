@@ -271,11 +271,14 @@ nav .burger.open .bar3 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .arrowBox .prev {
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
+  -ms-flex-preferred-size: 40%;
+      flex-basis: 40%;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -293,9 +296,20 @@ nav .burger.open .bar3 {
   color: #000;
 }
 
+.arrowBox .date3 {
+  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 20px;
+}
+
 .arrowBox .next {
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
+  -ms-flex-preferred-size: 40%;
+      flex-basis: 40%;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -372,51 +386,10 @@ nav .burger.open .bar3 {
   color: #9b9696;
 }
 
-.dayContainer .table .prev {
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-
-.dayContainer .table .prev i {
-  font-size: 25px;
-  color: #000;
-  margin: 0 20px;
-}
-
-.dayContainer .table .next {
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-}
-
-.dayContainer .table .next i {
-  font-size: 25px;
-  color: #000;
-  margin: 0 20px;
-}
-
 .weekContainer {
   border: 2px solid #000;
   display: block;
+  overflow-x: auto;
 }
 
 .weekContainer .calendar {
@@ -446,6 +419,14 @@ nav .burger.open .bar3 {
 .weekContainer .calendar .record p {
   font-size: 15px;
   color: #000;
+}
+
+.prev,
+.next,
+.dayWeek,
+.settle:hover,
+.addRide {
+  cursor: pointer;
 }
 
 .appear {
@@ -487,13 +468,12 @@ nav .burger.open .bar3 {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    min-height: 80vh;
     margin: 0 20px;
+    min-height: 80vh;
   }
   .weekContainer {
     height: 150vh;
     margin: 0 20px;
-    overflow-x: auto;
   }
   .weekContainer .calendar {
     width: 400vw;
@@ -530,7 +510,6 @@ nav .burger.open .bar3 {
   .weekContainer {
     height: 60vh;
     margin: 0 30px;
-    overflow-x: hidden;
   }
   .weekContainer .calendar {
     width: 100%;
@@ -1157,6 +1136,102 @@ nav .burger.open .bar3 {
   }
   .container .fas {
     font-size: 30px;
+  }
+}
+
+.box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.box .loginPanel {
+  width: 300px;
+  height: 300px;
+  border: 2px solid #000;
+  border-radius: 6px;
+  margin: 100px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.box .loginPanel p {
+  font-size: 20px;
+  color: #000;
+}
+
+.box .loginPanel input {
+  width: 80%;
+  height: 40px;
+  border: 1px solid #000;
+  border-radius: 6px;
+  padding: 5px;
+  font-size: 15px;
+}
+
+.box .loginPanel button {
+  width: 100px;
+  height: 40px;
+  border: 1px solid #000;
+  background-color: #000;
+  color: #fff;
+  border-radius: 6px;
+}
+
+.box .loginPanel ::-webkit-input-placeholder {
+  color: #9b9696;
+  font-size: 15px;
+  margin-left: 5px;
+  padding: 0 5px;
+}
+
+.box .loginPanel :-ms-input-placeholder {
+  color: #9b9696;
+  font-size: 15px;
+  margin-left: 5px;
+  padding: 0 5px;
+}
+
+.box .loginPanel ::-ms-input-placeholder {
+  color: #9b9696;
+  font-size: 15px;
+  margin-left: 5px;
+  padding: 0 5px;
+}
+
+.box .loginPanel ::placeholder {
+  color: #9b9696;
+  font-size: 15px;
+  margin-left: 5px;
+  padding: 0 5px;
+}
+
+.box .loginPanel button:hover {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 200px) {
+  .box {
+    height: 100vh;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .box {
+    height: 90vh;
   }
 }
 

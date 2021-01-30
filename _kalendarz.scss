@@ -5,7 +5,6 @@
     border: 2px solid $second-color;
     border-radius: 6px;
     background-color: $second-color;
-
     font-size: 15px;
     text-decoration: none;
     color: $first-color;
@@ -14,9 +13,10 @@
 .arrowBox {
     height: 8vh;
     display: flex;
+    align-items: center;
 
     .prev {
-        flex-basis: 50%;
+        flex-basis: 40%;
         height: 100%;
         display: flex;
         align-items: center;
@@ -25,12 +25,18 @@
         i {
             font-size: 25px;
             color: $second-color;
-
         }
     }
 
+    .date3 {
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        font-size: 20px;
+    }
+
     .next {
-        flex-basis: 50%;
+        flex-basis: 40%;
         height: 100%;
         display: flex;
         align-items: center;
@@ -43,7 +49,6 @@
         }
     }
 }
-
 
 .dayContainer {
     overflow: hidden;
@@ -84,40 +89,14 @@
                 color: $third-color;
             }
         }
-
-        .prev {
-            flex-basis: 50%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-
-            i {
-                font-size: 25px;
-                color: $second-color;
-                margin: 0 20px;
-            }
-        }
-
-        .next {
-            flex-basis: 50%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-
-            i {
-                font-size: 25px;
-                color: $second-color;
-                margin: 0 20px;
-            }
-        }
     }
+
 }
 
 .weekContainer {
     border: 2px solid $second-color;
     display: block;
+    overflow-x: auto;
 
     .calendar {
         height: 100%;
@@ -138,6 +117,14 @@
             }
         }
     }
+}
+
+.prev,
+.next,
+.dayWeek,
+.settle:hover,
+.addRide {
+    cursor: pointer;
 }
 
 .appear {
@@ -174,14 +161,13 @@
 
     .dayContainer {
         align-items: center;
-        min-height: 80vh;
         margin: 0 20px;
+        min-height: 80vh;
     }
 
     .weekContainer {
         height: 150vh;
         margin: 0 20px;
-        overflow-x: auto;
 
         .calendar {
             width: 400vw;
@@ -222,7 +208,6 @@
     .weekContainer {
         height: 60vh;
         margin: 0 30px;
-        overflow-x: hidden;
 
         .calendar {
             width: 100%;

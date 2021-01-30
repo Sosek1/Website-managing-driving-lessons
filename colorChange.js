@@ -2,10 +2,11 @@ const city = document.querySelector('.city');
 const place = document.querySelector('.place');
 const vehicle = document.querySelector('.vehicle');
 const save = document.querySelector('.save');
-city.addEventListener('click', () => {
-    city.classList.add("white");
-})
+const settle = document.querySelector('.settle');
 
+city.addEventListener('click', () => {
+    city.classList.toggle("white");
+})
 place.addEventListener('click', () => {
     place.classList.toggle("white");
 })
