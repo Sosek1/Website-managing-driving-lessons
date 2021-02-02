@@ -12,9 +12,11 @@
     <div class="box">
         <div class="loginPanel">
             <p>Zaloguj się</p>
-            <input type="text" placeholder="login">
-            <input type="text" placeholder="hasło">
-            <button>Zaloguj</button>
+            <form action="login.php" method="post">
+            <input type="text" placeholder="login" name="login">
+            <input type="text" placeholder="hasło" name="pass">
+            <input type="submit" value="Zaloguj">
+            </form>
         </div>
     </div>
 </body>
