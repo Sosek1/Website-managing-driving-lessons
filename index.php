@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(isset($_SESSION['logIn']) && ($_SESSION['logIn']==true)){
+        header('Location: kalendarzTydzien.php');
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +23,12 @@
             <input type="text" placeholder="login" name="login">
             <input type="text" placeholder="hasło" name="pass">
             <input type="submit" value="Zaloguj">
-            </form>
+            </form> 
+            <?php
+                if(isset($_SESSION['blad'])){
+                    echo $_SESSION['blad'];
+                }
+            ?>
         </div>
     </div>
 </body>
