@@ -21,13 +21,13 @@
             <p>Zaloguj się</p>
             <form action="login.php" method="post">
             <input type="text" placeholder="login" name="login">
-            <input type="text" placeholder="hasło" name="pass">
+            <input type="password" placeholder="hasło" name="pass">
             <input type="submit" value="Zaloguj">
             </form> 
             <?php
-                if(isset($_SESSION['blad'])){
-                    echo $_SESSION['blad'];
-                }
+            if(isset($_SESSION['blad'])){
+                echo $_SESSION['blad'];
+            }
             ?>
         </div>
     </div>

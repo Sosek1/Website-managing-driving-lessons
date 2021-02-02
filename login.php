@@ -1,10 +1,6 @@
 <?php
 session_start();
 
-if((!isset($_POST['login']))||(!isset($_POST['pass']))){
-    header('Location: index.php');
-    exit();
-}
 
 
 require_once "connect.php";
@@ -30,7 +26,7 @@ try{
                     $_SESSION['id'] = $wiersz['id'];
                     unset($_SESSION['blad']);
                     $rezu->free_result();
-                    header('Location: gra.php');
+                    header('Location: kalendarzTydzien.php');
                 }else{
                     $_SESSION['blad'] = '<span style="color:red">Nieprawidłowy login lub hasło!</span>';
                     header('Location: index.php');        
@@ -45,5 +41,7 @@ try{
 
 }catch(Exception $e){
     echo '<span style= "color:red"> Błąd serwera!</span>';
+    echo '<br> info deweloperskie:'.$e;
+
 }
 ?>

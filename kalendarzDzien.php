@@ -26,8 +26,8 @@
         </div>
     </nav>
 
-    <h1 class="name">Imię instruktora</h1>
-    <a href="kalendarzTydzien.html"><button class="dayWeek">Tydzień</button></a>
+    <h1 class="name">Imię instruktora   [<a href="logout.php">Wyloguj sie</a>]</h1>
+    <a href="kalendarzTydzien.php"><button class="dayWeek">Tydzień</button></a>
 
     <div class="arrowBox">
         <div class="prev">

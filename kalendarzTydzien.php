@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION['logIn'])){
+    header('Location: index.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,8 +34,8 @@
         </div>
     </nav>
 
-    <h1 class="name">Imię instruktora</h1>
-    <a href="kalendarzDzien.html"><button class="dayWeek">Dzień</button></a>
+    <h1 class="name">Imię instruktora   [<a href="logout.php">Wyloguj sie</a>]</h1>
+    <a href="kalendarzDzien.php"><button class="dayWeek">Dzień</button></a>
 
     <div class="arrowBox">
         <div class="prev">
