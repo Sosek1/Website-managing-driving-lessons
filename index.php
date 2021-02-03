@@ -17,19 +17,19 @@
 
 <body>
     <div class="box">
-        <div class="loginPanel">
+        
+          
+            <form action="login.php" method="post" class="loginPanel">
             <p>Zaloguj się</p>
-            <form action="login.php" method="post">
             <input type="text" placeholder="login" name="login">
             <input type="password" placeholder="hasło" name="pass">
             <input type="submit" value="Zaloguj">
-            </form> 
             <?php
             if(isset($_SESSION['blad'])){
                 echo $_SESSION['blad'];
             }
             ?>
-        </div>
+         </form> 
     </div>
 </body>
 
