@@ -1186,7 +1186,7 @@ nav .burger.open .bar3 {
   font-size: 15px;
 }
 
-.box .loginPanel button {
+.box .loginPanel .submit {
   width: 100px;
   height: 40px;
   border: 1px solid #000;
@@ -1223,7 +1223,7 @@ nav .burger.open .bar3 {
   padding: 0 5px;
 }
 
-.box .loginPanel button:hover {
+.box .loginPanel .submit:hover {
   cursor: pointer;
 }
 

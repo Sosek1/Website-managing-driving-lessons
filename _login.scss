@@ -29,7 +29,7 @@
             font-size: 15px;
         }
 
-        button {
+        .submit {
             width: 100px;
             height: 40px;
             border: 1px solid $second-color;
@@ -46,7 +46,7 @@
             padding: 0 5px;
         }
 
-        button:hover {
+        .submit:hover {
             cursor: pointer;
         }
     }
