@@ -22,7 +22,7 @@ if(!isset($_SESSION['logIn'])){
     <nav>
         <div class="logo"></div>
         <ul class="list">
-            <li><a href="#">Kalendarz</a></li>
+            <li><a href="kalendarzTydzien.php">Kalendarz</a></li>
             <li><a href="#">Panel jazd</a></li>
             <li><a href="#">Rozliczenie jazdy</a></li>
             <li><a href="#">Szukaj</a></li>
@@ -34,7 +34,7 @@ if(!isset($_SESSION['logIn'])){
         </div>
     </nav>
 
-    <h1 class="name">Imię instruktora   [<a href="logout.php">Wyloguj sie</a>]</h1>
+    <h1 class="name">Cześć, <?php echo $_SESSION['user_name'];?>   <a href="logout.php">[Wyloguj się]</a></h1>
     <a href="kalendarzDzien.php"><button class="dayWeek">Dzień</button></a>
 
     <div class="arrowBox">

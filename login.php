@@ -24,6 +24,7 @@ try{
                 {
                     $_SESSION['logIn'] = true;                                    
                     $_SESSION['id'] = $wiersz['id'];
+                    $_SESSION['user_name'] = $wiersz['name'];
                     unset($_SESSION['blad']);
                     $rezu->free_result();
                     header('Location: kalendarzTydzien.php');
