@@ -4,6 +4,34 @@ if(!isset($_SESSION['logIn'])){
     header('Location: index.php');
     exit();
 }
+if(isset($_GET['date'])==true){
+    $dzien = $_GET['date'];
+}else{
+    if(isset($_GET['move'])==true){
+        if($_GET['move']==0){
+            $_SESSION['moveweek']=$_SESSION['moveweek']-1;
+        }else if($_GET['move']==1){
+            unset($_SESSION['moveweek']);
+        }else if($_GET['move']==2){
+            $_SESSION['moveweek']=$_SESSION['moveweek']+1;
+        }
+    }
+    $dzien=strtotime("now");
+    if(isset($_SESSION['moveweek'])){
+        $moved = 0;
+        if($_SESSION['moveweek']>0){
+            while($_SESSION['moveweek']>$moved){
+                $dzien=strtotime("+1 day", $dzien);
+                $moved++;
+            }
+        }else{
+            while($_SESSION['moveweek']<$moved){
+                $dzien=strtotime("-1 day", $dzien);
+                $moved--;
+            }
+        }
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,22 +66,29 @@ if(!isset($_SESSION['logIn'])){
 
     <div class="arrowBox">
         <div class="prev">
-            <i class="fas fa-arrow-left"></i>
+            <a href="kalendarzDzien.php?move=0"><i class="fas fa-arrow-left"></i></a>
         </div>
-        <p class="date3">20.10.2021</p>
+        <p class="date3"><a href="kalendarzDzien.php?move=1"><?php echo date("d.M", $dzien);?></a></p>
         <div class="next">
-            <i class="fas fa-arrow-right"></i>
+            <a href="kalendarzDzien.php?move=2"><i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
 
     <div class="dayContainer">
+        <div class="table">
+            <div class="hour">6:00</div>
+            <div class="data"></div>
+            <div class="addRide">
+                <i class="fas fa-plus"></i>
+            </div>
+
+        </div>
         <div class="table">
             <div class="hour">7:00</div>
             <div class="data"></div>
             <div class="addRide">
                 <i class="fas fa-plus"></i>
             </div>
-
         </div>
         <div class="table">
             <div class="hour">8:00</div>
