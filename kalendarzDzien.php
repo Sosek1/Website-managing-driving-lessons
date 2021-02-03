@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once "connect.php";
 if(!isset($_SESSION['logIn'])){
     header('Location: index.php');
     exit();
@@ -31,6 +32,33 @@ if(isset($_GET['date'])==true){
             }
         }
     }
+}
+$day = date('d', $dzien);
+$msc = date('m', $dzien);
+$ye = date('y', $dzien);
+$godzina = 17;
+try{
+    $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
+    if($conn->connect_errno!=0){
+        throw new Exception(mysqli_connect_errno());
+    }else{
+        $zap=date("Y-m-d H:i:s", mktime($godzina, 0, 0, $msc, $day, $ye));
+        $id=$_SESSION['id'];
+        $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
+        if(!$rezu){
+            throw new Exception ($conn->error);
+        }else{
+            $ile = $rezu->num_rows;
+            echo "<br>".$ile;
+            if($ile>0){
+                echo 'color="red"';
+            }
+        }
+    }
+    $conn -> close();
+}catch(Exception $e){
+    echo '<span style= "color:red"> Błąd serwera!</span>';
+    echo '<br> info deweloperskie:'.$e;
 }
 ?>
 <!DOCTYPE html>
@@ -77,7 +105,28 @@ if(isset($_GET['date'])==true){
     <div class="dayContainer">
         <div class="table">
             <div class="hour">6:00</div>
-            <div class="data"></div>
+            <div class="data" <?php try{
+    $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
+    if($conn->connect_errno!=0){
+        throw new Exception(mysqli_connect_errno());
+    }else{
+        $zap=date("Y-m-d H:i:s", mktime(6, 0, 0, $msc, $day, $ye));
+        $id=$_SESSION['id'];
+        $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
+        if(!$rezu){
+            throw new Exception ($conn->error);
+        }else{
+            $ile = $rezu->num_rows;
+            if($ile>0){
+                echo 'color="red"';
+            }
+        }
+    }
+    $conn -> close();
+}catch(Exception $e){
+    echo '<span style= "color:red"> Błąd serwera!</span>';
+    echo '<br> info deweloperskie:'.$e;
+}?>></div>
             <div class="addRide">
                 <i class="fas fa-plus"></i>
             </div>
@@ -155,14 +204,66 @@ if(isset($_GET['date'])==true){
         </div>
         <div class="table">
             <div class="hour">17:00</div>
-            <div class="data"></div>
+            <div class="data"<?php try{
+    $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
+    if($conn->connect_errno!=0){
+        throw new Exception(mysqli_connect_errno());
+    }else{
+        $zap=date("Y-m-d H:i:s", mktime(17, 0, 0, $msc, $day, $ye));
+        $id=$_SESSION['id'];
+        $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
+        if(!$rezu){
+            throw new Exception ($conn->error);
+        }else{
+            $ile = $rezu->num_rows;
+            if($ile>0){
+                echo 'color="red"';
+            }
+        }
+    }
+    $conn -> close();
+}catch(Exception $e){
+    echo '<span style= "color:red"> Błąd serwera!</span>';
+    echo '<br> info deweloperskie:'.$e;
+}?>></div>
             <div class="addRide">
                 <i class="fas fa-plus"></i>
             </div>
         </div>
         <div class="table">
             <div class="hour">18:00</div>
-            <div class="data"></div>
+            <div class="data" <?php try{
+    $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
+    if($conn->connect_errno!=0){
+        throw new Exception(mysqli_connect_errno());
+    }else{
+        $zap=date("Y-m-d H:i:s", mktime(18, 0, 0, $msc, $day, $ye));
+        $id=$_SESSION['id'];
+        $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
+        if(!$rezu){
+            throw new Exception ($conn->error);
+        }else{
+            $ile = $rezu->num_rows;
+            if($ile>0){
+                $row = $rezu->fetch_assoc();
+                $miejsce = $row['miejsce'];
+                if($miejsce=0){
+                    $miejscein = "plac";
+                }else if($miejsce=1){
+                    $miejscein = "miasto";
+                }else if($miejsce=0){
+                    $miejscein = "miasto/plac";
+                }
+                
+                
+            }
+        }
+    }
+    $conn -> close();
+}catch(Exception $e){
+    echo '<span style= "color:red"> Błąd serwera!</span>';
+    echo '<br> info deweloperskie:'.$e;
+}?>></div>
             <div class="addRide">
                 <i class="fas fa-plus"></i>
             </div>
