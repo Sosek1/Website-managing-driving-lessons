@@ -1,3 +1,12 @@
+<?php
+session_start();
+require_once "connect.php";
+if(!isset($_SESSION['logIn'])){
+    header('Location: index.php');
+    exit();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,16 +48,24 @@
             </div>
         </div>
         <div class="search">
-            <input type="text" class="searchInput">
-            <i class="fas fa-search"></i>
+            <form action="kalendarzDzien.php" method="post">
+            <input type="text" class="searchInput" name="szukanie">
+            <button  type="submit"> <i class="fas fa-search"> </i>
+            </form>
         </div>
-        <input type="text" class="name2 border " placeholder="Imię...">
-        <input type="text" class="surname border " placeholder="Nazwisko...">
-        <input type="text" class="phoneNumber border " placeholder="Numer telefonu...">
+        <input type="text" class="name2 border " placeholder="Imię..." <?php if(isset($_SESSION['imieadd'])){ echo 'value="'.$_SESSION['imieadd'].'"';}?>>
+        <input type="text" class="surname border " placeholder="Nazwisko..." <?php if(isset($_SESSION['nazwadd'])){ echo 'value="'.$_SESSION['nazwadd'].'"';}?>>
+        <input type="text" class="phoneNumber border " placeholder="Numer telefonu..." <?php if(isset($_SESSION['nrteladd'])){ echo 'value="'.$_SESSION['nrteladd'].'"';}?>>
         <div class="chooseCategory" onclick="rollDown()">
             <p class="text">Kategoria</p>
             <i class="fas fa-angle-down arrow1"></i>
-            <div class="options"></div>
+            
+            <div class="options">
+            <optgroup label="Swedish Cars">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+  </optgroup>
+            </div>
         </div>
         <div class="chooseHour" onclick="rollDown2()">
             <p class="text">Liczba godzin</p>
