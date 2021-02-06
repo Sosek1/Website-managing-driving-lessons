@@ -1,6 +1,8 @@
 const settle = document.querySelector('.settleRide');
 
-
-settle.addEventListener('click', () => {
-    settle.classList.toggle("white");
-})
+function changeColor(){
+    settle.addEventListener('click', () => {
+        settle.classList.toggle("white");
+    })
+}
+changeColor()

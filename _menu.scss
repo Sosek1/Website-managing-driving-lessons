@@ -87,7 +87,6 @@ nav {
             transform: rotate(-45deg) translate(6px, -3px);
         }
     }
-
 }
 
 @include media-sm {
@@ -132,7 +131,6 @@ nav {
             }
         }
 
-
         .showNav {
             transform: translateX(0);
         }
@@ -141,7 +139,7 @@ nav {
 
 @include media-md {
     nav {
-        height: 15vh;
+        height: 10vh;
 
         .logo {
             height: 50px;
@@ -181,7 +179,6 @@ nav {
             }
         }
 
-
         .showNav {
             transform: translateX(0);
         }
@@ -216,7 +213,5 @@ nav {
         .burger {
             display: none;
         }
-
-
     }
 }

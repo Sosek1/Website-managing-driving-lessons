@@ -56,44 +56,8 @@
         position: relative;
     }
 
-    .options {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        height: 0;
-        width: 100%;
-        transition: all 0.3s linear;
-        border: 0px solid $second-color;
-        background-color: $first-color;
-        z-index: 3;
-    }
-
-    .options.rollDown {
-        height: 100px;
-        border: 1px solid $second-color;
-        background-color: $first-color;
-        z-index: 3;
-    }
-
-    .options2 {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        height: 0;
-        width: 100%;
-        transition: all 0.3s linear;
-        border: 0px solid $second-color;
-        background-color: $first-color;
-        z-index: 3;
-    }
-
-    .options2.rollDown {
-        z-index: 3;
-        height: 100px;
-        border: 1px solid $second-color;
-        background-color: $first-color;
-    }
-
+    .options,
+    .options2,
     .options3 {
         position: absolute;
         top: 100%;
@@ -106,11 +70,11 @@
         z-index: 3;
     }
 
-    .options3.rollDown {
-        z-index: 3;
+    .rollDown {
         height: 100px;
         border: 1px solid $second-color;
         background-color: $first-color;
+        z-index: 3;
     }
 
     .city,
@@ -128,29 +92,12 @@
         transition: linear .1s;
     }
 
-
-
     .info {
         border: 2px solid $second-color;
         border-radius: 6px;
     }
 
-    .city.white {
-        color: $second-color;
-        background-color: $first-color;
-    }
-
-    .place.white {
-        color: $second-color;
-        background-color: $first-color;
-    }
-
-    .vehicle.white {
-        color: $second-color;
-        background-color: $first-color;
-    }
-
-    .save.white {
+    .white {
         color: $second-color;
         background-color: $first-color;
     }
@@ -162,27 +109,13 @@
         border-top: none;
     }
 
-    .arrow1 {
-        transition: .2s linear;
-    }
-
-    .arrow1.flip {
-        transform: rotate(180deg);
-    }
-
-    .arrow2 {
-        transition: .2s linear;
-    }
-
-    .arrow2.flip {
-        transform: rotate(180deg);
-    }
-
+    .arrow1,
+    .arrow2,
     .arrow3 {
         transition: .2s linear;
     }
 
-    .arrow3.flip {
+    .flip {
         transform: rotate(180deg);
     }
 

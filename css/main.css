@@ -157,7 +157,7 @@ nav .burger.open .bar3 {
 
 @media screen and (min-width: 800px) {
   nav {
-    height: 15vh;
+    height: 10vh;
   }
   nav .logo {
     height: 50px;
@@ -602,46 +602,8 @@ nav .burger.open .bar3 {
   position: relative;
 }
 
-.container .options {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  height: 0;
-  width: 100%;
-  -webkit-transition: all 0.3s linear;
-  transition: all 0.3s linear;
-  border: 0px solid #000;
-  background-color: #fff;
-  z-index: 3;
-}
-
-.container .options.rollDown {
-  height: 100px;
-  border: 1px solid #000;
-  background-color: #fff;
-  z-index: 3;
-}
-
-.container .options2 {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  height: 0;
-  width: 100%;
-  -webkit-transition: all 0.3s linear;
-  transition: all 0.3s linear;
-  border: 0px solid #000;
-  background-color: #fff;
-  z-index: 3;
-}
-
-.container .options2.rollDown {
-  z-index: 3;
-  height: 100px;
-  border: 1px solid #000;
-  background-color: #fff;
-}
-
+.container .options,
+.container .options2,
 .container .options3 {
   position: absolute;
   top: 100%;
@@ -655,11 +617,11 @@ nav .burger.open .bar3 {
   z-index: 3;
 }
 
-.container .options3.rollDown {
-  z-index: 3;
+.container .rollDown {
   height: 100px;
   border: 1px solid #000;
   background-color: #fff;
+  z-index: 3;
 }
 
 .container .city,
@@ -689,22 +651,7 @@ nav .burger.open .bar3 {
   border-radius: 6px;
 }
 
-.container .city.white {
-  color: #000;
-  background-color: #fff;
-}
-
-.container .place.white {
-  color: #000;
-  background-color: #fff;
-}
-
-.container .vehicle.white {
-  color: #000;
-  background-color: #fff;
-}
-
-.container .save.white {
+.container .white {
   color: #000;
   background-color: #fff;
 }
@@ -716,32 +663,14 @@ nav .burger.open .bar3 {
   border-top: none;
 }
 
-.container .arrow1 {
-  -webkit-transition: .2s linear;
-  transition: .2s linear;
-}
-
-.container .arrow1.flip {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
-.container .arrow2 {
-  -webkit-transition: .2s linear;
-  transition: .2s linear;
-}
-
-.container .arrow2.flip {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
+.container .arrow1,
+.container .arrow2,
 .container .arrow3 {
   -webkit-transition: .2s linear;
   transition: .2s linear;
 }
 
-.container .arrow3.flip {
+.container .flip {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
@@ -1291,66 +1220,9 @@ nav .burger.open .bar3 {
   padding: 5px;
 }
 
-.containerR .options {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  height: 0;
-  width: 100%;
-  -webkit-transition: all 0.3s linear;
-  transition: all 0.3s linear;
-  border: 0px solid #000;
-  background-color: #fff;
-  z-index: 3;
-}
-
-.containerR .options.rollDown {
-  height: 100px;
-  border: 1px solid #000;
-  background-color: #fff;
-  z-index: 3;
-}
-
-.containerR .options2 {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  height: 0;
-  width: 100%;
-  -webkit-transition: all 0.3s linear;
-  transition: all 0.3s linear;
-  border: 0px solid #000;
-  background-color: #fff;
-  z-index: 3;
-}
-
-.containerR .options2.rollDown {
-  height: 100px;
-  border: 1px solid #000;
-  background-color: #fff;
-  z-index: 3;
-}
-
-.containerR .options3 {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  height: 0;
-  width: 100%;
-  -webkit-transition: all 0.3s linear;
-  transition: all 0.3s linear;
-  border: 0px solid #000;
-  background-color: #fff;
-  z-index: 3;
-}
-
-.containerR .options3.rollDown {
-  height: 100px;
-  border: 1px solid #000;
-  background-color: #fff;
-  z-index: 3;
-}
-
+.containerR .options,
+.containerR .options2,
+.containerR .options3,
 .containerR .options4 {
   position: absolute;
   top: 100%;
@@ -1364,44 +1236,22 @@ nav .burger.open .bar3 {
   z-index: 3;
 }
 
-.containerR .options4.rollDown {
+.containerR .rollDown {
   height: 100px;
   border: 1px solid #000;
   background-color: #fff;
   z-index: 3;
 }
 
-.containerR .arrow1.flip {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
-.containerR .arrow2 {
-  -webkit-transition: .2s linear;
-  transition: .2s linear;
-}
-
-.containerR .arrow2.flip {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
-.containerR .arrow3 {
-  -webkit-transition: .2s linear;
-  transition: .2s linear;
-}
-
-.containerR .arrow3.flip {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
+.containerR .arrow1,
+.containerR .arrow2,
+.containerR .arrow3,
 .containerR .arrow4 {
   -webkit-transition: .2s linear;
   transition: .2s linear;
 }
 
-.containerR .arrow4.flip {
+.containerR .flip {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
@@ -1421,6 +1271,8 @@ nav .burger.open .bar3 {
   border: 1px solid #000;
   border-radius: 6px;
   color: #fff;
+  -webkit-transition: linear .1s;
+  transition: linear .1s;
 }
 
 .containerR .settleRide.white {
@@ -1440,6 +1292,116 @@ nav .burger.open .bar3 {
   cursor: pointer;
 }
 
+@media screen and (min-width: 200px) {
+  .containerR {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: (1fr)[12];
+        grid-template-rows: repeat(12, 1fr);
+    width: 100vw;
+  }
+  .containerR .headingR {
+    font-size: 25px;
+    -ms-grid-column-align: center;
+        justify-self: center;
+  }
+  .containerR .nameR,
+  .containerR .surnameR,
+  .containerR .dayR,
+  .containerR .hourR,
+  .containerR .payment,
+  .containerR .expenses {
+    height: 50px;
+    width: 90%;
+    padding: 5px !important;
+    font-size: 15px !important;
+  }
+  .containerR .fuel,
+  .containerR .rideRealized,
+  .containerR .kind,
+  .containerR .traningForm {
+    height: 50px;
+    width: 90%;
+  }
+  .containerR .settleRide {
+    width: 150px;
+    height: 50px;
+  }
+  .containerR .settleRide p {
+    font-size: 15px;
+  }
+  .containerR ::-webkit-input-placeholder {
+    font-size: 15px;
+  }
+  .containerR :-ms-input-placeholder {
+    font-size: 15px;
+  }
+  .containerR ::-ms-input-placeholder {
+    font-size: 15px;
+  }
+  .containerR ::placeholder {
+    font-size: 15px;
+  }
+  .containerR .fas {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .containerR {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: (1fr)[12];
+        grid-template-rows: repeat(12, 1fr);
+    width: 60vw;
+  }
+  .containerR .headingR {
+    font-size: 25px;
+    -ms-grid-column-align: center;
+        justify-self: center;
+  }
+  .containerR .nameR,
+  .containerR .surnameR,
+  .containerR .dayR,
+  .containerR .hourR,
+  .containerR .payment,
+  .containerR .expenses {
+    height: 50px;
+    width: 90%;
+    padding: 5px !important;
+    font-size: 15px !important;
+  }
+  .containerR .fuel,
+  .containerR .rideRealized,
+  .containerR .kind,
+  .containerR .traningForm {
+    height: 50px;
+    width: 90%;
+  }
+  .containerR .settleRide {
+    width: 150px;
+    height: 50px;
+  }
+  .containerR .settleRide p {
+    font-size: 15px;
+  }
+  .containerR ::-webkit-input-placeholder {
+    font-size: 15px;
+  }
+  .containerR :-ms-input-placeholder {
+    font-size: 15px;
+  }
+  .containerR ::-ms-input-placeholder {
+    font-size: 15px;
+  }
+  .containerR ::placeholder {
+    font-size: 15px;
+  }
+  .containerR .fas {
+    font-size: 25px;
+  }
+}
+
 @media screen and (min-width: 1200px) {
   .containerR {
     -ms-grid-columns: (1fr)[4];
@@ -1450,7 +1412,7 @@ nav .burger.open .bar3 {
     border: 2px solid #000;
     border-radius: 6px;
   }
-  .headingR {
+  .containerR .headingR {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
     -ms-grid-column-span: 4;
@@ -1458,52 +1420,52 @@ nav .burger.open .bar3 {
     font-size: 30px;
     margin-left: 20px;
   }
-  .nameR,
-  .surnameR,
-  .dayR,
-  .hourR,
-  .payment,
-  .expenses {
+  .containerR .nameR,
+  .containerR .surnameR,
+  .containerR .dayR,
+  .containerR .hourR,
+  .containerR .payment,
+  .containerR .expenses {
     height: 35px;
     width: 200px;
     padding: 10px !important;
     font-size: 20px !important;
   }
-  .fuel,
-  .rideRealized,
-  .kind,
-  .traningForm {
+  .containerR .fuel,
+  .containerR .rideRealized,
+  .containerR .kind,
+  .containerR .traningForm {
     height: 35px;
     width: 200px;
   }
-  .settleRide {
+  .containerR .settleRide {
     width: 200px;
     height: 50px;
     -ms-grid-row: 5;
     -ms-grid-column: 1;
     grid-area: 5/1/5/1;
   }
-  .settleRide p {
+  .containerR .settleRide p {
     font-size: 15px;
   }
-  ::-webkit-input-placeholder {
+  .containerR ::-webkit-input-placeholder {
     font-size: 20px;
   }
-  :-ms-input-placeholder {
+  .containerR :-ms-input-placeholder {
     font-size: 20px;
   }
-  ::-ms-input-placeholder {
+  .containerR ::-ms-input-placeholder {
     font-size: 20px;
   }
-  ::placeholder {
+  .containerR ::placeholder {
     font-size: 20px;
   }
-  .text {
+  .containerR .text {
     font-size: 20px;
     margin-bottom: 10px;
     text-align: center;
   }
-  .fas {
+  .containerR .fas {
     font-size: 30px;
   }
 }

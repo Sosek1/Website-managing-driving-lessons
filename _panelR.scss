@@ -27,67 +27,12 @@
     .kind,
     .traningForm {
         justify-self: center;
-
         @include option;
     }
 
-    .options {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        height: 0;
-        width: 100%;
-        transition: all 0.3s linear;
-        border: 0px solid $second-color;
-        background-color: $first-color;
-        z-index: 3;
-    }
-
-    .options.rollDown {
-        height: 100px;
-        border: 1px solid $second-color;
-        background-color: $first-color;
-        z-index: 3;
-    }
-
-    .options2 {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        height: 0;
-        width: 100%;
-        transition: all 0.3s linear;
-        border: 0px solid $second-color;
-        background-color: $first-color;
-        z-index: 3;
-    }
-
-    .options2.rollDown {
-        height: 100px;
-        border: 1px solid $second-color;
-        background-color: $first-color;
-        z-index: 3;
-    }
-
-    .options3 {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        height: 0;
-        width: 100%;
-        transition: all 0.3s linear;
-        border: 0px solid $second-color;
-        background-color: $first-color;
-        z-index: 3;
-    }
-
-    .options3.rollDown {
-        height: 100px;
-        border: 1px solid $second-color;
-        background-color: $first-color;
-        z-index: 3;
-    }
-
+    .options,
+    .options2,
+    .options3,
     .options4 {
         position: absolute;
         top: 100%;
@@ -100,41 +45,23 @@
         z-index: 3;
     }
 
-    .options4.rollDown {
+    .rollDown {
         height: 100px;
         border: 1px solid $second-color;
         background-color: $first-color;
         z-index: 3;
     }
 
-    .arrow1.flip {
-        transform: rotate(180deg);
-    }
-
-    .arrow2 {
-        transition: .2s linear;
-    }
-
-    .arrow2.flip {
-        transform: rotate(180deg);
-    }
-
-    .arrow3 {
-        transition: .2s linear;
-    }
-
-    .arrow3.flip {
-        transform: rotate(180deg);
-    }
-
+    .arrow1,
+    .arrow2,
+    .arrow3,
     .arrow4 {
         transition: .2s linear;
     }
 
-    .arrow4.flip {
+    .flip {
         transform: rotate(180deg);
     }
-
 
     .settleRide {
         @include center;
@@ -143,6 +70,7 @@
         border: 1px solid $second-color;
         border-radius: 6px;
         color: $first-color;
+        transition: linear .1s;
     }
 
     .settleRide.white {
@@ -164,6 +92,106 @@
 
 }
 
+@include media-sm {
+    .containerR {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(12, 1fr);
+        width: 100vw;
+
+        .headingR {
+            font-size: 25px;
+            justify-self: center;
+        }
+
+        .nameR,
+        .surnameR,
+        .dayR,
+        .hourR,
+        .payment,
+        .expenses {
+            height: 50px;
+            width: 90%;
+            padding: 5px !important;
+            font-size: 15px !important;
+        }
+
+        .fuel,
+        .rideRealized,
+        .kind,
+        .traningForm {
+            height: 50px;
+            width: 90%;
+        }
+
+        .settleRide {
+            width: 150px;
+            height: 50px;
+
+            p {
+                font-size: 15px;
+            }
+        }
+
+        ::placeholder {
+            font-size: 15px;
+        }
+
+        .fas {
+            font-size: 20px;
+        }
+    }
+}
+
+@include media-md {
+    .containerR {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(12, 1fr);
+        width: 60vw;
+
+        .headingR {
+            font-size: 25px;
+            justify-self: center;
+        }
+
+        .nameR,
+        .surnameR,
+        .dayR,
+        .hourR,
+        .payment,
+        .expenses {
+            height: 50px;
+            width: 90%;
+            padding: 5px !important;
+            font-size: 15px !important;
+        }
+
+        .fuel,
+        .rideRealized,
+        .kind,
+        .traningForm {
+            height: 50px;
+            width: 90%;
+        }
+
+        .settleRide {
+            width: 150px;
+            height: 50px;
+
+            p {
+                font-size: 15px;
+            }
+        }
+
+        ::placeholder {
+            font-size: 15px;
+        }
+
+        .fas {
+            font-size: 25px;
+        }
+    }
+}
+
 @include media-xl {
     .containerR {
         grid-template-columns: repeat(4, 1fr);
@@ -171,55 +199,56 @@
         width: 70vw;
         border: 2px solid $second-color;
         border-radius: 6px;
-    }
 
-    .headingR {
-        grid-area: 1/1/1/5;
-        font-size: 30px;
-        margin-left: 20px;
-    }
 
-    .nameR,
-    .surnameR,
-    .dayR,
-    .hourR,
-    .payment,
-    .expenses {
-        height: 35px;
-        width: 200px;
-        padding: 10px !important;
-        font-size: 20px !important;
-    }
-
-    .fuel,
-    .rideRealized,
-    .kind,
-    .traningForm {
-        height: 35px;
-        width: 200px;
-    }
-
-    .settleRide {
-        width: 200px;
-        height: 50px;
-        grid-area: 5/1/5/1;
-
-        p {
-            font-size: 15px;
+        .headingR {
+            grid-area: 1/1/1/5;
+            font-size: 30px;
+            margin-left: 20px;
         }
-    }
 
-    ::placeholder {
-        font-size: 20px;
-    }
+        .nameR,
+        .surnameR,
+        .dayR,
+        .hourR,
+        .payment,
+        .expenses {
+            height: 35px;
+            width: 200px;
+            padding: 10px !important;
+            font-size: 20px !important;
+        }
 
-    .text {
-        font-size: 20px;
-        margin-bottom: 10px;
-        text-align: center;
-    }
+        .fuel,
+        .rideRealized,
+        .kind,
+        .traningForm {
+            height: 35px;
+            width: 200px;
+        }
 
-    .fas {
-        font-size: 30px;
+        .settleRide {
+            width: 200px;
+            height: 50px;
+            grid-area: 5/1/5/1;
+
+            p {
+                font-size: 15px;
+            }
+        }
+
+        ::placeholder {
+            font-size: 20px;
+        }
+
+        .text {
+            font-size: 20px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .fas {
+            font-size: 30px;
+        }
     }
 }
