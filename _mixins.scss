@@ -15,3 +15,26 @@
         @content;
     }
 }
+
+@mixin input {
+    font-size: 15px;
+    border: none;
+    border-bottom: 1px solid $second-color;
+    padding: 5px;
+}
+
+@mixin option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    font-size: 15px;
+    border-bottom: 1px solid $second-color;
+    padding: 5px;
+}
+
+@mixin center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -78,8 +78,8 @@ try{
         <div class="logo"></div>
         <ul class="list">
             <li><a href="kalendarzTydzien.php">Kalendarz</a></li>
-            <li><a href="#">Panel jazd</a></li>
-            <li><a href="#">Rozliczenie jazdy</a></li>
+            <li><a href="panel.html">Panel jazd</a></li>
+            <li><a href="panelRozliczania.html">Rozliczenie jazdy</a></li>
             <li><a href="#">Szukaj</a></li>
         </ul>
         <div class="burger">

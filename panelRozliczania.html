@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel rozliczania jazd</title>
+    <link href="https://fonts.googleapis.com/css2
+    ?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2e3d9b3214.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo"></div>
+        <ul class="list">
+            <li><a href="kalendarzTydzien.php">Kalendarz</a></li>
+            <li><a href="panel.html">Panel jazd</a></li>
+            <li><a href="panelRozliczania.html">Rozliczenie jazdy</a></li>
+            <li><a href="#">Szukaj</a></li>
+        </ul>
+        <div class="burger">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+    </nav>
+
+    <div class="containerR">
+        <h1 class="headingR">Panel rozliczania jazd</h1>
+        <input type="text" placeholder="Imię..." class="nameR">
+        <input type="text" placeholder="Nazwisko..." class="surnameR">
+        <input type="text" placeholder="Dzień..." class="dayR">
+        <input type="text" placeholder="Godzina..." class="hourR">
+        <div class="fuel" onclick="rollDown()">
+            <p class="text">Tankowanie</p>
+            <i class="fas fa-angle-down arrow1"></i>
+            <div class="options"></div>
+        </div>
+        <div class="rideRealized" onclick="rollDown2()">
+            <p class="text">Jazda zrealizowana</p>
+            <i class="fas fa-angle-down arrow2"></i>
+            <div class="options2"></div>
+        </div>
+        <div class="kind" onclick="rollDown3()">
+            <p class="text">Rodzaj wydatku</p>
+            <i class="fas fa-angle-down arrow3"></i>
+            <div class="options3"></div>
+        </div>
+        <div class="traningForm" onclick="rollDown4()">
+            <p class="text">Formularz szkoleniowy</p>
+            <i class="fas fa-angle-down arrow4"></i>
+            <div class="options4"></div>
+        </div>
+        <input type="text" placeholder="Wpłata..." class="payment">
+        <input type="text" placeholder="Wydatek..." class="expenses">
+        <div class="settleRide">
+            <p>Rozlicz jazdę</p>
+        </div>
+    </div>
+    <script src="burger.js"></script>
+    <script src="options2.js"></script>
+    <script src="colorChange2.js"></script>
+</body>
+
+</html>

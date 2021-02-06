@@ -1239,6 +1239,275 @@ nav .burger.open .bar3 {
   }
 }
 
+.containerR {
+  display: -ms-grid;
+  display: grid;
+  min-height: 50vh;
+  margin: 25px auto 10px auto;
+  grid-gap: 10px;
+}
+
+.containerR .headingR {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 400;
+}
+
+.containerR .nameR,
+.containerR .surnameR,
+.containerR .dayR,
+.containerR .hourR,
+.containerR .payment,
+.containerR .expenses {
+  font-size: 15px;
+  border: none;
+  border-bottom: 1px solid #000;
+  padding: 5px;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.containerR .fuel,
+.containerR .rideRealized,
+.containerR .kind,
+.containerR .traningForm {
+  justify-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  font-size: 15px;
+  border-bottom: 1px solid #000;
+  padding: 5px;
+}
+
+.containerR .options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 0;
+  width: 100%;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  border: 0px solid #000;
+  background-color: #fff;
+  z-index: 3;
+}
+
+.containerR .options.rollDown {
+  height: 100px;
+  border: 1px solid #000;
+  background-color: #fff;
+  z-index: 3;
+}
+
+.containerR .options2 {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 0;
+  width: 100%;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  border: 0px solid #000;
+  background-color: #fff;
+  z-index: 3;
+}
+
+.containerR .options2.rollDown {
+  height: 100px;
+  border: 1px solid #000;
+  background-color: #fff;
+  z-index: 3;
+}
+
+.containerR .options3 {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 0;
+  width: 100%;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  border: 0px solid #000;
+  background-color: #fff;
+  z-index: 3;
+}
+
+.containerR .options3.rollDown {
+  height: 100px;
+  border: 1px solid #000;
+  background-color: #fff;
+  z-index: 3;
+}
+
+.containerR .options4 {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 0;
+  width: 100%;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  border: 0px solid #000;
+  background-color: #fff;
+  z-index: 3;
+}
+
+.containerR .options4.rollDown {
+  height: 100px;
+  border: 1px solid #000;
+  background-color: #fff;
+  z-index: 3;
+}
+
+.containerR .arrow1.flip {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.containerR .arrow2 {
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+}
+
+.containerR .arrow2.flip {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.containerR .arrow3 {
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+}
+
+.containerR .arrow3.flip {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.containerR .arrow4 {
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+}
+
+.containerR .arrow4.flip {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.containerR .settleRide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-self: center;
+  background: #000;
+  border: 1px solid #000;
+  border-radius: 6px;
+  color: #fff;
+}
+
+.containerR .settleRide.white {
+  color: #000;
+  background-color: #fff;
+}
+
+.containerR .text {
+  color: #9b9696;
+}
+
+.containerR .fuel,
+.containerR .rideRealized,
+.containerR .kind,
+.containerR .traningForm,
+.containerR .settleRide:hover {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1200px) {
+  .containerR {
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+    -ms-grid-rows: (1fr)[5];
+        grid-template-rows: repeat(5, 1fr);
+    width: 70vw;
+    border: 2px solid #000;
+    border-radius: 6px;
+  }
+  .headingR {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 4;
+    grid-area: 1/1/1/5;
+    font-size: 30px;
+    margin-left: 20px;
+  }
+  .nameR,
+  .surnameR,
+  .dayR,
+  .hourR,
+  .payment,
+  .expenses {
+    height: 35px;
+    width: 200px;
+    padding: 10px !important;
+    font-size: 20px !important;
+  }
+  .fuel,
+  .rideRealized,
+  .kind,
+  .traningForm {
+    height: 35px;
+    width: 200px;
+  }
+  .settleRide {
+    width: 200px;
+    height: 50px;
+    -ms-grid-row: 5;
+    -ms-grid-column: 1;
+    grid-area: 5/1/5/1;
+  }
+  .settleRide p {
+    font-size: 15px;
+  }
+  ::-webkit-input-placeholder {
+    font-size: 20px;
+  }
+  :-ms-input-placeholder {
+    font-size: 20px;
+  }
+  ::-ms-input-placeholder {
+    font-size: 20px;
+  }
+  ::placeholder {
+    font-size: 20px;
+  }
+  .text {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .fas {
+    font-size: 30px;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
