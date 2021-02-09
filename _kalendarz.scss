@@ -115,7 +115,12 @@
             align-items: center;
             justify-content: center;
 
-            p {
+            .dublet {
+                height: 100%;
+                width: 50%;
+            }
+
+            .day {
                 font-size: 15px;
                 color: $second-color;
             }
@@ -174,7 +179,7 @@
         margin: 0 20px;
 
         .calendar {
-            width: 400vw;
+            width: 150vw;
         }
     }
 

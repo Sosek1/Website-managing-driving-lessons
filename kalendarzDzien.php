@@ -72,14 +72,14 @@ $ye = date('y', $dzien);
         </div>
     </nav>
 
-    <h1 class="name">Cześć, <?php echo $_SESSION['user_name'];?>   <a href="logout.php">[Wyloguj się]</a></h1>
+    <h1 class="name">Cześć, <?php echo $_SESSION['user_name'];?></h1>
     <a href="kalendarzTydzien.php"><button class="dayWeek">Tydzień</button></a>
 
     <div class="arrowBox">
         <div class="prev">
             <a href="kalendarzDzien.php?move=0"><i class="fas fa-arrow-left"></i></a>
         </div>
-        <p class="date3"><a href="kalendarzDzien.php?move=1"><?php echo date("d.M", $dzien);?></a></p>
+        <a class="date3" href="kalendarzDzien.php?move=1"><?php echo date("d.M", $dzien);?></a>
         <div class="next">
             <a href="kalendarzDzien.php?move=2"><i class="fas fa-arrow-right"></i></a>
         </div>

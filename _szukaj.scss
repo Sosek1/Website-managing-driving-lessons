@@ -1,0 +1,23 @@
+.searchFor {
+    width: 80vw;
+    height: 5vh;
+    margin: 10vh auto;
+    border-bottom: 2px solid $second-color;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    input {
+        border: none;
+        height: 100%;
+        width: 100%;
+        font-size: 15px;
+        color: $third-color;
+        padding: 5px;
+    }
+
+    ::placeholder {
+        font-size: 15px;
+        color: $third-color;
+    }
+}

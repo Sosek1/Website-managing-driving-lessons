@@ -149,6 +149,10 @@ nav .burger.open .bar3 {
   nav .list li a {
     font-size: 20px;
   }
+  nav .list li a i {
+    font-size: 20px;
+    color: #fff;
+  }
   nav .showNav {
     -webkit-transform: translateX(0);
             transform: translateX(0);
@@ -420,7 +424,12 @@ nav .burger.open .bar3 {
           justify-content: center;
 }
 
-.weekContainer .calendar .record p {
+.weekContainer .calendar .record .dublet {
+  height: 100%;
+  width: 50%;
+}
+
+.weekContainer .calendar .record .day {
   font-size: 15px;
   color: #000;
 }
@@ -480,7 +489,7 @@ nav .burger.open .bar3 {
     margin: 0 20px;
   }
   .weekContainer .calendar {
-    width: 400vw;
+    width: 150vw;
   }
   .settle {
     width: 100px;
@@ -574,6 +583,7 @@ nav .burger.open .bar3 {
 }
 
 .container .search .searchInput {
+  padding: 5px;
   width: 80%;
   border: 2px solid #000;
   border-radius: 6px;
@@ -598,30 +608,14 @@ nav .burger.open .bar3 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 5px;
-  position: relative;
 }
 
-.container .options,
-.container .options2,
-.container .options3 {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  height: 0;
-  width: 100%;
-  -webkit-transition: all 0.3s linear;
-  transition: all 0.3s linear;
-  border: 0px solid #000;
-  background-color: #fff;
-  z-index: 3;
-}
-
-.container .rollDown {
-  height: 100px;
+.container .chooseCategory .custom-select,
+.container .chooseHour .custom-select,
+.container .chooseCar .custom-select {
+  height: 80%;
+  width: 100px;
   border: 1px solid #000;
-  background-color: #fff;
-  z-index: 3;
 }
 
 .container .city,
@@ -803,7 +797,6 @@ nav .burger.open .bar3 {
   }
   .container .text {
     font-size: 15px;
-    margin-bottom: 2px;
   }
   .container .fas {
     font-size: 20px;
@@ -935,7 +928,6 @@ nav .burger.open .bar3 {
   }
   .container .text {
     font-size: 15px;
-    margin-bottom: 2px;
   }
   .container .fas {
     font-size: 25px;
@@ -987,7 +979,7 @@ nav .burger.open .bar3 {
     width: 300px;
     height: 35px;
     font-size: 20px;
-    padding: 10px;
+    padding-left: 5px;
   }
   .container .name2 {
     -ms-grid-row: 2;
@@ -1065,7 +1057,7 @@ nav .burger.open .bar3 {
   }
   .container .text {
     font-size: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
   }
   .container .fas {
     font-size: 30px;
@@ -1220,40 +1212,13 @@ nav .burger.open .bar3 {
   padding: 5px;
 }
 
-.containerR .options,
-.containerR .options2,
-.containerR .options3,
-.containerR .options4 {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  height: 0;
-  width: 100%;
-  -webkit-transition: all 0.3s linear;
-  transition: all 0.3s linear;
-  border: 0px solid #000;
-  background-color: #fff;
-  z-index: 3;
-}
-
-.containerR .rollDown {
-  height: 100px;
+.containerR .fuel .custom-select,
+.containerR .rideRealized .custom-select,
+.containerR .kind .custom-select,
+.containerR .traningForm .custom-select {
+  height: 80%;
+  width: 100px;
   border: 1px solid #000;
-  background-color: #fff;
-  z-index: 3;
-}
-
-.containerR .arrow1,
-.containerR .arrow2,
-.containerR .arrow3,
-.containerR .arrow4 {
-  -webkit-transition: .2s linear;
-  transition: .2s linear;
-}
-
-.containerR .flip {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
 }
 
 .containerR .settleRide {
@@ -1468,6 +1433,51 @@ nav .burger.open .bar3 {
   .containerR .fas {
     font-size: 30px;
   }
+}
+
+.searchFor {
+  width: 80vw;
+  height: 5vh;
+  margin: 10vh auto;
+  border-bottom: 2px solid #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.searchFor input {
+  border: none;
+  height: 100%;
+  width: 100%;
+  font-size: 15px;
+  color: #9b9696;
+  padding: 5px;
+}
+
+.searchFor ::-webkit-input-placeholder {
+  font-size: 15px;
+  color: #9b9696;
+}
+
+.searchFor :-ms-input-placeholder {
+  font-size: 15px;
+  color: #9b9696;
+}
+
+.searchFor ::-ms-input-placeholder {
+  font-size: 15px;
+  color: #9b9696;
+}
+
+.searchFor ::placeholder {
+  font-size: 15px;
+  color: #9b9696;
 }
 
 * {

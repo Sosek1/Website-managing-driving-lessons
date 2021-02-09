@@ -28,40 +28,14 @@
     .traningForm {
         justify-self: center;
         @include option;
+
+        .custom-select {
+            height: 80%;
+            width: 100px;
+            border: 1px solid $second-color;
+        }
     }
 
-    .options,
-    .options2,
-    .options3,
-    .options4 {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        height: 0;
-        width: 100%;
-        transition: all 0.3s linear;
-        border: 0px solid $second-color;
-        background-color: $first-color;
-        z-index: 3;
-    }
-
-    .rollDown {
-        height: 100px;
-        border: 1px solid $second-color;
-        background-color: $first-color;
-        z-index: 3;
-    }
-
-    .arrow1,
-    .arrow2,
-    .arrow3,
-    .arrow4 {
-        transition: .2s linear;
-    }
-
-    .flip {
-        transform: rotate(180deg);
-    }
 
     .settleRide {
         @include center;

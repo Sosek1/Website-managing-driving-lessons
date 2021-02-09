@@ -1,12 +1,3 @@
-<?php
-session_start();
-require_once "connect.php";
-if(!isset($_SESSION['logIn'])){
-    header('Location: index.php');
-    exit();
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,14 +39,12 @@ if(!isset($_SESSION['logIn'])){
             </div>
         </div>
         <div class="search">
-            <form action="kalendarzDzien.php" method="post">
             <input type="text" class="searchInput" name="szukanie">
-            <button  type="submit"> <i class="fas fa-search"> </i>
-            </form>
+            <i class="fas fa-search"></i>
         </div>
-        <input type="text" class="name2 border " placeholder="Imię..." <?php if(isset($_SESSION['imieadd'])){ echo 'value="'.$_SESSION['imieadd'].'"';}?>>
-        <input type="text" class="surname border " placeholder="Nazwisko..." <?php if(isset($_SESSION['nazwadd'])){ echo 'value="'.$_SESSION['nazwadd'].'"';}?>>
-        <input type="text" class="phoneNumber border " placeholder="Numer telefonu..." <?php if(isset($_SESSION['nrteladd'])){ echo 'value="'.$_SESSION['nrteladd'].'"';}?>>
+        <input type="text" class="name2 border " placeholder="Imię...">
+        <input type="text" class="surname border " placeholder="Nazwisko...">
+        <input type="text" class="phoneNumber border " placeholder="Numer telefonu...">
         <div class="chooseCategory">
             <p class="text">Kategoria</p>
             <select class="custom-select">
@@ -68,20 +57,19 @@ if(!isset($_SESSION['logIn'])){
         <div class="chooseHour">
             <p class="text">Liczba godzin</p>
             <select class="custom-select">
-                <option value="1"></option>
-                <option value="2"></option>
-                <option value="3"></option>
-                <option value="4"></option>
+                <option value="1">AM</option>
+                <option value="2">A1</option>
+                <option value="3">A2</option>
+                <option value="4">A</option>
             </select>
-            </div>
         </div>
         <div class="chooseCar">
             <p class="text"> Pojazd</p>
             <select class="custom-select">
-                <option value="1"></option>
-                <option value="2"></option>
-                <option value="3"></option>
-                <option value="4"></option>
+                <option value="1">AM</option>
+                <option value="2">A1</option>
+                <option value="3">A2</option>
+                <option value="4">A</option>
             </select>
         </div>
         <div class="city">miasto</div>
@@ -91,9 +79,10 @@ if(!isset($_SESSION['logIn'])){
         <div class="save">zapisz</div>
 
     </div>
+    </div>
 
     <script src="burger.js"></script>
-    <script src="options.js"></script>
+    <!-- <script src="options.js"></script> -->
     <script src="colorChange.js"></script>
 
 </body>
