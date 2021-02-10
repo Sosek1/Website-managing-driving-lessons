@@ -86,11 +86,11 @@ if($czyinsert){
             $id = $_SESSION['adid'];
         }
         if($czyjestosoba){
-            if($kat>$katosoby){
-                $czyzwalidowano=false;
-                $_SESSION['katerror']="Zła kategoria dla tego kursanta!";
-                echo "Zła kategoria dla tego kursanta!";
-            }
+           // if($kat>$katosoby){
+           //     $czyzwalidowano=false;
+           //     $_SESSION['katerror']="Zła kategoria dla tego kursanta!";
+           //     echo "Zła kategoria dla tego kursanta!";
+           // }
             $zap = 'SELECT kat FROM pojazdy WHERE id =\''.$pojazd.'\'';
             $poj=$conn->query($zap);
 
