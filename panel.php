@@ -36,7 +36,7 @@ if(!isset($_SESSION['logIn'])){
         </div>
     </nav>
 
-    <div class="container">
+    <form method="post" class="container">
         <h1 class="heading">Panel ustalania jazd</h1>
         <div class="datePlace">
             <div class="prev2">
@@ -48,12 +48,9 @@ if(!isset($_SESSION['logIn'])){
             </div>
         </div>
         <div class="search">
-            <form action="" method="POST">
                 <input type="text" class="searchInput" name="szukanie">
                 <label><input type="submit"value=""style= "border-style:none;"><i class="fas fa-search"></i></label>
-            </form>
         </div>
-        <form action=""method="POST">
             <input type="text" name="name" class="name2 border " placeholder="Imię...">
             <input type="text" name="surname" class="surname border " placeholder="Nazwisko...">
             <input type="text" name="nrtel" class="phoneNumber border " placeholder="Numer telefonu...">
@@ -88,10 +85,8 @@ if(!isset($_SESSION['logIn'])){
             <div class="place">plac</div>
             <div class="vehicle">miasto/plac</div>
             <textarea class="info" placeholder="Napisz coś..."></textarea>
-            <div class="save">zapisz</div>
+            <button type="submit" class="save">zapisz</button>
     </form>
-    </div>
-    </div>
 
     <script src="burger.js"></script>
     <!-- <script src="options.js"></script> -->
