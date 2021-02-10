@@ -246,15 +246,14 @@ if($czyinsert){
                     ?>
                 </select>
             </div>
-            <label><input type="checkbox" class="city" name="addmiasto">miasto</label>
-            <div class="place" name="addplac">plac</div>
-            <div class="vehicle" name=addmspl>miasto/plac</div>
+            <button class="city" name="addcity">miasto</button>
+            <button class="place" name="addplac">plac</button>
+            <button class="cityPlace" name=addmspl>miasto/plac</button>
             <textarea class="info" placeholder="Napisz coś..." name="addinfo"></textarea>
             <button type="submit" class="save">zapisz</button>
     </form>
 
     <script src="burger.js"></script>
-    <!-- <script src="options.js"></script> -->
     <script src="colorChange.js"></script>
 
 </body>

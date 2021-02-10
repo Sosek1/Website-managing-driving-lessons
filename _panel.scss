@@ -63,7 +63,7 @@
 
     .city,
     .place,
-    .vehicle,
+    .cityPlace,
     .save {
         border-radius: 6px;
         background-color: $second-color;
@@ -119,7 +119,7 @@
 
     .city,
     .place,
-    .vehicle,
+    .cityPlace,
     .save:hover {
         cursor: pointer;
     }
@@ -173,7 +173,7 @@
 
         .city,
         .place,
-        .vehicle {
+        .cityPlace {
             justify-self: center;
             align-self: center;
             width: 150px;
@@ -276,7 +276,7 @@
 
         .city,
         .place,
-        .vehicle {
+        .cityPlace {
             width: 150px;
             height: 40px;
         }
@@ -381,7 +381,7 @@
 
         .city,
         .place,
-        .vehicle {
+        .cityPlace {
             width: 150px;
             height: 40px;
         }
