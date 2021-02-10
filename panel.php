@@ -102,8 +102,7 @@ if($czyinsert){
             if(!$poj){}else{
                 $ile=$poj->num_rows;                
                 if($ile>0){
-                    $czyzwalidowano=false;
-                    $_SESSION['pojerror']="Pojazd jest zajęty o tej godzinie!";
+                    $czyz1SSION['pojerror']="Pojazd jest zajęty o tej godzinie!";
                     echo "Pojazd jest zajęty o tej godzinie!";
                 }
             }          
