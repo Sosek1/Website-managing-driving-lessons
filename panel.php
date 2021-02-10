@@ -59,7 +59,7 @@ if(!isset($_SESSION['logIn'])){
             <input type="text" name="nrtel" class="phoneNumber border " placeholder="Numer telefonu...">
             <div class="chooseCategory">
                 <p class="text">Kategoria</p>
-                <select class="custom-select">
+                <select class="custom-select" name="kat">
                     <option value="1">AM</option>
                     <option value="2">A1</option>
                     <option value="3">A2</option>
@@ -69,10 +69,9 @@ if(!isset($_SESSION['logIn'])){
             <div class="chooseHour">
                 <p class="text">Liczba godzin</p>
                 <select class="custom-select">
-                    <option value="1">AM</option>
-                    <option value="2">A1</option>
-                    <option value="3">A2</option>
-                    <option value="4">A</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
                 </select>
             </div>
             <div class="chooseCar">
