@@ -50,13 +50,13 @@ if(!isset($_SESSION['logIn'])){
         <div class="search">
             <form action="" method="POST">
                 <input type="text" class="searchInput" name="szukanie">
-                <input type="submit"><i class="fas fa-search"></i></input>
+                <label><input type="submit"value=""style= "border-style:none;"><i class="fas fa-search"></i></label>
             </form>
         </div>
         <form action=""method="POST">
-            <input type="text" class="name2 border " placeholder="Imię...">
-            <input type="text" class="surname border " placeholder="Nazwisko...">
-            <input type="text" class="phoneNumber border " placeholder="Numer telefonu...">
+            <input type="text" name="name" class="name2 border " placeholder="Imię...">
+            <input type="text" name="surname" class="surname border " placeholder="Nazwisko...">
+            <input type="text" name="nrtel" class="phoneNumber border " placeholder="Numer telefonu...">
             <div class="chooseCategory">
                 <p class="text">Kategoria</p>
                 <select class="custom-select">
