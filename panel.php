@@ -2,10 +2,87 @@
 session_start();
 require_once "connect.php";
 if(!isset($_SESSION['logIn'])){
-    //header('Location: index.php');
-    //exit();
+    header('Location: index.php');
+    exit();
+}
+$czyinsert = true;
+if(isset($_POST['addname'])){
+    $_SESSION['adname'] = $_POST['addname'];
+    $name = $_POST['addname'];
+}else{
+    $czyinsert=false;
+}
+if(isset($_POST['addsurname'])){
+    $_SESSION['adsurname'] = $_POST['addsurname'];
+    $surname = $_POST['addsurname'];
+}else{
+    $czyinsert=false;
+}
+if(isset($_POST['addnrtel'])){
+    $_SESSION['adnrtel'] = $_POST['addnrtel'];
+    $nrtel = $_POST['addnrtel'];
+}else{
+    $czyinsert=false;
+}
+if(isset($_POST['addkat'])){
+    $_SESSION['adkat'] = $_POST['addkat'];
+    $kat = $_POST['addkat'];
+}else{
+    $czyinsert=false;
+}
+if(isset($_POST['addhours'])){
+    $_SESSION['adhours'] = $_POST['addhours'];
+    $dlugosc = $_POST['addhours'];
+}else{
+    $czyinsert=false;
+}
+if(isset($_POST['addpojazd'])){
+    $_SESSION['adpojazd'] = $_POST['addpojazd'];
+    $pojazd = $_POST['addpojazd'];
+}else{
+    $czyinsert=false;
+}
+if(isset($_POST['addmiasto'])){
+    echo $_POST['addmiasto'];
+}
+if(isset($_POST['addplac'])){
+    echo $_POST['addplac'];
+}
+if(isset($_POST['addpmspl'])){
+    echo $_POST['addpmspl'];
+}
+if(isset($_POST['szukaj'])){
+    $zap = $_POST['szukaj'];
+    echo $zap;
+    echo '<meta http-equiv="Refresh" content="0; url=szukaj.php?szuk='.$zap.'">';
+    exit();
 }
 
+if($czyinsert){
+    $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
+    $czyzwalidowano = true;
+
+    if($conn->connect_errno!=0){
+
+    }else{
+        if(!isset($_SESSION['adid'])){
+            
+            $zap = 'SELECT * FROM kursanci WHERE imie LIKE \'%'.$zap.'%\' OR surname LIKE \'%'.$zap.'%\'';
+            $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$id'");
+
+            if(!$osoba){}else{
+                $ile=$rezu->num_rows;
+                if($ile>0){
+                    $osobarow = $osoba->fetch_assoc();
+                    $katosoba = $osobarow['kat'];
+                }
+            }
+        }else{$id = $_SESSION['adid'];}
+    }
+
+
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +98,7 @@ if(!isset($_SESSION['logIn'])){
 </head>
 
 <body>
+
     <nav>
         <div class="logo"></div>
         <ul class="list">
@@ -48,7 +126,7 @@ if(!isset($_SESSION['logIn'])){
             </div>
         </div>
         <div class="search">
-                <input type="text" class="searchInput" name="szukanie">
+                <input type="text" class="searchInput" name="szukaj">
                 <label><input type="submit"value=""style= "border-style:none;"><i class="fas fa-search"></i></label>
         </div>
             <input type="text" name="addname" class="name2 border " placeholder="Imię..."<?php if(isset($_SESSION['adname'])){echo 'value="'.$_SESSION['adname'].'"';}?>>
@@ -82,7 +160,7 @@ if(!isset($_SESSION['logIn'])){
 
                         }else{
                             $id = $_SESSION['adid'];
-                           // $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$id'");
+                            $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$id'");
 
                             if(!$osoba){}else{
                                 $ile=$rezu->num_rows;
@@ -106,9 +184,9 @@ if(!isset($_SESSION['logIn'])){
                             while($i<=$ile){
                                 $pojazdrow = $rezu->fetch_assoc();
                                 $pojname = $pojazdrow['nazwa'];
-                                if(isset($_SESSION['adkat'])){
-                                    if($_SESSION['adkat']==$i){
-                                        echo '<option value='.$i.'selected="selected">'.$pojname.'</option>';
+                                if(isset($_SESSION['adpojazd'])){
+                                    if($_SESSION['adpojazd']==$i){
+                                        echo '<option value="'.$i.'" selected="selected">'.$pojname.'</option>';
                                     }else{
                                         echo '<option value='.$i.'>'.$pojname.'</option>';
                                     }
@@ -125,7 +203,7 @@ if(!isset($_SESSION['logIn'])){
                     ?>
                 </select>
             </div>
-            <div class="city" name="addmiasto">miasto</div>
+            <label><input type="checkbox" class="city" name="addmiasto">miasto</label>
             <div class="place" name="addplac">plac</div>
             <div class="vehicle" name=addmspl>miasto/plac</div>
             <textarea class="info" placeholder="Napisz coś..." name="addinfo"></textarea>

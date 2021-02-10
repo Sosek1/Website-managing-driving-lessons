@@ -1,3 +1,34 @@
+<?php
+session_start();
+if(!isset($_SESSION['logIn'])){
+    header('Location: index.php');
+    exit();
+}
+require_once "connect.php";
+if(isset($_GET['szuk'])){
+    $zap = $_GET['szuk'];
+}
+$zap = 'SELECT * FROM kursanci WHERE imie LIKE \'%'.$zap.'%\' OR surname LIKE \'%'.$zap.'%\'';
+
+$conn = @new mysqli($host, $db_user, $db_pass, $db_name);
+if($conn->connect_errno!=0){}else{
+    $rezu=$conn->query($zap);
+    
+    if(!$rezu){
+    }else{
+        $ile=$rezu->num_rows;
+        if($ile>0){
+            echo 'znalezioooooooooono';
+        }
+
+    }
+    $conn -> close();
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
