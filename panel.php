@@ -2,8 +2,8 @@
 session_start();
 require_once "connect.php";
 if(!isset($_SESSION['logIn'])){
-    header('Location: index.php');
-    exit();
+    //header('Location: index.php');
+    //exit();
 }
 
 ?>
@@ -48,52 +48,53 @@ if(!isset($_SESSION['logIn'])){
             </div>
         </div>
         <div class="search">
-            <form action="kalendarzDzien.php" method="post">
-            <input type="text" class="searchInput" name="szukanie">
-            <button  type="submit"> <i class="fas fa-search"> </i>
+            <form action="" method="POST">
+                <input type="text" class="searchInput" name="szukanie">
+                <input type="submit"><i class="fas fa-search"></i></input>
             </form>
         </div>
-        <input type="text" class="name2 border " placeholder="Imię..." <?php if(isset($_SESSION['imieadd'])){ echo 'value="'.$_SESSION['imieadd'].'"';}?>>
-        <input type="text" class="surname border " placeholder="Nazwisko..." <?php if(isset($_SESSION['nazwadd'])){ echo 'value="'.$_SESSION['nazwadd'].'"';}?>>
-        <input type="text" class="phoneNumber border " placeholder="Numer telefonu..." <?php if(isset($_SESSION['nrteladd'])){ echo 'value="'.$_SESSION['nrteladd'].'"';}?>>
-        <div class="chooseCategory">
-            <p class="text">Kategoria</p>
-            <select class="custom-select">
-                <option value="1">AM</option>
-                <option value="2">A1</option>
-                <option value="3">A2</option>
-                <option value="4">A</option>
-            </select>
-        </div>
-        <div class="chooseHour">
-            <p class="text">Liczba godzin</p>
-            <select class="custom-select">
-                <option value="1"></option>
-                <option value="2"></option>
-                <option value="3"></option>
-                <option value="4"></option>
-            </select>
+        <form action=""method="POST">
+            <input type="text" class="name2 border " placeholder="Imię...">
+            <input type="text" class="surname border " placeholder="Nazwisko...">
+            <input type="text" class="phoneNumber border " placeholder="Numer telefonu...">
+            <div class="chooseCategory">
+                <p class="text">Kategoria</p>
+                <select class="custom-select">
+                    <option value="1">AM</option>
+                    <option value="2">A1</option>
+                    <option value="3">A2</option>
+                    <option value="4">A</option>
+                </select>
             </div>
-        </div>
-        <div class="chooseCar">
-            <p class="text"> Pojazd</p>
-            <select class="custom-select">
-                <option value="1"></option>
-                <option value="2"></option>
-                <option value="3"></option>
-                <option value="4"></option>
-            </select>
-        </div>
-        <div class="city">miasto</div>
-        <div class="place">plac</div>
-        <div class="vehicle">miasto/plac</div>
-        <textarea class="info" placeholder="Napisz coś..."></textarea>
-        <div class="save">zapisz</div>
-
+            <div class="chooseHour">
+                <p class="text">Liczba godzin</p>
+                <select class="custom-select">
+                    <option value="1">AM</option>
+                    <option value="2">A1</option>
+                    <option value="3">A2</option>
+                    <option value="4">A</option>
+                </select>
+            </div>
+            <div class="chooseCar">
+                <p class="text"> Pojazd</p>
+                <select class="custom-select">
+                    <option value="1">AM</option>
+                    <option value="2">A1</option>
+                    <option value="3">A2</option>
+                    <option value="4">A</option>
+                </select>
+            </div>
+            <div class="city">miasto</div>
+            <div class="place">plac</div>
+            <div class="vehicle">miasto/plac</div>
+            <textarea class="info" placeholder="Napisz coś..."></textarea>
+            <div class="save">zapisz</div>
+    </form>
+    </div>
     </div>
 
     <script src="burger.js"></script>
-    <script src="options.js"></script>
+    <!-- <script src="options.js"></script> -->
     <script src="colorChange.js"></script>
 
 </body>
