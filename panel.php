@@ -53,33 +53,84 @@ if(isset($_POST['addpmspl'])){
 }
 if(isset($_POST['szukaj'])){
     $zap = $_POST['szukaj'];
-    echo $zap;
-    echo '<meta http-equiv="Refresh" content="0; url=szukaj.php?szuk='.$zap.'">';
-    exit();
+    if(!$zap==""){
+        echo $zap;
+        echo '<meta http-equiv="Refresh" content="0; url=szukaj.php?szuk='.$zap.'">';
+        exit();
+    }
 }
 
 if($czyinsert){
     $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
     $czyzwalidowano = true;
-
+    $czyjestosoba = true;
     if($conn->connect_errno!=0){
 
     }else{
         if(!isset($_SESSION['adid'])){
-            
-            $zap = 'SELECT * FROM kursanci WHERE imie LIKE \'%'.$zap.'%\' OR surname LIKE \'%'.$zap.'%\'';
-            $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$id'");
+            $zap = 'SELECT id, kat FROM kursanci WHERE imie =\''.$name.'\' AND surname = \''.$surname.'\'';
+            $osoba=$conn->query($zap);
 
             if(!$osoba){}else{
-                $ile=$rezu->num_rows;
+                $ile=$osoba->num_rows;
+                
                 if($ile>0){
                     $osobarow = $osoba->fetch_assoc();
-                    $katosoba = $osobarow['kat'];
+                    $id = $osobarow['id'];
+                    $katosoby = $osobarow['kat'];
+                }else{
+                    $czyjestosoba=false;
                 }
             }
-        }else{$id = $_SESSION['adid'];}
-    }
+        }else{
+            $id = $_SESSION['adid'];
+        }
+        if($czyjestosoba){
+            if($kat>$katosoby){
+                $czyzwalidowano=false;
+                $_SESSION['katerror']="Zła kategoria dla tego kursanta!";
+                echo "Zła kategoria dla tego kursanta!";
+            }
+            $zap = 'SELECT kat FROM pojazdy WHERE id =\''.$pojazd.'\'';
+            $poj=$conn->query($zap);
 
+            if(!$poj){}else{
+                $ile=$poj->num_rows;
+                
+                if($ile>0){
+                    $pojrow = $poj->fetch_assoc();
+                    $katpoj = $poj['kat'];
+                }
+            }
+            if($katpoj>$kat){
+                $czyzwalidowano=false;
+                $_SESSION['katerror']="Zła kategoria dla tego kursanta!";
+                echo "Zła kategoria dla tego kursanta!";
+            }
+            $zap = 'SELECT jazdy FROM pojazdy WHERE id =\''.$pojazd.'\' AND';
+            $poj=$conn->query($zap);
+            if(!$poj){}else{
+                $ile=$poj->num_rows;                
+                if($ile>0){
+                    $czyzwalidowano=false;
+                    $_SESSION['pojerror']="Pojazd jest zajęty o tej godzinie!";
+                    echo "Pojazd jest zajęty o tej godzinie!";
+                }
+            }          
+
+        }
+
+        if($czyzwalidowano){
+            $idinstruktora = $_SESSION['id'];
+            if($conn->query("INSERT INTO jazdy VALUES(NULL, '$idinstruktora', 
+                    '$id', '$pojazd', , NULL, 2, NULL)")){
+                        $_SESSION['udanarejestracja']=true;
+                        header('Location: witamy.php');
+                    }
+        }
+
+    }
+    $conn->close();
 
 
 }
@@ -184,14 +235,15 @@ if($czyinsert){
                             while($i<=$ile){
                                 $pojazdrow = $rezu->fetch_assoc();
                                 $pojname = $pojazdrow['nazwa'];
+                                $pojid = $pojazdrow['id'];
                                 if(isset($_SESSION['adpojazd'])){
                                     if($_SESSION['adpojazd']==$i){
-                                        echo '<option value="'.$i.'" selected="selected">'.$pojname.'</option>';
+                                        echo '<option value="'.$id.'" selected="selected">'.$pojname.'</option>';
                                     }else{
-                                        echo '<option value='.$i.'>'.$pojname.'</option>';
+                                        echo '<option value='.$id.'>'.$pojname.'</option>';
                                     }
                                 }else{
-                                    echo '<option value='.$i.'>'.$pojname.'</option>';
+                                    echo '<option value='.$id.'>'.$pojname.'</option>';
                                 }
 
                                 $i++;
