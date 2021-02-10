@@ -5,7 +5,9 @@ if(!isset($_SESSION['logIn'])){
     header('Location: index.php');
     exit();
 }
+
 $czyinsert = true;
+
 if(isset($_POST['addname'])){
     $_SESSION['adname'] = $_POST['addname'];
     $name = $_POST['addname'];
@@ -27,30 +29,16 @@ if(isset($_POST['addnrtel'])){
 if(isset($_POST['addkat'])){
     $_SESSION['adkat'] = $_POST['addkat'];
     $kat = $_POST['addkat'];
-}else{
-    $czyinsert=false;
 }
 if(isset($_POST['addhours'])){
     $_SESSION['adhours'] = $_POST['addhours'];
     $dlugosc = $_POST['addhours'];
-}else{
-    $czyinsert=false;
 }
 if(isset($_POST['addpojazd'])){
     $_SESSION['adpojazd'] = $_POST['addpojazd'];
     $pojazd = $_POST['addpojazd'];
-}else{
-    $czyinsert=false;
 }
-if(isset($_POST['addmiasto'])){
-    echo $_POST['addmiasto'];
-}
-if(isset($_POST['addplac'])){
-    echo $_POST['addplac'];
-}
-if(isset($_POST['addpmspl'])){
-    echo $_POST['addpmspl'];
-}
+
 if(isset($_POST['szukaj'])){
     $zap = $_POST['szukaj'];
     if(!$zap==""){
@@ -79,13 +67,15 @@ if($czyinsert){
                     $id = $osobarow['id'];
                     $katosoby = $osobarow['kat'];
                 }else{
-                    $czyjestosoba=false;
+                    //$czyjestosoba=false;
                 }
             }
         }else{
             $id = $_SESSION['adid'];
         }
+
         if($czyjestosoba){
+
            // if($kat>$katosoby){
            //     $czyzwalidowano=false;
            //     $_SESSION['katerror']="Zła kategoria dla tego kursanta!";
@@ -123,10 +113,12 @@ if($czyinsert){
         if($czyzwalidowano){
             $idinstruktora = $_SESSION['id'];
             if($conn->query("INSERT INTO jazdy VALUES(NULL, '$idinstruktora', 
-                    '$id', '$pojazd', , NULL, 2, NULL)")){
-                        $_SESSION['udanarejestracja']=true;
-                        header('Location: witamy.php');
-                    }
+                    '$id', '$pojazd', NULL, NULL, 1, NULL)")){
+                         echo 'ok';
+                        
+            }else{
+                echo $conn->errno;
+            }
         }
 
     }
