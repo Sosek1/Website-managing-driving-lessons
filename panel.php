@@ -39,8 +39,6 @@ if(isset($_POST['addsurname'])){
 if(isset($_POST['addnrtel'])){
     $_SESSION['adnrtel'] = $_POST['addnrtel'];
     $nrtel = $_POST['addnrtel'];
-}else{
-    $czyinsert=false;
 }
 if(isset($_POST['addkat'])){
     $_SESSION['adkat'] = $_POST['addkat'];
@@ -71,7 +69,6 @@ if($czyinsert){
     $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
     $conn->query("SET NAMES 'utf8'");
     $czyzwalidowano = true;
-    $czyjestosoba = true;
     if($conn->connect_errno!=0){
 
     }else{
@@ -88,7 +85,31 @@ if($czyinsert){
                     $idd = $osobarow['id'];
                     $katosoby = $osobarow['kat'];
                 }else{
-                    //$czyjestosoba=false;
+                    if($nrtel!=""){
+                        $zap = 'INSERT INTO kursanci VALUES(NULL, '.$name.', '.$surname.', '.$nrtel.', \''.$kat.'\')';
+                        echo $zap;
+                        if($conn->query($zap)){
+                            echo 'ok';
+                                    
+                        }else{
+                            echo $conn->error;
+                            echo $conn->errno;
+                            
+                        }
+                        $katosoby=$kat;
+                        $zap = 'SELECT id FROM kursanci WHERE imie =\''.$name.'\' AND surname = \''.$surname.'\'';
+                        $osoba=$conn->query($zap);
+                        if(!$osoba){}else{
+                            $ile=$osoba->num_rows;
+                            if($ile>0){
+                                $osobarow=$osoba->fetch_assoc();
+                                $idd = $osoba['id'];
+                            }
+                        }
+                    }else{
+                        $czyinsert=false;
+                        $_SESSION['telerror']="Nie podano numeru telefonu!";
+                    }
                 }
             }
         }else{
@@ -97,29 +118,41 @@ if($czyinsert){
         if($info==""){
             $info = "Brak";
         }
-        if($czyjestosoba){
 
-            if($kat>$katosoby){
-                $czyzwalidowano=false;
-                $_SESSION['katerror']="Zła kategoria dla tego kursanta!";
-                echo "Zła kategoria dla tego kursanta!";
-            }
-            $zap = 'SELECT kat FROM pojazdy WHERE id =\''.$pojazd.'\'';
-            $poj=$conn->query($zap);
+        if($kat>$katosoby){
+            $czyzwalidowano=false;
+            $_SESSION['katerror']="Zła kategoria dla tego kursanta!";
+            echo "Zła kategoria dla tego kursanta!1";
+        }
 
-            if(!$poj){}else{
-                $ile=$poj->num_rows;
+        
+        $zap = 'SELECT kat FROM pojazdy WHERE id =\''.$pojazd.'\'';
+        $poj=$conn->query($zap);
+        if(!$poj){}else{
+            $ile=$poj->num_rows;
                 
-                if($ile>0){
-                    $pojrow = $poj->fetch_assoc();
-                    $katpoj = $pojrow['kat'];
-                }
+            if($ile>0){
+                $pojrow = $poj->fetch_assoc();
+                $katpoj = $pojrow['kat'];
             }
-            if($katpoj>$kat){
+        }
+        if($katpoj>$kat){
+            $czyzwalidowano=false;
+            $_SESSION['katerror']="Zła kategoria dla tego kursanta!";
+            echo "Zła kategoria dla tego kursanta!2";
+        }
+        $dataa=date("Y-m-d H:i:s", mktime($godzina, 0, 0, $msc, $day, $ye));
+        $zap = 'SELECT * FROM jazdy WHERE id_pojazdu ='.$pojazd.' AND data_jazdy=\''.$dataa.'\'';
+        $poj=$conn->query($zap);
+        if(!$poj){}else{
+            $ile=$poj->num_rows;                
+            if($ile>0){
                 $czyzwalidowano=false;
-                $_SESSION['katerror']="Zła kategoria dla tego kursanta!";
-                echo "Zła kategoria dla tego kursanta!";
+                $_SESSION['pojerror']="Pojazd jest zajęty o tej godzinie!";
+                echo "Pojazd jest zajęty o tej godzinie!";
             }
+        }
+        if($dlugosc>1 && $godzina+1<22){
             $dataa=date("Y-m-d H:i:s", mktime($godzina, 0, 0, $msc, $day, $ye));
             $zap = 'SELECT * FROM jazdy WHERE id_pojazdu ='.$pojazd.' AND data_jazdy=\''.$dataa.'\'';
             $poj=$conn->query($zap);
@@ -131,42 +164,28 @@ if($czyinsert){
                     echo "Pojazd jest zajęty o tej godzinie!";
                 }
             }
-            if($dlugosc>1 && $godzina+1<22){
-                $dataa=date("Y-m-d H:i:s", mktime($godzina, 0, 0, $msc, $day, $ye));
-                $zap = 'SELECT * FROM jazdy WHERE id_pojazdu ='.$pojazd.' AND data_jazdy=\''.$dataa.'\'';
-                $poj=$conn->query($zap);
-                if(!$poj){}else{
-                    $ile=$poj->num_rows;                
-                    if($ile>0){
-                        $czyzwalidowano=false;
-                        $_SESSION['pojerror']="Pojazd jest zajęty o tej godzinie!";
-                        echo "Pojazd jest zajęty o tej godzinie!";
-                    }
-                }
-            }else if($godzina+1>=22){
-                $_SESSION['pojerror']="Jazda nie może trwać po 22!";
-            }
-            if($dlugosc>2 && $godzina+2<22){
-                $dataa=date("Y-m-d H:i:s", mktime($godzina, 0, 0, $msc, $day, $ye));
-                $zap = 'SELECT * FROM jazdy WHERE id_pojazdu ='.$pojazd.' AND data_jazdy=\''.$dataa.'\'';
-                $poj=$conn->query($zap);
-                if(!$poj){}else{
-                    $ile=$poj->num_rows;                
-                    if($ile>0){
-                        $czyzwalidowano=false;
-                        $_SESSION['pojerror']="Pojazd jest zajęty o tej godzinie!";
-                        echo "Pojazd jest zajęty o tej godzinie!";
-                    }
-                }
-            }else if($godzina+1>=22){
-                $_SESSION['pojerror']="Jazda nie może trwać po 22!";
-            }
-
-
+        }else if($godzina+1>=22){
+            $_SESSION['pojerror']="Jazda nie może trwać po 22!";
         }
+        if($dlugosc>2 && $godzina+2<22){
+            $dataa=date("Y-m-d H:i:s", mktime($godzina, 0, 0, $msc, $day, $ye));
+            $zap = 'SELECT * FROM jazdy WHERE id_pojazdu ='.$pojazd.' AND data_jazdy=\''.$dataa.'\'';
+            $poj=$conn->query($zap);
+            if(!$poj){}else{
+                $ile=$poj->num_rows;                
+                if($ile>0){
+                    $czyzwalidowano=false;
+                    $_SESSION['pojerror']="Pojazd jest zajęty o tej godzinie!";
+                    echo "Pojazd jest zajęty o tej godzinie!";
+                }
+            }
+        }else if($godzina+1>=22){
+            $_SESSION['pojerror']="Jazda nie może trwać po 22!";
+        }
+        
 
 
-        if($czyzwalidowano){
+        if($czyzwalidowano && $czyinsert){
             $i=0;
             while($i<$dlugosc){
                 $idinstruktora = $_SESSION['id'];
