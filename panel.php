@@ -23,7 +23,7 @@ $day = date('d', $dzien);
 $msc = date('m', $dzien);
 $ye = date('y', $dzien);
 $czyinsert = true;
-
+$podtel=false;
 if(isset($_POST['addname'])){
     $_SESSION['adname'] = $_POST['addname'];
     $name = $_POST['addname'];
@@ -39,6 +39,7 @@ if(isset($_POST['addsurname'])){
 if(isset($_POST['addnrtel'])){
     $_SESSION['adnrtel'] = $_POST['addnrtel'];
     $nrtel = $_POST['addnrtel'];
+    $podtel=true;
 }
 if(isset($_POST['addkat'])){
     $_SESSION['adkat'] = $_POST['addkat'];
@@ -74,19 +75,23 @@ if($czyinsert){
     }else{
 
         if(!isset($_SESSION['adid'])){
+
             $zap = 'SELECT id, kat FROM kursanci WHERE imie =\''.$name.'\' AND surname = \''.$surname.'\'';
             $osoba=$conn->query($zap);
 
             if(!$osoba){}else{
                 $ile=$osoba->num_rows;
-                
+                echo 'ok';
                 if($ile>0){
+                    echo 'okk';
                     $osobarow = $osoba->fetch_assoc();
                     $idd = $osobarow['id'];
                     $katosoby = $osobarow['kat'];
                 }else{
-                    if($nrtel!=""){
-                        $zap = 'INSERT INTO kursanci VALUES(NULL, '.$name.', '.$surname.', '.$nrtel.', \''.$kat.'\')';
+                    echo 'okkk';
+                    if($podtel){
+                        echo 'okkkkk';
+                        $zap = 'INSERT INTO kursanci VALUES(NULL, \''.$name.'\', \''.$surname.'\', '.$nrtel.', \''.$kat.'\')';
                         echo $zap;
                         if($conn->query($zap)){
                             echo 'ok';
@@ -119,10 +124,10 @@ if($czyinsert){
             $info = "Brak";
         }
 
-        if($kat>$katosoby){
+        if($kat>=$katosoby){
             $czyzwalidowano=false;
             $_SESSION['katerror']="Zła kategoria dla tego kursanta!";
-            echo "Zła kategoria dla tego kursanta!1";
+            echo "Zła kategoria dla tego kursanta!44";
         }
 
         
@@ -251,7 +256,7 @@ if($czyinsert){
         </div>
             <input type="text" name="addname" class="name2 border " placeholder="Imię..."<?php if(isset($_SESSION['adname'])){echo 'value="'.$_SESSION['adname'].'"';}?>>
             <input type="text" name="addsurname" class="surname border " placeholder="Nazwisko..."<?php if(isset($_SESSION['adsurname'])){echo 'value="'.$_SESSION['adsurname'].'"';}?>>
-            <input type="text" name="addnrtel" class="phoneNumber border " placeholder="Numer telefonu..."<?php if(isset($_SESSION['adnrtel'])){echo 'value="'.$_SESSION['adnrtel'].'"';}?>>
+            <input type="tel" name="addnrtel" class="phoneNumber border " placeholder="Numer telefonu..."<?php if(isset($_SESSION['adnrtel'])){echo 'value="'.$_SESSION['adnrtel'].'"';}?>>
             <div class="chooseCategory">
                 <p class="text">Kategoria</p>
                 <select class="custom-select" name="addkat">
