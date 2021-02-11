@@ -6,8 +6,23 @@ if(!isset($_SESSION['logIn'])){
     exit();
 }
 
-$czyinsert = true;
+if(isset($_GET['d'])){
+    $dzien=$_GET['d'];
+}else{
+    $dzien=strtotime("now");
+}
+if(isset($_GET['h'])){
+    $godzina=$_GET['h'];
+}else{
+    $godzina=$_SESSION['h'];
+}
 
+
+$day = date('d', $dzien);
+$msc = date('m', $dzien);
+$ye = date('y', $dzien);
+$czyinsert = true;
+$podtel=false;
 if(isset($_POST['addname'])){
     $_SESSION['adname'] = $_POST['addname'];
     $name = $_POST['addname'];
@@ -23,8 +38,9 @@ if(isset($_POST['addsurname'])){
 if(isset($_POST['addnrtel'])){
     $_SESSION['adnrtel'] = $_POST['addnrtel'];
     $nrtel = $_POST['addnrtel'];
-}else{
-    $czyinsert=false;
+    if($nrtel!=0){
+        $podtel=true;
+    }
 }
 if(isset($_POST['addkat'])){
     $_SESSION['adkat'] = $_POST['addkat'];
@@ -38,86 +54,151 @@ if(isset($_POST['addpojazd'])){
     $_SESSION['adpojazd'] = $_POST['addpojazd'];
     $pojazd = $_POST['addpojazd'];
 }
-
+if(isset($_POST['addinfo'])){
+    $_SESSION['adinfo'] = $_POST['addinfo'];
+    $info = $_POST['addinfo'];
+}
 if(isset($_POST['szukaj'])){
     $zap = $_POST['szukaj'];
     if(!$zap==""){
-        echo $zap;
         echo '<meta http-equiv="Refresh" content="0; url=szukaj.php?szuk='.$zap.'">';
         exit();
     }
 }
-
+$id;
 if($czyinsert){
     $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
+    $conn->query("SET NAMES 'utf8'");
     $czyzwalidowano = true;
-    $czyjestosoba = true;
     if($conn->connect_errno!=0){
 
     }else{
+
         if(!isset($_SESSION['adid'])){
+
             $zap = 'SELECT id, kat FROM kursanci WHERE imie =\''.$name.'\' AND surname = \''.$surname.'\'';
             $osoba=$conn->query($zap);
 
             if(!$osoba){}else{
                 $ile=$osoba->num_rows;
-                
                 if($ile>0){
                     $osobarow = $osoba->fetch_assoc();
-                    $id = $osobarow['id'];
+                    $idd = $osobarow['id'];
                     $katosoby = $osobarow['kat'];
                 }else{
-                    //$czyjestosoba=false;
+                    if($podtel){
+                        $zap = 'INSERT INTO kursanci VALUES(NULL, \''.$name.'\', \''.$surname.'\', '.$nrtel.', \''.$kat.'\')';
+                        if($conn->query($zap)){
+                                    
+                        }else{
+                                                       
+                        }
+                        $katosoby=$kat;
+
+                        $zap = 'SELECT id FROM kursanci WHERE imie =\''.$name.'\' AND surname = \''.$surname.'\'';
+                        $osoba=$conn->query($zap);
+                        if(!$osoba){}else{
+                            $ile=$osoba->num_rows;
+                            if($ile>0){
+                                $osobarow=$osoba->fetch_assoc();
+                                $idd = $osobarow['id'];
+                            }
+                        }
+                    }else{
+                        $czyinsert=false;
+                        $_SESSION['telerror']="Nie podano numeru telefonu!";
+                    }
                 }
             }
         }else{
-            $id = $_SESSION['adid'];
+            $idd = $_SESSION['adid'];
+        }
+        if($info==""){
+            $info = "Brak";
         }
 
-        if($czyjestosoba){
+        if($kat>$katosoby){
+            $czyzwalidowano=false;
+            $_SESSION['katerror']="Zła kategoria dla tego kursanta!";
+        }
 
-           // if($kat>$katosoby){
-           //     $czyzwalidowano=false;
-           //     $_SESSION['katerror']="Zła kategoria dla tego kursanta!";
-           //     echo "Zła kategoria dla tego kursanta!";
-           // }
-            $zap = 'SELECT kat FROM pojazdy WHERE id =\''.$pojazd.'\'';
-            $poj=$conn->query($zap);
-
-            if(!$poj){}else{
-                $ile=$poj->num_rows;
+        
+        $zap = 'SELECT kat FROM pojazdy WHERE id =\''.$pojazd.'\'';
+        $poj=$conn->query($zap);
+        if(!$poj){}else{
+            $ile=$poj->num_rows;
                 
-                if($ile>0){
-                    $pojrow = $poj->fetch_assoc();
-                    $katpoj = $poj['kat'];
-                }
+            if($ile>0){
+                $pojrow = $poj->fetch_assoc();
+                $katpoj = $pojrow['kat'];
             }
-            if($katpoj>$kat){
+        }
+        if($katpoj>$kat){
+            $czyzwalidowano=false;
+            $_SESSION['katerror']="Zły pojazd dla tego kursanta!";
+        }
+        $dataa=date("Y-m-d H:i:s", mktime($godzina, 0, 0, $msc, $day, $ye));
+        $zap = 'SELECT * FROM jazdy WHERE id_pojazdu ='.$pojazd.' AND data_jazdy=\''.$dataa.'\'';
+        $poj=$conn->query($zap);
+        if(!$poj){}else{
+            $ile=$poj->num_rows;                
+            if($ile>0){
                 $czyzwalidowano=false;
-                $_SESSION['katerror']="Zła kategoria dla tego kursanta!";
-                echo "Zła kategoria dla tego kursanta!";
+                $_SESSION['pojerror']="Pojazd jest zajęty o tej godzinie!";
             }
-            $zap = 'SELECT jazdy FROM pojazdy WHERE id =\''.$pojazd.'\' AND';
+        }
+        if($dlugosc>1 && $godzina+1<22){
+            $dataa=date("Y-m-d H:i:s", mktime($godzina, 0, 0, $msc, $day, $ye));
+            $zap = 'SELECT * FROM jazdy WHERE id_pojazdu ='.$pojazd.' AND data_jazdy=\''.$dataa.'\'';
             $poj=$conn->query($zap);
             if(!$poj){}else{
                 $ile=$poj->num_rows;                
                 if($ile>0){
-                    $czyz1SSION['pojerror']="Pojazd jest zajęty o tej godzinie!";
-                    echo "Pojazd jest zajęty o tej godzinie!";
+                    $czyzwalidowano=false;
+                    $_SESSION['pojerror']="Pojazd jest zajęty o tej godzinie!";
                 }
-            }          
-
-        }
-
-        if($czyzwalidowano){
-            $idinstruktora = $_SESSION['id'];
-            if($conn->query("INSERT INTO jazdy VALUES(NULL, '$idinstruktora', 
-                    '$id', '$pojazd', NULL, NULL, 1, NULL)")){
-                         echo 'ok';
-                        
-            }else{
-                echo $conn->errno;
             }
+        }else if($godzina+1>=22){
+            $_SESSION['pojerror']="Jazda nie może trwać po 22!";
+        }
+        if($dlugosc>2 && $godzina+2<22){
+            $dataa=date("Y-m-d H:i:s", mktime($godzina, 0, 0, $msc, $day, $ye));
+            $zap = 'SELECT * FROM jazdy WHERE id_pojazdu ='.$pojazd.' AND data_jazdy=\''.$dataa.'\'';
+            $poj=$conn->query($zap);
+            if(!$poj){}else{
+                $ile=$poj->num_rows;                
+                if($ile>0){
+                    $czyzwalidowano=false;
+                    $_SESSION['pojerror']="Pojazd jest zajęty o tej godzinie!";
+                }
+            }
+        }else if($godzina+1>=22){
+            $_SESSION['pojerror']="Jazda nie może trwać po 22!";
+        }
+        
+
+
+        if($czyzwalidowano && $czyinsert){
+            $i=0;
+            while($i<$dlugosc){
+                $idinstruktora = $_SESSION['id'];
+                $dataa=date("Y-m-d H:i:s", mktime($godzina+$i, 0, 0, $msc, $day, $ye));
+                $zap = 'INSERT INTO jazdy VALUES(NULL, '.$idinstruktora.', '.$idd.', '.$pojazd.', \''.$dataa.'\', NULL, 2, "'.$info.'")';
+                if($conn->query($zap)){
+                            
+                }else{
+                    
+                }
+                $i++;
+            }
+            unset($_SESSION['adid']);
+            unset($_SESSION['adname']);
+            unset($_SESSION['adsurname']);
+            unset($_SESSION['adpojazd']);
+            unset($_SESSION['adnrtel']);
+            unset($_SESSION['adkat']);
+            unset($_SESSION['adhours']);
+            unset($_SESSION['adinfo']);            
         }
 
     }
@@ -159,13 +240,8 @@ if($czyinsert){
     <form method="post" class="container">
         <h1 class="heading">Panel ustalania jazd</h1>
         <div class="datePlace">
-            <div class="prev2">
-                <i class="fas fa-angle-left"></i>
-            </div>
-            <p class="date">20.02.2021</p>
-            <div class="next2">
-                <i class="fas fa-angle-right"></i>
-            </div>
+            <p class="date"><?php echo date("Y-m-d H:i", mktime($godzina+$i, 0, 0, $msc, $day, $ye));?></p>
+            <a href="kalendarzDzien.php?date=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>">Zmień</a>
         </div>
         <div class="search">
                 <input type="text" class="searchInput" name="szukaj">
@@ -173,7 +249,8 @@ if($czyinsert){
         </div>
             <input type="text" name="addname" class="name2 border " placeholder="Imię..."<?php if(isset($_SESSION['adname'])){echo 'value="'.$_SESSION['adname'].'"';}?>>
             <input type="text" name="addsurname" class="surname border " placeholder="Nazwisko..."<?php if(isset($_SESSION['adsurname'])){echo 'value="'.$_SESSION['adsurname'].'"';}?>>
-            <input type="text" name="addnrtel" class="phoneNumber border " placeholder="Numer telefonu..."<?php if(isset($_SESSION['adnrtel'])){echo 'value="'.$_SESSION['adnrtel'].'"';}?>>
+            <input type="tel" name="addnrtel" class="phoneNumber border " placeholder="Numer telefonu..."<?php if(isset($_SESSION['adnrtel'])){echo 'value="'.$_SESSION['adnrtel'].'"';}?>>
+            <?php if(isset($_SESSION['telerror'])){echo $_SESSION['telerror']; unset($_SESSION['telerror']);}?>
             <div class="chooseCategory">
                 <p class="text">Kategoria</p>
                 <select class="custom-select" name="addkat">
@@ -183,6 +260,7 @@ if($czyinsert){
                     <option value="4"<?php if(isset($_SESSION['adkat'])){if($_SESSION['adkat']==4){echo 'selected="selected"';}}?>>A</option>
                 </select>
             </div>
+            <?php if(isset($_SESSION['katerror'])){echo $_SESSION['katerror']; unset($_SESSION['katerror']);}?>
             <div class="chooseHour">
                 <p class="text">Liczba godzin</p>
                 <select class="custom-select" name="addhours">
@@ -191,6 +269,7 @@ if($czyinsert){
                     <option value="3"<?php if(isset($_SESSION['adhours'])){if($_SESSION['adhours']==3){echo 'selected="selected"';}}?>>3</option>
                 </select>
             </div>
+            <?php if(isset($_SESSION['pojerror'])){echo $_SESSION['pojerror']; unset($_SESSION['pojerror']);}?>
             <div class="chooseCar">
                 <p class="text"> Pojazd</p>
                 <select class="custom-select" name="addpojazd">
@@ -229,12 +308,12 @@ if($czyinsert){
                                 $pojid = $pojazdrow['id'];
                                 if(isset($_SESSION['adpojazd'])){
                                     if($_SESSION['adpojazd']==$i){
-                                        echo '<option value="'.$id.'" selected="selected">'.$pojname.'</option>';
+                                        echo '<option value="'.$pojid.'" selected="selected">'.$pojname.'</option>';
                                     }else{
-                                        echo '<option value='.$id.'>'.$pojname.'</option>';
+                                        echo '<option value='.$pojid.'>'.$pojname.'</option>';
                                     }
                                 }else{
-                                    echo '<option value='.$id.'>'.$pojname.'</option>';
+                                    echo '<option value='.$pojid.'>'.$pojname.'</option>';
                                 }
 
                                 $i++;

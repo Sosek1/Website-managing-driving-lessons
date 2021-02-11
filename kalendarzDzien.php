@@ -43,6 +43,15 @@ if(isset($_GET['date'])==true){
 $day = date('d', $dzien);
 $msc = date('m', $dzien);
 $ye = date('y', $dzien);
+
+$conn = @new mysqli($host, $db_user, $db_pass, $db_name);
+$conn->query("SET NAMES 'utf8'");
+if($conn->connect_errno!=0){
+    $con=false;
+}else{
+    $con=true;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,12 +97,10 @@ $ye = date('y', $dzien);
     <div class="dayContainer">
         <div class="table"
         <?php 
-            $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
-            $conn->query("SET NAMES 'utf8'");
             $imie;
             $nazwisko;
             $kat;
-            if($conn->connect_errno!=0){}else{
+            if($con){
                 $zap=date("Y-m-d H:i:s", mktime(6, 0, 0, $msc, $day, $ye));
                 $id=$_SESSION['id'];
                 $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
@@ -109,7 +116,7 @@ $ye = date('y', $dzien);
                             $ile = $osoba->num_rows;
                             if($ile>0){
                                 $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['name'];
+                                $imie = $osobarow['imie'];
                                 $nazwisko = $osobarow['surname'];
                                 $kat = $osobarow['kat'];
                             }
@@ -117,7 +124,6 @@ $ye = date('y', $dzien);
                         echo 'style= "background-color:red"';
                     }
                 }
-            $conn -> close();
             }
         ?>>
             <div class="hour">6:00</div>
@@ -131,18 +137,16 @@ $ye = date('y', $dzien);
                 }
             ?>
                 </div>
-            <div class="addRide">
-                
+            
+            <label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
                 <i class="fas fa-plus">
-                </i>
-            </div>
+                </i></a>
+            </div></label>
 
         </div>
         <div class="table"
         <?php 
-            $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
-            $conn->query("SET NAMES 'utf8'");
-            if($conn->connect_errno!=0){}else{
+            if($con){
                 $zap=date("Y-m-d H:i:s", mktime(7, 0, 0, $msc, $day, $ye));
                 $id=$_SESSION['id'];
                 $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
@@ -158,7 +162,7 @@ $ye = date('y', $dzien);
                             $ile = $osoba->num_rows;
                             if($ile>0){
                                 $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['name'];
+                                $imie = $osobarow['imie'];
                                 $nazwisko = $osobarow['surname'];
                                 $kat = $osobarow['kat'];
                             }
@@ -166,7 +170,6 @@ $ye = date('y', $dzien);
                         echo 'style= "background-color:red"';
                     }
                 }
-            $conn -> close();
             }
         ?>
             ><div class="hour">7:00</div>
@@ -180,15 +183,14 @@ $ye = date('y', $dzien);
                 }
             ?>
                 </div>
-            <div class="addRide">
-                <i class="fas fa-plus"></i>
-            </div>
+<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=7">                
+                <i class="fas fa-plus">
+                </i></a>
+            </div></label>
         </div>
         <div class="table"
         <?php 
-            $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
-            $conn->query("SET NAMES 'utf8'");
-            if($conn->connect_errno!=0){}else{
+            if($con){
                 $zap=date("Y-m-d H:i:s", mktime(8, 0, 0, $msc, $day, $ye));
                 $id=$_SESSION['id'];
                 $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
@@ -204,7 +206,7 @@ $ye = date('y', $dzien);
                             $ile = $osoba->num_rows;
                             if($ile>0){
                                 $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['name'];
+                                $imie = $osobarow['imie'];
                                 $nazwisko = $osobarow['surname'];
                                 $kat = $osobarow['kat'];
                             }
@@ -212,7 +214,6 @@ $ye = date('y', $dzien);
                         echo 'style= "background-color:red"';
                     }
                 }
-            $conn -> close();
             }
         ?>>
             <div class="hour">8:00</div>
@@ -226,15 +227,14 @@ $ye = date('y', $dzien);
                 }
             ?>
                 </div>
-            <div class="addRide">
-                <i class="fas fa-plus"></i>
-            </div>
+<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=8">                
+                <i class="fas fa-plus">
+                </i></a>
+            </div></label>
         </div>
         <div class="table"
         <?php 
-            $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
-            $conn->query("SET NAMES 'utf8'");
-            if($conn->connect_errno!=0){}else{
+            if($con){
                 $zap=date("Y-m-d H:i:s", mktime(9, 0, 0, $msc, $day, $ye));
                 $id=$_SESSION['id'];
                 $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
@@ -250,7 +250,7 @@ $ye = date('y', $dzien);
                             $ile = $osoba->num_rows;
                             if($ile>0){
                                 $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['name'];
+                                $imie = $osobarow['imie'];
                                 $nazwisko = $osobarow['surname'];
                                 $kat = $osobarow['kat'];
                             }
@@ -258,7 +258,6 @@ $ye = date('y', $dzien);
                         echo 'style= "background-color:red"';
                     }
                 }
-            $conn -> close();
             }
         ?>>
             <div class="hour">9:00</div>
@@ -272,15 +271,14 @@ $ye = date('y', $dzien);
                 }
             ?>
                 </div>
-            <div class="addRide">
-                <i class="fas fa-plus"></i>
-            </div>
+<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=9">                
+                <i class="fas fa-plus">
+                </i></a>
+            </div></label>
         </div>
         <div class="table"
         <?php 
-            $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
-            $conn->query("SET NAMES 'utf8'");
-            if($conn->connect_errno!=0){}else{
+            if($con){
                 $zap=date("Y-m-d H:i:s", mktime(10, 0, 0, $msc, $day, $ye));
                 $id=$_SESSION['id'];
                 $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
@@ -296,7 +294,7 @@ $ye = date('y', $dzien);
                             $ile = $osoba->num_rows;
                             if($ile>0){
                                 $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['name'];
+                                $imie = $osobarow['imie'];
                                 $nazwisko = $osobarow['surname'];
                                 $kat = $osobarow['kat'];
                             }
@@ -304,7 +302,6 @@ $ye = date('y', $dzien);
                         echo 'style= "background-color:red"';
                     }
                 }
-            $conn -> close();
             }
         ?>>
             <div class="hour">10:00</div>
@@ -318,15 +315,14 @@ $ye = date('y', $dzien);
                 }
             ?>
                 </div>
-            <div class="addRide">
-                <i class="fas fa-plus"></i>
-            </div>
+<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=10">                
+                <i class="fas fa-plus">
+                </i></a>
+            </div></label>
         </div>
         <div class="table"
         <?php 
-            $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
-            $conn->query("SET NAMES 'utf8'");
-            if($conn->connect_errno!=0){}else{
+            if($con){
                 $zap=date("Y-m-d H:i:s", mktime(11, 0, 0, $msc, $day, $ye));
                 $id=$_SESSION['id'];
                 $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
@@ -342,7 +338,7 @@ $ye = date('y', $dzien);
                             $ile = $osoba->num_rows;
                             if($ile>0){
                                 $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['name'];
+                                $imie = $osobarow['imie'];
                                 $nazwisko = $osobarow['surname'];
                                 $kat = $osobarow['kat'];
                             }
@@ -350,7 +346,6 @@ $ye = date('y', $dzien);
                         echo 'style= "background-color:red"';
                     }
                 }
-            $conn -> close();
             }
         ?>>
             <div class="hour">11:00</div>
@@ -364,15 +359,14 @@ $ye = date('y', $dzien);
                 }
             ?>
                 </div>
-            <div class="addRide">
-                <i class="fas fa-plus"></i>
-            </div>
+<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=11">                
+                <i class="fas fa-plus">
+                </i></a>
+            </div></label>
         </div>
         <div class="table"
         <?php 
-            $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
-            $conn->query("SET NAMES 'utf8'");
-            if($conn->connect_errno!=0){}else{
+            if($con){
                 $zap=date("Y-m-d H:i:s", mktime(12, 0, 0, $msc, $day, $ye));
                 $id=$_SESSION['id'];
                 $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
@@ -388,7 +382,7 @@ $ye = date('y', $dzien);
                             $ile = $osoba->num_rows;
                             if($ile>0){
                                 $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['name'];
+                                $imie = $osobarow['imie'];
                                 $nazwisko = $osobarow['surname'];
                                 $kat = $osobarow['kat'];
                             }
@@ -396,7 +390,6 @@ $ye = date('y', $dzien);
                         echo 'style= "background-color:red"';
                     }
                 }
-            $conn -> close();
             }
         ?>>
             <div class="hour">12:00</div>
@@ -410,15 +403,14 @@ $ye = date('y', $dzien);
                 }
             ?>
                 </div>
-            <div class="addRide">
-                <i class="fas fa-plus"></i>
-            </div>
+<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=12">                
+                <i class="fas fa-plus">
+                </i></a>
+            </div></label>
         </div>
         <div class="table"
         <?php 
-            $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
-            $conn->query("SET NAMES 'utf8'");
-            if($conn->connect_errno!=0){}else{
+            if($con){
                 $zap=date("Y-m-d H:i:s", mktime(13, 0, 0, $msc, $day, $ye));
                 $id=$_SESSION['id'];
                 $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
@@ -434,7 +426,7 @@ $ye = date('y', $dzien);
                             $ile = $osoba->num_rows;
                             if($ile>0){
                                 $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['name'];
+                                $imie = $osobarow['imie'];
                                 $nazwisko = $osobarow['surname'];
                                 $kat = $osobarow['kat'];
                             }
@@ -442,7 +434,6 @@ $ye = date('y', $dzien);
                         echo 'style= "background-color:red"';
                     }
                 }
-            $conn -> close();
             }
         ?>>
             <div class="hour">13:00</div>
@@ -456,15 +447,14 @@ $ye = date('y', $dzien);
                 }
             ?>
                 </div>
-            <div class="addRide">
-                <i class="fas fa-plus"></i>
-            </div>
+<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=13">                
+                <i class="fas fa-plus">
+                </i></a>
+            </div></label>
         </div>
         <div class="table"
         <?php 
-            $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
-            $conn->query("SET NAMES 'utf8'");
-            if($conn->connect_errno!=0){}else{
+            if($con){
                 $zap=date("Y-m-d H:i:s", mktime(14, 0, 0, $msc, $day, $ye));
                 $id=$_SESSION['id'];
                 $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
@@ -480,7 +470,7 @@ $ye = date('y', $dzien);
                             $ile = $osoba->num_rows;
                             if($ile>0){
                                 $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['name'];
+                                $imie = $osobarow['imie'];
                                 $nazwisko = $osobarow['surname'];
                                 $kat = $osobarow['kat'];
                             }
@@ -488,7 +478,6 @@ $ye = date('y', $dzien);
                         echo 'style= "background-color:red"';
                     }
                 }
-            $conn -> close();
             }
         ?>>
             <div class="hour">14:00</div>
@@ -502,15 +491,14 @@ $ye = date('y', $dzien);
                 }
             ?>
                 </div>
-            <div class="addRide">
-                <i class="fas fa-plus"></i>
-            </div>
+<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=14">                
+                <i class="fas fa-plus">
+                </i></a>
+            </div></label>
         </div>
         <div class="table"
         <?php 
-            $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
-            $conn->query("SET NAMES 'utf8'");
-            if($conn->connect_errno!=0){}else{
+            if($con){
                 $zap=date("Y-m-d H:i:s", mktime(15, 0, 0, $msc, $day, $ye));
                 $id=$_SESSION['id'];
                 $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
@@ -526,7 +514,7 @@ $ye = date('y', $dzien);
                             $ile = $osoba->num_rows;
                             if($ile>0){
                                 $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['name'];
+                                $imie = $osobarow['imie'];
                                 $nazwisko = $osobarow['surname'];
                                 $kat = $osobarow['kat'];
                             }
@@ -534,7 +522,6 @@ $ye = date('y', $dzien);
                         echo 'style= "background-color:red"';
                     }
                 }
-            $conn -> close();
             }
         ?>>
             <div class="hour">15:00</div>
@@ -548,15 +535,14 @@ $ye = date('y', $dzien);
                 }
             ?>
                 </div>
-            <div class="addRide">
-                <i class="fas fa-plus"></i>
-            </div>
+<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=15">                
+                <i class="fas fa-plus">
+                </i></a>
+            </div></label>
         </div>
         <div class="table"
         <?php 
-            $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
-            $conn->query("SET NAMES 'utf8'");
-            if($conn->connect_errno!=0){}else{
+            if($con){
                 $zap=date("Y-m-d H:i:s", mktime(16, 0, 0, $msc, $day, $ye));
                 $id=$_SESSION['id'];
                 $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
@@ -572,7 +558,7 @@ $ye = date('y', $dzien);
                             $ile = $osoba->num_rows;
                             if($ile>0){
                                 $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['name'];
+                                $imie = $osobarow['imie'];
                                 $nazwisko = $osobarow['surname'];
                                 $kat = $osobarow['kat'];
                             }
@@ -580,7 +566,6 @@ $ye = date('y', $dzien);
                         echo 'style= "background-color:red"';
                     }
                 }
-            $conn -> close();
             }
         ?>>
             <div class="hour">16:00</div>
@@ -594,15 +579,14 @@ $ye = date('y', $dzien);
                 }
             ?>
                 </div>
-            <div class="addRide">
-                <i class="fas fa-plus"></i>
-            </div>
+<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=16">                
+                <i class="fas fa-plus">
+                </i></a>
+            </div></label>
         </div>
         <div class="table"
         <?php 
-            $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
-            $conn->query("SET NAMES 'utf8'");
-            if($conn->connect_errno!=0){}else{
+            if($con){
                 $zap=date("Y-m-d H:i:s", mktime(17, 0, 0, $msc, $day, $ye));
                 $id=$_SESSION['id'];
                 $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
@@ -618,7 +602,7 @@ $ye = date('y', $dzien);
                             $ile = $osoba->num_rows;
                             if($ile>0){
                                 $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['name'];
+                                $imie = $osobarow['imie'];
                                 $nazwisko = $osobarow['surname'];
                                 $kat = $osobarow['kat'];
                             }
@@ -626,7 +610,6 @@ $ye = date('y', $dzien);
                         echo 'style= "background-color:red"';
                     }
                 }
-            $conn -> close();
             }
         ?>>
             <div class="hour">17:00</div>
@@ -640,15 +623,14 @@ $ye = date('y', $dzien);
                 }
             ?>
                 </div>
-            <div class="addRide">
-                <i class="fas fa-plus"></i>
-            </div>
+<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=17">                
+                <i class="fas fa-plus">
+                </i></a>
+            </div></label>
         </div>
         <div class="table"
         <?php 
-            $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
-            $conn->query("SET NAMES 'utf8'");
-            if($conn->connect_errno!=0){}else{
+            if($con){
                 $zap=date("Y-m-d H:i:s", mktime(18, 0, 0, $msc, $day, $ye));
                 $id=$_SESSION['id'];
                 $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
@@ -664,7 +646,7 @@ $ye = date('y', $dzien);
                             $ile = $osoba->num_rows;
                             if($ile>0){
                                 $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['name'];
+                                $imie = $osobarow['imie'];
                                 $nazwisko = $osobarow['surname'];
                                 $kat = $osobarow['kat'];
                             }
@@ -672,7 +654,6 @@ $ye = date('y', $dzien);
                         echo 'style= "background-color:red"';
                     }
                 }
-            $conn -> close();
             }
         ?>>
             <div class="hour">18:00</div>
@@ -686,15 +667,14 @@ $ye = date('y', $dzien);
                 }
             ?>
                 </div>
-            <div class="addRide">
-                <i class="fas fa-plus"></i>
-            </div>
+<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=18">                
+                <i class="fas fa-plus">
+                </i></a>
+            </div></label>
         </div>
         <div class="table"
         <?php 
-            $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
-            $conn->query("SET NAMES 'utf8'");
-            if($conn->connect_errno!=0){}else{
+            if($con){
                 $zap=date("Y-m-d H:i:s", mktime(19, 0, 0, $msc, $day, $ye));
                 $id=$_SESSION['id'];
                 $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
@@ -710,7 +690,7 @@ $ye = date('y', $dzien);
                             $ile = $osoba->num_rows;
                             if($ile>0){
                                 $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['name'];
+                                $imie = $osobarow['imie'];
                                 $nazwisko = $osobarow['surname'];
                                 $kat = $osobarow['kat'];
                             }
@@ -718,7 +698,6 @@ $ye = date('y', $dzien);
                         echo 'style= "background-color:red"';
                     }
                 }
-            $conn -> close();
             }
         ?>>
             <div class="hour">19:00</div>
@@ -732,15 +711,14 @@ $ye = date('y', $dzien);
                 }
             ?>
                 </div>
-            <div class="addRide">
-                <i class="fas fa-plus"></i>
-            </div>
+<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=19">                
+                <i class="fas fa-plus">
+                </i></a>
+            </div></label>
         </div>
         <div class="table"
         <?php 
-            $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
-            $conn->query("SET NAMES 'utf8'");
-            if($conn->connect_errno!=0){}else{
+            if($con){
                 $zap=date("Y-m-d H:i:s", mktime(20, 0, 0, $msc, $day, $ye));
                 $id=$_SESSION['id'];
                 $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
@@ -756,7 +734,7 @@ $ye = date('y', $dzien);
                             $ile = $osoba->num_rows;
                             if($ile>0){
                                 $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['name'];
+                                $imie = $osobarow['imie'];
                                 $nazwisko = $osobarow['surname'];
                                 $kat = $osobarow['kat'];
                             }
@@ -764,7 +742,6 @@ $ye = date('y', $dzien);
                         echo 'style= "background-color:red"';
                     }
                 }
-            $conn -> close();
             }
         ?>>
             <div class="hour">20:00</div>
@@ -778,15 +755,14 @@ $ye = date('y', $dzien);
                 }
             ?>
                 </div>
-            <div class="addRide">
-                <i class="fas fa-plus"></i>
-            </div>
+<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=20">                
+                <i class="fas fa-plus">
+                </i></a>
+            </div></label>
         </div>
         <div class="table"
         <?php 
-            $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
-            $conn->query("SET NAMES 'utf8'");
-            if($conn->connect_errno!=0){}else{
+            if($con){
                 $zap=date("Y-m-d H:i:s", mktime(21, 0, 0, $msc, $day, $ye));
                 $id=$_SESSION['id'];
                 $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
@@ -802,7 +778,7 @@ $ye = date('y', $dzien);
                             $ile = $osoba->num_rows;
                             if($ile>0){
                                 $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['name'];
+                                $imie = $osobarow['imie'];
                                 $nazwisko = $osobarow['surname'];
                                 $kat = $osobarow['kat'];
                             }
@@ -810,7 +786,6 @@ $ye = date('y', $dzien);
                         echo 'style= "background-color:red"';
                     }
                 }
-            $conn -> close();
             }
         ?>>
             <div class="hour">21:00</div>
@@ -824,15 +799,14 @@ $ye = date('y', $dzien);
                 }
             ?>
                 </div>
-            <div class="addRide">
-                <i class="fas fa-plus"></i>
-            </div>
+<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=21">                
+                <i class="fas fa-plus">
+                </i></a>
+            </div></label>
         </div>
         <div class="table"
         <?php 
-            $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
-            $conn->query("SET NAMES 'utf8'");
-            if($conn->connect_errno!=0){}else{
+            if($con){
                 $zap=date("Y-m-d H:i:s", mktime(22, 0, 0, $msc, $day, $ye));
                 $id=$_SESSION['id'];
                 $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
@@ -848,7 +822,7 @@ $ye = date('y', $dzien);
                             $ile = $osoba->num_rows;
                             if($ile>0){
                                 $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['name'];
+                                $imie = $osobarow['imie'];
                                 $nazwisko = $osobarow['surname'];
                                 $kat = $osobarow['kat'];
                             }
@@ -856,7 +830,6 @@ $ye = date('y', $dzien);
                         echo 'style= "background-color:red"';
                     }
                 }
-            $conn -> close();
             }
         ?>>
             <div class="hour">22:00</div>
@@ -870,9 +843,10 @@ $ye = date('y', $dzien);
                 }
             ?>
                 </div>
-            <div class="addRide">
-                <i class="fas fa-plus"></i>
-            </div>
+<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=22">                
+                <i class="fas fa-plus">
+                </i></a>
+            </div></label>
         </div>
     </div>
 
@@ -880,5 +854,7 @@ $ye = date('y', $dzien);
 
 </body>
 <script src="burger.js"></script>
-
+<?php
+$conn -> close();
+?>
 </html>
