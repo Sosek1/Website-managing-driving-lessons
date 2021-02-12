@@ -138,10 +138,10 @@ if($conn->connect_errno!=0){
             ?>
                 </div>
             
-            <label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
+            <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
                 <i class="fas fa-plus">
                 </i></a>
-            </div></label>
+            </label>
 
         </div>
         <div class="table"
@@ -183,10 +183,10 @@ if($conn->connect_errno!=0){
                 }
             ?>
                 </div>
-<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=7">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
                 <i class="fas fa-plus">
                 </i></a>
-            </div></label>
+            </label>
         </div>
         <div class="table"
         <?php 
@@ -227,10 +227,10 @@ if($conn->connect_errno!=0){
                 }
             ?>
                 </div>
-<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=8">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
                 <i class="fas fa-plus">
                 </i></a>
-            </div></label>
+            </label>
         </div>
         <div class="table"
         <?php 
@@ -271,10 +271,10 @@ if($conn->connect_errno!=0){
                 }
             ?>
                 </div>
-<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=9">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
                 <i class="fas fa-plus">
                 </i></a>
-            </div></label>
+            </label>
         </div>
         <div class="table"
         <?php 
@@ -315,10 +315,10 @@ if($conn->connect_errno!=0){
                 }
             ?>
                 </div>
-<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=10">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
                 <i class="fas fa-plus">
                 </i></a>
-            </div></label>
+            </label>
         </div>
         <div class="table"
         <?php 
@@ -359,10 +359,10 @@ if($conn->connect_errno!=0){
                 }
             ?>
                 </div>
-<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=11">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
                 <i class="fas fa-plus">
                 </i></a>
-            </div></label>
+            </label>
         </div>
         <div class="table"
         <?php 
@@ -403,10 +403,10 @@ if($conn->connect_errno!=0){
                 }
             ?>
                 </div>
-<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=12">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
                 <i class="fas fa-plus">
                 </i></a>
-            </div></label>
+            </label>
         </div>
         <div class="table"
         <?php 
@@ -447,10 +447,10 @@ if($conn->connect_errno!=0){
                 }
             ?>
                 </div>
-<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=13">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
                 <i class="fas fa-plus">
                 </i></a>
-            </div></label>
+            </label>
         </div>
         <div class="table"
         <?php 
@@ -491,10 +491,10 @@ if($conn->connect_errno!=0){
                 }
             ?>
                 </div>
-<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=14">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
                 <i class="fas fa-plus">
                 </i></a>
-            </div></label>
+            </label>
         </div>
         <div class="table"
         <?php 
@@ -535,10 +535,10 @@ if($conn->connect_errno!=0){
                 }
             ?>
                 </div>
-<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=15">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
                 <i class="fas fa-plus">
                 </i></a>
-            </div></label>
+            </label>
         </div>
         <div class="table"
         <?php 
@@ -579,10 +579,10 @@ if($conn->connect_errno!=0){
                 }
             ?>
                 </div>
-<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=16">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
                 <i class="fas fa-plus">
                 </i></a>
-            </div></label>
+            </label>
         </div>
         <div class="table"
         <?php 
@@ -623,10 +623,10 @@ if($conn->connect_errno!=0){
                 }
             ?>
                 </div>
-<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=17">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
                 <i class="fas fa-plus">
                 </i></a>
-            </div></label>
+            </label>
         </div>
         <div class="table"
         <?php 
@@ -667,10 +667,10 @@ if($conn->connect_errno!=0){
                 }
             ?>
                 </div>
-<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=18">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
                 <i class="fas fa-plus">
                 </i></a>
-            </div></label>
+            </label>
         </div>
         <div class="table"
         <?php 
@@ -711,10 +711,10 @@ if($conn->connect_errno!=0){
                 }
             ?>
                 </div>
-<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=19">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
                 <i class="fas fa-plus">
                 </i></a>
-            </div></label>
+            </label>
         </div>
         <div class="table"
         <?php 
@@ -755,10 +755,10 @@ if($conn->connect_errno!=0){
                 }
             ?>
                 </div>
-<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=20">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
                 <i class="fas fa-plus">
                 </i></a>
-            </div></label>
+            </label>
         </div>
         <div class="table"
         <?php 
@@ -799,10 +799,10 @@ if($conn->connect_errno!=0){
                 }
             ?>
                 </div>
-<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=21">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
                 <i class="fas fa-plus">
                 </i></a>
-            </div></label>
+            </label>
         </div>
         <div class="table"
         <?php 
@@ -843,10 +843,10 @@ if($conn->connect_errno!=0){
                 }
             ?>
                 </div>
-<label><div class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=22">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
                 <i class="fas fa-plus">
                 </i></a>
-            </div></label>
+            </label>
         </div>
     </div>
 
