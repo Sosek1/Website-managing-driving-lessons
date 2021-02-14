@@ -54,6 +54,10 @@ if(isset($_POST['addpojazd'])){
     $_SESSION['adpojazd'] = $_POST['addpojazd'];
     $pojazd = $_POST['addpojazd'];
 }
+if(isset($_POST['addplace'])){
+    $_SESSION['adplace'] = $_POST['addplace'];
+    $place = $_POST['addplace'];
+}
 if(isset($_POST['addinfo'])){
     $_SESSION['adinfo'] = $_POST['addinfo'];
     $info = $_POST['addinfo'];
@@ -183,7 +187,7 @@ if($czyinsert){
             while($i<$dlugosc){
                 $idinstruktora = $_SESSION['id'];
                 $dataa=date("Y-m-d H:i:s", mktime($godzina+$i, 0, 0, $msc, $day, $ye));
-                $zap = 'INSERT INTO jazdy VALUES(NULL, '.$idinstruktora.', '.$idd.', '.$pojazd.', \''.$dataa.'\', NULL, 2, "'.$info.'")';
+                $zap = 'INSERT INTO jazdy VALUES(NULL, '.$idinstruktora.', '.$idd.', '.$pojazd.', \''.$dataa.'\', NULL, '.$place.', "'.$info.'")';
                 if($conn->query($zap)){
                             
                 }else{
@@ -325,9 +329,11 @@ if($czyinsert){
                     ?>
                 </select>
             </div>
-            <button class="city" name="addcity">miasto</button>
-            <button class="place" name="addplac">plac</button>
-            <button class="cityPlace" name=addmspl>miasto/plac</button>
+            
+            <input type="radio" style="margin-right:5px; display:none" id="1" name="addplace"value="1" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'selected="checked"';}}?>><label for="1"><div class="city">Miasto</div></label>
+            <input type="radio" style="margin-right:5px; display:none" id="2" name="addplace"value="2" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==2){echo 'selected="checked"';}}?>><label for="2"><div class="place">Plac</div></label>
+            <input type="radio" style="margin-right:5px; display:none" id="3" name="addplace"value="3" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==3){echo 'selected="checked"';}}?>><label for="3"><div class="cityPlace">Miasto/Plac</div></label>
+            
             <textarea class="info" placeholder="Napisz coś..." name="addinfo"></textarea>
             <button type="submit" class="save">zapisz</button>
     </form>
