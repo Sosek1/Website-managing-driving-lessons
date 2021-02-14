@@ -18,7 +18,9 @@ if(isset($_GET['h'])){
 }else{
     $godzina=$_SESSION['h'];
 }
-
+if(isset($_GET['id'])){
+    $_SESSION['adid'] = $_GET['h'];
+}
 
 $day = date('d', $dzien);
 $msc = date('m', $dzien);
