@@ -1445,18 +1445,47 @@ nav .burger.open .bar3 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .searchFor input {
   border: none;
   height: 100%;
-  width: 100%;
+  width: 95%;
   font-size: 20px;
   color: #9b9696;
   padding: 5px;
+}
+
+.searchFor .loupe {
+  width: 5%;
+  height: 100%;
+  position: relative;
+}
+
+.searchFor .loupe input {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0;
+}
+
+.searchFor .loupe i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.searchFor .loupe input,
+.searchFor .loupe i:hover {
+  cursor: pointer;
 }
 
 .searchFor ::-webkit-input-placeholder {
