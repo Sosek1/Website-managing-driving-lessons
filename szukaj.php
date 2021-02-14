@@ -44,6 +44,7 @@ $zap = 'SELECT * FROM kursanci WHERE fullname LIKE \'%'.$zap.'%\'';
 
     <div class="searchFor">
         <input type="text" placeholder="Szukaj...">
+        <label class="loupe"><input type="sumbit" value=""><i class="fas fa-search"></i></label>
     </div>
 
     <?php
