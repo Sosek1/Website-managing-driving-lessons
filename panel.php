@@ -8,15 +8,19 @@ if(!isset($_SESSION['logIn'])){
 
 if(isset($_GET['d'])){
     $dzien=$_GET['d'];
+    $_SESSION['d'] = $dzien;
 }else{
-    $dzien=strtotime("now");
+    $dzien = $_SESSION['d'];
 }
 if(isset($_GET['h'])){
     $godzina=$_GET['h'];
+    $_SESSION['h'] = $godzina;
 }else{
     $godzina=$_SESSION['h'];
 }
-
+if(isset($_GET['id'])){
+    $_SESSION['adid'] = $_GET['h'];
+}
 
 $day = date('d', $dzien);
 $msc = date('m', $dzien);
@@ -91,7 +95,7 @@ if($czyinsert){
                     $katosoby = $osobarow['kat'];
                 }else{
                     if($podtel){
-                        $zap = 'INSERT INTO kursanci VALUES(NULL, \''.$name.'\', \''.$surname.'\', '.$nrtel.', \''.$kat.'\')';
+                        $zap = 'INSERT INTO kursanci VALUES(NULL, \''.$name.'\', \''.$surname.'\', \''.$name." ".$surname.'\', '.$nrtel.', \''.$kat.'\')';
                         if($conn->query($zap)){
                                     
                         }else{
