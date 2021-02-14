@@ -42,10 +42,10 @@ $zap = 'SELECT * FROM kursanci WHERE fullname LIKE \'%'.$zap.'%\'';
         </div>
     </nav>
 
-    <div class="searchFor">
+    <form class="searchFor">
         <input type="text" placeholder="Szukaj...">
         <label class="loupe"><input type="sumbit" value=""><i class="fas fa-search"></i></label>
-    </div>
+    </form>
 
     <?php
         $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
