@@ -169,11 +169,11 @@ if($conn->connect_errno!=0){}else{
             $id=$_SESSION['id'];$rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
             if(!$rezu){}else{$ile=$rezu->num_rows;if($ile>0){echo 'style= "background-color:red"';}}}?>></a>
 
-            <a class="record"><?php
+            <a class="record"<?php
             if($czybaza){
             $zap=date("Y-m-d H:i:s", mktime(6, 0, 0, date("m", $st), date("d", $st), date("y", $st)));
             $id=$_SESSION['id'];$rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
-            if(!$rezu){}else{$ile=$rezu->num_rows;if($ile>0){echo 'style= "background-color:red"';}}}?></a>
+            if(!$rezu){}else{$ile=$rezu->num_rows;if($ile>0){echo 'style= "background-color:red"';}}}?>></a>
 
             <a class="record"<?php if($czybaza){$zap=date("Y-m-d H:i:s", mktime(6, 0, 0, date("m", $sd), date("d", $sd), date("y", $sd)));
             $id=$_SESSION['id'];$rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
