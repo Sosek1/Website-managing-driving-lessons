@@ -56,10 +56,8 @@ $zap = 'SELECT * FROM kursanci WHERE fullname LIKE \'%'.$zap.'%\'';
             }else{
                 $ile=$rezu->num_rows;
                 if($ile>0){
-                    echo $ile;
                     $i = 1;
                     while($i <= $ile){
-                        echo $i;
                         $osobarow = $rezu->fetch_assoc();
                         echo '<div class="student"><i class="fas fa-user"></i><div class="name">'.$osobarow['fullname'].'</div>';
                         echo '<i class="fas fa-phone-alt"></i><div class="phone">'.$osobarow['nrtel'].'</div>';
