@@ -1,17 +1,30 @@
 <?php
-function czyjazda($dzien, $godzina){
-    require_once connect.php;
-    try{
-        $conn -> new mysqli($host, $db_user, $db_pass, $db_name);
-        if($conn->connect_errno!=0){
-            throw new Excepnion(mysqli_connect_errno());
-        }else{
-            $rezu=$conn->query("SELECT id, miejsce FROM jazdy WHERE data_jazdy ='$godzina' AND godzina_jazdy = '$godzina'");
-            echo '<script> alert("Hello\nHow are you?");</script>';
-        }
-    }catch(Excepnion $e){
-        echo '<span style= "color:red"> Błąd serwera!</span>';
+function writedzienzosoba($godzina, $imie, $nazwisko, $kat, $tel, $datee){
+    echo '<div class="table" style= "background-color:red"><div class="hour">'.$godzina.':00</div><div class="data">';
+    echo $imie." ".$nazwisko." Nr telefonu:".$tel."  Kategoria:";
+    if($kat==1){
+        echo "AM";
+    }else if($kat==2){
+        echo "A1";
+    }else if($kat==3){
+        echo "A2";
+    }else if($kat==4){
+        echo "A";
+    }else if($kat==6){
+        echo "B";
     }
 
+    
+ 
+    
+    if(false){
+        echo '</div><label class="addRide"><a href="panel.php?d='.$datee.'&h='.$godzina.'"> <i class="fas fa-plus"></i></a></label></div>';
+    }else{
+        echo '</div></div>';
+    }
+}
+function writedzien($godzina, $datee){
+    echo '<div class="table"><div class="hour">'.$godzina.':00</div><div class="data">';
+    echo '</div><label class="addRide"><a href="panel.php?d='.$datee.'&h='.$godzina.'"> <i class="fas fa-plus"></i></a></label></div>';
 }
 ?>
