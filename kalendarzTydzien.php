@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once "connect.php";
+require "functions.php";
 if(!isset($_SESSION['logIn'])){
     header('Location: index.php');
     exit();
@@ -55,9 +56,9 @@ if(isset($_SESSION['moveweek'])){
    }
 }
 
-$conn = @new mysqli($host, $db_user, $db_pass, $db_name);
-if($conn->connect_errno!=0){}else{
-    $czybaza = true;
+$conn = new mysqli($host, $db_user, $db_pass, $db_name);
+if($conn->connect_errno!=0){echo $conn->connect_error;}else{
+    $con = true;
 }
 ?>
 <!DOCTYPE html>
@@ -132,7 +133,217 @@ if($conn->connect_errno!=0){}else{
             <div class="record">
                 <a class="day" href="kalendarzDzien.php?date=<?php echo $sd;?>">Nd</a>
             </div>
-            <div class="record">
+            <?php
+                if($con){
+                    $czypoprawnie = true;
+                    $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $mon), date("d", $mon), date("y", $mon))).'" and data_jazdy < "'.date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $mon), date("d", $mon), date("y", $mon))).'" and id_instruktora='.$id.'';
+                    $poniedzialek=$conn->query($zap);
+                    if(!$poniedzialek){
+                    }else{
+                        $czypoprawnie=false;
+                    }
+                    $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $tue), date("d", $tue), date("y", $tue))).'" and data_jazdy < "'.date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $tue), date("d", $tue), date("y", $tue))).'" and id_instruktora='.$id.'';
+                    $wtorek=$conn->query($zap);
+                    if(!$wtorek){
+                    }else{
+                        $czypoprawnie=false;
+                    }
+                    $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $wen), date("d", $wen), date("y", $wen))).'" and data_jazdy < "'.date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $wen), date("d", $wen), date("y", $wen))).'" and id_instruktora='.$id.'';
+                    $sroda=$conn->query($zap);
+                    if(!$sroda){
+                    }else{
+                        $czypoprawnie=false;
+                    }
+                    $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $th), date("d", $th), date("y", $th))).'" and data_jazdy < "'.date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $th), date("d", $th), date("y", $th))).'" and id_instruktora='.$id.'';
+                    $czwartek=$conn->query($zap);
+                    if(!$czwartek){
+                    }else{
+                        $czypoprawnie=false;
+                    }
+                    $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $fr), date("d", $fr), date("y", $fr))).'" and data_jazdy < "'.date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $fr), date("d", $fr), date("y", $fr))).'" and id_instruktora='.$id.'';
+                    $piatek=$conn->query($zap);
+                    if(!$piatek){
+                    }else{
+                        $czypoprawnie=false;
+                    }
+                    $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $st), date("d", $st), date("y", $st))).'" and data_jazdy < "'.date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $st), date("d", $st), date("y", $st))).'" and id_instruktora='.$id.'';
+                    $sobota=$conn->query($zap);
+                    if(!$sobota){
+                    }else{
+                        $czypoprawnie=false;
+                    }
+                    $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $sd), date("d", $sd), date("y", $sd))).'" and data_jazdy < "'.date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $sd), date("d", $sd), date("y", $sd))).'" and id_instruktora='.$id.'';
+                    $niedziela=$conn->query($zap);
+                    if(!$niedziela){
+                    }else{
+                        $czypoprawnie=false;
+                    }
+                    $i=5;
+                    while($i<21 && $czypoprawnie){
+                        $i++;
+                        writegodzina($i);
+                        $ilepon = $poniedzialek->num_rows;
+                        if($ilepon>0){
+                                $ponrow = $poniedzialek->fetch_assoc();                            
+                                $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $mon), date("d", $mon), date("y", $mon)));
+                                if($ponrow['data_jazdy'] == $godz){
+                                    $place = $ponrow['miejsce'];
+                                    if($place==1){
+                                        //$ponrow = $poniedzialek->fetch_assoc();
+                                        //if($ponrow['data_jazdy'] == $godz){
+                                            writetydzienznaleziono();
+                                       // }else{
+                                        //    writetydzienznalezionodublet();
+                                       // }
+                                    }else{
+                                        echo "okk";
+                                        writetydzienznaleziono();
+                                    }
+                                }else{
+                                    echo "ok";
+                                    writetydzien();
+                                }
+                        }else{
+                            writetydzien();
+                        }
+                        $ilewto = $wtorek->num_rows;
+                        if($ilewto>0){
+                                $wtorow = $wtorek->fetch_assoc();                            
+                                $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $tue), date("d", $tue), date("y", $tue)));
+                                if($wtorow['data_jazdy'] == $godz){
+                                    $place = $wtorow['miejsce'];
+                                    if($place==1){
+                                        $wtorow = $wtorek->fetch_assoc();
+                                        if($wtorow['data_jazdy'] == $godz){
+                                            writetydzienznaleziono();
+                                        }else{
+                                            writetydzienznalezionodublet();
+                                        }
+                                    }else{
+                                        writetydzienznaleziono();
+                                    }
+                                }else{
+                                    writetydzien();
+                                }
+                        }else{
+                            writetydzien();
+                        }
+                        $ilesro = $sroda->num_rows;
+                        if($ilesro>0){
+                                $srorow = $sroda->fetch_assoc();                            
+                                $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $wen), date("d", $wen), date("y", $wen)));
+                                if($srorow['data_jazdy'] == $godz){
+                                    $place = $srorow['miejsce'];
+                                    if($place==1){
+                                        $srorow = $sroda->fetch_assoc();
+                                        if($srorow['data_jazdy'] == $godz){
+                                            writetydzienznaleziono();
+                                        }else{
+                                            writetydzienznalezionodublet();
+                                        }
+                                    }else{
+                                        writetydzienznaleziono();
+                                    }
+                                }else{
+                                    writetydzien();
+                                }
+                        }else{
+                            writetydzien();
+                        }
+                        $ileczw = $czwartek->num_rows;
+                        if($ileczw>0){
+                                $czwrow = $czwartek->fetch_assoc();                            
+                                $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $th), date("d", $th), date("y", $th)));
+                                if($czwrow['data_jazdy'] == $godz){
+                                    $place = $czwrow['miejsce'];
+                                    if($place==1){
+                                        $czwrow = $czwartek->fetch_assoc();
+                                        if($czwrow['data_jazdy'] == $godz){
+                                            writetydzienznaleziono();
+                                        }else{
+                                            writetydzienznalezionodublet();
+                                        }
+                                    }else{
+                                        writetydzienznaleziono();
+                                    }
+                                }else{
+                                    writetydzien();
+                                }
+                        }else{
+                            writetydzien();
+                        }
+                        $ilepia = $piatek->num_rows;
+                        if($ilepia>0){
+                                $piarow = $piatek->fetch_assoc();                            
+                                $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $fr), date("d", $fr), date("y", $fr)));
+                                if($piarow['data_jazdy'] == $godz){
+                                    $place = $piarow['miejsce'];
+                                    if($place==1){
+                                        $piarow = $piatek->fetch_assoc();
+                                        if($piarow['data_jazdy'] == $godz){
+                                            writetydzienznaleziono();
+                                        }else{
+                                            writetydzienznalezionodublet();
+                                        }
+                                    }else{
+                                        writetydzienznaleziono();
+                                    }
+                                }else{
+                                    writetydzien();
+                                }
+                        }else{
+                            writetydzien();
+                        }
+                        $ilesob = $sobota->num_rows;
+                        if($ilesob>0){
+                                $sobrow = $sobota->fetch_assoc();                            
+                                $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $st), date("d", $st), date("y", $st)));
+                                if($sobrow['data_jazdy'] == $godz){
+                                    $place = $sobrow['miejsce'];
+                                    if($place==1){
+                                        $sobrow = $sobota->fetch_assoc();
+                                        if($sobrow['data_jazdy'] == $godz){
+                                            writetydzienznaleziono();
+                                        }else{
+                                            writetydzienznalezionodublet();
+                                        }
+                                    }else{
+                                        writetydzienznaleziono();
+                                    }
+                                }else{
+                                    writetydzien();
+                                }
+                        }else{
+                            writetydzien();
+                        }
+                        $ileniedz = $niedziela->num_rows;
+                        if($ileniedz>0){
+                                $niedzrow = $niedziela->fetch_assoc();                            
+                                $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $sd), date("d", $sd), date("y", $sd)));
+                                if($niedzrow['data_jazdy'] == $godz){
+                                    $place = $niedzrow['miejsce'];
+                                    if($place==1){
+                                        $niedzrow = $niedziela->fetch_assoc();
+                                        if($niedzrow['data_jazdy'] == $godz){
+                                            writetydzienznaleziono();
+                                        }else{
+                                            writetydzienznalezionodublet();
+                                        }
+                                    }else{
+                                        writetydzienznaleziono();
+                                    }
+                                }else{
+                                    writetydzien();
+                                }
+                        }else{
+                            writetydzien();
+                        }
+                    }
+                }
+
+
+            ?>
+            <?php /*<div class="record">
                 <p>6:00</p>
             </div>
 
@@ -1124,7 +1335,7 @@ if($conn->connect_errno!=0){}else{
             <div class="dublet"></div>
             <div class="dublet"></div>    
         </a>
-            
+            */?>
             </div>
     </div>
 
