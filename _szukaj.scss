@@ -16,36 +16,6 @@
         padding: 5px;
     }
 
-    .loupe {
-        width: 5%;
-        height: 100%;
-        position: relative;
-
-        input {
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            padding: 0;
-        }
-
-        i {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        input,
-        i:hover {
-            cursor: pointer;
-        }
-    }
-
-
-
     ::placeholder {
         font-size: 20px;
         color: $third-color;
