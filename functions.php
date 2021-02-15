@@ -27,10 +27,10 @@ function writetydzien(){
     echo '<a class="record"><div class="dublet"></div><div class="dublet"></div></a>';
 }
 function writetydzienznaleziono(){
-    echo '<a class="record"><div class="dublet"style= "background-color:red"></div><div class="dublet"style= "background-color:red"></div></a>';
+    echo '<a class="record"style= "background-color:red"><div class="dublet"></div><div class="dublet"></div></a>';
 }
 function writetydzienznalezionodublet(){
-    echo '<a class="record"><div class="dublet"style= "background-color:red"></div><div class="dublet"style= "background-color:green"></div></a>';
+    echo '<a class="record"><div class="dublet"style= "background-color:red"></div><div class="dublet" style= "background-color:green"></div></a>';
 }
 function writegodzina($godzina){
     echo '<a class="record"><p>'.$godzina.':00</p></a>';
