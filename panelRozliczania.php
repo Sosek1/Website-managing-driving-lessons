@@ -121,7 +121,9 @@ if($con){
                     }
                 }
             }
-        }        
+        }
+        header('Location: rozliczDzien.php');
+        exit();
     }    
 }
 

@@ -6,9 +6,15 @@ if(!isset($_SESSION['logIn'])){
     header('Location: index.php');
     exit();
 }
+if(isset($_SESSION['lastrozdzien'])){
+    $dzien = $_SESSION['lastrozdzien'];
+}else{
+    $dzien=strtotime("now");
+}
 
 if(isset($_GET['date'])==true){
     $dzien = $_GET['date'];
+    $_SESSION['lastrozdzien'] = $dzien;
 }else{
     if($_SESSION['comove']==false){
         unset($_SESSION['move']);
@@ -25,7 +31,6 @@ if(isset($_GET['date'])==true){
 
         }
     }
-    $dzien=strtotime("now");
     if(isset($_SESSION['moveweek'])){
         $moved = 0;
         if($_SESSION['moveweek']>0){
@@ -83,7 +88,26 @@ if($conn->connect_errno!=0){
     </nav>
 
     <h1 class="name">Rozlicz dzień</h1>
+    <?php
+    if($con){
+        $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$dzien.'" and id_instruktora='.$id.'';
+        echo $zap;
+        $rezu=$conn->query($zap);
+        if(!$rezu){
+        }else{
+            $ile = $rezu->num_rows;
+            if($ile==0){
+                $czywszystkorozliczone = true;
+            }else{
+                $czywszystkorozliczone = false;
+                echo '<h1 class="name">Rozliczono</h1>';
+            }   
 
+        }
+    }
+
+
+    ?>
     <div class="arrowBox">
         <div class="prev">
             <a href="rozliczDzien.php?move=0"><i class="fas fa-arrow-left"></i></a>
@@ -101,6 +125,7 @@ if($conn->connect_errno!=0){
             $kat;
             if($con){
                 $i = 5;
+                $czywszystkorozliczone=true;
                 while($i<21){
                     $i++;
                     $dzp=date("Y-m-d H:i:s", mktime($i, 0, 0, $msc, $day, $ye));
@@ -134,6 +159,7 @@ if($conn->connect_errno!=0){
                                             writerozlicz($i, $idj, $imie, $nazwisko, $kat, $tel, $dza, true);
                                         }else{
                                             writerozlicz($i, $idj, $imie, $nazwisko, $kat, $tel, $dza, false);
+                                            $czywszystkorozliczone=false;
                                         }
                                     }
                                 }else{
@@ -146,7 +172,7 @@ if($conn->connect_errno!=0){
         ?>
     </div>
 
-    <div class="settle">Rozlicz</div>
+    <div class="settle"><a <?php if($czywszystkorozliczone){ echo 'href=rozlicz.php?data='.$dzien;}?>>Rozlicz</a></div>
 
 </body>
 <script src="burger.js"></script>
