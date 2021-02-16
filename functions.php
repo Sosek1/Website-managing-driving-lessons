@@ -42,9 +42,9 @@ function writegodzina($godzina){
 function writerozlicz($godzina, $id, $imie, $nazwisko, $kat, $tel, $datee, $rozliczono){
     echo '<div class="table" style= "';
     if($rozliczono){
-        echo 'background-color:red';
-    }else{
         echo 'background-color:green';
+    }else{
+        echo 'background-color:red';
     }
     echo '"><div class="hour">'.$godzina.':00</div><div class="data">';
     echo $imie." ".$nazwisko." Nr telefonu:".$tel."  Kategoria:";
@@ -59,7 +59,11 @@ function writerozlicz($godzina, $id, $imie, $nazwisko, $kat, $tel, $datee, $rozl
     }else if($kat==6){
         echo "B";
     }
-
-    echo '</div><label class="addRide"><a href="panelRozliczania.php?id='.$id.'">Rozlicz</a></label></div>';
+    if($rozliczono){
+        echo '</div></div>';
+    }else{
+        echo '</div><label class="addRide"><a href="panelRozliczania.php?id='.$id.'">Rozlicz</a></label></div>';
+    }
+    
 }
 ?>

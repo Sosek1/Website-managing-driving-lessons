@@ -14,10 +14,41 @@ $idu=$_SESSION['id'];
 $imie;
 $nazwisko;
 
+$czydane=true;
+if(isset($_POST['tankowanie'])){
+    $tank = $_POST['tankowanie'];
+}else{
+    $czydane=false;
+}
+if(isset($_POST['zrealizowano'])){
+    $zrea = $_POST['zrealizowano'];
+}else{
+    $czydane=false;
+}
+if(isset($_POST['rodzaj'])){
+    $rodz = $_POST['rodzaj'];
+}else{
+    $czydane=false;
+}
+if(isset($_POST['wplata'])){
+    $wplata = $_POST['wplata'];
+}else{
+    $czydane=false;
+}
+if(isset($_POST['wydatki'])){
+    $wydatki = $_POST['wydatki'];
+}else{
+    $czydane=false;
+}
 $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
 $conn->query("SET NAMES 'utf8'");
 if($conn->connect_errno!=0){
+    $con=false;
 }else{
+    $con=true;
+}
+
+if($con){
     $id=$_SESSION['id'];
     $zap = 'SELECT * FROM jazdy WHERE id="'.$idj.'" and id_instruktora='.$idu.'';
     $rezu=$conn->query($zap);
@@ -41,6 +72,57 @@ if($conn->connect_errno!=0){
             }
         }
     }
+    if($czydane){
+        if($conn->connect_errno!=0){
+            header('Location: rozliczDzien.php');
+            exit();
+        }else{
+            $zap = 'INSERT INTO rozliczeniaJazd VALUES(NULL, \''.$idu.'\', \''.$idj.'\', \''.$tank.'\', '.$zrea.', NULL)';
+            if($conn->query($zap)){}
+            if($tank==2){
+                $zap = 'SELECT * FROM jazdy WHERE id="'.$idj.'';
+                $rezu=$conn->query($zap);
+                if(!$rezu){
+                }else{
+                    $ile = $rezu->num_rows;
+                    if($ile>0){
+                        $row = $rezu->fetch_assoc();
+                        $idpoj = $row['id_pojazdu'];
+                        $datatank = $row['data_jazdy'];
+                        $zap = 'INSERT INTO tankowanie VALUES(NULL, \''.$idpoj.'\', \''.$idu.'\', \''.$idj.'\', '.$datatank.')';
+                        if($conn->query($zap)){                   
+                        }else{
+                        } 
+                    }
+                }      
+            }
+            if($wplata!=0){
+                $zap = 'INSERT INTO wplaty VALUES(NULL, '.$idu.', '.$ido.', '.$wplata.', NULL)';
+                echo $zap;
+                if($conn->query($zap)){                   
+                }else{
+                }
+            }
+            if($wydatki>0){
+                $zap = 'SELECT * FROM rozliczeniaJazd WHERE id_uzytkownika="'.$idu.'" and id_jazdy='.$idj.'';
+                echo $zap;
+                $rezu=$conn->query($zap);
+                if(!$rezu){
+                }else{
+                    $ile = $rezu->num_rows;
+                    if($ile>0){
+                        $row = $rezu->fetch_assoc();
+                        $idroz = $row['id'];
+                        $zap = 'INSERT INTO wydatki VALUES(NULL, \''.$idu.'\', \''.$idroz.'\', \''.$rodz.'\', \''.$wydatki.'\', NULL)';
+                        echo $zap;
+                        if($conn->query($zap)){                   
+                        }else{
+                        } 
+                    }
+                }
+            }
+        }        
+    }    
 }
 
 
@@ -119,7 +201,7 @@ if($conn->connect_errno!=0){
             <input type="text" placeholder="Wydatek..." class="expenses"name="wydatki" >
             <button type="submit" class="settleRide">
                 <p>Rozlicz jazdę</p>
-            </button type="submit">
+            </button>
     </form>
     <script src="burger.js"></script>
     <script src="colorChange2.js"></script>

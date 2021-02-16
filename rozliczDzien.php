@@ -71,9 +71,9 @@ if($conn->connect_errno!=0){
         <div class="logo"></div>
         <ul class="list">
             <li><a href="kalendarzTydzien.php">Kalendarz</a></li>
-            <li><a href="panel.html">Panel jazd</a></li>
-            <li><a href="panelRozliczania.html">Rozliczenie jazdy</a></li>
-            <li><a href="#">Szukaj</a></li>
+            <li><a href="panel.php">Panel jazd</a></li>
+            <li><a href="rozliczDzien.php">Rozliczenie jazdy</a></li>
+            <li><a href="szukaj.php">Szukaj</a></li>
         </ul>
         <div class="burger">
             <div class="bar1"></div>
@@ -118,7 +118,6 @@ if($conn->connect_errno!=0){
                             $idj = $row['id'];
                             $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
                             if(!$osoba){
-                                writerozliczdz($i);
                             }else{
                                 $ileo = $osoba->num_rows;
                                 if($ileo>0){
@@ -127,9 +126,8 @@ if($conn->connect_errno!=0){
                                     $nazwisko = $osobarow['surname'];
                                     $kat = $osobarow['kat'];
                                     $tel = $osobarow['nrtel'];
-                                    $jazdy=$conn->query("SELECT * FROM rozliczeniaJazd WHERE id='$idj'");
+                                    $jazdy=$conn->query("SELECT * FROM rozliczeniaJazd WHERE id_jazdy='$idj'");
                                     if(!$jazdy){
-                                        writerozliczdz($i);
                                     }else{
                                         $ile = $jazdy->num_rows;
                                         if($ile>0){
@@ -139,7 +137,6 @@ if($conn->connect_errno!=0){
                                         }
                                     }
                                 }else{
-                                    writerozliczdz($i);
                                 }
                             }
                         }
