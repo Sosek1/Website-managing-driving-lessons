@@ -44,6 +44,7 @@ if(isset($_GET['date'])==true){
 $day = date('d', $dzien);
 $msc = date('m', $dzien);
 $ye = date('y', $dzien);
+
 $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
 $conn->query("SET NAMES 'utf8'");
 if($conn->connect_errno!=0){
@@ -81,16 +82,15 @@ if($conn->connect_errno!=0){
         </div>
     </nav>
 
-    <h1 class="name">Cześć, <?php echo $_SESSION['user_name'];?></h1>
-    <a href="kalendarzTydzien.php"><button class="dayWeek">Tydzień</button></a>
+    <h1 class="name">Rozlicz dzień</h1>
 
     <div class="arrowBox">
         <div class="prev">
-            <a href="kalendarzDzien.php?move=0"><i class="fas fa-arrow-left"></i></a>
+            <a href="rozliczDzien.php?move=0"><i class="fas fa-arrow-left"></i></a>
         </div>
-        <a class="date3" href="kalendarzDzien.php?move=1"><?php echo date("d.M", $dzien);?></a>
+        <a class="date3" href="rozliczDzien.php?move=1"><?php echo date("d.M", $dzien);?></a>
         <div class="next">
-            <a href="kalendarzDzien.php?move=2"><i class="fas fa-arrow-right"></i></a>
+            <a href="rozliczDzien.php?move=2"><i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
 
@@ -111,42 +111,41 @@ if($conn->connect_errno!=0){
                     }else{
                         $ile = $rezu->num_rows;
                         $d=0;
-                        while($ile>$d){  
+                        while($ile>$d){
+                            $d++;
+                            $row = $rezu->fetch_assoc();
                             $idosoba = $row['id_kursanta'];
+                            $idj = $row['id'];
                             $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
                             if(!$osoba){
-                                }else{
-                                    $ile = $osoba->num_rows;
-                                    if($ile>0){
-                                        $osobarow = $osoba->fetch_assoc();
-                                        $imie = $osobarow['imie'];
-                                        $nazwisko = $osobarow['surname'];
-                                            $kat = $osobarow['kat'];
-                                            $tel = $osobarow['nrtel'];
-                                            writedzienzosoba($i, $imie, $nazwisko, $kat, $tel, $dza);
+                                writerozliczdz($i);
+                            }else{
+                                $ileo = $osoba->num_rows;
+                                if($ileo>0){
+                                    $osobarow = $osoba->fetch_assoc();
+                                    $imie = $osobarow['imie'];
+                                    $nazwisko = $osobarow['surname'];
+                                    $kat = $osobarow['kat'];
+                                    $tel = $osobarow['nrtel'];
+                                    $jazdy=$conn->query("SELECT * FROM rozliczeniaJazd WHERE id='$idj'");
+                                    if(!$jazdy){
+                                        writerozliczdz($i);
+                                    }else{
+                                        $ile = $jazdy->num_rows;
+                                        if($ile>0){
+                                            writerozlicz($i, $idj, $imie, $nazwisko, $kat, $tel, $dza, true);
+                                        }else{
+                                            writerozlicz($i, $idj, $imie, $nazwisko, $kat, $tel, $dza, false);
                                         }
-                                        $row = $rezu->fetch_assoc();
                                     }
                                 }else{
-                                    writedzien($i, $dza);
+                                    writerozliczdz($i);
                                 }
-                                $i++;
-                            }
-                        }else{
-                            $i = 6;
-                            while($i<22){
-                                writedzien($i, $dza);
-                                $i++;
                             }
                         }
                     }
                 }
-                
             }
-
-
-
-            
         ?>
     </div>
 
