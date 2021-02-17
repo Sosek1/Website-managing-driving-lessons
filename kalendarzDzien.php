@@ -40,6 +40,12 @@ if(isset($_GET['date'])==true){
         }
     }
 }
+
+
+    $czyjest = true;
+
+
+
 $day = date('d', $dzien);
 $msc = date('m', $dzien);
 $ye = date('y', $dzien);
@@ -110,6 +116,7 @@ if($conn->connect_errno!=0){
                     if($ile>0){
                         $row = $rezu->fetch_assoc();
                         $idosoba = $row['id_kursanta'];
+                        $id_jazdy = $row['id'];
                         $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
                         if(!$osoba){
                         }else{
@@ -134,20 +141,19 @@ if($conn->connect_errno!=0){
                     unset($imie);
                     unset($nazwisko);
                     unset($kat);
-                }
+                    $jest = true;                }
             ?>
                 </div>
             
             <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
                 <i class="fas fa-plus">
                 </i></a>
-            </label>
-            <label class="edit"><a href="#">
-            <i class="fas fa-edit"></i>
-            </a></label>
-            <label class="delete"><a href="#">
-            <i class="fas fa-trash-alt"></i>
-            </a></label>
+            <?php 
+            if($jest && $czyjest){
+                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+$jest = false;            }
+            ?>
         </div>
         <div class="table"
         <?php 
@@ -161,6 +167,7 @@ if($conn->connect_errno!=0){
                     if($ile>0){
                         $row = $rezu->fetch_assoc();
                         $idosoba = $row['id_kursanta'];
+                        $id_jazdy = $row['id'];
                         $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
                         if(!$osoba){
                         }else{
@@ -185,19 +192,18 @@ if($conn->connect_errno!=0){
                     unset($imie);
                     unset($nazwisko);
                     unset($kat);
-                }
+                    $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=7">                
                 <i class="fas fa-plus">
                 </i></a>
-            </label>
-            <label class="edit"><a href="#">
-            <i class="fas fa-edit"></i>
-            </a></label>
-            <label class="delete"><a href="#">
-            <i class="fas fa-trash-alt"></i>
-            </a></label>
+            <?php 
+            if($jest && $czyjest){
+                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+$jest = false;            }
+            ?>
         </div>
         <div class="table"
         <?php 
@@ -211,6 +217,7 @@ if($conn->connect_errno!=0){
                     if($ile>0){
                         $row = $rezu->fetch_assoc();
                         $idosoba = $row['id_kursanta'];
+                        $id_jazdy = $row['id'];
                         $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
                         if(!$osoba){
                         }else{
@@ -235,19 +242,18 @@ if($conn->connect_errno!=0){
                     unset($imie);
                     unset($nazwisko);
                     unset($kat);
-                }
+                    $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=8">                
                 <i class="fas fa-plus">
                 </i></a>
-            </label>
-            <label class="edit"><a href="#">
-            <i class="fas fa-edit"></i>
-            </a></label>
-            <label class="delete"><a href="#">
-            <i class="fas fa-trash-alt"></i>
-            </a></label>
+            <?php 
+            if($jest && $czyjest){
+                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+$jest = false;            }
+            ?>
         </div>
         <div class="table"
         <?php 
@@ -261,6 +267,7 @@ if($conn->connect_errno!=0){
                     if($ile>0){
                         $row = $rezu->fetch_assoc();
                         $idosoba = $row['id_kursanta'];
+                        $id_jazdy = $row['id'];
                         $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
                         if(!$osoba){
                         }else{
@@ -285,19 +292,18 @@ if($conn->connect_errno!=0){
                     unset($imie);
                     unset($nazwisko);
                     unset($kat);
-                }
+                    $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=9">                
                 <i class="fas fa-plus">
                 </i></a>
-            </label>
-            <label class="edit"><a href="#">
-            <i class="fas fa-edit"></i>
-            </a></label>
-            <label class="delete"><a href="#">
-            <i class="fas fa-trash-alt"></i>
-            </a></label>
+            <?php 
+            if($jest && $czyjest){
+                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+$jest = false;            }
+            ?>
         </div>
         <div class="table"
         <?php 
@@ -311,6 +317,7 @@ if($conn->connect_errno!=0){
                     if($ile>0){
                         $row = $rezu->fetch_assoc();
                         $idosoba = $row['id_kursanta'];
+                        $id_jazdy = $row['id'];
                         $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
                         if(!$osoba){
                         }else{
@@ -335,19 +342,18 @@ if($conn->connect_errno!=0){
                     unset($imie);
                     unset($nazwisko);
                     unset($kat);
-                }
+                    $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=10">                
                 <i class="fas fa-plus">
                 </i></a>
-            </label>
-            <label class="edit"><a href="#">
-            <i class="fas fa-edit"></i>
-            </a></label>
-            <label class="delete"><a href="#">
-            <i class="fas fa-trash-alt"></i>
-            </a></label>
+            <?php 
+            if($jest && $czyjest){
+                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+$jest = false;            }
+            ?>
         </div>
         <div class="table"
         <?php 
@@ -361,6 +367,7 @@ if($conn->connect_errno!=0){
                     if($ile>0){
                         $row = $rezu->fetch_assoc();
                         $idosoba = $row['id_kursanta'];
+                        $id_jazdy = $row['id'];
                         $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
                         if(!$osoba){
                         }else{
@@ -385,19 +392,18 @@ if($conn->connect_errno!=0){
                     unset($imie);
                     unset($nazwisko);
                     unset($kat);
-                }
+                    $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=11">                
                 <i class="fas fa-plus">
                 </i></a>
-            </label>
-            <label class="edit"><a href="#">
-            <i class="fas fa-edit"></i>
-            </a></label>
-            <label class="delete"><a href="#">
-            <i class="fas fa-trash-alt"></i>
-            </a></label>
+            <?php 
+            if($jest && $czyjest){
+                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+$jest = false;            }
+            ?>
         </div>
         <div class="table"
         <?php 
@@ -411,6 +417,7 @@ if($conn->connect_errno!=0){
                     if($ile>0){
                         $row = $rezu->fetch_assoc();
                         $idosoba = $row['id_kursanta'];
+                        $id_jazdy = $row['id'];
                         $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
                         if(!$osoba){
                         }else{
@@ -435,19 +442,18 @@ if($conn->connect_errno!=0){
                     unset($imie);
                     unset($nazwisko);
                     unset($kat);
-                }
+                    $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=12">                
                 <i class="fas fa-plus">
                 </i></a>
-            </label>
-            <label class="edit"><a href="#">
-            <i class="fas fa-edit"></i>
-            </a></label>
-            <label class="delete"><a href="#">
-            <i class="fas fa-trash-alt"></i>
-            </a></label>
+            <?php 
+            if($jest && $czyjest){
+                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+$jest = false;            }
+            ?>
         </div>
         <div class="table"
         <?php 
@@ -461,6 +467,7 @@ if($conn->connect_errno!=0){
                     if($ile>0){
                         $row = $rezu->fetch_assoc();
                         $idosoba = $row['id_kursanta'];
+                        $id_jazdy = $row['id'];
                         $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
                         if(!$osoba){
                         }else{
@@ -485,19 +492,18 @@ if($conn->connect_errno!=0){
                     unset($imie);
                     unset($nazwisko);
                     unset($kat);
-                }
+                    $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=13">                
                 <i class="fas fa-plus">
                 </i></a>
-            </label>
-            <label class="edit"><a href="#">
-            <i class="fas fa-edit"></i>
-            </a></label>
-            <label class="delete"><a href="#">
-            <i class="fas fa-trash-alt"></i>
-            </a></label>
+            <?php 
+            if($jest && $czyjest){
+                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+$jest = false;            }
+            ?>
         </div>
         <div class="table"
         <?php 
@@ -511,6 +517,7 @@ if($conn->connect_errno!=0){
                     if($ile>0){
                         $row = $rezu->fetch_assoc();
                         $idosoba = $row['id_kursanta'];
+                        $id_jazdy = $row['id'];
                         $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
                         if(!$osoba){
                         }else{
@@ -535,19 +542,18 @@ if($conn->connect_errno!=0){
                     unset($imie);
                     unset($nazwisko);
                     unset($kat);
-                }
+                    $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=14">                
                 <i class="fas fa-plus">
                 </i></a>
-            </label>
-            <label class="edit"><a href="#">
-            <i class="fas fa-edit"></i>
-            </a></label>
-            <label class="delete"><a href="#">
-            <i class="fas fa-trash-alt"></i>
-            </a></label>
+            <?php 
+            if($jest && $czyjest){
+                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+$jest = false;            }
+            ?>
         </div>
         <div class="table"
         <?php 
@@ -561,6 +567,7 @@ if($conn->connect_errno!=0){
                     if($ile>0){
                         $row = $rezu->fetch_assoc();
                         $idosoba = $row['id_kursanta'];
+                        $id_jazdy = $row['id'];
                         $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
                         if(!$osoba){
                         }else{
@@ -585,19 +592,18 @@ if($conn->connect_errno!=0){
                     unset($imie);
                     unset($nazwisko);
                     unset($kat);
-                }
+                    $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=15">                
                 <i class="fas fa-plus">
                 </i></a>
-            </label>
-            <label class="edit"><a href="#">
-            <i class="fas fa-edit"></i>
-            </a></label>
-            <label class="delete"><a href="#">
-            <i class="fas fa-trash-alt"></i>
-            </a></label>
+            <?php 
+            if($jest && $czyjest){
+                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+$jest = false;            }
+            ?>
         </div>
         <div class="table"
         <?php 
@@ -611,6 +617,7 @@ if($conn->connect_errno!=0){
                     if($ile>0){
                         $row = $rezu->fetch_assoc();
                         $idosoba = $row['id_kursanta'];
+                        $id_jazdy = $row['id'];
                         $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
                         if(!$osoba){
                         }else{
@@ -635,19 +642,18 @@ if($conn->connect_errno!=0){
                     unset($imie);
                     unset($nazwisko);
                     unset($kat);
-                }
+                    $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=16">                
                 <i class="fas fa-plus">
                 </i></a>
-            </label>
-            <label class="edit"><a href="#">
-            <i class="fas fa-edit"></i>
-            </a></label>
-            <label class="delete"><a href="#">
-            <i class="fas fa-trash-alt"></i>
-            </a></label>
+            <?php 
+            if($jest && $czyjest){
+                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+$jest = false;            }
+            ?>
         </div>
         <div class="table"
         <?php 
@@ -661,6 +667,7 @@ if($conn->connect_errno!=0){
                     if($ile>0){
                         $row = $rezu->fetch_assoc();
                         $idosoba = $row['id_kursanta'];
+                        $id_jazdy = $row['id'];
                         $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
                         if(!$osoba){
                         }else{
@@ -685,19 +692,18 @@ if($conn->connect_errno!=0){
                     unset($imie);
                     unset($nazwisko);
                     unset($kat);
-                }
+                    $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=17">                
                 <i class="fas fa-plus">
                 </i></a>
-            </label>
-            <label class="edit"><a href="#">
-            <i class="fas fa-edit"></i>
-            </a></label>
-            <label class="delete"><a href="#">
-            <i class="fas fa-trash-alt"></i>
-            </a></label>
+            <?php 
+            if($jest && $czyjest){
+                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+$jest = false;            }
+            ?>
         </div>
         <div class="table"
         <?php 
@@ -711,6 +717,7 @@ if($conn->connect_errno!=0){
                     if($ile>0){
                         $row = $rezu->fetch_assoc();
                         $idosoba = $row['id_kursanta'];
+                        $id_jazdy = $row['id'];
                         $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
                         if(!$osoba){
                         }else{
@@ -735,19 +742,18 @@ if($conn->connect_errno!=0){
                     unset($imie);
                     unset($nazwisko);
                     unset($kat);
-                }
+                    $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=18">                
                 <i class="fas fa-plus">
                 </i></a>
-            </label>
-            <label class="edit"><a href="#">
-            <i class="fas fa-edit"></i>
-            </a></label>
-            <label class="delete"><a href="#">
-            <i class="fas fa-trash-alt"></i>
-            </a></label>
+            <?php 
+            if($jest && $czyjest){
+                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+$jest = false;            }
+            ?>
         </div>
         <div class="table"
         <?php 
@@ -761,6 +767,7 @@ if($conn->connect_errno!=0){
                     if($ile>0){
                         $row = $rezu->fetch_assoc();
                         $idosoba = $row['id_kursanta'];
+                        $id_jazdy = $row['id'];
                         $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
                         if(!$osoba){
                         }else{
@@ -785,19 +792,18 @@ if($conn->connect_errno!=0){
                     unset($imie);
                     unset($nazwisko);
                     unset($kat);
-                }
+                    $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=19">                
                 <i class="fas fa-plus">
                 </i></a>
-            </label>
-            <label class="edit"><a href="#">
-            <i class="fas fa-edit"></i>
-            </a></label>
-            <label class="delete"><a href="#">
-            <i class="fas fa-trash-alt"></i>
-            </a></label>
+            <?php 
+            if($jest && $czyjest){
+                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+$jest = false;            }
+            ?>
         </div>
         <div class="table"
         <?php 
@@ -811,6 +817,7 @@ if($conn->connect_errno!=0){
                     if($ile>0){
                         $row = $rezu->fetch_assoc();
                         $idosoba = $row['id_kursanta'];
+                        $id_jazdy = $row['id'];
                         $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
                         if(!$osoba){
                         }else{
@@ -835,19 +842,18 @@ if($conn->connect_errno!=0){
                     unset($imie);
                     unset($nazwisko);
                     unset($kat);
-                }
+                    $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=20">                
                 <i class="fas fa-plus">
                 </i></a>
-            </label>
-            <label class="edit"><a href="#">
-            <i class="fas fa-edit"></i>
-            </a></label>
-            <label class="delete"><a href="#">
-            <i class="fas fa-trash-alt"></i>
-            </a></label>
+            <?php 
+            if($jest && $czyjest){
+                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+$jest = false;            }
+            ?>
         </div>
         <div class="table"
         <?php 
@@ -861,6 +867,7 @@ if($conn->connect_errno!=0){
                     if($ile>0){
                         $row = $rezu->fetch_assoc();
                         $idosoba = $row['id_kursanta'];
+                        $id_jazdy = $row['id'];
                         $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
                         if(!$osoba){
                         }else{
@@ -885,72 +892,22 @@ if($conn->connect_errno!=0){
                     unset($imie);
                     unset($nazwisko);
                     unset($kat);
-                }
+                    $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
+                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=21">                
                 <i class="fas fa-plus">
                 </i></a>
-            </label>
-            <label class="edit"><a href="#">
-            <i class="fas fa-edit"></i>
-            </a></label>
-            <label class="delete"><a href="#">
-            <i class="fas fa-trash-alt"></i>
-            </a></label>
-        </div>
-        <div class="table"
-        <?php 
-            if($con){
-                $zap=date("Y-m-d H:i:s", mktime(22, 0, 0, $msc, $day, $ye));
-                $id=$_SESSION['id'];
-                $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
-                if(!$rezu){
-                }else{
-                    $ile = $rezu->num_rows;
-                    if($ile>0){
-                        $row = $rezu->fetch_assoc();
-                        $idosoba = $row['id_kursanta'];
-                        $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
-                        if(!$osoba){
-                        }else{
-                            $ile = $osoba->num_rows;
-                            if($ile>0){
-                                $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['imie'];
-                                $nazwisko = $osobarow['surname'];
-                                $kat = $osobarow['kat'];
-                            }
-                        }
-                        echo 'style= "background-color:red"';
-                    }
-                }
-            }
-        ?>>
-            <div class="hour">22:00</div>
-            <div class="data">
             <?php 
-                if(isset($imie)){
-                    echo "<i>".$imie." ".$nazwisko."</i>";
-                    unset($imie);
-                    unset($nazwisko);
-                    unset($kat);
-                }
+            if($jest && $czyjest){
+                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+$jest = false;            }
             ?>
-                </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
-                <i class="fas fa-plus">
-                </i></a>
-            </label>
-            <label class="edit"><a href="#">
-            <i class="fas fa-edit"></i>
-            </a></label>
-            <label class="delete"><a href="#">
-            <i class="fas fa-trash-alt"></i>
-            </a></label>
         </div>
+        
     </div>
-
+    
     <div class="settle">Rozlicz</div>
 
 </body>
