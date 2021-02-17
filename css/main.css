@@ -371,12 +371,20 @@ nav .burger.open .bar3 {
 
 .dayContainer .table .data {
   height: 100%;
-  width: 60%;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .dayContainer .table .addRide {
   height: 100%;
-  width: 20%;
+  width: 10%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -389,6 +397,44 @@ nav .burger.open .bar3 {
 }
 
 .dayContainer .table .addRide i {
+  font-size: 15px;
+  color: #9b9696;
+}
+
+.dayContainer .table .edit {
+  height: 100%;
+  width: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.dayContainer .table .edit i {
+  font-size: 15px;
+  color: #9b9696;
+}
+
+.dayContainer .table .delete {
+  height: 100%;
+  width: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.dayContainer .table .delete i {
   font-size: 15px;
   color: #9b9696;
 }
@@ -620,7 +666,8 @@ nav .burger.open .bar3 {
 .container .city,
 .container .place,
 .container .cityPlace,
-.container .save {
+.container .save,
+.container .clear {
   border-radius: 6px;
   background-color: #000;
   border: 1px solid #000;
@@ -697,7 +744,8 @@ nav .burger.open .bar3 {
 .container .city,
 .container .place,
 .container .cityPlace,
-.container .save:hover {
+.container .save,
+.container .clear:hover {
   cursor: pointer;
 }
 
@@ -710,8 +758,8 @@ nav .burger.open .bar3 {
     width: 90vw;
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-    -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     border: none;
   }
   .container .heading {
@@ -755,7 +803,9 @@ nav .burger.open .bar3 {
   }
   .container .city,
   .container .place,
-  .container .cityPlace {
+  .container .cityPlace,
+  .container .save,
+  .container .clear {
     -ms-grid-column-align: center;
         justify-self: center;
     -ms-flex-item-align: center;
@@ -775,12 +825,14 @@ nav .burger.open .bar3 {
     font-size: 15px;
   }
   .container .save {
+    -ms-grid-row: 19;
+    -ms-grid-column: 1;
+    grid-area: 19/1/19/1;
+  }
+  .container .clear {
     -ms-grid-row: 18;
     -ms-grid-column: 1;
     grid-area: 18/1/18/1;
-    width: 200px;
-    height: 50px;
-    margin: 0 auto;
   }
   .container ::-webkit-input-placeholder {
     font-size: 15px;
@@ -889,7 +941,8 @@ nav .burger.open .bar3 {
   }
   .container .city,
   .container .place,
-  .container .cityPlace {
+  .container .cityPlace,
+  .container .clear {
     width: 150px;
     height: 40px;
   }
@@ -906,12 +959,18 @@ nav .burger.open .bar3 {
   }
   .container .save {
     -ms-grid-row: 13;
-    -ms-grid-column: 2;
+    -ms-grid-column: 1;
     -ms-grid-column-span: 1;
-    grid-area: 13/2/13/3;
-    width: 200px;
-    height: 50px;
+    grid-area: 13/1/13/2;
+    width: 150px;
+    height: 40px;
     margin: 0 auto;
+  }
+  .container .clear {
+    -ms-grid-row: 13;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+    grid-area: 13/3/13/4;
   }
   .container ::-webkit-input-placeholder {
     font-size: 15px;
@@ -1018,7 +1077,9 @@ nav .burger.open .bar3 {
   }
   .container .city,
   .container .place,
-  .container .cityPlace {
+  .container .cityPlace,
+  .container .save,
+  .container .clear {
     width: 150px;
     height: 40px;
   }
@@ -1038,9 +1099,12 @@ nav .burger.open .bar3 {
     -ms-grid-column: 1;
     -ms-grid-column-span: 1;
     grid-area: 8/1/8/2;
-    width: 200px;
-    height: 50px;
-    margin: 0 auto;
+  }
+  .container .clear {
+    -ms-grid-row: 8;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+    grid-area: 8/3/8/4;
   }
   .container ::-webkit-input-placeholder {
     font-size: 20px;
