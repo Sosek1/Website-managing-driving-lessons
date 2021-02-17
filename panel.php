@@ -339,7 +339,9 @@ if($czyinsert){
             <input type="radio" style="margin-right:5px; display:none" id="3" name="addplace"value="3" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==3){echo 'selected="checked"';}}?>><label for="3"><div class="cityPlace">Miasto/Plac</div></label>
             
             <textarea class="info" placeholder="Napisz coś..." name="addinfo"></textarea>
-            <button type="submit" class="save">zapisz</button> <a href="delete_date.php">Usuń dane</a>
+            <button type="submit" class="save">zapisz</button> 
+            <a href="delete_date.php" class="clear">Usuń dane</a>
+            
     </form>
 
     <script src="burger.js"></script>

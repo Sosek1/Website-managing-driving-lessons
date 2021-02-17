@@ -64,7 +64,8 @@
     .city,
     .place,
     .cityPlace,
-    .save {
+    .save,
+    .clear {
         border-radius: 6px;
         background-color: $second-color;
         border: 1px solid $second-color;
@@ -120,7 +121,8 @@
     .city,
     .place,
     .cityPlace,
-    .save:hover {
+    .save,
+    .clear:hover {
         cursor: pointer;
     }
 
@@ -133,7 +135,7 @@
     .container {
         width: 90vw;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         border: none;
 
         .heading {
@@ -173,7 +175,9 @@
 
         .city,
         .place,
-        .cityPlace {
+        .cityPlace,
+        .save,
+        .clear {
             justify-self: center;
             align-self: center;
             width: 150px;
@@ -189,10 +193,11 @@
         }
 
         .save {
+            grid-area: 19/1/19/1;
+        }
+
+        .clear {
             grid-area: 18/1/18/1;
-            width: 200px;
-            height: 50px;
-            margin: 0 auto;
         }
 
         ::placeholder {
@@ -276,7 +281,8 @@
 
         .city,
         .place,
-        .cityPlace {
+        .cityPlace,
+        .clear {
             width: 150px;
             height: 40px;
         }
@@ -290,10 +296,14 @@
         }
 
         .save {
-            grid-area: 13/2/13/3;
-            width: 200px;
-            height: 50px;
+            grid-area: 13/1/13/2;
+            width: 150px;
+            height: 40px;
             margin: 0 auto;
+        }
+
+        .clear {
+            grid-area: 13/3/13/4;
         }
 
         ::placeholder {
@@ -381,7 +391,9 @@
 
         .city,
         .place,
-        .cityPlace {
+        .cityPlace,
+        .save,
+        .clear {
             width: 150px;
             height: 40px;
         }
@@ -396,9 +408,10 @@
 
         .save {
             grid-area: 8/1/8/2;
-            width: 200px;
-            height: 50px;
-            margin: 0 auto;
+        }
+
+        .clear {
+            grid-area: 8/3/8/4;
         }
 
         ::placeholder {
