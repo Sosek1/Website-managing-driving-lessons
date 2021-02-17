@@ -217,10 +217,14 @@
             font-size: 20px;
         }
 
-        button {
+        .choose {
             grid-area: 1/5/3/6;
             width: 200px;
             height: 50px;
+        }
+
+        button {
+            border: none;
         }
     }
 

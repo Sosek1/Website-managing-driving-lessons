@@ -477,6 +477,7 @@ nav .burger.open .bar3 {
 .weekContainer .calendar .record .day {
   font-size: 15px;
   color: #000;
+  text-decoration: none;
 }
 
 .prev,
@@ -768,10 +769,6 @@ nav .burger.open .bar3 {
     -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     border: none;
-    justify-items: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
   }
   .container .heading {
     -ms-grid-row: 1;
@@ -820,6 +817,11 @@ nav .burger.open .bar3 {
   .container .changeDate {
     width: 150px;
     height: 40px;
+    -ms-grid-column-align: center;
+        justify-self: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
   }
   .container .info {
     -ms-grid-row: 13;
@@ -840,6 +842,11 @@ nav .burger.open .bar3 {
     -ms-grid-row: 19;
     -ms-grid-column: 1;
     grid-area: 19/1/19/1;
+    -ms-grid-column-align: center;
+        justify-self: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
   }
   .container .changeDate {
     -ms-grid-row: 18;
@@ -874,10 +881,6 @@ nav .burger.open .bar3 {
     -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     border: none;
-    justify-items: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
   }
   .container .heading {
     -ms-grid-row: 1;
@@ -1492,7 +1495,7 @@ nav .burger.open .bar3 {
     height: 35px;
     width: 200px;
     padding: 10px !important;
-    font-size: 20px !important;
+    font-size: 15px !important;
   }
   .containerR .fuel,
   .containerR .rideRealized,
@@ -1512,16 +1515,16 @@ nav .burger.open .bar3 {
     font-size: 15px;
   }
   .containerR ::-webkit-input-placeholder {
-    font-size: 20px;
+    font-size: 15px;
   }
   .containerR :-ms-input-placeholder {
-    font-size: 20px;
+    font-size: 15px;
   }
   .containerR ::-ms-input-placeholder {
-    font-size: 20px;
+    font-size: 15px;
   }
   .containerR ::placeholder {
-    font-size: 20px;
+    font-size: 15px;
   }
   .containerR .text {
     font-size: 20px;
@@ -1834,7 +1837,7 @@ nav .burger.open .bar3 {
     grid-area: 2/4/2/5;
     font-size: 20px;
   }
-  .student button {
+  .student .choose {
     -ms-grid-row: 1;
     -ms-grid-row-span: 2;
     -ms-grid-column: 5;
@@ -1842,6 +1845,9 @@ nav .burger.open .bar3 {
     grid-area: 1/5/3/6;
     width: 200px;
     height: 50px;
+  }
+  .student button {
+    border: none;
   }
 }
 

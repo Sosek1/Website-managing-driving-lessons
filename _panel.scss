@@ -144,8 +144,6 @@
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         border: none;
-        justify-items: center;
-        align-items: center;
 
         .heading {
             grid-area: 1/1/2/1;
@@ -190,6 +188,8 @@
         .changeDate {
             width: 150px;
             height: 40px;
+            justify-self: center;
+            align-self: center;
         }
 
         .info {
@@ -206,6 +206,8 @@
 
         .clear {
             grid-area: 19/1/19/1;
+            justify-self: center;
+            align-self: center;
         }
 
         .changeDate {
@@ -234,8 +236,6 @@
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         border: none;
-        justify-items: center;
-        align-items: center;
 
         .heading {
             grid-area: 1/1/1/2;

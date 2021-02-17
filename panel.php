@@ -249,7 +249,6 @@ if($czyinsert){
         <h1 class="heading">Panel ustalania jazd</h1>
         <div class="datePlace">
             <p class="date"><?php echo date("Y-m-d H:i", mktime($godzina+$i, 0, 0, $msc, $day, $ye));?></p>
-            <a href="kalendarzDzien.php?date=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>">Zmień</a>
         </div>
         <div class="search">
                 <input type="text" class="searchInput" name="szukaj">
