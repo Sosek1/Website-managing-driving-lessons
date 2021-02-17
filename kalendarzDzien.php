@@ -70,9 +70,9 @@ if($conn->connect_errno!=0){
         <div class="logo"></div>
         <ul class="list">
             <li><a href="kalendarzTydzien.php">Kalendarz</a></li>
-            <li><a href="panel.html">Panel jazd</a></li>
-            <li><a href="panelRozliczania.html">Rozliczenie jazdy</a></li>
-            <li><a href="#">Szukaj</a></li>
+            <li><a href="panel.php">Panel jazd</a></li>
+            <li><a href="panelRozliczania.php">Rozliczenie jazdy</a></li>
+            <li><a href="szukaj.php">Szukaj</a></li>
         </ul>
         <div class="burger">
             <div class="bar1"></div>
@@ -142,7 +142,12 @@ if($conn->connect_errno!=0){
                 <i class="fas fa-plus">
                 </i></a>
             </label>
-
+            <label class="edit"><a href="#">
+            <i class="fas fa-edit"></i>
+            </a></label>
+            <label class="delete"><a href="#">
+            <i class="fas fa-trash-alt"></i>
+            </a></label>
         </div>
         <div class="table"
         <?php 
@@ -231,6 +236,12 @@ if($conn->connect_errno!=0){
                 <i class="fas fa-plus">
                 </i></a>
             </label>
+            <label class="edit"><a href="#">
+            <i class="fas fa-edit"></i>
+            </a></label>
+            <label class="delete"><a href="#">
+            <i class="fas fa-trash-alt"></i>
+            </a></label>
         </div>
         <div class="table"
         <?php 
@@ -275,6 +286,12 @@ if($conn->connect_errno!=0){
                 <i class="fas fa-plus">
                 </i></a>
             </label>
+            <label class="edit"><a href="#">
+            <i class="fas fa-edit"></i>
+            </a></label>
+            <label class="delete"><a href="#">
+            <i class="fas fa-trash-alt"></i>
+            </a></label>
         </div>
         <div class="table"
         <?php 
@@ -319,6 +336,12 @@ if($conn->connect_errno!=0){
                 <i class="fas fa-plus">
                 </i></a>
             </label>
+            <label class="edit"><a href="#">
+            <i class="fas fa-edit"></i>
+            </a></label>
+            <label class="delete"><a href="#">
+            <i class="fas fa-trash-alt"></i>
+            </a></label>
         </div>
         <div class="table"
         <?php 
@@ -363,6 +386,12 @@ if($conn->connect_errno!=0){
                 <i class="fas fa-plus">
                 </i></a>
             </label>
+            <label class="edit"><a href="#">
+            <i class="fas fa-edit"></i>
+            </a></label>
+            <label class="delete"><a href="#">
+            <i class="fas fa-trash-alt"></i>
+            </a></label>
         </div>
         <div class="table"
         <?php 
@@ -407,6 +436,12 @@ if($conn->connect_errno!=0){
                 <i class="fas fa-plus">
                 </i></a>
             </label>
+            <label class="edit"><a href="#">
+            <i class="fas fa-edit"></i>
+            </a></label>
+            <label class="delete"><a href="#">
+            <i class="fas fa-trash-alt"></i>
+            </a></label>
         </div>
         <div class="table"
         <?php 
@@ -451,6 +486,12 @@ if($conn->connect_errno!=0){
                 <i class="fas fa-plus">
                 </i></a>
             </label>
+            <label class="edit"><a href="#">
+            <i class="fas fa-edit"></i>
+            </a></label>
+            <label class="delete"><a href="#">
+            <i class="fas fa-trash-alt"></i>
+            </a></label>
         </div>
         <div class="table"
         <?php 
@@ -495,6 +536,12 @@ if($conn->connect_errno!=0){
                 <i class="fas fa-plus">
                 </i></a>
             </label>
+            <label class="edit"><a href="#">
+            <i class="fas fa-edit"></i>
+            </a></label>
+            <label class="delete"><a href="#">
+            <i class="fas fa-trash-alt"></i>
+            </a></label>
         </div>
         <div class="table"
         <?php 
@@ -539,6 +586,12 @@ if($conn->connect_errno!=0){
                 <i class="fas fa-plus">
                 </i></a>
             </label>
+            <label class="edit"><a href="#">
+            <i class="fas fa-edit"></i>
+            </a></label>
+            <label class="delete"><a href="#">
+            <i class="fas fa-trash-alt"></i>
+            </a></label>
         </div>
         <div class="table"
         <?php 
@@ -583,6 +636,12 @@ if($conn->connect_errno!=0){
                 <i class="fas fa-plus">
                 </i></a>
             </label>
+            <label class="edit"><a href="#">
+            <i class="fas fa-edit"></i>
+            </a></label>
+            <label class="delete"><a href="#">
+            <i class="fas fa-trash-alt"></i>
+            </a></label>
         </div>
         <div class="table"
         <?php 
@@ -627,6 +686,12 @@ if($conn->connect_errno!=0){
                 <i class="fas fa-plus">
                 </i></a>
             </label>
+            <label class="edit"><a href="#">
+            <i class="fas fa-edit"></i>
+            </a></label>
+            <label class="delete"><a href="#">
+            <i class="fas fa-trash-alt"></i>
+            </a></label>
         </div>
         <div class="table"
         <?php 
@@ -671,6 +736,12 @@ if($conn->connect_errno!=0){
                 <i class="fas fa-plus">
                 </i></a>
             </label>
+            <label class="edit"><a href="#">
+            <i class="fas fa-edit"></i>
+            </a></label>
+            <label class="delete"><a href="#">
+            <i class="fas fa-trash-alt"></i>
+            </a></label>
         </div>
         <div class="table"
         <?php 
@@ -715,6 +786,12 @@ if($conn->connect_errno!=0){
                 <i class="fas fa-plus">
                 </i></a>
             </label>
+            <label class="edit"><a href="#">
+            <i class="fas fa-edit"></i>
+            </a></label>
+            <label class="delete"><a href="#">
+            <i class="fas fa-trash-alt"></i>
+            </a></label>
         </div>
         <div class="table"
         <?php 
@@ -759,6 +836,12 @@ if($conn->connect_errno!=0){
                 <i class="fas fa-plus">
                 </i></a>
             </label>
+            <label class="edit"><a href="#">
+            <i class="fas fa-edit"></i>
+            </a></label>
+            <label class="delete"><a href="#">
+            <i class="fas fa-trash-alt"></i>
+            </a></label>
         </div>
         <div class="table"
         <?php 
@@ -803,6 +886,12 @@ if($conn->connect_errno!=0){
                 <i class="fas fa-plus">
                 </i></a>
             </label>
+            <label class="edit"><a href="#">
+            <i class="fas fa-edit"></i>
+            </a></label>
+            <label class="delete"><a href="#">
+            <i class="fas fa-trash-alt"></i>
+            </a></label>
         </div>
         <div class="table"
         <?php 
@@ -847,6 +936,12 @@ if($conn->connect_errno!=0){
                 <i class="fas fa-plus">
                 </i></a>
             </label>
+            <label class="edit"><a href="#">
+            <i class="fas fa-edit"></i>
+            </a></label>
+            <label class="delete"><a href="#">
+            <i class="fas fa-trash-alt"></i>
+            </a></label>
         </div>
     </div>
 
