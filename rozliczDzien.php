@@ -49,7 +49,7 @@ if(isset($_GET['date'])==true){
 $day = date('d', $dzien);
 $msc = date('m', $dzien);
 $ye = date('y', $dzien);
-
+$id = $_SESSION['id'];
 $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
 $conn->query("SET NAMES 'utf8'");
 if($conn->connect_errno!=0){
@@ -90,8 +90,8 @@ if($conn->connect_errno!=0){
     <h1 class="name">Rozlicz dzień</h1>
     <?php
     if($con){
-        $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$dzien.'" and id_instruktora='.$id.'';
-        echo $zap;
+        $dz=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $dzien), date("d", $dzien), date("y", $dzien)));
+        $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$dz.'" and id_instruktora='.$id.'';
         $rezu=$conn->query($zap);
         if(!$rezu){
         }else{
@@ -125,7 +125,6 @@ if($conn->connect_errno!=0){
             $kat;
             if($con){
                 $i = 5;
-                $czywszystkorozliczone=true;
                 while($i<21){
                     $i++;
                     $dzp=date("Y-m-d H:i:s", mktime($i, 0, 0, $msc, $day, $ye));

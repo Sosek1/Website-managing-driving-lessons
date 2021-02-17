@@ -96,34 +96,30 @@ if($con){
                     }
                 }      
             }
-            if($wplata!=0){
-                $zap = 'INSERT INTO wplaty VALUES(NULL, '.$idu.', '.$ido.', '.$wplata.', NULL)';
-                echo $zap;
+            $zap = 'SELECT * FROM rozliczeniaJazd WHERE id_uzytkownika="'.$idu.'" and id_jazdy='.$idj.'';
+            $rezu=$conn->query($zap);
+            if(!$rezu){
+            }else{
+                $ile = $rezu->num_rows;
+                if($ile>0){
+                    $row = $rezu->fetch_assoc();
+                    $idroz = $row['id'];
+                }
+            }
+            if($wplata>0){
+                $zap = 'INSERT INTO wplaty VALUES(NULL, '.$idu.', '.$ido.', '.$idroz.', '.$wplata.', NULL)';
                 if($conn->query($zap)){                   
                 }else{
                 }
             }
             if($wydatki>0){
-                $zap = 'SELECT * FROM rozliczeniaJazd WHERE id_uzytkownika="'.$idu.'" and id_jazdy='.$idj.'';
-                echo $zap;
-                $rezu=$conn->query($zap);
-                if(!$rezu){
-                }else{
-                    $ile = $rezu->num_rows;
-                    if($ile>0){
-                        $row = $rezu->fetch_assoc();
-                        $idroz = $row['id'];
-                        $zap = 'INSERT INTO wydatki VALUES(NULL, \''.$idu.'\', \''.$idroz.'\', \''.$rodz.'\', \''.$wydatki.'\', NULL)';
-                        echo $zap;
-                        if($conn->query($zap)){                   
-                        }else{
-                        } 
-                    }
+                
+                $zap = 'INSERT INTO wydatki VALUES(NULL, \''.$idu.'\', \''.$idroz.'\', \''.$rodz.'\', \''.$wydatki.'\', NULL)';
+                if($conn->query($zap)){                   
                 }
             }
         }
-        header('Location: rozliczDzien.php');
-        exit();
+
     }    
 }
 
@@ -140,6 +136,9 @@ if($con){
 <html lang="en">
 
 <head>
+<?php if($czydane){
+    echo '<meta http-equiv="refresh" content="0; url=rozliczDzien.php">';
+    }?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel rozliczania jazd</title>
