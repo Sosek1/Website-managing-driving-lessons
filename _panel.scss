@@ -65,7 +65,8 @@
     .place,
     .cityPlace,
     .save,
-    .clear {
+    .clear,
+    .changeDate {
         border-radius: 6px;
         background-color: $second-color;
         border: 1px solid $second-color;
@@ -75,6 +76,12 @@
         align-items: center;
         justify-content: center;
         transition: linear .1s;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .changeDate {
+        font-size: 13px;
     }
 
     .info {
@@ -135,8 +142,10 @@
     .container {
         width: 90vw;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         border: none;
+        justify-items: center;
+        align-items: center;
 
         .heading {
             grid-area: 1/1/2/1;
@@ -177,9 +186,8 @@
         .place,
         .cityPlace,
         .save,
-        .clear {
-            justify-self: center;
-            align-self: center;
+        .clear,
+        .changeDate {
             width: 150px;
             height: 40px;
         }
@@ -193,10 +201,14 @@
         }
 
         .save {
-            grid-area: 19/1/19/1;
+            grid-area: 20/1/20/1;
         }
 
         .clear {
+            grid-area: 19/1/19/1;
+        }
+
+        .changeDate {
             grid-area: 18/1/18/1;
         }
 
@@ -222,6 +234,8 @@
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         border: none;
+        justify-items: center;
+        align-items: center;
 
         .heading {
             grid-area: 1/1/1/2;
@@ -282,9 +296,13 @@
         .city,
         .place,
         .cityPlace,
-        .clear {
+        .clear,
+        .changeDate,
+        .save {
             width: 150px;
             height: 40px;
+            justify-self: center;
+            align-self: center;
         }
 
         .info {
@@ -297,9 +315,11 @@
 
         .save {
             grid-area: 13/1/13/2;
-            width: 150px;
-            height: 40px;
-            margin: 0 auto;
+            margin: 0;
+        }
+
+        .changeDate {
+            grid-area: 13/2/13/3;
         }
 
         .clear {
@@ -393,7 +413,8 @@
         .place,
         .cityPlace,
         .save,
-        .clear {
+        .clear,
+        .changeDate {
             width: 150px;
             height: 40px;
         }
@@ -408,6 +429,11 @@
 
         .save {
             grid-area: 8/1/8/2;
+            margin: 0;
+        }
+
+        .changeDate {
+            grid-area: 8/2/8/3;
         }
 
         .clear {

@@ -667,7 +667,8 @@ nav .burger.open .bar3 {
 .container .place,
 .container .cityPlace,
 .container .save,
-.container .clear {
+.container .clear,
+.container .changeDate {
   border-radius: 6px;
   background-color: #000;
   border: 1px solid #000;
@@ -684,6 +685,12 @@ nav .burger.open .bar3 {
           justify-content: center;
   -webkit-transition: linear .1s;
   transition: linear .1s;
+  text-decoration: none;
+  text-align: center;
+}
+
+.container .changeDate {
+  font-size: 13px;
 }
 
 .container .info {
@@ -758,9 +765,13 @@ nav .burger.open .bar3 {
     width: 90vw;
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-    -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     border: none;
+    justify-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .container .heading {
     -ms-grid-row: 1;
@@ -805,12 +816,8 @@ nav .burger.open .bar3 {
   .container .place,
   .container .cityPlace,
   .container .save,
-  .container .clear {
-    -ms-grid-column-align: center;
-        justify-self: center;
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
+  .container .clear,
+  .container .changeDate {
     width: 150px;
     height: 40px;
   }
@@ -825,11 +832,16 @@ nav .burger.open .bar3 {
     font-size: 15px;
   }
   .container .save {
+    -ms-grid-row: 20;
+    -ms-grid-column: 1;
+    grid-area: 20/1/20/1;
+  }
+  .container .clear {
     -ms-grid-row: 19;
     -ms-grid-column: 1;
     grid-area: 19/1/19/1;
   }
-  .container .clear {
+  .container .changeDate {
     -ms-grid-row: 18;
     -ms-grid-column: 1;
     grid-area: 18/1/18/1;
@@ -862,6 +874,10 @@ nav .burger.open .bar3 {
     -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     border: none;
+    justify-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .container .heading {
     -ms-grid-row: 1;
@@ -942,9 +958,16 @@ nav .burger.open .bar3 {
   .container .city,
   .container .place,
   .container .cityPlace,
-  .container .clear {
+  .container .clear,
+  .container .changeDate,
+  .container .save {
     width: 150px;
     height: 40px;
+    -ms-grid-column-align: center;
+        justify-self: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
   }
   .container .info {
     -ms-grid-row: 9;
@@ -962,9 +985,13 @@ nav .burger.open .bar3 {
     -ms-grid-column: 1;
     -ms-grid-column-span: 1;
     grid-area: 13/1/13/2;
-    width: 150px;
-    height: 40px;
-    margin: 0 auto;
+    margin: 0;
+  }
+  .container .changeDate {
+    -ms-grid-row: 13;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-area: 13/2/13/3;
   }
   .container .clear {
     -ms-grid-row: 13;
@@ -1079,7 +1106,8 @@ nav .burger.open .bar3 {
   .container .place,
   .container .cityPlace,
   .container .save,
-  .container .clear {
+  .container .clear,
+  .container .changeDate {
     width: 150px;
     height: 40px;
   }
@@ -1099,6 +1127,13 @@ nav .burger.open .bar3 {
     -ms-grid-column: 1;
     -ms-grid-column-span: 1;
     grid-area: 8/1/8/2;
+    margin: 0;
+  }
+  .container .changeDate {
+    -ms-grid-row: 8;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-area: 8/2/8/3;
   }
   .container .clear {
     -ms-grid-row: 8;

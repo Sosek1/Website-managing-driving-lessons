@@ -341,6 +341,7 @@ if($czyinsert){
             <textarea class="info" placeholder="Napisz coś..." name="addinfo"></textarea>
             <button type="submit" class="save">zapisz</button> 
             <a href="delete_date.php" class="clear">Usuń dane</a>
+            <a href="#" class="changeDate">Zmień datę jazdy</a>
             
     </form>
 

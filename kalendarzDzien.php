@@ -192,6 +192,12 @@ if($conn->connect_errno!=0){
                 <i class="fas fa-plus">
                 </i></a>
             </label>
+            <label class="edit"><a href="#">
+            <i class="fas fa-edit"></i>
+            </a></label>
+            <label class="delete"><a href="#">
+            <i class="fas fa-trash-alt"></i>
+            </a></label>
         </div>
         <div class="table"
         <?php 
