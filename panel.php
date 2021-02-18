@@ -223,7 +223,8 @@ if($czyinsert){
     }
     $conn->close();
 if(isset($_SESSION['error'])){
-    echo "<script>alert('$_SESSION['error']');</script>";
+    $er = $_SESSION['error'];
+    echo "<script>alert('$er');</script>";
     unset($_SESSION['error']);
 }
 
