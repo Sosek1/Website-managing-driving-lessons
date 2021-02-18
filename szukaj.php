@@ -6,9 +6,9 @@ if(!isset($_SESSION['logIn'])){
 }
 require_once "connect.php";
 if(isset($_GET['szuk'])){
-    $zap = $_GET['szuk'];
+    $szuk = $_GET['szuk'];
 }
-$zap = 'SELECT * FROM kursanci WHERE fullname LIKE \'%'.$zap.'%\'';
+
 
 ?>
 
@@ -42,8 +42,8 @@ $zap = 'SELECT * FROM kursanci WHERE fullname LIKE \'%'.$zap.'%\'';
         </div>
     </nav>
 
-    <form class="searchFor" method="get">
-        <input type="text" placeholder="Szukaj..."name="id">
+    <form class="searchFor" method="GET">
+        <input type="text" placeholder="Szukaj..."name="szuk">
         <label class="loupe"><input type="submit" value=""><i class="fas fa-search"></i></label>
     </form>
 
@@ -51,6 +51,7 @@ $zap = 'SELECT * FROM kursanci WHERE fullname LIKE \'%'.$zap.'%\'';
         $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
         $conn->query("SET NAMES 'utf8'");
         if($conn->connect_errno!=0){}else{
+            $zap = 'SELECT * FROM kursanci WHERE fullname LIKE \'%'.$szuk.'%\'';
             $rezu=$conn->query($zap);            
             if(!$rezu){
             }else{
