@@ -856,6 +856,27 @@ nav .burger.open .bar3 {
   text-align: center;
 }
 
+.container .clear {
+  border-radius: 6px;
+  background-color: #000;
+  border: 1px solid #000;
+  font-size: 15px;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: linear .1s;
+  transition: linear .1s;
+  text-decoration: none;
+  text-align: center;
+}
+
 .container .changeDate {
   font-size: 13px;
 }
@@ -875,18 +896,6 @@ nav .burger.open .bar3 {
   border-left: none;
   border-right: none;
   border-top: none;
-}
-
-.container .arrow1,
-.container .arrow2,
-.container .arrow3 {
-  -webkit-transition: .2s linear;
-  transition: .2s linear;
-}
-
-.container .flip {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
 }
 
 .container .text {
@@ -1783,26 +1792,28 @@ nav .burger.open .bar3 {
       -ms-flex-align: center;
           align-items: center;
   justify-items: center;
-  margin: 0 auto;
+  margin: 10px auto;
   border: 2px solid #000;
   text-align: center;
 }
 
 .student .choose {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: #000;
   color: #fff;
   border: 2px solid #000;
   border-radius: 6px;
   width: 160px;
   height: 40px;
-}
-
-.student button {
-  width: 100%;
-  height: 100%;
-  border: none;
-  color: #fff;
-  border-radius: 6px;
+  text-decoration: none;
 }
 
 .student i {

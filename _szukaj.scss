@@ -55,17 +55,19 @@
     display: grid;
     align-items: center;
     justify-items: center;
-    margin: 0 auto;
+    margin: 10px auto;
     border: 2px solid $second-color;
     text-align: center;
 
     .choose {
+        @include center;
         background-color: $second-color;
         color: $first-color;
         border: 2px solid $second-color;
         border-radius: 6px;
         width: 160px;
         height: 40px;
+        text-decoration: none;
     }
 
     i {
