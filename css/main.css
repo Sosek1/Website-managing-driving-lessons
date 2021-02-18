@@ -340,6 +340,7 @@ nav .burger.open .bar3 {
 .dayContainer {
   overflow: hidden;
   display: block;
+  min-height: auto;
 }
 
 .dayContainer .table {
@@ -528,7 +529,6 @@ nav .burger.open .bar3 {
         -ms-flex-align: center;
             align-items: center;
     margin: 0 20px;
-    min-height: 80vh;
   }
   .weekContainer {
     height: 150vh;
@@ -564,7 +564,6 @@ nav .burger.open .bar3 {
         -ms-flex-align: start;
             align-items: flex-start;
     margin: 0 30px;
-    min-height: 120vh;
   }
   .weekContainer {
     height: 60vh;
@@ -1267,6 +1266,7 @@ nav .burger.open .bar3 {
   min-height: 50vh;
   margin: 25px auto 10px auto;
   grid-gap: 10px;
+  overflow-x: hidden;
 }
 
 .containerR .headingR {
@@ -1344,6 +1344,8 @@ nav .burger.open .bar3 {
 .containerR .settleRide.white {
   color: #000;
   background-color: #fff;
+  height: 40px;
+  width: 150px;
 }
 
 .containerR .text {
@@ -1388,10 +1390,6 @@ nav .burger.open .bar3 {
   .containerR .traningForm {
     height: 50px;
     width: 90%;
-  }
-  .containerR .settleRide {
-    width: 150px;
-    height: 50px;
   }
   .containerR .settleRide p {
     font-size: 15px;
@@ -1444,10 +1442,6 @@ nav .burger.open .bar3 {
     height: 50px;
     width: 90%;
   }
-  .containerR .settleRide {
-    width: 150px;
-    height: 50px;
-  }
   .containerR .settleRide p {
     font-size: 15px;
   }
@@ -1495,7 +1489,7 @@ nav .burger.open .bar3 {
     height: 35px;
     width: 200px;
     padding: 10px !important;
-    font-size: 15px !important;
+    font-size: 20px;
   }
   .containerR .fuel,
   .containerR .rideRealized,
@@ -1505,8 +1499,6 @@ nav .burger.open .bar3 {
     width: 200px;
   }
   .containerR .settleRide {
-    width: 200px;
-    height: 50px;
     -ms-grid-row: 5;
     -ms-grid-column: 1;
     grid-area: 5/1/5/1;
@@ -1515,19 +1507,19 @@ nav .burger.open .bar3 {
     font-size: 15px;
   }
   .containerR ::-webkit-input-placeholder {
-    font-size: 15px;
+    font-size: 20px;
   }
   .containerR :-ms-input-placeholder {
-    font-size: 15px;
+    font-size: 20px;
   }
   .containerR ::-ms-input-placeholder {
-    font-size: 15px;
+    font-size: 20px;
   }
   .containerR ::placeholder {
-    font-size: 15px;
+    font-size: 20px;
   }
   .containerR .text {
-    font-size: 20px;
+    font-size: 15px;
     margin-bottom: 10px;
     text-align: center;
   }
@@ -1575,6 +1567,7 @@ nav .burger.open .bar3 {
   right: 0;
   bottom: 0;
   padding: 0;
+  background-color: #fff;
 }
 
 .searchFor .loupe i {
@@ -1622,11 +1615,19 @@ nav .burger.open .bar3 {
   text-align: center;
 }
 
-.student button {
+.student .choose {
   background-color: #000;
   color: #fff;
   border: 2px solid #000;
   border-radius: 6px;
+  width: 160px;
+  height: 40px;
+}
+
+.student button {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 .student i {
@@ -1635,7 +1636,7 @@ nav .burger.open .bar3 {
 
 @media screen and (min-width: 200px) {
   .student {
-    width: 80vw;
+    width: 90vw;
     height: 70vh;
     -ms-grid-rows: (1fr)[5];
         grid-template-rows: repeat(5, 1fr);
@@ -1654,7 +1655,7 @@ nav .burger.open .bar3 {
     -ms-grid-row-span: 1;
     -ms-grid-column: 1;
     grid-area: 2/1/3/1;
-    font-size: 20px;
+    font-size: 15px;
   }
   .student .fa-phone-alt {
     -ms-grid-row: 1;
@@ -1667,7 +1668,7 @@ nav .burger.open .bar3 {
     -ms-grid-column: 2;
     -ms-grid-column-span: 1;
     grid-area: 2/2/2/3;
-    font-size: 20px;
+    font-size: 15px;
   }
   .student .fa-car {
     -ms-grid-row: 3;
@@ -1679,7 +1680,7 @@ nav .burger.open .bar3 {
     -ms-grid-column: 1;
     -ms-grid-column-span: 1;
     grid-area: 4/1/4/2;
-    font-size: 20px;
+    font-size: 15px;
   }
   .student .fa-clock {
     -ms-grid-row: 3;
@@ -1692,22 +1693,20 @@ nav .burger.open .bar3 {
     -ms-grid-column: 2;
     -ms-grid-column-span: 1;
     grid-area: 4/2/4/3;
-    font-size: 20px;
+    font-size: 15px;
   }
-  .student button {
+  .student .choose {
     -ms-grid-row: 5;
     -ms-grid-column: 1;
     -ms-grid-column-span: 2;
     grid-area: 5/1/5/3;
-    width: 200px;
-    height: 50px;
   }
 }
 
 @media screen and (min-width: 800px) {
   .student {
     width: 80vw;
-    height: 30vh;
+    height: 50vh;
     -ms-grid-rows: (1fr)[5];
         grid-template-rows: repeat(5, 1fr);
     -ms-grid-columns: 1fr 1fr;
@@ -1765,13 +1764,11 @@ nav .burger.open .bar3 {
     grid-area: 4/2/4/3;
     font-size: 20px;
   }
-  .student button {
-    -ms-grid-row: 5;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 2;
-    grid-area: 5/1/5/3;
-    width: 200px;
-    height: 50px;
+  .student .choose {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 5;
+    grid-area: 1/5/3/5;
   }
 }
 
@@ -1843,11 +1840,6 @@ nav .burger.open .bar3 {
     -ms-grid-column: 5;
     -ms-grid-column-span: 1;
     grid-area: 1/5/3/6;
-    width: 200px;
-    height: 50px;
-  }
-  .student button {
-    border: none;
   }
 }
 

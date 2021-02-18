@@ -205,7 +205,6 @@ if($con){
             </button>
     </form>
     <script src="burger.js"></script>
-    <script src="colorChange2.js"></script>
 </body>
 <?php
 $conn -> close();

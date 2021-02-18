@@ -5,6 +5,7 @@
     min-height: 50vh;
     margin: 25px auto 10px auto;
     grid-gap: 10px;
+    overflow-x: hidden;
 
     .headingR {
         display: flex;
@@ -50,6 +51,8 @@
     .settleRide.white {
         color: $second-color;
         background-color: $first-color;
+        height: 40px;
+        width: 150px;
     }
 
     .text {
@@ -98,9 +101,6 @@
         }
 
         .settleRide {
-            width: 150px;
-            height: 50px;
-
             p {
                 font-size: 15px;
             }
@@ -148,9 +148,6 @@
         }
 
         .settleRide {
-            width: 150px;
-            height: 50px;
-
             p {
                 font-size: 15px;
             }
@@ -190,7 +187,7 @@
             height: 35px;
             width: 200px;
             padding: 10px !important;
-            font-size: 15px !important;
+            font-size: 20px;
         }
 
         .fuel,
@@ -202,8 +199,6 @@
         }
 
         .settleRide {
-            width: 200px;
-            height: 50px;
             grid-area: 5/1/5/1;
 
             p {
@@ -212,11 +207,11 @@
         }
 
         ::placeholder {
-            font-size: 15px;
+            font-size: 20px;
         }
 
         .text {
-            font-size: 20px;
+            font-size: 15px;
             margin-bottom: 10px;
             text-align: center;
         }

@@ -59,6 +59,7 @@
 .dayContainer {
     overflow: hidden;
     display: block;
+    min-height: auto;
 
     .table {
         height: 8vh;
@@ -205,7 +206,6 @@
     .dayContainer {
         align-items: center;
         margin: 0 20px;
-        min-height: 80vh;
     }
 
     .weekContainer {
@@ -245,7 +245,6 @@
     .dayContainer {
         align-items: flex-start;
         margin: 0 30px;
-        min-height: 120vh;
     }
 
     .weekContainer {
