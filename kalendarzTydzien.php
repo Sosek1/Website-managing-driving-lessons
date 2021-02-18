@@ -155,7 +155,7 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                     $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $mon), date("d", $mon), date("y", $mon)));
                                     if($godz == $dj){
                                         $pon[] = $i;
-                                        if($miejsce == 1 ){$dpon[] = $i;}
+                                        if($miejsce == 2 ){$dpon[] = $i;}
                                         
                                         break;
                                     }
@@ -184,7 +184,7 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                     if($godz == $dj){
                                         
                                         $wto[] = $i;
-                                        if($miejsce == 1 ){$dwto[] = $i;}
+                                        if($miejsce == 2 ){$dwto[] = $i;}
 
                                         break;
                                     }
@@ -212,7 +212,7 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                     $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $wen), date("d", $wen), date("y", $wen)));
                                     if($godz == $dj){
                                         $sro[] = $i;
-                                        if($miejsce == 1 ){$dsro[] = $i;}
+                                        if($miejsce == 2 ){$dsro[] = $i;}
                                         break;
                                     }
                                     $i++;
@@ -239,7 +239,7 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                     $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $th), date("d", $th), date("y", $th)));
                                     if($godz == $dj){
                                         $czw[] = $i;
-                                        if($miejsce == 1 ){$dczw[] = $i;}
+                                        if($miejsce == 2 ){$dczw[] = $i;}
                                         break;
                                     }
                                     $i++;
@@ -266,7 +266,7 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                     $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $fr), date("d", $fr), date("y", $fr)));
                                     if($godz == $dj){
                                         $pia[] = $i;
-                                        if($miejsce == 1 ){$dpia[] = $i;}
+                                        if($miejsce == 2 ){$dpia[] = $i;}
                                         break;
                                     }
                                     $i++;
@@ -293,7 +293,7 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                     $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $st), date("d", $st), date("y", $st)));
                                     if($godz == $dj){
                                         $sob[] = $i;
-                                        if($miejsce == 1 ){$dsob[] = $i;}
+                                        if($miejsce == 2 ){$dsob[] = $i;}
                                         break;
                                     }
                                     $i++;
@@ -320,7 +320,7 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                     $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $sd), date("d", $sd), date("y", $sd)));
                                     if($godz == $dj){
                                         $nie[] = $i;
-                                        if($miejsce == 1 ){$dnie[] = $i;}
+                                        if($miejsce == 2 ){$dnie[] = $i;}
                                         break;
                                     }
                                     $i++;
