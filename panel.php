@@ -84,7 +84,7 @@ if($czyinsert){
 
         if(!isset($_SESSION['adid'])){
 
-            $zap = 'SELECT id, kat FROM kursanci WHERE imie =\''.$name.'\' AND surname = \''.$surname.'\'';
+            $zap = 'SELECT * FROM kursanci WHERE imie =\''.$name.'\' AND surname = \''.$surname.'\'';
             $osoba=$conn->query($zap);
 
             if(!$osoba){}else{
@@ -123,11 +123,23 @@ if($czyinsert){
             }
         }else{
             $idd = $_SESSION['adid'];
+            $zap = 'SELECT * FROM kursanci WHERE id ='.$idd.'';
+            $osoba=$conn->query($zap);
+            if(!$osoba){}else{
+                $ile=$osoba->num_rows;
+                if($ile>0){
+                    $osobarow = $osoba->fetch_assoc();
+                    $idd = $osobarow['id'];
+                    $_SESSION['adkat'] = $osobarow['kat'];
+                    $_SESSION['adname'] = $osobarow['imie'];
+                    $_SESSION['adsurname'] = $osobarow['surname'];
+                    $_SESSION['adnrtel'] = $osobarow['nrtel'];
+                }
+            }
         }
         if($info==""){
             $info = "Brak";
         }
-
         if(isset($_SESSION['old_id_j'])){
             $old = $_SESSION['old_id_j'];
             unset($_SESSION['old_id_j']);
@@ -191,6 +203,19 @@ if($czyinsert){
         }else if($godzina+1>=22){
             $_SESSION['error']="Jazda nie może trwać po 22!";
         }
+        $dz = strtotime("now");
+        $dz = strtotime("-1 week", $dz);
+        $da = date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $dz), date("d", $dz), date("y", $dz)));
+        $dz = strtotime($da);
+        $zap = 'SELECT id FROM rozliczeniaDnia WHERE dzien > "'.$dz.'"';
+        $poj=$conn->query($zap);
+        if(!$poj){}else{
+            $ile=$poj->num_rows;
+            if($ile<8){
+                $czyinsert=false;
+                $_SESSION['error'] = "Nie rozliczono dnia!";
+            }
+        }
         
 
 
@@ -216,7 +241,7 @@ if($czyinsert){
             unset($_SESSION['adkat']);
             unset($_SESSION['adhours']);
             unset($_SESSION['adinfo']); 
-            header('Location: kalendarzDzien.php');
+            echo '<meta http-equiv="refresh" content="0; url=kalendarzDzien.php">';
 
         }
 
@@ -351,19 +376,19 @@ if(isset($_SESSION['error'])){
             </div>
             
             <label class="city" >
-            <input type="checkbox" id="1" name="addplace"value="1" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'selected="checked"';}}?>>
+            <input type="radio" id="1" name="addplace"value="1" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'selected="checked"';}}?>>
             <span class="checkmark"></span>
                 <h1>Miasto</h1>
             </label>
 
             <label class="place" >
-            <input type="checkbox" id="1" name="addplace"value="1" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'selected="checked"';}}?>>
+            <input type="radio" id="1" name="addplace"value="1" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'selected="checked"';}}?>>
             <span class="checkmark"></span>
                 <h1>Plac</h1>
             </label>
 
             <label class="cityPlace" >
-            <input type="checkbox" id="1" name="addplace"value="1" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'selected="checked"';}}?>>
+            <input type="radio" id="1" name="addplace"value="1" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'selected="checked"';}}?>>
             <span class="checkmark"></span>
                 <h1>Miasto/Plac</h1>
             </label>
