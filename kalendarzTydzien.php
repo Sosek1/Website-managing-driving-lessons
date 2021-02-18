@@ -77,7 +77,9 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
 
 <body>
     <nav>
-        <div class="logo"></div>
+        <div class="logo">
+        <img src="css/MotoLka.png">
+        </div>
         <ul class="list">
             <li><a href="kalendarzTydzien.php">Kalendarz</a></li>
             <li><a href="panel.php">Panel jazd</a></li>
@@ -488,7 +490,7 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
     </div>
 
     <div class="settle">Rozlicz</div>
-
+    <script src="burger.js"></script>
 </body>
 <?php
 $conn->close();

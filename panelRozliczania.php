@@ -150,7 +150,9 @@ if($con){
 
 <body>
     <nav>
-        <div class="logo"></div>
+        <div class="logo">
+        <img src="css/MotoLka.png">
+        </div>
         <ul class="list">
             <li><a href="kalendarzTydzien.php">Kalendarz</a></li>
             <li><a href="panel.php">Panel jazd</a></li>

@@ -73,7 +73,9 @@ if($conn->connect_errno!=0){
 
 <body>
     <nav>
-        <div class="logo"></div>
+        <div class="logo">
+        <img src="css/MotoLka.png">
+        </div>
         <ul class="list">
             <li><a href="kalendarzTydzien.php">Kalendarz</a></li>
             <li><a href="panel.php">Panel jazd</a></li>
@@ -933,7 +935,7 @@ $jest = false;            }
         
     </div>
     
-    <a class="settle"href="rozliczDzien.php?date=<?php echo $dzien;?>">Rozlicz</a>
+    <a class="settle" style="text-decoration:none;"href="rozliczDzien.php?date=<?php echo $dzien;?>">Rozlicz</a>
 
 </body>
 <script src="burger.js"></script>

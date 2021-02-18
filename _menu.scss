@@ -10,7 +10,11 @@ nav {
         left: 0;
         transform: translateY(-50%);
         margin-left: 20px;
-        background-color: $first-color;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
     }
 
     .list {
@@ -94,8 +98,8 @@ nav {
         height: 15vh;
 
         .logo {
-            height: 50px;
-            width: 20%
+            height: 70px;
+            width: 60%;
         }
 
         .burger {
