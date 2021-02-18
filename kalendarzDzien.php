@@ -933,7 +933,7 @@ $jest = false;            }
         
     </div>
     
-    <a href="rozliczDzien.php?date=<?php echo $dzien;?>"><div class="settle">Rozlicz</div></a>
+    <a class="settle"href="rozliczDzien.php?date=<?php echo $dzien;?>">Rozlicz</a>
 
 </body>
 <script src="burger.js"></script>

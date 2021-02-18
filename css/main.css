@@ -507,6 +507,8 @@ nav .burger.open .bar3 {
       -ms-flex-pack: center;
           justify-content: center;
   font-size: 15px;
+  text-decoration: none;
+  color: #fff;
 }
 
 @media screen and (min-width: 200px) {
@@ -585,6 +587,12 @@ nav .burger.open .bar3 {
   min-height: 60vh;
   margin: 25px auto 10px auto;
   grid-gap: 10px;
+  /* Hide the browser's default checkbox */
+  /* Create a custom checkbox */
+  /* When the checkbox is checked, add a blue background */
+  /* Create the checkmark/indicator (hidden when not checked) */
+  /* Show the checkmark when checked */
+  /* Style the checkmark/indicator */
 }
 
 .container .heading {
@@ -665,9 +673,82 @@ nav .burger.open .bar3 {
 
 .container .city,
 .container .place,
-.container .cityPlace,
+.container .cityPlace {
+  position: relative;
+  -webkit-transition: linear .1s;
+  transition: linear .1s;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border-radius: 6px;
+  font-size: 15px;
+  color: #fff;
+  background-color: #000;
+  border: 1px solid #000;
+}
+
+.container .city h1,
+.container .place h1,
+.container .cityPlace h1 {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  -webkit-transform: translate(-40%, -50%);
+          transform: translate(-40%, -50%);
+  font-size: 15px;
+  color: #fff;
+  font-weight: 400;
+}
+
+.container .city input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.container .checkmark {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+}
+
+.container .city input:checked ~ .checkmark {
+  background-color: #fff;
+}
+
+.container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container .city input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container .city .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid #000;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
 .container .save,
-.container .clear,
 .container .changeDate {
   border-radius: 6px;
   background-color: #000;
@@ -1339,6 +1420,8 @@ nav .burger.open .bar3 {
   color: #fff;
   -webkit-transition: linear .1s;
   transition: linear .1s;
+  height: 40px;
+  width: 150px;
 }
 
 .containerR .settleRide.white {
@@ -1358,6 +1441,10 @@ nav .burger.open .bar3 {
 .containerR .traningForm,
 .containerR .settleRide:hover {
   cursor: pointer;
+}
+
+.containerR a {
+  text-decoration: none !important;
 }
 
 @media screen and (min-width: 200px) {
@@ -1489,7 +1576,7 @@ nav .burger.open .bar3 {
     height: 35px;
     width: 200px;
     padding: 10px !important;
-    font-size: 20px;
+    font-size: 15px;
   }
   .containerR .fuel,
   .containerR .rideRealized,
@@ -1507,16 +1594,16 @@ nav .burger.open .bar3 {
     font-size: 15px;
   }
   .containerR ::-webkit-input-placeholder {
-    font-size: 20px;
+    font-size: 15px;
   }
   .containerR :-ms-input-placeholder {
-    font-size: 20px;
+    font-size: 15px;
   }
   .containerR ::-ms-input-placeholder {
-    font-size: 20px;
+    font-size: 15px;
   }
   .containerR ::placeholder {
-    font-size: 20px;
+    font-size: 15px;
   }
   .containerR .text {
     font-size: 15px;
@@ -1628,6 +1715,8 @@ nav .burger.open .bar3 {
   width: 100%;
   height: 100%;
   border: none;
+  background-color: #fff;
+  border-radius: 6px;
 }
 
 .student i {
