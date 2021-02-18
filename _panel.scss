@@ -220,7 +220,8 @@
     }
 
     .save,
-    .changeDate {
+    .changeDate,
+    .clear {
         border-radius: 6px;
         background-color: $second-color;
         border: 1px solid $second-color;
@@ -253,16 +254,6 @@
         border-left: none;
         border-right: none;
         border-top: none;
-    }
-
-    .arrow1,
-    .arrow2,
-    .arrow3 {
-        transition: .2s linear;
-    }
-
-    .flip {
-        transform: rotate(180deg);
     }
 
     .text {

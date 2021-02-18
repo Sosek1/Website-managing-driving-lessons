@@ -87,7 +87,7 @@ if(isset($_GET['szuk'])){
                             }
                         
                         }
-                        echo '<a class="choose" href=\'panel.php?id='.$osobarow['id'].'\'><button>Wybierz</button></a></div>';
+                        echo '<a class="choose" href=\'panel.php?id='.$osobarow['id'].'\'>Wybierz</a></div>';
                         $i=$i+1;
                     }
                 }else{
