@@ -117,7 +117,7 @@ if($czyinsert){
                         }
                     }else{
                         $czyinsert=false;
-                        $_SESSION['telerror']="Nie podano numeru telefonu!";
+                        $_SESSION['error']="Nie podano numeru telefonu!";
                     }
                 }
             }
@@ -160,7 +160,7 @@ if($czyinsert){
             $ile=$poj->num_rows;                
             if($ile>0){
                 $czyzwalidowano=false;
-                $_SESSION['pojerror']="Pojazd jest zajęty o tej godzinie!";
+                $_SESSION['error']="Pojazd jest zajęty o tej godzinie!";
             }
         }
         if($dlugosc>1 && $godzina+1<22){
@@ -171,11 +171,11 @@ if($czyinsert){
                 $ile=$poj->num_rows;                
                 if($ile>0){
                     $czyzwalidowano=false;
-                    $_SESSION['pojerror']="Pojazd jest zajęty o tej godzinie!";
+                    $_SESSION['error']="Pojazd jest zajęty o tej godzinie!";
                 }
             }
         }else if($godzina+1>=22){
-            $_SESSION['pojerror']="Jazda nie może trwać po 22!";
+            $_SESSION['error']="Jazda nie może trwać po 22!";
         }
         if($dlugosc>2 && $godzina+2<22){
             $dataa=date("Y-m-d H:i:s", mktime($godzina, 0, 0, $msc, $day, $ye));
@@ -185,11 +185,11 @@ if($czyinsert){
                 $ile=$poj->num_rows;                
                 if($ile>0){
                     $czyzwalidowano=false;
-                    $_SESSION['pojerror']="Pojazd jest zajęty o tej godzinie!";
+                    $_SESSION['error']="Pojazd jest zajęty o tej godzinie!";
                 }
             }
         }else if($godzina+1>=22){
-            $_SESSION['pojerror']="Jazda nie może trwać po 22!";
+            $_SESSION['error']="Jazda nie może trwać po 22!";
         }
         
 
@@ -222,7 +222,10 @@ if($czyinsert){
 
     }
     $conn->close();
-
+if(isset($_SESSION['error'])){
+    echo "<script>alert('$_SESSION['error']');</script>";
+    unset($_SESSION['error']);
+}
 
 }
 ?>
@@ -268,7 +271,6 @@ if($czyinsert){
             <input type="text" name="addname" class="name2 border " placeholder="Imię..."<?php if(isset($_SESSION['adname'])){echo 'value="'.$_SESSION['adname'].'"';}?>>
             <input type="text" name="addsurname" class="surname border " placeholder="Nazwisko..."<?php if(isset($_SESSION['adsurname'])){echo 'value="'.$_SESSION['adsurname'].'"';}?>>
             <input type="tel" name="addnrtel" class="phoneNumber border " placeholder="Numer telefonu..."<?php if(isset($_SESSION['adnrtel'])){echo 'value="'.$_SESSION['adnrtel'].'"';}?>>
-            <?php if(isset($_SESSION['telerror'])){echo $_SESSION['telerror']; unset($_SESSION['telerror']);}?>
             <div class="chooseCategory">
                 <p class="text">Kategoria</p>
                 <select class="custom-select" name="addkat">
@@ -278,7 +280,6 @@ if($czyinsert){
                     <option value="4"<?php if(isset($_SESSION['adkat'])){if($_SESSION['adkat']==4){echo 'selected="selected"';}}?>>A</option>
                 </select>
             </div>
-            <?php if(isset($_SESSION['katerror'])){echo $_SESSION['katerror']; unset($_SESSION['katerror']);}?>
             <div class="chooseHour">
                 <p class="text">Liczba godzin</p>
                 <select class="custom-select" name="addhours">
@@ -287,7 +288,6 @@ if($czyinsert){
                     <option value="3"<?php if(isset($_SESSION['adhours'])){if($_SESSION['adhours']==3){echo 'selected="selected"';}}?>>3</option>
                 </select>
             </div>
-            <?php if(isset($_SESSION['pojerror'])){echo $_SESSION['pojerror']; unset($_SESSION['pojerror']);}?>
             <div class="chooseCar">
                 <p class="text"> Pojazd</p>
                 <select class="custom-select" name="addpojazd">
