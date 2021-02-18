@@ -19,7 +19,7 @@ if(isset($_GET['h'])){
     $godzina=$_SESSION['h'];
 }
 if(isset($_GET['id'])){
-    $_SESSION['adid'] = $_GET['h'];
+    $_SESSION['adid'] = $_GET['id'];
 }
 
 $day = date('d', $dzien);
@@ -93,6 +93,9 @@ if($czyinsert){
                     $osobarow = $osoba->fetch_assoc();
                     $idd = $osobarow['id'];
                     $katosoby = $osobarow['kat'];
+                    $name = $osobarow['imie'];
+                    $surname = $osobarow['surname'];
+                    $nrtel = $osobarow['nrtel'];
                 }else{
                     if($podtel){
                         $zap = 'INSERT INTO kursanci VALUES(NULL, \''.$name.'\', \''.$surname.'\', \''.$name." ".$surname.'\', '.$nrtel.', \''.$kat.'\')';
@@ -125,11 +128,16 @@ if($czyinsert){
             $info = "Brak";
         }
 
-        if($kat>$katosoby){
-            $czyzwalidowano=false;
-            $_SESSION['katerror']="Zła kategoria dla tego kursanta!";
+        if(isset($_SESSION['old_id_j'])){
+            $old = $_SESSION['old_id_j'];
+            unset($_SESSION['old_id_j']);
+            $zap = 'DELETE FROM jazdy WHERE id="'.$old.'"';
+            $rezu=$conn->query($zap);
+            if(!$rezu){
+            }else{
+            }
         }
-
+        
         
         $zap = 'SELECT kat FROM pojazdy WHERE id =\''.$pojazd.'\'';
         $poj=$conn->query($zap);
@@ -199,6 +207,7 @@ if($czyinsert){
                 }
                 $i++;
             }
+
             unset($_SESSION['adid']);
             unset($_SESSION['adname']);
             unset($_SESSION['adsurname']);
@@ -206,7 +215,9 @@ if($czyinsert){
             unset($_SESSION['adnrtel']);
             unset($_SESSION['adkat']);
             unset($_SESSION['adhours']);
-            unset($_SESSION['adinfo']);            
+            unset($_SESSION['adinfo']); 
+            header('Location: kalendarzDzien.php');
+
         }
 
     }
@@ -340,7 +351,7 @@ if($czyinsert){
             <textarea class="info" placeholder="Napisz coś..." name="addinfo"></textarea>
             <button type="submit" class="save">zapisz</button> 
             <a href="delete_date.php" class="clear">Usuń dane</a>
-            <a href="#" class="changeDate">Zmień datę jazdy</a>
+            <a href="kalendarzDzien.php?date=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>" class="changeDate">Zmień datę jazdy</a>
             
     </form>
 

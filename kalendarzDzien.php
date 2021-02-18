@@ -5,7 +5,7 @@ if(!isset($_SESSION['logIn'])){
     header('Location: index.php');
     exit();
 }
-
+unset($_SESSION['old_id_j']);
 if(isset($_GET['date'])==true){
     $dzien = $_GET['date'];
 }else{
@@ -41,8 +41,8 @@ if(isset($_GET['date'])==true){
     }
 }
 
-
-    $czyjest = true;
+$id = $_SESSION['id'];
+$czyjest = true;
 
 
 
@@ -88,6 +88,24 @@ if($conn->connect_errno!=0){
     </nav>
 
     <h1 class="name">Cześć, <?php echo $_SESSION['user_name'];?></h1>
+    <?php
+    if($con){
+        $dz=date("Y-m-d H:i:s", mktime(0, 0, 0, $msc, $day, $ye));
+        $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$dz.'" and id_instruktora='.$id.'';
+        $rezu=$conn->query($zap);
+        if(!$rezu){
+        }else{
+            $ile = $rezu->num_rows;
+            if($ile==0){
+                $czywszystkorozliczone = true;
+            }else{
+                $czywszystkorozliczone = false;
+                echo '<h1 class="name">Rozliczono</h1>';
+            }   
+
+        }
+    }
+    ?>
     <a href="kalendarzTydzien.php"><button class="dayWeek">Tydzień</button></a>
 
     <div class="arrowBox">
@@ -145,15 +163,22 @@ if($conn->connect_errno!=0){
             ?>
                 </div>
             
-            <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=6">                
-                <i class="fas fa-plus">
-                </i></a>
+
             <?php 
-            if($jest && $czyjest){
-                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-$jest = false;            }
+            if($czywszystkorozliczone){
+                if($dublet || true){
+                    echo '<label class="addRide"><a href="panel.php?d=';
+                    echo mktime(0, 0, 0, $msc, $day, $ye);
+                    echo '&h=6"><i class="fas fa-plus"></i></a>';
+                }
+                if($jest){
+                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    $jest = false;            
+                }
+            }
             ?>
+
         </div>
         <div class="table"
         <?php 
