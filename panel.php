@@ -345,9 +345,23 @@ if(isset($_SESSION['error'])){
                 </select>
             </div>
             
-            <input type="radio" style="margin-right:5px; display:none" id="1" name="addplace"value="1" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'selected="checked"';}}?>><label class="city"for="1">Miasto</label>
+            <label class="city" >
+            <input type="checkbox" id="1" name="addplace"value="1" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'selected="checked"';}}?>>
+            <span class="checkmark"></span>
+                <h1>Miasto</h1>
+            </label>
+            <input type="checkbox" id="1" name="addplace"value="1" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'selected="checked"';}}?>>
+            <span class="checkmark"></span>
+                <h1>Miasto</h1>
+            </label>
+            <input type="checkbox" id="1" name="addplace"value="1" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'selected="checked"';}}?>>
+            <span class="checkmark"></span>
+                <h1>Miasto</h1>
+            </label>
+
+            <!-- <input type="radio" style="margin-right:5px; display:none" id="1" name="addplace"value="1" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'selected="checked"';}}?>><label class="city"for="1">Miasto</label>
             <input type="radio" style="margin-right:5px; display:none" id="2" name="addplace"value="2" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==2){echo 'selected="checked"';}}?>><label for="2"class="place">Plac</label>
-            <input type="radio" style="margin-right:5px; display:none" id="3" name="addplace"value="3" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==3){echo 'selected="checked"';}}?>><label for="3"class="cityPlace"> Miasto/Plac</label> 
+            <input type="radio" style="margin-right:5px; display:none" id="3" name="addplace"value="3" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==3){echo 'selected="checked"';}}?>><label for="3"class="cityPlace"> Miasto/Plac</label>  -->
             
             <textarea class="info" placeholder="Napisz coś..." name="addinfo"></textarea>
             <button type="submit" class="save">zapisz</button> 
