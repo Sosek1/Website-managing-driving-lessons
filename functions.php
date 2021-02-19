@@ -62,7 +62,7 @@ function writerozlicz($godzina, $id, $imie, $nazwisko, $kat, $tel, $datee, $rozl
     if($rozliczono){
         echo '</div></div>';
     }else{
-        echo '</div><label class="addRide"><a href="panelRozliczania.php?id='.$id.'">Rozlicz</a></label></div>';
+        echo '</div><label class="addRide"><a style="text-decoration:none;color:#fff;"href="panelRozliczania.php?id='.$id.'">Rozlicz</a></label></div>';
     }
     
 }

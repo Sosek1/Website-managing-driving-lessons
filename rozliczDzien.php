@@ -176,7 +176,7 @@ if($conn->connect_errno!=0){
         ?>
     </div>
 
-    <div class="settle"><a <?php if($czywszystkorozliczone){ echo 'href=rozlicz.php?data='.$dzien;}?>>Rozlicz</a></div>
+    <div style="color:#fff;text-decoration:none;"class="settle"><a <?php if($czywszystkorozliczone){ echo 'href=rozlicz.php?data='.$dzien;}?>>Rozlicz</a></div>
 
 </body>
 <script src="burger.js"></script>
