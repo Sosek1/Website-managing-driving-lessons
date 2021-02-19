@@ -239,7 +239,6 @@ if($czyinsert){
                 $dataa=date("Y-m-d H:i:s", mktime($godzina+$i, 0, 0, $msc, $day, $ye));
                 $zap = 'INSERT INTO jazdy VALUES(NULL, '.$idinstruktora.', '.$idd.', '.$pojazd.', \''.$dataa.'\', NULL, '.$place.', "'.$info.'")';
                 
-                echo $zap;
                 if($conn->query($zap)){
                             
                 }else{
