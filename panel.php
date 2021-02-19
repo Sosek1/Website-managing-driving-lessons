@@ -74,16 +74,36 @@ if(isset($_POST['szukaj'])){
     }
 }
 $id;
-if($czyinsert){
-    $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
-    $conn->query("SET NAMES 'utf8'");
-    $czyzwalidowano = true;
-    if($conn->connect_errno!=0){
+$conn = @new mysqli($host, $db_user, $db_pass, $db_name);
+$conn->query("SET NAMES 'utf8'");
+$czyzwalidowano = true;
+if($conn->connect_errno!=0){
+    $con=false;
+}else{
+    if(isset($_SESSION['adid'])){
+        $ido = $_SESSION['adid'];
+        $con = true;
+        $zap = 'SELECT * FROM kursanci WHERE id ='.$ido.'';
+        $osoba=$conn->query($zap);
+        if(!$osoba){}else{
+            $ile=$osoba->num_rows;
+            if($ile>0){
+                $osobarow = $osoba->fetch_assoc();
+                $idd = $osobarow['id'];
+                $_SESSION['adkat'] = $osobarow['kat'];
+                $_SESSION['adname'] = $osobarow['imie'];
+                $_SESSION['adsurname'] = $osobarow['surname'];
+                $_SESSION['adnrtel'] = $osobarow['nrtel'];
+            }
+        }
+    }
+}
 
-    }else{
+
+if($czyinsert){
+    if($con){
 
         if(!isset($_SESSION['adid'])){
-
             $zap = 'SELECT * FROM kursanci WHERE imie =\''.$name.'\' AND surname = \''.$surname.'\'';
             $osoba=$conn->query($zap);
 
@@ -122,32 +142,15 @@ if($czyinsert){
                 }
             }
         }else{
-            $idd = $_SESSION['adid'];
-            $zap = 'SELECT * FROM kursanci WHERE id ='.$idd.'';
-            $osoba=$conn->query($zap);
-            if(!$osoba){}else{
-                $ile=$osoba->num_rows;
-                if($ile>0){
-                    $osobarow = $osoba->fetch_assoc();
-                    $idd = $osobarow['id'];
-                    $_SESSION['adkat'] = $osobarow['kat'];
-                    $_SESSION['adname'] = $osobarow['imie'];
-                    $_SESSION['adsurname'] = $osobarow['surname'];
-                    $_SESSION['adnrtel'] = $osobarow['nrtel'];
-                }
-            }
+            $idd = $_SESSION['adid'];            
         }
         if($info==""){
             $info = "Brak";
         }
         if(isset($_SESSION['old_id_j'])){
             $old = $_SESSION['old_id_j'];
-            unset($_SESSION['old_id_j']);
-            $zap = 'DELETE FROM jazdy WHERE id="'.$old.'"';
-            $rezu=$conn->query($zap);
-            if(!$rezu){
-            }else{
-            }
+        }else{
+            $old = -1;
         }
         
         
@@ -163,7 +166,7 @@ if($czyinsert){
         }
         if($katpoj>$kat){
             $czyzwalidowano=false;
-            $_SESSION['katerror']="Zły pojazd dla tego kursanta!";
+            $_SESSION['error']="Zły pojazd dla tego kursanta!";
         }
         $dataa=date("Y-m-d H:i:s", mktime($godzina, 0, 0, $msc, $day, $ye));
         $zap = 'SELECT * FROM jazdy WHERE id_pojazdu ='.$pojazd.' AND data_jazdy=\''.$dataa.'\'';
@@ -220,11 +223,23 @@ if($czyinsert){
 
 
         if($czyzwalidowano && $czyinsert){
+            if(isset($_SESSION['old_id_j'])){
+               // $old = $_SESSION['old_id_j'];
+                unset($_SESSION['old_id_j']);
+               // $zap = 'DELETE FROM jazdy WHERE id="'.$old.'"';
+                //$_SESSION['error'] = $zap; 
+               // $rezu=$conn->query($zap);
+               // if(!$rezu){
+               // }else{
+                //}
+            }
             $i=0;
             while($i<$dlugosc){
                 $idinstruktora = $_SESSION['id'];
                 $dataa=date("Y-m-d H:i:s", mktime($godzina+$i, 0, 0, $msc, $day, $ye));
                 $zap = 'INSERT INTO jazdy VALUES(NULL, '.$idinstruktora.', '.$idd.', '.$pojazd.', \''.$dataa.'\', NULL, '.$place.', "'.$info.'")';
+                
+                echo $zap;
                 if($conn->query($zap)){
                             
                 }else{
