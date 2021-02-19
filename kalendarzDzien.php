@@ -102,9 +102,9 @@ if($conn->connect_errno!=0){
         }else{
             $ile = $rezu->num_rows;
             if($ile==0){
-                $czywszystkorozliczone = true;
-            }else{
                 $czywszystkorozliczone = false;
+            }else{
+                $czywszystkorozliczone = true;
                 echo '<h1 class="name">Rozliczono</h1>';
             }   
 
@@ -170,7 +170,7 @@ if($conn->connect_errno!=0){
             
 
             <?php 
-            if($czywszystkorozliczone){
+            if(!$czywszystkorozliczone){
                 if($dublet || true){
                     echo '<label class="addRide"><a href="panel.php?d=';
                     echo mktime(0, 0, 0, $msc, $day, $ye);
@@ -225,14 +225,19 @@ if($conn->connect_errno!=0){
                     $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=7">                
-                <i class="fas fa-plus">
-                </i></a>
-            <?php 
-            if($jest && $czyjest){
-                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-$jest = false;            }
+                <?php 
+            if(!$czywszystkorozliczone){
+                if($dublet || true){
+                    echo '<label class="addRide"><a href="panel.php?d=';
+                    echo mktime(0, 0, 0, $msc, $day, $ye);
+                    echo '&h=7"><i class="fas fa-plus"></i></a>';
+                }
+                if($jest){
+                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    $jest = false;            
+                }
+            }
             ?>
         </div>
         <div class="table"
@@ -275,14 +280,19 @@ $jest = false;            }
                     $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=8">                
-                <i class="fas fa-plus">
-                </i></a>
-            <?php 
-            if($jest && $czyjest){
-                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-$jest = false;            }
+                <?php 
+            if(!$czywszystkorozliczone){
+                if($dublet || true){
+                    echo '<label class="addRide"><a href="panel.php?d=';
+                    echo mktime(0, 0, 0, $msc, $day, $ye);
+                    echo '&h=8"><i class="fas fa-plus"></i></a>';
+                }
+                if($jest){
+                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    $jest = false;            
+                }
+            }
             ?>
         </div>
         <div class="table"
@@ -325,14 +335,19 @@ $jest = false;            }
                     $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=9">                
-                <i class="fas fa-plus">
-                </i></a>
-            <?php 
-            if($jest && $czyjest){
-                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-$jest = false;            }
+                <?php 
+            if(!$czywszystkorozliczone){
+                if($dublet || true){
+                    echo '<label class="addRide"><a href="panel.php?d=';
+                    echo mktime(0, 0, 0, $msc, $day, $ye);
+                    echo '&h=9"><i class="fas fa-plus"></i></a>';
+                }
+                if($jest){
+                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    $jest = false;            
+                }
+            }
             ?>
         </div>
         <div class="table"
@@ -375,14 +390,19 @@ $jest = false;            }
                     $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=10">                
-                <i class="fas fa-plus">
-                </i></a>
-            <?php 
-            if($jest && $czyjest){
-                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-$jest = false;            }
+                <?php 
+            if(!$czywszystkorozliczone){
+                if($dublet || true){
+                    echo '<label class="addRide"><a href="panel.php?d=';
+                    echo mktime(0, 0, 0, $msc, $day, $ye);
+                    echo '&h=10"><i class="fas fa-plus"></i></a>';
+                }
+                if($jest){
+                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    $jest = false;            
+                }
+            }
             ?>
         </div>
         <div class="table"
@@ -425,14 +445,19 @@ $jest = false;            }
                     $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=11">                
-                <i class="fas fa-plus">
-                </i></a>
-            <?php 
-            if($jest && $czyjest){
-                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-$jest = false;            }
+                <?php 
+            if(!$czywszystkorozliczone){
+                if($dublet || true){
+                    echo '<label class="addRide"><a href="panel.php?d=';
+                    echo mktime(0, 0, 0, $msc, $day, $ye);
+                    echo '&h=11"><i class="fas fa-plus"></i></a>';
+                }
+                if($jest){
+                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    $jest = false;            
+                }
+            }
             ?>
         </div>
         <div class="table"
@@ -475,14 +500,19 @@ $jest = false;            }
                     $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=12">                
-                <i class="fas fa-plus">
-                </i></a>
-            <?php 
-            if($jest && $czyjest){
-                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-$jest = false;            }
+                <?php 
+            if(!$czywszystkorozliczone){
+                if($dublet || true){
+                    echo '<label class="addRide"><a href="panel.php?d=';
+                    echo mktime(0, 0, 0, $msc, $day, $ye);
+                    echo '&h=12"><i class="fas fa-plus"></i></a>';
+                }
+                if($jest){
+                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    $jest = false;            
+                }
+            }
             ?>
         </div>
         <div class="table"
@@ -525,14 +555,19 @@ $jest = false;            }
                     $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=13">                
-                <i class="fas fa-plus">
-                </i></a>
-            <?php 
-            if($jest && $czyjest){
-                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-$jest = false;            }
+                <?php 
+            if(!$czywszystkorozliczone){
+                if($dublet || true){
+                    echo '<label class="addRide"><a href="panel.php?d=';
+                    echo mktime(0, 0, 0, $msc, $day, $ye);
+                    echo '&h=13"><i class="fas fa-plus"></i></a>';
+                }
+                if($jest){
+                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    $jest = false;            
+                }
+            }
             ?>
         </div>
         <div class="table"
@@ -575,14 +610,19 @@ $jest = false;            }
                     $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=14">                
-                <i class="fas fa-plus">
-                </i></a>
-            <?php 
-            if($jest && $czyjest){
-                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-$jest = false;            }
+                <?php 
+            if(!$czywszystkorozliczone){
+                if($dublet || true){
+                    echo '<label class="addRide"><a href="panel.php?d=';
+                    echo mktime(0, 0, 0, $msc, $day, $ye);
+                    echo '&h=14"><i class="fas fa-plus"></i></a>';
+                }
+                if($jest){
+                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    $jest = false;            
+                }
+            }
             ?>
         </div>
         <div class="table"
@@ -625,14 +665,19 @@ $jest = false;            }
                     $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=15">                
-                <i class="fas fa-plus">
-                </i></a>
-            <?php 
-            if($jest && $czyjest){
-                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-$jest = false;            }
+                <?php 
+            if(!$czywszystkorozliczone){
+                if($dublet || true){
+                    echo '<label class="addRide"><a href="panel.php?d=';
+                    echo mktime(0, 0, 0, $msc, $day, $ye);
+                    echo '&h=15"><i class="fas fa-plus"></i></a>';
+                }
+                if($jest){
+                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    $jest = false;            
+                }
+            }
             ?>
         </div>
         <div class="table"
@@ -675,14 +720,19 @@ $jest = false;            }
                     $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=16">                
-                <i class="fas fa-plus">
-                </i></a>
-            <?php 
-            if($jest && $czyjest){
-                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-$jest = false;            }
+                <?php 
+            if(!$czywszystkorozliczone){
+                if($dublet || true){
+                    echo '<label class="addRide"><a href="panel.php?d=';
+                    echo mktime(0, 0, 0, $msc, $day, $ye);
+                    echo '&h=16"><i class="fas fa-plus"></i></a>';
+                }
+                if($jest){
+                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    $jest = false;            
+                }
+            }
             ?>
         </div>
         <div class="table"
@@ -725,14 +775,19 @@ $jest = false;            }
                     $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=17">                
-                <i class="fas fa-plus">
-                </i></a>
-            <?php 
-            if($jest && $czyjest){
-                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-$jest = false;            }
+                <?php 
+            if(!$czywszystkorozliczone){
+                if($dublet || true){
+                    echo '<label class="addRide"><a href="panel.php?d=';
+                    echo mktime(0, 0, 0, $msc, $day, $ye);
+                    echo '&h=17"><i class="fas fa-plus"></i></a>';
+                }
+                if($jest){
+                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    $jest = false;            
+                }
+            }
             ?>
         </div>
         <div class="table"
@@ -775,14 +830,19 @@ $jest = false;            }
                     $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=18">                
-                <i class="fas fa-plus">
-                </i></a>
-            <?php 
-            if($jest && $czyjest){
-                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-$jest = false;            }
+                <?php 
+            if(!$czywszystkorozliczone){
+                if($dublet || true){
+                    echo '<label class="addRide"><a href="panel.php?d=';
+                    echo mktime(0, 0, 0, $msc, $day, $ye);
+                    echo '&h=18"><i class="fas fa-plus"></i></a>';
+                }
+                if($jest){
+                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    $jest = false;            
+                }
+            }
             ?>
         </div>
         <div class="table"
@@ -825,14 +885,19 @@ $jest = false;            }
                     $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=19">                
-                <i class="fas fa-plus">
-                </i></a>
-            <?php 
-            if($jest && $czyjest){
-                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-$jest = false;            }
+                <?php 
+            if(!$czywszystkorozliczone){
+                if($dublet || true){
+                    echo '<label class="addRide"><a href="panel.php?d=';
+                    echo mktime(0, 0, 0, $msc, $day, $ye);
+                    echo '&h=19"><i class="fas fa-plus"></i></a>';
+                }
+                if($jest){
+                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    $jest = false;            
+                }
+            }
             ?>
         </div>
         <div class="table"
@@ -875,14 +940,19 @@ $jest = false;            }
                     $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=20">                
-                <i class="fas fa-plus">
-                </i></a>
-            <?php 
-            if($jest && $czyjest){
-                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-$jest = false;            }
+                <?php 
+            if(!$czywszystkorozliczone){
+                if($dublet || true){
+                    echo '<label class="addRide"><a href="panel.php?d=';
+                    echo mktime(0, 0, 0, $msc, $day, $ye);
+                    echo '&h=20"><i class="fas fa-plus"></i></a>';
+                }
+                if($jest){
+                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    $jest = false;            
+                }
+            }
             ?>
         </div>
         <div class="table"
@@ -925,14 +995,19 @@ $jest = false;            }
                     $jest = true;                }
             ?>
                 </div>
-                <label class="addRide"><a href="panel.php?d=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>&h=21">                
-                <i class="fas fa-plus">
-                </i></a>
-            <?php 
-            if($jest && $czyjest){
-                echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-$jest = false;            }
+                <?php 
+            if(!$czywszystkorozliczone){
+                if($dublet || true){
+                    echo '<label class="addRide"><a href="panel.php?d=';
+                    echo mktime(0, 0, 0, $msc, $day, $ye);
+                    echo '&h=21"><i class="fas fa-plus"></i></a>';
+                }
+                if($jest){
+                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    $jest = false;            
+                }
+            }
             ?>
         </div>
         
