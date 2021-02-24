@@ -74,15 +74,17 @@ if(isset($_POST['szukaj'])){
     }
 }
 $id;
-$conn = @new mysqli($host, $db_user, $db_pass, $db_name);
+$conn = new mysqli($host, $db_user, $db_pass, $db_name);
 $conn->query("SET NAMES 'utf8'");
 $czyzwalidowano = true;
 if($conn->connect_errno!=0){
     $con=false;
+    echo $conn->connect_errno;
+    echo $conn->connect_error;
 }else{
+    $con = true;
     if(isset($_SESSION['adid'])){
         $ido = $_SESSION['adid'];
-        $con = true;
         $zap = 'SELECT * FROM kursanci WHERE id ='.$ido.'';
         $osoba=$conn->query($zap);
         if(!$osoba){}else{
@@ -101,8 +103,8 @@ if($conn->connect_errno!=0){
 
 
 if($czyinsert){
-    if($con){
 
+    if($con){
         if(!isset($_SESSION['adid'])){
             $zap = 'SELECT * FROM kursanci WHERE imie =\''.$name.'\' AND surname = \''.$surname.'\'';
             $osoba=$conn->query($zap);
@@ -223,6 +225,7 @@ if($czyinsert){
 
 
         if($czyzwalidowano && $czyinsert){
+            echo "save";
             if(isset($_SESSION['old_id_j'])){
                // $old = $_SESSION['old_id_j'];
                 unset($_SESSION['old_id_j']);
@@ -238,7 +241,7 @@ if($czyinsert){
                 $idinstruktora = $_SESSION['id'];
                 $dataa=date("Y-m-d H:i:s", mktime($godzina+$i, 0, 0, $msc, $day, $ye));
                 $zap = 'INSERT INTO jazdy VALUES(NULL, '.$idinstruktora.', '.$idd.', '.$pojazd.', \''.$dataa.'\', NULL, '.$place.', "'.$info.'")';
-                
+                echo $zap;
                 if($conn->query($zap)){
                             
                 }else{
@@ -255,10 +258,13 @@ if($czyinsert){
             unset($_SESSION['adkat']);
             unset($_SESSION['adhours']);
             unset($_SESSION['adinfo']); 
+            //header("Location: kalendarzDzien.php");
             echo '<meta http-equiv="refresh" content="0; url=kalendarzDzien.php">';
 
         }
 
+    }else{
+        echo "blad bazy";
     }
     $conn->close();
 if(isset($_SESSION['error'])){
@@ -408,7 +414,7 @@ if(isset($_SESSION['error'])){
             </label>
             
             <textarea class="info" placeholder="Napisz coś..." name="addinfo"></textarea>
-            <button type="submit" class="save">zapisz</button> 
+            <button type="submit" class="save">zapisz</button>
             <a href="delete_date.php" class="clear">Usuń dane</a>
             <a href="kalendarzDzien.php?date=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>" class="changeDate">Zmień datę jazdy</a>
             
