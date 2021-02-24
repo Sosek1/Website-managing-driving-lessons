@@ -66,4 +66,91 @@ function writerozlicz($godzina, $id, $imie, $nazwisko, $kat, $tel, $datee, $rozl
     }
     
 }
+function retdzien($dzien){
+    $day = date('d', $dzien);
+    $msc = date('m', $dzien);
+    $ye = date('y', $dzien);
+    $dzien = mktime(0,0,0,$msc, $day, $ye);
+    $startdate=strtotime("previous Sunday");
+    $mon=strtotime("+1 day", $startdate);
+    $sd=strtotime("+7 day", $startdate);
+    while($dzien < $mon){
+        $startdate = strtotime("-1 week", $startdate);
+        $mon = strtotime("+1 day", $startdate);
+    }
+    while ($dzien > $sd){
+        $startdate = strtotime("+1 week", $startdate);
+        $sd = strtotime("+7 day", $startdate);
+    }
+    $mon=strtotime("+1 day", $startdate);
+    $tue=strtotime("+2 day", $startdate);
+    $wen=strtotime("+3 day", $startdate);
+    $th=strtotime("+4 day", $startdate);
+    $fr=strtotime("+5 day", $startdate);
+    $st=strtotime("+6 day", $startdate);
+    $sd=strtotime("+7 day", $startdate);
+    if($mon == $dzien){
+        return " poniedziałek";
+    }else if($tue == $dzien){
+        return " wtorek";
+    }else if($wen == $dzien){
+        return " środa";
+    }else if($th == $dzien){
+        return " czwartek";
+    }else if($fr == $dzien){
+        return " piątek";
+    }else if($st == $dzien){
+        return " sobota";
+    }else if($sd == $dzien){
+        return " niedziela";
+    }
+}
+function retmiesiac($dzien){
+    $msc = date('m', $dzien);
+    switch ($msc){
+        case 1:
+            $ms = "Stycznia";
+            break;
+        case 2:
+            $ms = "Luty";
+            break;
+        case 3:
+            $ms = "Marca";
+            break;
+        case 4:
+            $ms = "Kwietnia";
+            break;
+        case 5:
+            $ms = "Maja";
+            break;
+        case 6:
+            $ms = "Czerwca";
+            break;
+        case 7:
+            $ms = "Lipca";
+            break;
+        case 8:
+            $ms = "Sierpnia";
+            break;
+        case 9:
+            $ms = "Września";
+            break;
+        case 10:
+            $ms = "Października";
+            break;
+        case 11:
+            $ms = "Listopada";
+            break;
+        case 12:
+            $ms = "Grudnia";
+            break;
+    }
+    return $ms;
+}
+function retdayofweek(){
+    return date("w", strtotime('now'));
+}
+
+
+
 ?>

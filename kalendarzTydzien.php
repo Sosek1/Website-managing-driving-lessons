@@ -56,7 +56,6 @@ if(isset($_SESSION['moveweek'])){
        }
    }
 }
-
 $conn = new mysqli($host, $db_user, $db_pass, $db_name);
 if($conn->connect_errno!=0){echo $conn->connect_error;}else{
     $con = true;
@@ -104,7 +103,7 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
             <a href="kalendarzTydzien.php?move=0"><i class="fas fa-arrow-left"></i></a>
         </div>
         <a class="date3" href="kalendarzTydzien.php?move=1">
-            <?php echo date("d.M",$mon)."-".date("d.M",$sd);?></a>
+            <?php echo date("d ",$mon).retmiesiac($mon)." - ".date("d ",$sd).retmiesiac($sd);?></a>
         <div class="next">
             <a href="kalendarzTydzien.php?move=2"><i class="fas fa-arrow-right"></i></a>
         </div>
@@ -115,26 +114,26 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
             <div class="record">
                 <p>Godzina</p>
             </div>
-            <div class="record">
-                <a class="day" href="kalendarzDzien.php?date=<?php echo $mon;?>">Pn</a>
+            <div class="record"<?php if(retdayofweek()==1){echo 'style= "background-color:red"';}?>>
+                <a class="day" href="kalendarzDzien.php?date=<?php echo $mon;?>">Pn   <?php echo date("d.m", $mon);?></a>
             </div>
-            <div class="record">
-                <a class="day" href="kalendarzDzien.php?date=<?php echo $tue;?>">Wt</a>
+            <div class="record"<?php if(retdayofweek()==2){echo 'style= "background-color:red"';}?>>
+                <a class="day" href="kalendarzDzien.php?date=<?php echo $tue;?>">Wt  <?php echo date("d.m", $tue);?></a>
             </div>
-            <div class="record">
-                <a class="day" href="kalendarzDzien.php?date=<?php echo $wen;?>">Śr</a>
+            <div class="record"<?php if(retdayofweek()==3){echo 'style= "background-color:red"';}?>>
+                <a class="day" href="kalendarzDzien.php?date=<?php echo $wen;?>">Śr  <?php echo date("d.m", $wen);?></a>
             </div>
-            <div class="record">
-                <a class="day" href="kalendarzDzien.php?date=<?php echo $th;?>">Czw</a>
+            <div class="record"<?php if(retdayofweek()==4){echo 'style= "background-color:red"';}?>>
+                <a class="day" href="kalendarzDzien.php?date=<?php echo $th;?>">Czw  <?php echo date("d.m", $th);?></a>
             </div>
-            <div class="record">
-               <a class="day" href="kalendarzDzien.php?date=<?php echo $fr;?>">Pt</a>
+            <div class="record"<?php if(retdayofweek()==5){echo 'style= "background-color:red"';}?>>
+               <a class="day" href="kalendarzDzien.php?date=<?php echo $fr;?>">Pt  <?php echo date("d.m", $fr);?></a>
             </div>
-            <div class="record">
-                <a class="day" href="kalendarzDzien.php?date=<?php echo $st;?>">Sb</a>
+            <div class="record"<?php if(retdayofweek()==6){echo 'style= "background-color:red"';}?>>
+                <a class="day" href="kalendarzDzien.php?date=<?php echo $st;?>">Sb  <?php echo date("d.m", $st);?></a>
             </div>
-            <div class="record">
-                <a class="day" href="kalendarzDzien.php?date=<?php echo $sd;?>">Nd</a>
+            <div class="record"<?php if(retdayofweek()==7){echo 'style= "background-color:red"';}?>>
+                <a class="day" href="kalendarzDzien.php?date=<?php echo $sd;?>">Nd  <?php echo date("d.m", $sd);?></a>
             </div>
             <?php
 

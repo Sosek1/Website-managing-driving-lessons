@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once "connect.php";
+require "functions.php";
 if(!isset($_SESSION['logIn'])){
     header('Location: index.php');
     exit();
@@ -110,6 +111,7 @@ if($conn->connect_errno!=0){
 
         }
     }
+   
     ?>
     <a href="kalendarzTydzien.php"><button class="dayWeek">Tydzień</button></a>
 
@@ -117,7 +119,7 @@ if($conn->connect_errno!=0){
         <div class="prev">
             <a href="kalendarzDzien.php?move=0"><i class="fas fa-arrow-left"></i></a>
         </div>
-        <a class="date3" href="kalendarzDzien.php?move=1"><?php echo date("d.M", $dzien);?></a>
+        <a class="date3" href="kalendarzDzien.php?move=1"><?php echo date("d ", $dzien).retmiesiac($dzien).retdzien($dzien);?></a>
         <div class="next">
             <a href="kalendarzDzien.php?move=2"><i class="fas fa-arrow-right"></i></a>
         </div>

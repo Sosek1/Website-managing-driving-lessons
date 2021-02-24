@@ -5,7 +5,7 @@ if(!isset($_SESSION['logIn'])){
     header('Location: index.php');
     exit();
 }
-
+$czyzwalidowano = true;
 if(isset($_GET['d'])){
     $dzien=$_GET['d'];
     $_SESSION['d'] = $dzien;
@@ -61,6 +61,9 @@ if(isset($_POST['addpojazd'])){
 if(isset($_POST['addplace'])){
     $_SESSION['adplace'] = $_POST['addplace'];
     $place = $_POST['addplace'];
+}else if(isset($_POST['addname'])){
+    $_SESSION['error'] = "Nie podano miejsca jazdy!";
+    $czyzwalidowano = false;
 }
 if(isset($_POST['addinfo'])){
     $_SESSION['adinfo'] = $_POST['addinfo'];
@@ -76,7 +79,6 @@ if(isset($_POST['szukaj'])){
 $id;
 $conn = new mysqli($host, $db_user, $db_pass, $db_name);
 $conn->query("SET NAMES 'utf8'");
-$czyzwalidowano = true;
 if($conn->connect_errno!=0){
     $con=false;
     echo $conn->connect_errno;
@@ -396,19 +398,19 @@ if(isset($_SESSION['error'])){
             </div>
             
             <label class="city" >
-            <input type="radio" id="1" name="addplace"value="1" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'selected="checked"';}}?>>
+            <input type="radio" id="1" name="addplace"value="1" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'checked';}}?>>
             <span class="checkmark"></span>
                 <h1>Miasto</h1>
             </label>
 
             <label class="place" >
-            <input type="radio" id="1" name="addplace"value="1" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'selected="checked"';}}?>>
+            <input type="radio" id="2" name="addplace"value="2" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'checked';}}?>>
             <span class="checkmark"></span>
                 <h1>Plac</h1>
             </label>
 
             <label class="cityPlace" >
-            <input type="radio" id="1" name="addplace"value="1" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'selected="checked"';}}?>>
+            <input type="radio" id="3" name="addplace"value="3" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'checked';}}?>>
             <span class="checkmark"></span>
                 <h1>Miasto/Plac</h1>
             </label>
