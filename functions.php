@@ -150,7 +150,26 @@ function retmiesiac($dzien){
 function retdayofweek(){
     return date("w", strtotime('now'));
 }
-
+function retkat($kat){
+    switch ($kat){
+        case 1:
+            $k = "AM";
+            break;
+        case 2:
+            $k = "A1";
+            break;
+        case 3:
+            $k = "A2";
+            break;
+        case 4:
+            $k = "A";
+            break;
+        case 6:
+            $k = "B";
+            break;
+    }
+    return $k;
+}
 
 
 ?>

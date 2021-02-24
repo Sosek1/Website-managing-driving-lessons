@@ -1,6 +1,8 @@
 <?php
 session_start();
 require_once "connect.php";
+require "functions.php";
+
 if(!isset($_SESSION['logIn'])){
     header('Location: index.php');
     exit();
@@ -377,14 +379,16 @@ if(isset($_SESSION['error'])){
                                 $pojazdrow = $rezu->fetch_assoc();
                                 $pojname = $pojazdrow['nazwa'];
                                 $pojid = $pojazdrow['id'];
+                                $pojkat = $pojazdrow['kat'];
+                                $pojrej = $pojazdrow['rejestracja'];
                                 if(isset($_SESSION['adpojazd'])){
                                     if($_SESSION['adpojazd']==$i){
-                                        echo '<option value="'.$pojid.'" selected="selected">'.$pojname.'</option>';
+                                        echo '<option value="'.$pojid.'" selected="selected">'.retkat($pojkat).' | '.$pojname.' | '.$pojrej.'</option>';
                                     }else{
-                                        echo '<option value='.$pojid.'>'.$pojname.'</option>';
+                                        echo '<option value='.$pojid.'>'.retkat($pojkat).' | '.$pojname.' | '.$pojrej.'</option>';
                                     }
                                 }else{
-                                    echo '<option value='.$pojid.'>'.$pojname.'</option>';
+                                    echo '<option value='.$pojid.'>'.retkat($pojkat).' | '.$pojname.' | '.$pojrej.'</option>';
                                 }
 
                                 $i++;
@@ -417,7 +421,7 @@ if(isset($_SESSION['error'])){
             
             <textarea class="info" placeholder="Napisz coś..." name="addinfo"></textarea>
             <button type="submit" class="save">zapisz</button>
-            <a href="delete_date.php" class="clear">Usuń dane</a>
+            <a href="delete_date.php"><div class="clear">Usuń dane</div></a>
             <a href="kalendarzDzien.php?date=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>" class="changeDate">Zmień datę jazdy</a>
             
     </form>
