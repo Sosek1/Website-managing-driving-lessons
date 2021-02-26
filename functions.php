@@ -14,8 +14,8 @@ function writedzienzosoba($godzina, $imie, $nazwisko, $kat, $tel, $datee){
         echo "B";
     }
    if(false){
-        echo '</div>label class="addRide"><a href="panel.php?d='.$datee.'&h='.$godzina.'"> <i class="fas fa-plus"></i></a></label></div>';
-    }else{
+        echo '</div><label class="addRide"><a href="panel.php?d='.$datee.'&h='.$godzina.'"> <i class="fas fa-plus"></i></a></label></div>';
+    }else{      
         echo '</div></div>';
     }
 }
