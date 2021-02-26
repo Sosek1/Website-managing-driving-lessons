@@ -114,25 +114,54 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
             <div class="record">
                 <p>Godzina</p>
             </div>
-            <div class="record"<?php if(retdayofweek()==1){echo 'style= "background-color:red"';}?>>
+            <div class="record"<?php if(retdayofweek()==1){echo 'style= "background-color:red"';}else{if($con){
+                    $godz=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $mon), date("d", $mon), date("y", $mon)));
+                    $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$godz.'" and id_instruktora='.$id.'';
+                    $rezu=$conn->query($zap);
+                    if(!$rezu){}else{$ile = $rezu->num_rows;if($ile>0){echo 'style= "background-color:green"';}}}}
+                ?>>
                 <a class="day" href="kalendarzDzien.php?date=<?php echo $mon;?>">Pn   <?php echo date("d.m", $mon);?></a>
             </div>
-            <div class="record"<?php if(retdayofweek()==2){echo 'style= "background-color:red"';}?>>
+            <div class="record"<?php if(retdayofweek()==2){echo 'style= "background-color:red"';}else{if($con){
+                    $godz=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $tue), date("d", $tue), date("y", $tue)));
+                    $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$godz.'" and id_instruktora='.$id.'';
+                    $rezu=$conn->query($zap);
+                    if(!$rezu){}else{$ile = $rezu->num_rows;if($ile>0){echo 'style= "background-color:green"';}}}}?>>
                 <a class="day" href="kalendarzDzien.php?date=<?php echo $tue;?>">Wt  <?php echo date("d.m", $tue);?></a>
             </div>
-            <div class="record"<?php if(retdayofweek()==3){echo 'style= "background-color:red"';}?>>
+            <div class="record"<?php if(retdayofweek()==3){echo 'style= "background-color:red"';}else{if($con){
+                    $godz=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $wen), date("d", $wen), date("y", $wen)));
+                    $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$godz.'" and id_instruktora='.$id.'';
+                    $rezu=$conn->query($zap);
+                    if(!$rezu){}else{$ile = $rezu->num_rows;if($ile>0){echo 'style= "background-color:green"';}}}}?>>
                 <a class="day" href="kalendarzDzien.php?date=<?php echo $wen;?>">Śr  <?php echo date("d.m", $wen);?></a>
             </div>
-            <div class="record"<?php if(retdayofweek()==4){echo 'style= "background-color:red"';}?>>
+            <div class="record"<?php if(retdayofweek()==4){echo 'style= "background-color:red"';}else{if($con){
+                    $godz=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $th), date("d", $th), date("y", $th)));
+                    $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$godz.'" and id_instruktora='.$id.'';
+                    $rezu=$conn->query($zap);
+                    if(!$rezu){}else{$ile = $rezu->num_rows;if($ile>0){echo 'style= "background-color:green"';}}}}?>>
                 <a class="day" href="kalendarzDzien.php?date=<?php echo $th;?>">Czw  <?php echo date("d.m", $th);?></a>
             </div>
-            <div class="record"<?php if(retdayofweek()==5){echo 'style= "background-color:red"';}?>>
+            <div class="record"<?php if(retdayofweek()==5){echo 'style= "background-color:red"';}else{if($con){
+                    $godz=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $fr), date("d", $fr), date("y", $fr)));
+                    $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$godz.'" and id_instruktora='.$id.'';
+                    $rezu=$conn->query($zap);
+                    if(!$rezu){}else{$ile = $rezu->num_rows;if($ile>0){echo 'style= "background-color:green"';}}}}?>>
                <a class="day" href="kalendarzDzien.php?date=<?php echo $fr;?>">Pt  <?php echo date("d.m", $fr);?></a>
             </div>
-            <div class="record"<?php if(retdayofweek()==6){echo 'style= "background-color:red"';}?>>
+            <div class="record"<?php if(retdayofweek()==6){echo 'style= "background-color:red"';}else{if($con){
+                    $godz=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $st), date("d", $st), date("y", $st)));
+                    $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$godz.'" and id_instruktora='.$id.'';
+                    $rezu=$conn->query($zap);
+                    if(!$rezu){}else{$ile = $rezu->num_rows;if($ile>0){echo 'style= "background-color:green"';}}}}?>>
                 <a class="day" href="kalendarzDzien.php?date=<?php echo $st;?>">Sb  <?php echo date("d.m", $st);?></a>
             </div>
-            <div class="record"<?php if(retdayofweek()==7){echo 'style= "background-color:red"';}?>>
+            <div class="record"<?php if(retdayofweek()==7){echo 'style= "background-color:red"';}else{if($con){
+                    $godz=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $sd), date("d", $sd), date("y", $sd)));
+                    $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$godz.'" and id_instruktora='.$id.'';
+                    $rezu=$conn->query($zap);
+                    if(!$rezu){}else{$ile = $rezu->num_rows;if($ile>0){echo 'style= "background-color:green"';}}}}?>>
                 <a class="day" href="kalendarzDzien.php?date=<?php echo $sd;?>">Nd  <?php echo date("d.m", $sd);?></a>
             </div>
             <?php
