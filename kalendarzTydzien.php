@@ -111,7 +111,62 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
 
     <div class="weekContainer">
         <div class="hoursContainer">
-    
+        <div class="record">
+            <p class="hour">godzina</p>
+        </div>
+        <div class="record">
+            <p class="hour">6:00</p>
+        </div>
+        <div class="record">
+            <p class="hour">7:00</p>
+        </div>
+        <div class="record">
+            <p class="hour">8:00</p>
+        </div>
+        <div class="record">
+            <p class="hour">9:00</p>
+        </div>
+        <div class="record">
+            <p class="hour">10:00</p>
+        </div>
+        <div class="record">
+            <p class="hour">11:00</p>
+        </div>
+        <div class="record">
+            <p class="hour">12:00</p>
+        </div>
+        <div class="record">
+            <p class="hour">13:00</p>
+        </div>
+        <div class="record">
+            <p class="hour">14:00</p>
+        </div>
+        <div class="record">
+            <p class="hour">15:00</p>
+        </div>
+        <div class="record">
+            <p class="hour">16:00</p>
+        </div>
+        <div class="record">
+            <p class="hour">17:00</p>
+        </div>
+        <div class="record">
+            <p class="hour">18:00</p>
+        </div>
+        <div class="record">
+            <p class="hour">19:00</p>
+        </div>
+        <div class="record">
+            <p class="hour">20:00</p>
+        </div>
+
+        <div class="record">
+            <p class="hour">21:00</p>
+        </div>
+        <div class="record">
+            <p class="hour">22:00</p>
+        </div>
+        
         </div>
         <div class="calendar">
             <div class="record"<?php if(retdayofweek()==1){echo 'style= "background-color:red"';}else{if($con){
