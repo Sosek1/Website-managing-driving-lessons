@@ -178,6 +178,10 @@ if($conn->connect_errno!=0){
 
     <div style="color:#fff;text-decoration:none;"class="settle"><a <?php if($czywszystkorozliczone){ echo 'href=rozlicz.php?data='.$dzien;}?>>Rozlicz</a></div>
 
+    <form>
+        <input type="number" min="0" max="10">
+    </form>
+
 </body>
 <script src="burger.js"></script>
 <?php

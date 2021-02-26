@@ -177,7 +177,8 @@ if($conn->connect_errno!=0){
                     echo '&h=6"><i class="fas fa-plus"></i></a>';
                 }
                 if($jest){
-                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                    echo '</label><label class="info"><a href="#"><i class="fas fa-info"></i></a></label><label class="edit">';
+                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
                     $jest = false;            
                 }

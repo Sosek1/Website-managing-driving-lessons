@@ -81,7 +81,7 @@
 
         .data {
             height: 100%;
-            width: 50%;
+            width: 40%;
             display: flex;
             align-items: center;
             justify-content: space-around;
@@ -127,6 +127,19 @@
             }
         }
 
+        .info {
+            height: 100%;
+            width: 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            i {
+                font-size: 15px;
+                color: $third-color;
+            }
+        }
+
     }
 
 }
@@ -135,11 +148,20 @@
     border: 2px solid $second-color;
     display: block;
     overflow-x: auto;
+    display: flex;
+
+    .hoursContainer {
+        height: 100%;
+        width: 10vw;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
 
     .calendar {
         height: 100%;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         border: 1px solid $second-color;
 
@@ -253,8 +275,12 @@
         height: 60vh;
         margin: 0 30px;
 
+        .hoursContainer {
+            width: 10%;
+        }
+
         .calendar {
-            width: 100%;
+            width: 90%;
         }
     }
 

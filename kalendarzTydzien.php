@@ -111,10 +111,13 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
     </div>
 
     <div class="weekContainer">
-        <div class="calendar">
-            <div class="record">
+        <div class="hoursContainer">
+        <div class="record">
                 <p>Godzina</p>
-            </div>
+        </div>
+            <?php $a = 6; while($a<22){writegodzina($a);$a++;}?>
+        </div>
+        <div class="calendar">
             <div class="record">
                 <a class="day" href="kalendarzDzien.php?date=<?php echo $mon;?>">Pn</a>
             </div>
@@ -348,7 +351,6 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                     $dso=0;
                     $dn=0;
                     while($i<22){
-                        writegodzina($i);
                         if(isset($pon)){
                             if($pon[$p]==$i){
                                 $p++;
