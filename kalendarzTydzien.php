@@ -391,10 +391,10 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                     writetydzienznaleziono();
                                 }
                             }else {
-                                writetydzien();
+                                writetydzien($mon, $i);
                             }
                         }else{
-                            writetydzien();
+                            writetydzien($mon, $i);
                         }
                         if(isset($wto)){
                             if($wto[$w]==$i){
@@ -410,10 +410,10 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                     writetydzienznaleziono();
                                 }
                             }else {
-                                writetydzien();
+                                writetydzien($tue, $i);
                             }
                         }else{
-                            writetydzien();
+                            writetydzien($tue, $i);
                         }
                         if(isset($sro)){
                             if($sro[$s]==$i){
@@ -429,10 +429,10 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                     writetydzienznaleziono();
                                 }
                             }else {
-                                writetydzien();
+                                writetydzien($wen, $i);
                             }
                         }else{
-                            writetydzien();
+                            writetydzien($wen, $i);
                         }
                         if(isset($czw)){
                             if($czw[$c]==$i){
@@ -448,10 +448,10 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                     writetydzienznaleziono();
                                 }
                             }else {
-                                writetydzien();
+                                writetydzien($th, $i);
                             }
                         }else{
-                            writetydzien();
+                            writetydzien($th, $i);
                         }
                         if(isset($pia)){
                             if($pia[$pi]==$i){
@@ -467,10 +467,10 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                     writetydzienznaleziono();
                                 }
                             }else {
-                                writetydzien();
+                                writetydzien($fr, $i);
                             }
                         }else{
-                            writetydzien();
+                            writetydzien($fr, $i);
                         }
                         if(isset($sob)){
                             if($sob[$so]==$i){
@@ -486,10 +486,10 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                     writetydzienznaleziono();
                                 }
                             }else {
-                                writetydzien();
+                                writetydzien($st, $i);
                             }
                         }else{
-                            writetydzien();
+                            writetydzien($mon, $i);
                         }
                         if(isset($nie)){
                             if($nie[$n]==$i){
@@ -505,10 +505,10 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                     writetydzienznaleziono();
                                 }
                             }else {
-                                writetydzien();
+                                writetydzien($sd, $i);
                             }
                         }else{
-                            writetydzien();
+                            writetydzien($sd, $i);
                         }
                     $i++;
                     }

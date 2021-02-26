@@ -27,8 +27,8 @@ function writerozliczdz($godzina){
     echo '<div class="table"><div class="hour">'.$godzina.':00</div><div class="data">';
     echo '</div></div>';
 }
-function writetydzien(){
-    echo '<a class="record"><div class="dublet"></div><div class="dublet"></div></a>';
+function writetydzien($dzien, $godzina){
+    echo '<a class="record" href="panel.php?d='.$dzien.'&h='.$godzina.'"><div class="dublet"></div><div class="dublet"></div></a>';
 }
 function writetydzienznaleziono(){
     echo '<a class="record"style= "background-color:red"><div class="dublet"></div><div class="dublet"></div></a>';
