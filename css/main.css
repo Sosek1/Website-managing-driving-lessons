@@ -463,18 +463,15 @@ nav .burger.open .bar3 {
   color: #9b9696;
 }
 
-.weekContainer {
-  border: 2px solid #000;
-  display: block;
-  overflow-x: auto;
+.calendarWrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.weekContainer .hoursContainer {
+.calendarWrapper .hoursContainer {
   height: 100%;
-  width: 10vw;
+  width: 20%;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
@@ -483,18 +480,7 @@ nav .burger.open .bar3 {
       grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
-.weekContainer .calendar {
-  height: 100%;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  border: 1px solid #000;
-}
-
-.weekContainer .calendar .record {
+.calendarWrapper .hoursContainer .record {
   border: 1px solid #000;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -507,20 +493,55 @@ nav .burger.open .bar3 {
           justify-content: center;
 }
 
-.weekContainer .calendar .record .dublet {
+.calendarWrapper .hoursContainer .record .hour {
+  font-size: 15px;
+  color: #000;
+}
+
+.calendarWrapper .weekContainer {
+  width: 80%;
+  height: 100%;
+  border: 2px solid #000;
+  display: block;
+  overflow-x: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.calendarWrapper .weekContainer .calendar {
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  border: 1px solid #000;
+}
+
+.calendarWrapper .weekContainer .calendar .record {
+  border: 1px solid #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.calendarWrapper .weekContainer .calendar .record .dublet {
   height: 100%;
   width: 50%;
 }
 
-.weekContainer .calendar .record .day {
+.calendarWrapper .weekContainer .calendar .record .day {
   font-size: 15px;
   color: #000;
   text-decoration: none;
-}
-
-.weekContainer .calendar .record .hour {
-  font-size: 15px;
-  color: #000;
 }
 
 .prev,
@@ -574,11 +595,11 @@ nav .burger.open .bar3 {
             align-items: center;
     margin: 0 20px;
   }
-  .weekContainer {
+  .calendarWrapper {
     height: 150vh;
     margin: 0 20px;
   }
-  .weekContainer .calendar {
+  .calendarWrapper .calendar {
     width: 150vw;
   }
   .settle {
@@ -609,15 +630,12 @@ nav .burger.open .bar3 {
             align-items: flex-start;
     margin: 0 30px;
   }
-  .weekContainer {
+  .calendarWrapper {
     height: 60vh;
     margin: 0 30px;
   }
-  .weekContainer .hoursContainer {
-    width: 10%;
-  }
-  .weekContainer .calendar {
-    width: 90%;
+  .calendarWrapper .calendar {
+    width: 100%;
   }
   .settle {
     width: 150px;
