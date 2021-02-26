@@ -1,11 +1,13 @@
 <?php
 session_start();
 require_once "connect.php";
+require "functions.php";
+
 if(!isset($_SESSION['logIn'])){
     header('Location: index.php');
     exit();
 }
-
+$czyzwalidowano = true;
 if(isset($_GET['d'])){
     $dzien=$_GET['d'];
     $_SESSION['d'] = $dzien;
@@ -61,6 +63,9 @@ if(isset($_POST['addpojazd'])){
 if(isset($_POST['addplace'])){
     $_SESSION['adplace'] = $_POST['addplace'];
     $place = $_POST['addplace'];
+}else if(isset($_POST['addname'])){
+    $_SESSION['error'] = "Nie podano miejsca jazdy!";
+    $czyzwalidowano = false;
 }
 if(isset($_POST['addinfo'])){
     $_SESSION['adinfo'] = $_POST['addinfo'];
@@ -74,15 +79,16 @@ if(isset($_POST['szukaj'])){
     }
 }
 $id;
-$conn = @new mysqli($host, $db_user, $db_pass, $db_name);
+$conn = new mysqli($host, $db_user, $db_pass, $db_name);
 $conn->query("SET NAMES 'utf8'");
-$czyzwalidowano = true;
 if($conn->connect_errno!=0){
     $con=false;
+    echo $conn->connect_errno;
+    echo $conn->connect_error;
 }else{
+    $con = true;
     if(isset($_SESSION['adid'])){
         $ido = $_SESSION['adid'];
-        $con = true;
         $zap = 'SELECT * FROM kursanci WHERE id ='.$ido.'';
         $osoba=$conn->query($zap);
         if(!$osoba){}else{
@@ -101,8 +107,8 @@ if($conn->connect_errno!=0){
 
 
 if($czyinsert){
-    if($con){
 
+    if($con){
         if(!isset($_SESSION['adid'])){
             $zap = 'SELECT * FROM kursanci WHERE imie =\''.$name.'\' AND surname = \''.$surname.'\'';
             $osoba=$conn->query($zap);
@@ -223,6 +229,7 @@ if($czyinsert){
 
 
         if($czyzwalidowano && $czyinsert){
+            echo "save";
             if(isset($_SESSION['old_id_j'])){
                // $old = $_SESSION['old_id_j'];
                 unset($_SESSION['old_id_j']);
@@ -238,7 +245,7 @@ if($czyinsert){
                 $idinstruktora = $_SESSION['id'];
                 $dataa=date("Y-m-d H:i:s", mktime($godzina+$i, 0, 0, $msc, $day, $ye));
                 $zap = 'INSERT INTO jazdy VALUES(NULL, '.$idinstruktora.', '.$idd.', '.$pojazd.', \''.$dataa.'\', NULL, '.$place.', "'.$info.'")';
-                
+                echo $zap;
                 if($conn->query($zap)){
                             
                 }else{
@@ -255,10 +262,13 @@ if($czyinsert){
             unset($_SESSION['adkat']);
             unset($_SESSION['adhours']);
             unset($_SESSION['adinfo']); 
+            //header("Location: kalendarzDzien.php");
             echo '<meta http-equiv="refresh" content="0; url=kalendarzDzien.php">';
 
         }
 
+    }else{
+        echo "blad bazy";
     }
     $conn->close();
 if(isset($_SESSION['error'])){
@@ -369,14 +379,16 @@ if(isset($_SESSION['error'])){
                                 $pojazdrow = $rezu->fetch_assoc();
                                 $pojname = $pojazdrow['nazwa'];
                                 $pojid = $pojazdrow['id'];
+                                $pojkat = $pojazdrow['kat'];
+                                $pojrej = $pojazdrow['rejestracja'];
                                 if(isset($_SESSION['adpojazd'])){
                                     if($_SESSION['adpojazd']==$i){
-                                        echo '<option value="'.$pojid.'" selected="selected">'.$pojname.'</option>';
+                                        echo '<option value="'.$pojid.'" selected="selected">'.retkat($pojkat).' | '.$pojname.' | '.$pojrej.'</option>';
                                     }else{
-                                        echo '<option value='.$pojid.'>'.$pojname.'</option>';
+                                        echo '<option value='.$pojid.'>'.retkat($pojkat).' | '.$pojname.' | '.$pojrej.'</option>';
                                     }
                                 }else{
-                                    echo '<option value='.$pojid.'>'.$pojname.'</option>';
+                                    echo '<option value='.$pojid.'>'.retkat($pojkat).' | '.$pojname.' | '.$pojrej.'</option>';
                                 }
 
                                 $i++;
@@ -390,26 +402,26 @@ if(isset($_SESSION['error'])){
             </div>
             
             <label class="city" >
-            <input type="radio" id="1" name="addplace"value="1" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'selected="checked"';}}?>>
+            <input type="radio" id="1" name="addplace"value="1" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'checked';}}?>>
             <span class="checkmark"></span>
                 <h1>Miasto</h1>
             </label>
 
             <label class="place" >
-            <input type="radio" id="1" name="addplace"value="1" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'selected="checked"';}}?>>
+            <input type="radio" id="2" name="addplace"value="2" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'checked';}}?>>
             <span class="checkmark"></span>
                 <h1>Plac</h1>
             </label>
 
             <label class="cityPlace" >
-            <input type="radio" id="1" name="addplace"value="1" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'selected="checked"';}}?>>
+            <input type="radio" id="3" name="addplace"value="3" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'checked';}}?>>
             <span class="checkmark"></span>
                 <h1>Miasto/Plac</h1>
             </label>
             
             <textarea class="info" placeholder="Napisz coś..." name="addinfo"></textarea>
-            <button type="submit" class="save">zapisz</button> 
-            <a href="delete_date.php" class="clear">Usuń dane</a>
+            <button type="submit" class="save">zapisz</button>
+            <a href="delete_date.php"><div class="clear">Usuń dane</div></a>
             <a href="kalendarzDzien.php?date=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>" class="changeDate">Zmień datę jazdy</a>
             
     </form>
