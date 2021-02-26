@@ -111,9 +111,9 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
 
     <div class="weekContainer">
         <div class="hoursContainer">
-        <div class="record">
-                <p>Godzina</p>
-            </div>
+    
+        </div>
+        <div class="calendar">
             <div class="record"<?php if(retdayofweek()==1){echo 'style= "background-color:red"';}else{if($con){
                     $godz=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $mon), date("d", $mon), date("y", $mon)));
                     $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$godz.'" and id_instruktora='.$id.'';
