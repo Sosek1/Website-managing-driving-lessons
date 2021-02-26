@@ -109,8 +109,8 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
         </div>
     </div>
 
-    <div class="weekContainer">
-        <div class="hoursContainer">
+    <div class="calendarWrapper">
+    <div class="hoursContainer">
         <div class="record">
             <p class="hour">godzina</p>
         </div>
@@ -168,6 +168,7 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
         </div>
         
         </div>
+    <div class="weekContainer">
         <div class="calendar">
             <div class="record"<?php if(retdayofweek()==1){echo 'style= "background-color:red"';}else{if($con){
                     $godz=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $mon), date("d", $mon), date("y", $mon)));
@@ -569,6 +570,7 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                 }?>
                 
             </div>
+    </div>
     </div>
 
     <div class="settle">Rozlicz</div>

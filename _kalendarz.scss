@@ -144,26 +144,15 @@
 
 }
 
-.weekContainer {
-    border: 2px solid $second-color;
-    display: block;
-    overflow-x: auto;
+.calendarWrapper {
     display: flex;
 
     .hoursContainer {
         height: 100%;
-        width: 10vw;
+        width: 20%;
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    }
-
-    .calendar {
-        height: 100%;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-        border: 1px solid $second-color;
 
         .record {
             border: 1px solid $second-color;
@@ -171,20 +160,44 @@
             align-items: center;
             justify-content: center;
 
-            .dublet {
-                height: 100%;
-                width: 50%;
-            }
-
-            .day {
-                font-size: 15px;
-                color: $second-color;
-                text-decoration: none;
-            }
-
             .hour {
                 font-size: 15px;
                 color: $second-color;
+            }
+        }
+    }
+
+    .weekContainer {
+        width: 80%;
+        height: 100%;
+        border: 2px solid $second-color;
+        display: block;
+        overflow-x: auto;
+        display: flex;
+
+        .calendar {
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            border: 1px solid $second-color;
+
+            .record {
+                border: 1px solid $second-color;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .dublet {
+                    height: 100%;
+                    width: 50%;
+                }
+
+                .day {
+                    font-size: 15px;
+                    color: $second-color;
+                    text-decoration: none;
+                }
             }
         }
     }
@@ -237,7 +250,7 @@
         margin: 0 20px;
     }
 
-    .weekContainer {
+    .calendarWrapper {
         height: 150vh;
         margin: 0 20px;
 
@@ -276,16 +289,12 @@
         margin: 0 30px;
     }
 
-    .weekContainer {
+    .calendarWrapper {
         height: 60vh;
         margin: 0 30px;
 
-        .hoursContainer {
-            width: 10%;
-        }
-
         .calendar {
-            width: 90%;
+            width: 100%;
         }
     }
 
