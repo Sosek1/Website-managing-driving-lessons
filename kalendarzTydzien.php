@@ -159,7 +159,9 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
             <div class="record">
                 <p class="hour">20:00</p>
             </div>
-
+            <div class="record">
+                <p class="hour">21:00</p>
+            </div>
             <div class="record">
                 <p class="hour">21:00</p>
             </div>
