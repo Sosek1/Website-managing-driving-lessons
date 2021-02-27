@@ -425,6 +425,10 @@ if(isset($_SESSION['error'])){
             <a href="kalendarzDzien.php?date=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>" class="changeDate">Zmień datę jazdy</a>
             
     </form>
+    
+    <a href="#" class="backToCalendar">
+        <i class="fas fa-calendar-day"></i>
+    </a>
 
     <script src="burger.js"></script>
 </body>

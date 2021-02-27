@@ -1,0 +1,148 @@
+.info {
+    text-align: center;
+    font-weight: 400;
+}
+
+.informationContainer {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    border: 2px solid $second-color;
+    border-radius: 6px;
+
+    .additionalInfo {
+        text-align: left;
+        padding: 5px;
+        border: 2px solid $second-color;
+    }
+
+    textarea {
+        text-align: center;
+        border: none;
+        resize: none;
+        border-bottom: 2px solid $second-color;
+    }
+
+    textarea:focus {
+        outline: none;
+    }
+
+    a {
+        @include center;
+        width: 150px;
+        height: 40px;
+        background-color: $second-color;
+        color: $first-color;
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 15px;
+        text-align: center;
+    }
+}
+
+@include media-sm {
+
+    .informationContainer {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        min-height: 80vh;
+        width: 80vw;
+        margin: 0 auto 20px auto;
+
+        textarea {
+            height: 30px;
+            width: 80%;
+            font-size: 20px;
+        }
+
+        .additionalInfo {
+            height: 80px;
+        }
+
+
+    }
+
+    .info {
+        margin: 20px;
+        font-size: 20px;
+    }
+}
+
+@include media-md {
+
+    .informationContainer {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        height: 50vh;
+        width: 80vw;
+        margin: 50px auto;
+
+        textarea {
+            height: 25px;
+            width: 80%;
+            font-size: 15px;
+        }
+
+        .additionalInfo {
+            height: 80px;
+        }
+
+        .edit {
+            grid-area: 4/1/4/2;
+        }
+
+        .delete {
+            grid-area: 4/2/4/3;
+        }
+
+        .addDouble {
+            grid-area: 4/3/4/4;
+        }
+
+    }
+
+    .info {
+        margin: 25px;
+        font-size: 30px;
+    }
+}
+
+@include media-xl {
+
+    .informationContainer {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        height: 50vh;
+        width: 70vw;
+        margin: 100px auto;
+
+        textarea {
+            height: 30px;
+            width: 80%;
+            font-size: 20px;
+        }
+
+        .additionalInfo {
+            height: 80px;
+        }
+
+        .edit {
+            grid-area: 4/1/4/2;
+        }
+
+        .delete {
+            grid-area: 4/2/4/3;
+        }
+
+        .addDouble {
+            grid-area: 4/3/4/4;
+        }
+
+    }
+
+    .info {
+        margin: 30px;
+        font-size: 30px;
+    }
+
+}

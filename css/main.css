@@ -1578,13 +1578,6 @@ nav .burger.open .bar3 {
   width: 150px;
 }
 
-.containerR .settleRide.white {
-  color: #000;
-  background-color: #fff;
-  height: 40px;
-  width: 150px;
-}
-
 .containerR .text {
   color: #9b9696;
 }
@@ -1599,6 +1592,16 @@ nav .burger.open .bar3 {
 
 .containerR a {
   text-decoration: none !important;
+}
+
+.hoursForm {
+  width: 150px;
+  height: 40px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 6px;
+  font-size: 15px;
+  text-align: center;
 }
 
 @media screen and (min-width: 200px) {
@@ -1650,6 +1653,9 @@ nav .burger.open .bar3 {
   .containerR .fas {
     font-size: 20px;
   }
+  .hoursForm {
+    margin: 10px auto;
+  }
 }
 
 @media screen and (min-width: 800px) {
@@ -1700,6 +1706,9 @@ nav .burger.open .bar3 {
   }
   .containerR .fas {
     font-size: 25px;
+  }
+  .hoursForm {
+    margin: 10px auto;
   }
 }
 
@@ -1766,6 +1775,9 @@ nav .burger.open .bar3 {
   }
   .containerR .fas {
     font-size: 30px;
+  }
+  .hoursForm {
+    margin: 30px 0 30px 30px;
   }
 }
 
@@ -2088,11 +2100,218 @@ nav .burger.open .bar3 {
   }
 }
 
+.info {
+  text-align: center;
+  font-weight: 400;
+}
+
+.informationContainer {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  border: 2px solid #000;
+  border-radius: 6px;
+}
+
+.informationContainer .additionalInfo {
+  text-align: left;
+  padding: 5px;
+  border: 2px solid #000;
+}
+
+.informationContainer textarea {
+  text-align: center;
+  border: none;
+  resize: none;
+  border-bottom: 2px solid #000;
+}
+
+.informationContainer textarea:focus {
+  outline: none;
+}
+
+.informationContainer a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 150px;
+  height: 40px;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 15px;
+  text-align: center;
+}
+
+@media screen and (min-width: 200px) {
+  .informationContainer {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    min-height: 80vh;
+    width: 80vw;
+    margin: 0 auto 20px auto;
+  }
+  .informationContainer textarea {
+    height: 30px;
+    width: 80%;
+    font-size: 20px;
+  }
+  .informationContainer .additionalInfo {
+    height: 80px;
+  }
+  .info {
+    margin: 20px;
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .informationContainer {
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    height: 50vh;
+    width: 80vw;
+    margin: 50px auto;
+  }
+  .informationContainer textarea {
+    height: 25px;
+    width: 80%;
+    font-size: 15px;
+  }
+  .informationContainer .additionalInfo {
+    height: 80px;
+  }
+  .informationContainer .edit {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-area: 4/1/4/2;
+  }
+  .informationContainer .delete {
+    -ms-grid-row: 4;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-area: 4/2/4/3;
+  }
+  .informationContainer .addDouble {
+    -ms-grid-row: 4;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+    grid-area: 4/3/4/4;
+  }
+  .info {
+    margin: 25px;
+    font-size: 30px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .informationContainer {
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    height: 50vh;
+    width: 70vw;
+    margin: 100px auto;
+  }
+  .informationContainer textarea {
+    height: 30px;
+    width: 80%;
+    font-size: 20px;
+  }
+  .informationContainer .additionalInfo {
+    height: 80px;
+  }
+  .informationContainer .edit {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-area: 4/1/4/2;
+  }
+  .informationContainer .delete {
+    -ms-grid-row: 4;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-area: 4/2/4/3;
+  }
+  .informationContainer .addDouble {
+    -ms-grid-row: 4;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+    grid-area: 4/3/4/4;
+  }
+  .info {
+    margin: 30px;
+    font-size: 30px;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
+}
+
+.backToCalendar {
+  width: 40px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  border-radius: 100px;
+  background-color: #000;
+}
+
+.backToCalendar i {
+  font-size: 20px;
+  color: #fff;
+}
+
+@media screen and (min-width: 200px) {
+  .backToCalendar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .backToCalendar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .backToCalendar {
+    display: none;
+  }
 }
 /*# sourceMappingURL=main.css.map */

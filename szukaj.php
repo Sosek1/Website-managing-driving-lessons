@@ -101,7 +101,9 @@ if(isset($_GET['szuk'])){
         }
     ?>
 
-
+<a href="#" class="backToCalendar">
+        <i class="fas fa-calendar-day"></i>
+</a>
 <script src="burger.js"></script>
 </body>
 

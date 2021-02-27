@@ -176,11 +176,15 @@ if($conn->connect_errno!=0){
         ?>
     </div>
 
-    <div style="color:#fff;text-decoration:none;"class="settle"><a <?php if($czywszystkorozliczone){ echo 'href=rozlicz.php?data='.$dzien;}?>>Rozlicz</a></div>
-
-    <form>
+    <form class="hoursform">
         <input type="number" min="0" max="10">
     </form>
+
+    <div style="color:#fff;text-decoration:none;"class="settle"><a <?php if($czywszystkorozliczone){ echo 'href=rozlicz.php?data='.$dzien;}?>>Rozlicz</a></div>
+
+    <a href="#" class="backToCalendar">
+        <i class="fas fa-calendar-day"></i>
+    </a>
 
 </body>
 <script src="burger.js"></script>

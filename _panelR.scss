@@ -50,13 +50,6 @@
         width: 150px;
     }
 
-    .settleRide.white {
-        color: $second-color;
-        background-color: $first-color;
-        height: 40px;
-        width: 150px;
-    }
-
     .text {
         color: $third-color;
     }
@@ -72,6 +65,16 @@
     a {
         text-decoration: none !important;
     }
+}
+
+.hoursForm {
+    width: 150px;
+    height: 40px;
+    background-color: $first-color;
+    color: $second-color;
+    border-radius: 6px;
+    font-size: 15px;
+    text-align: center;
 }
 
 @include media-sm {
@@ -119,6 +122,10 @@
             font-size: 20px;
         }
     }
+
+    .hoursForm {
+        margin: 10px auto;
+    }
 }
 
 @include media-md {
@@ -165,6 +172,10 @@
         .fas {
             font-size: 25px;
         }
+    }
+
+    .hoursForm {
+        margin: 10px auto;
     }
 }
 
@@ -224,5 +235,9 @@
         .fas {
             font-size: 30px;
         }
+    }
+
+    .hoursForm {
+        margin: 30px 0 30px 30px;
     }
 }
