@@ -110,467 +110,463 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
     </div>
 
     <div class="calendarWrapper">
-    <div class="hoursContainer">
-        <div class="record">
-            <p class="hour">godzina</p>
-        </div>
-        <div class="record">
-            <p class="hour">6:00</p>
-        </div>
-        <div class="record">
-            <p class="hour">7:00</p>
-        </div>
-        <div class="record">
-            <p class="hour">8:00</p>
-        </div>
-        <div class="record">
-            <p class="hour">9:00</p>
-        </div>
-        <div class="record">
-            <p class="hour">10:00</p>
-        </div>
-        <div class="record">
-            <p class="hour">11:00</p>
-        </div>
-        <div class="record">
-            <p class="hour">12:00</p>
-        </div>
-        <div class="record">
-            <p class="hour">13:00</p>
-        </div>
-        <div class="record">
-            <p class="hour">14:00</p>
-        </div>
-        <div class="record">
-            <p class="hour">15:00</p>
-        </div>
-        <div class="record">
-            <p class="hour">16:00</p>
-        </div>
-        <div class="record">
-            <p class="hour">17:00</p>
-        </div>
-        <div class="record">
-            <p class="hour">18:00</p>
-        </div>
-        <div class="record">
-            <p class="hour">19:00</p>
-        </div>
-        <div class="record">
-            <p class="hour">20:00</p>
-        </div>
+        <div class="hoursContainer">
+            <div class="record">
+                <p class="hour">godzina</p>
+            </div>
+            <div class="record">
+                <p class="hour">6:00</p>
+            </div>
+            <div class="record">
+                <p class="hour">7:00</p>
+            </div>
+            <div class="record">
+                <p class="hour">8:00</p>
+            </div>
+            <div class="record">
+                <p class="hour">9:00</p>
+            </div>
+            <div class="record">
+                <p class="hour">10:00</p>
+            </div>
+            <div class="record">
+                <p class="hour">11:00</p>
+            </div>
+            <div class="record">
+                <p class="hour">12:00</p>
+            </div>
+            <div class="record">
+                <p class="hour">13:00</p>
+            </div>
+            <div class="record">
+                <p class="hour">14:00</p>
+            </div>
+            <div class="record">
+                <p class="hour">15:00</p>
+            </div>
+            <div class="record">
+                <p class="hour">16:00</p>
+            </div>
+            <div class="record">
+                <p class="hour">17:00</p>
+            </div>
+            <div class="record">
+                <p class="hour">18:00</p>
+            </div>
+            <div class="record">
+                <p class="hour">19:00</p>
+            </div>
+            <div class="record">
+                <p class="hour">20:00</p>
+            </div>
 
-        <div class="record">
-            <p class="hour">21:00</p>
+            <div class="record">
+                <p class="hour">21:00</p>
+            </div>
         </div>
-        <div class="record">
-            <p class="hour">22:00</p>
-        </div>
-        
-        </div>
-    <div class="weekContainer">
-        <div class="calendar">
-            <div class="record"<?php if(retdayofweek()==1){echo 'style= "background-color:red"';}else{if($con){
-                    $godz=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $mon), date("d", $mon), date("y", $mon)));
-                    $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$godz.'" and id_instruktora='.$id.'';
-                    $rezu=$conn->query($zap);
-                    if(!$rezu){}else{$ile = $rezu->num_rows;if($ile>0){echo 'style= "background-color:green"';}}}}
-                ?>>
-                <a class="day" href="kalendarzDzien.php?date=<?php echo $mon;?>">Pn   <?php echo date("d.m", $mon);?></a>
-            </div>
-            <div class="record"<?php if(retdayofweek()==2){echo 'style= "background-color:red"';}else{if($con){
-                    $godz=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $tue), date("d", $tue), date("y", $tue)));
-                    $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$godz.'" and id_instruktora='.$id.'';
-                    $rezu=$conn->query($zap);
-                    if(!$rezu){}else{$ile = $rezu->num_rows;if($ile>0){echo 'style= "background-color:green"';}}}}?>>
-                <a class="day" href="kalendarzDzien.php?date=<?php echo $tue;?>">Wt  <?php echo date("d.m", $tue);?></a>
-            </div>
-            <div class="record"<?php if(retdayofweek()==3){echo 'style= "background-color:red"';}else{if($con){
-                    $godz=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $wen), date("d", $wen), date("y", $wen)));
-                    $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$godz.'" and id_instruktora='.$id.'';
-                    $rezu=$conn->query($zap);
-                    if(!$rezu){}else{$ile = $rezu->num_rows;if($ile>0){echo 'style= "background-color:green"';}}}}?>>
-                <a class="day" href="kalendarzDzien.php?date=<?php echo $wen;?>">Śr  <?php echo date("d.m", $wen);?></a>
-            </div>
-            <div class="record"<?php if(retdayofweek()==4){echo 'style= "background-color:red"';}else{if($con){
-                    $godz=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $th), date("d", $th), date("y", $th)));
-                    $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$godz.'" and id_instruktora='.$id.'';
-                    $rezu=$conn->query($zap);
-                    if(!$rezu){}else{$ile = $rezu->num_rows;if($ile>0){echo 'style= "background-color:green"';}}}}?>>
-                <a class="day" href="kalendarzDzien.php?date=<?php echo $th;?>">Czw  <?php echo date("d.m", $th);?></a>
-            </div>
-            <div class="record"<?php if(retdayofweek()==5){echo 'style= "background-color:red"';}else{if($con){
-                    $godz=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $fr), date("d", $fr), date("y", $fr)));
-                    $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$godz.'" and id_instruktora='.$id.'';
-                    $rezu=$conn->query($zap);
-                    if(!$rezu){}else{$ile = $rezu->num_rows;if($ile>0){echo 'style= "background-color:green"';}}}}?>>
-               <a class="day" href="kalendarzDzien.php?date=<?php echo $fr;?>">Pt  <?php echo date("d.m", $fr);?></a>
-            </div>
-            <div class="record"<?php if(retdayofweek()==6){echo 'style= "background-color:red"';}else{if($con){
-                    $godz=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $st), date("d", $st), date("y", $st)));
-                    $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$godz.'" and id_instruktora='.$id.'';
-                    $rezu=$conn->query($zap);
-                    if(!$rezu){}else{$ile = $rezu->num_rows;if($ile>0){echo 'style= "background-color:green"';}}}}?>>
-                <a class="day" href="kalendarzDzien.php?date=<?php echo $st;?>">Sb  <?php echo date("d.m", $st);?></a>
-            </div>
-            <div class="record"<?php if(retdayofweek()==7){echo 'style= "background-color:red"';}else{if($con){
-                    $godz=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $sd), date("d", $sd), date("y", $sd)));
-                    $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$godz.'" and id_instruktora='.$id.'';
-                    $rezu=$conn->query($zap);
-                    if(!$rezu){}else{$ile = $rezu->num_rows;if($ile>0){echo 'style= "background-color:green"';}}}}?>>
-                <a class="day" href="kalendarzDzien.php?date=<?php echo $sd;?>">Nd  <?php echo date("d.m", $sd);?></a>
-            </div>
-            <?php
+        <div class="weekContainer">
+            <div class="calendar">
+                <div class="record"<?php if(retdayofweek()==1){echo 'style= "background-color:red"';}else{if($con){
+                        $godz=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $mon), date("d", $mon), date("y", $mon)));
+                        $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$godz.'" and id_instruktora='.$id.'';
+                        $rezu=$conn->query($zap);
+                        if(!$rezu){}else{$ile = $rezu->num_rows;if($ile>0){echo 'style= "background-color:green"';}}}}
+                    ?>>
+                    <a class="day" href="kalendarzDzien.php?date=<?php echo $mon;?>">Pn   <?php echo date("d.m", $mon);?></a>
+                </div>
+                <div class="record"<?php if(retdayofweek()==2){echo 'style= "background-color:red"';}else{if($con){
+                        $godz=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $tue), date("d", $tue), date("y", $tue)));
+                        $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$godz.'" and id_instruktora='.$id.'';
+                        $rezu=$conn->query($zap);
+                        if(!$rezu){}else{$ile = $rezu->num_rows;if($ile>0){echo 'style= "background-color:green"';}}}}?>>
+                    <a class="day" href="kalendarzDzien.php?date=<?php echo $tue;?>">Wt  <?php echo date("d.m", $tue);?></a>
+                </div>
+                <div class="record"<?php if(retdayofweek()==3){echo 'style= "background-color:red"';}else{if($con){
+                        $godz=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $wen), date("d", $wen), date("y", $wen)));
+                        $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$godz.'" and id_instruktora='.$id.'';
+                        $rezu=$conn->query($zap);
+                        if(!$rezu){}else{$ile = $rezu->num_rows;if($ile>0){echo 'style= "background-color:green"';}}}}?>>
+                    <a class="day" href="kalendarzDzien.php?date=<?php echo $wen;?>">Śr  <?php echo date("d.m", $wen);?></a>
+                </div>
+                <div class="record"<?php if(retdayofweek()==4){echo 'style= "background-color:red"';}else{if($con){
+                        $godz=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $th), date("d", $th), date("y", $th)));
+                        $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$godz.'" and id_instruktora='.$id.'';
+                        $rezu=$conn->query($zap);
+                        if(!$rezu){}else{$ile = $rezu->num_rows;if($ile>0){echo 'style= "background-color:green"';}}}}?>>
+                    <a class="day" href="kalendarzDzien.php?date=<?php echo $th;?>">Czw  <?php echo date("d.m", $th);?></a>
+                </div>
+                <div class="record"<?php if(retdayofweek()==5){echo 'style= "background-color:red"';}else{if($con){
+                        $godz=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $fr), date("d", $fr), date("y", $fr)));
+                        $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$godz.'" and id_instruktora='.$id.'';
+                        $rezu=$conn->query($zap);
+                        if(!$rezu){}else{$ile = $rezu->num_rows;if($ile>0){echo 'style= "background-color:green"';}}}}?>>
+                <a class="day" href="kalendarzDzien.php?date=<?php echo $fr;?>">Pt  <?php echo date("d.m", $fr);?></a>
+                </div>
+                <div class="record"<?php if(retdayofweek()==6){echo 'style= "background-color:red"';}else{if($con){
+                        $godz=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $st), date("d", $st), date("y", $st)));
+                        $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$godz.'" and id_instruktora='.$id.'';
+                        $rezu=$conn->query($zap);
+                        if(!$rezu){}else{$ile = $rezu->num_rows;if($ile>0){echo 'style= "background-color:green"';}}}}?>>
+                    <a class="day" href="kalendarzDzien.php?date=<?php echo $st;?>">Sb  <?php echo date("d.m", $st);?></a>
+                </div>
+                <div class="record"<?php if(retdayofweek()==7){echo 'style= "background-color:red"';}else{if($con){
+                        $godz=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $sd), date("d", $sd), date("y", $sd)));
+                        $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$godz.'" and id_instruktora='.$id.'';
+                        $rezu=$conn->query($zap);
+                        if(!$rezu){}else{$ile = $rezu->num_rows;if($ile>0){echo 'style= "background-color:green"';}}}}?>>
+                    <a class="day" href="kalendarzDzien.php?date=<?php echo $sd;?>">Nd  <?php echo date("d.m", $sd);?></a>
+                </div>
+                <?php
 
-                if($con){
-                    $dzp=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $mon), date("d", $mon), date("y", $mon)));
-                    $dzk=date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $mon), date("d", $mon), date("y", $mon)));
-                    $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.'';
-                    $dzien=$conn->query($zap);
-                    if(!$dzien){
-                    }else{
-                        $iledz = $dzien->num_rows;
-                        if($iledz>0){
-                            $ilp = 0;
-                            while($ilp<$iledz){
-                                $i = 6;
-                                $dzrow=$dzien->fetch_assoc();
-                                $dj = $dzrow['data_jazdy'];
-                                $miejsce = $dzrow['miejsce'];                   
-                                while($i < 22){
-                                    $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $mon), date("d", $mon), date("y", $mon)));
-                                    if($godz == $dj){
-                                        $pon[] = $i;
-                                        if($miejsce == 2 ){$dpon[] = $i;}
-                                        
-                                        break;
-                                    }
-                                    $i++;
-                                }
-                                $ilp++;
-                            }
+                    if($con){
+                        $dzp=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $mon), date("d", $mon), date("y", $mon)));
+                        $dzk=date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $mon), date("d", $mon), date("y", $mon)));
+                        $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.'';
+                        $dzien=$conn->query($zap);
+                        if(!$dzien){
                         }else{
+                            $iledz = $dzien->num_rows;
+                            if($iledz>0){
+                                $ilp = 0;
+                                while($ilp<$iledz){
+                                    $i = 6;
+                                    $dzrow=$dzien->fetch_assoc();
+                                    $dj = $dzrow['data_jazdy'];
+                                    $miejsce = $dzrow['miejsce'];                   
+                                    while($i < 22){
+                                        $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $mon), date("d", $mon), date("y", $mon)));
+                                        if($godz == $dj){
+                                            $pon[] = $i;
+                                            if($miejsce == 2 ){$dpon[] = $i;}
+                                            
+                                            break;
+                                        }
+                                        $i++;
+                                    }
+                                    $ilp++;
+                                }
+                            }else{
+                            }
                         }
-                    }
-                    $dzp=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $tue), date("d", $tue), date("y", $tue)));
-                    $dzk=date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $tue), date("d", $tue), date("y", $tue)));
-                    $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.'';
-                    $dzien=$conn->query($zap);
-                    if(!$dzien){
-                    }else{
-                        $iledz = $dzien->num_rows;
-                        if($iledz>0){
-                            $ilp = 0;
-                            while($ilp<$iledz){
-                                $i = 6;
-                                $dzrow=$dzien->fetch_assoc();
-                                $dj = $dzrow['data_jazdy'];
-                                while($i < 22){
-                                    $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $tue), date("d", $tue), date("y", $tue)));
-                                    if($godz == $dj){
-                                        
-                                        $wto[] = $i;
-                                        if($miejsce == 2 ){$dwto[] = $i;}
+                        $dzp=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $tue), date("d", $tue), date("y", $tue)));
+                        $dzk=date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $tue), date("d", $tue), date("y", $tue)));
+                        $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.'';
+                        $dzien=$conn->query($zap);
+                        if(!$dzien){
+                        }else{
+                            $iledz = $dzien->num_rows;
+                            if($iledz>0){
+                                $ilp = 0;
+                                while($ilp<$iledz){
+                                    $i = 6;
+                                    $dzrow=$dzien->fetch_assoc();
+                                    $dj = $dzrow['data_jazdy'];
+                                    while($i < 22){
+                                        $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $tue), date("d", $tue), date("y", $tue)));
+                                        if($godz == $dj){
+                                            
+                                            $wto[] = $i;
+                                            if($miejsce == 2 ){$dwto[] = $i;}
 
-                                        break;
+                                            break;
+                                        }
+                                        $i++;
                                     }
-                                    $i++;
+                                    $ilp++;
                                 }
-                                $ilp++;
+                            }else{
                             }
-                        }else{
                         }
-                    }
-                    $dzp=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $wen), date("d", $wen), date("y", $wen)));
-                    $dzk=date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $wen), date("d", $wen), date("y", $wen)));
-                    $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.'';
-                    $dzien=$conn->query($zap);
-                    if(!$dzien){
-                    }else{
-                        $iledz = $dzien->num_rows;
-                        if($iledz>0){
-                            $ilp = 0;
-                            while($ilp<$iledz){
-                                $i = 6;
-                                $dzrow=$dzien->fetch_assoc();
-                                $dj = $dzrow['data_jazdy'];                         
-                                while($i < 22){
-                                    $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $wen), date("d", $wen), date("y", $wen)));
-                                    if($godz == $dj){
-                                        $sro[] = $i;
-                                        if($miejsce == 2 ){$dsro[] = $i;}
-                                        break;
+                        $dzp=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $wen), date("d", $wen), date("y", $wen)));
+                        $dzk=date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $wen), date("d", $wen), date("y", $wen)));
+                        $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.'';
+                        $dzien=$conn->query($zap);
+                        if(!$dzien){
+                        }else{
+                            $iledz = $dzien->num_rows;
+                            if($iledz>0){
+                                $ilp = 0;
+                                while($ilp<$iledz){
+                                    $i = 6;
+                                    $dzrow=$dzien->fetch_assoc();
+                                    $dj = $dzrow['data_jazdy'];                         
+                                    while($i < 22){
+                                        $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $wen), date("d", $wen), date("y", $wen)));
+                                        if($godz == $dj){
+                                            $sro[] = $i;
+                                            if($miejsce == 2 ){$dsro[] = $i;}
+                                            break;
+                                        }
+                                        $i++;
                                     }
-                                    $i++;
+                                    $ilp++;
                                 }
-                                $ilp++;
+                            }else{
                             }
-                        }else{
                         }
-                    }
-                    $dzp=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $th), date("d", $th), date("y", $th)));
-                    $dzk=date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $th), date("d", $th), date("y", $th)));
-                    $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.'';
-                    $dzien=$conn->query($zap);
-                    if(!$dzien){
-                    }else{
-                        $iledz = $dzien->num_rows;
-                        if($iledz>0){
-                            $ilp = 0;
-                            while($ilp<$iledz){
-                                $i = 6;
-                                $dzrow=$dzien->fetch_assoc();
-                                $dj = $dzrow['data_jazdy'];                         
-                                while($i < 22){
-                                    $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $th), date("d", $th), date("y", $th)));
-                                    if($godz == $dj){
-                                        $czw[] = $i;
-                                        if($miejsce == 2 ){$dczw[] = $i;}
-                                        break;
+                        $dzp=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $th), date("d", $th), date("y", $th)));
+                        $dzk=date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $th), date("d", $th), date("y", $th)));
+                        $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.'';
+                        $dzien=$conn->query($zap);
+                        if(!$dzien){
+                        }else{
+                            $iledz = $dzien->num_rows;
+                            if($iledz>0){
+                                $ilp = 0;
+                                while($ilp<$iledz){
+                                    $i = 6;
+                                    $dzrow=$dzien->fetch_assoc();
+                                    $dj = $dzrow['data_jazdy'];                         
+                                    while($i < 22){
+                                        $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $th), date("d", $th), date("y", $th)));
+                                        if($godz == $dj){
+                                            $czw[] = $i;
+                                            if($miejsce == 2 ){$dczw[] = $i;}
+                                            break;
+                                        }
+                                        $i++;
                                     }
-                                    $i++;
+                                    $ilp++;
                                 }
-                                $ilp++;
+                            }else{
                             }
-                        }else{
                         }
-                    }
-                    $dzp=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $fr), date("d", $fr), date("y", $fr)));
-                    $dzk=date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $fr), date("d", $fr), date("y", $fr)));
-                    $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.'';
-                    $dzien=$conn->query($zap);
-                    if(!$dzien){
-                    }else{
-                        $iledz = $dzien->num_rows;
-                        if($iledz>0){
-                            $ilp = 0;
-                            while($ilp<$iledz){
-                                $i = 6;
-                                $dzrow=$dzien->fetch_assoc();
-                                $dj = $dzrow['data_jazdy'];                         
-                                while($i < 22){
-                                    $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $fr), date("d", $fr), date("y", $fr)));
-                                    if($godz == $dj){
-                                        $pia[] = $i;
-                                        if($miejsce == 2 ){$dpia[] = $i;}
-                                        break;
+                        $dzp=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $fr), date("d", $fr), date("y", $fr)));
+                        $dzk=date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $fr), date("d", $fr), date("y", $fr)));
+                        $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.'';
+                        $dzien=$conn->query($zap);
+                        if(!$dzien){
+                        }else{
+                            $iledz = $dzien->num_rows;
+                            if($iledz>0){
+                                $ilp = 0;
+                                while($ilp<$iledz){
+                                    $i = 6;
+                                    $dzrow=$dzien->fetch_assoc();
+                                    $dj = $dzrow['data_jazdy'];                         
+                                    while($i < 22){
+                                        $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $fr), date("d", $fr), date("y", $fr)));
+                                        if($godz == $dj){
+                                            $pia[] = $i;
+                                            if($miejsce == 2 ){$dpia[] = $i;}
+                                            break;
+                                        }
+                                        $i++;
                                     }
-                                    $i++;
+                                    $ilp++;
                                 }
-                                $ilp++;
+                            }else{
                             }
-                        }else{
                         }
-                    }
-                    $dzp=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $st), date("d", $st), date("y", $st)));
-                    $dzk=date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $st), date("d", $st), date("y", $st)));
-                    $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.'';
-                    $dzien=$conn->query($zap);
-                    if(!$dzien){
-                    }else{
-                        $iledz = $dzien->num_rows;
-                        if($iledz>0){
-                            $ilp = 0;
-                            while($ilp<$iledz){
-                                $i = 6;
-                                $dzrow=$dzien->fetch_assoc();
-                                $dj = $dzrow['data_jazdy'];                         
-                                while($i < 22){
-                                    $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $st), date("d", $st), date("y", $st)));
-                                    if($godz == $dj){
-                                        $sob[] = $i;
-                                        if($miejsce == 2 ){$dsob[] = $i;}
-                                        break;
+                        $dzp=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $st), date("d", $st), date("y", $st)));
+                        $dzk=date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $st), date("d", $st), date("y", $st)));
+                        $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.'';
+                        $dzien=$conn->query($zap);
+                        if(!$dzien){
+                        }else{
+                            $iledz = $dzien->num_rows;
+                            if($iledz>0){
+                                $ilp = 0;
+                                while($ilp<$iledz){
+                                    $i = 6;
+                                    $dzrow=$dzien->fetch_assoc();
+                                    $dj = $dzrow['data_jazdy'];                         
+                                    while($i < 22){
+                                        $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $st), date("d", $st), date("y", $st)));
+                                        if($godz == $dj){
+                                            $sob[] = $i;
+                                            if($miejsce == 2 ){$dsob[] = $i;}
+                                            break;
+                                        }
+                                        $i++;
                                     }
-                                    $i++;
+                                    $ilp++;
                                 }
-                                $ilp++;
+                            }else{
                             }
-                        }else{
                         }
-                    }
-                    $dzp=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $sd), date("d", $sd), date("y", $sd)));
-                    $dzk=date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $sd), date("d", $sd), date("y", $sd)));
-                    $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.'';
-                    $dzien=$conn->query($zap);
-                    if(!$dzien){
-                    }else{
-                        $iledz = $dzien->num_rows;
-                        if($iledz>0){
-                            $ilp = 0;
-                            while($ilp<$iledz){
-                                $i = 6;
-                                $dzrow=$dzien->fetch_assoc();
-                                $dj = $dzrow['data_jazdy'];                         
-                                while($i < 22){
-                                    $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $sd), date("d", $sd), date("y", $sd)));
-                                    if($godz == $dj){
-                                        $nie[] = $i;
-                                        if($miejsce == 2 ){$dnie[] = $i;}
-                                        break;
+                        $dzp=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $sd), date("d", $sd), date("y", $sd)));
+                        $dzk=date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $sd), date("d", $sd), date("y", $sd)));
+                        $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.'';
+                        $dzien=$conn->query($zap);
+                        if(!$dzien){
+                        }else{
+                            $iledz = $dzien->num_rows;
+                            if($iledz>0){
+                                $ilp = 0;
+                                while($ilp<$iledz){
+                                    $i = 6;
+                                    $dzrow=$dzien->fetch_assoc();
+                                    $dj = $dzrow['data_jazdy'];                         
+                                    while($i < 22){
+                                        $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $sd), date("d", $sd), date("y", $sd)));
+                                        if($godz == $dj){
+                                            $nie[] = $i;
+                                            if($miejsce == 2 ){$dnie[] = $i;}
+                                            break;
+                                        }
+                                        $i++;
                                     }
-                                    $i++;
+                                    $ilp++;
                                 }
-                                $ilp++;
+                            }else{
                             }
-                        }else{
                         }
-                    }
-                    $i=6;
-                    $p=0;
-                    $w=0;
-                    $s=0;
-                    $c=0;
-                    $pi=0;
-                    $so=0;
-                    $n=0;
-                    $dp=0;
-                    $dw=0;
-                    $ds=0;
-                    $dc=0;
-                    $dpi=0;
-                    $dso=0;
-                    $dn=0;
-                    while($i<22){
-                        if(isset($pon)){
-                            if($pon[$p]==$i){
-                                $p++;
-                                if($dpon[$dp]==$i){
-                                    $dp++;
-                                    if($pon[$p]==$i){
-                                        writetydzienznaleziono(); 
+                        $i=6;
+                        $p=0;
+                        $w=0;
+                        $s=0;
+                        $c=0;
+                        $pi=0;
+                        $so=0;
+                        $n=0;
+                        $dp=0;
+                        $dw=0;
+                        $ds=0;
+                        $dc=0;
+                        $dpi=0;
+                        $dso=0;
+                        $dn=0;
+                        while($i<22){
+                            if(isset($pon)){
+                                if($pon[$p]==$i){
+                                    $p++;
+                                    if($dpon[$dp]==$i){
+                                        $dp++;
+                                        if($pon[$p]==$i){
+                                            writetydzienznaleziono(); 
+                                        }else{
+                                            writetydzienznalezionodublet();
+                                        }
                                     }else{
-                                        writetydzienznalezionodublet();
+                                        writetydzienznaleziono();
                                     }
-                                }else{
-                                    writetydzienznaleziono();
+                                }else {
+                                    writetydzien($mon, $i);
                                 }
-                            }else {
+                            }else{
                                 writetydzien($mon, $i);
                             }
-                        }else{
-                            writetydzien($mon, $i);
-                        }
-                        if(isset($wto)){
-                            if($wto[$w]==$i){
-                                $w++;
-                                if($dwto[$dw]==$i){
-                                    $dw++;
-                                    if($wto[$w]==$i){
-                                        writetydzienznaleziono(); 
+                            if(isset($wto)){
+                                if($wto[$w]==$i){
+                                    $w++;
+                                    if($dwto[$dw]==$i){
+                                        $dw++;
+                                        if($wto[$w]==$i){
+                                            writetydzienznaleziono(); 
+                                        }else{
+                                            writetydzienznalezionodublet();
+                                        }
                                     }else{
-                                        writetydzienznalezionodublet();
+                                        writetydzienznaleziono();
                                     }
-                                }else{
-                                    writetydzienznaleziono();
+                                }else {
+                                    writetydzien($tue, $i);
                                 }
-                            }else {
+                            }else{
                                 writetydzien($tue, $i);
                             }
-                        }else{
-                            writetydzien($tue, $i);
-                        }
-                        if(isset($sro)){
-                            if($sro[$s]==$i){
-                                $s++;
-                                if($dsro[$ds]==$i){
-                                    $ds++;
-                                    if($sro[$s]==$i){
-                                        writetydzienznaleziono(); 
+                            if(isset($sro)){
+                                if($sro[$s]==$i){
+                                    $s++;
+                                    if($dsro[$ds]==$i){
+                                        $ds++;
+                                        if($sro[$s]==$i){
+                                            writetydzienznaleziono(); 
+                                        }else{
+                                            writetydzienznalezionodublet();
+                                        }
                                     }else{
-                                        writetydzienznalezionodublet();
+                                        writetydzienznaleziono();
                                     }
-                                }else{
-                                    writetydzienznaleziono();
+                                }else {
+                                    writetydzien($wen, $i);
                                 }
-                            }else {
+                            }else{
                                 writetydzien($wen, $i);
                             }
-                        }else{
-                            writetydzien($wen, $i);
-                        }
-                        if(isset($czw)){
-                            if($czw[$c]==$i){
-                                $c++;
-                                if($dczw[$dc]==$i){
-                                    $dc++;
-                                    if($czw[$c]==$i){
-                                        writetydzienznaleziono(); 
+                            if(isset($czw)){
+                                if($czw[$c]==$i){
+                                    $c++;
+                                    if($dczw[$dc]==$i){
+                                        $dc++;
+                                        if($czw[$c]==$i){
+                                            writetydzienznaleziono(); 
+                                        }else{
+                                            writetydzienznalezionodublet();
+                                        }
                                     }else{
-                                        writetydzienznalezionodublet();
+                                        writetydzienznaleziono();
                                     }
-                                }else{
-                                    writetydzienznaleziono();
+                                }else {
+                                    writetydzien($th, $i);
                                 }
-                            }else {
+                            }else{
                                 writetydzien($th, $i);
                             }
-                        }else{
-                            writetydzien($th, $i);
-                        }
-                        if(isset($pia)){
-                            if($pia[$pi]==$i){
-                                $pi++;
-                                if($dpia[$dpi]==$i){
-                                    $dp++;
-                                    if($pia[$pi]==$i){
-                                        writetydzienznaleziono(); 
+                            if(isset($pia)){
+                                if($pia[$pi]==$i){
+                                    $pi++;
+                                    if($dpia[$dpi]==$i){
+                                        $dp++;
+                                        if($pia[$pi]==$i){
+                                            writetydzienznaleziono(); 
+                                        }else{
+                                            writetydzienznalezionodublet();
+                                        }
                                     }else{
-                                        writetydzienznalezionodublet();
+                                        writetydzienznaleziono();
                                     }
-                                }else{
-                                    writetydzienznaleziono();
+                                }else {
+                                    writetydzien($fr, $i);
                                 }
-                            }else {
+                            }else{
                                 writetydzien($fr, $i);
                             }
-                        }else{
-                            writetydzien($fr, $i);
-                        }
-                        if(isset($sob)){
-                            if($sob[$so]==$i){
-                                $so++;
-                                if($dsob[$dso]==$i){
-                                    $dso++;
-                                    if($sob[$so]==$i){
-                                        writetydzienznaleziono(); 
+                            if(isset($sob)){
+                                if($sob[$so]==$i){
+                                    $so++;
+                                    if($dsob[$dso]==$i){
+                                        $dso++;
+                                        if($sob[$so]==$i){
+                                            writetydzienznaleziono(); 
+                                        }else{
+                                            writetydzienznalezionodublet();
+                                        }
                                     }else{
-                                        writetydzienznalezionodublet();
+                                        writetydzienznaleziono();
                                     }
-                                }else{
-                                    writetydzienznaleziono();
+                                }else {
+                                    writetydzien($st, $i);
                                 }
-                            }else {
-                                writetydzien($st, $i);
+                            }else{
+                                writetydzien($mon, $i);
                             }
-                        }else{
-                            writetydzien($mon, $i);
-                        }
-                        if(isset($nie)){
-                            if($nie[$n]==$i){
-                                $n++;
-                                if($dnie[$dn]==$i){
-                                    $dn++;
-                                    if($nie[$n]==$i){
-                                        writetydzienznaleziono(); 
+                            if(isset($nie)){
+                                if($nie[$n]==$i){
+                                    $n++;
+                                    if($dnie[$dn]==$i){
+                                        $dn++;
+                                        if($nie[$n]==$i){
+                                            writetydzienznaleziono(); 
+                                        }else{
+                                            writetydzienznalezionodublet();
+                                        }
                                     }else{
-                                        writetydzienznalezionodublet();
+                                        writetydzienznaleziono();
                                     }
-                                }else{
-                                    writetydzienznaleziono();
+                                }else {
+                                    writetydzien($sd, $i);
                                 }
-                            }else {
+                            }else{
                                 writetydzien($sd, $i);
                             }
-                        }else{
-                            writetydzien($sd, $i);
+                        $i++;
                         }
-                    $i++;
-                    }
-                }?>
-                
-            </div>
-    </div>
+                    }?>
+                    
+                </div>
+        </div>
     </div>
 
     <div class="settle">Rozlicz</div>
