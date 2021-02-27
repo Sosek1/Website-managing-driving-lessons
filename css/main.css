@@ -588,6 +588,9 @@ nav .burger.open .bar3 {
   .arrowBox {
     margin: 0 20px 10px 20px;
   }
+  .arrowBox .date3 {
+    font-size: 15px;
+  }
   .dayContainer {
     -webkit-box-align: center;
         -ms-flex-align: center;
@@ -626,6 +629,9 @@ nav .burger.open .bar3 {
   .arrowBox {
     margin: 0 30px 10px 30px;
   }
+  .arrowBox .date3 {
+    font-size: 20px;
+  }
   .dayContainer {
     -webkit-box-align: start;
         -ms-flex-align: start;
@@ -650,6 +656,9 @@ nav .burger.open .bar3 {
 }
 
 @media screen and (min-width: 1200px) {
+  .arrowBox .date3 {
+    font-size: 20px;
+  }
   .calendar .record {
     width: auto;
   }
@@ -2111,7 +2120,7 @@ nav .burger.open .bar3 {
   }
 }
 
-.info {
+.info2 {
   text-align: center;
   font-weight: 400;
 }

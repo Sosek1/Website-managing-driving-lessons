@@ -242,6 +242,10 @@
 
     .arrowBox {
         margin: 0 20px 10px 20px;
+
+        .date3 {
+            font-size: 15px;
+        }
     }
 
     .dayContainer {
@@ -285,6 +289,10 @@
 
     .arrowBox {
         margin: 0 30px 10px 30px;
+
+        .date3 {
+            font-size: 20px;
+        }
     }
 
     .dayContainer {
@@ -313,6 +321,13 @@
 }
 
 @include media-xl {
+
+    .arrowBox {
+        .date3 {
+            font-size: 20px;
+        }
+    }
+
     .calendar {
         .record {
             width: auto;

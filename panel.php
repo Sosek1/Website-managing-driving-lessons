@@ -421,7 +421,7 @@ if(isset($_SESSION['error'])){
             
             <textarea class="info" placeholder="Napisz coś..." name="addinfo"></textarea>
             <button type="submit" class="save">zapisz</button>
-            <a href="delete_date.php"><div class="clear">Usuń dane</div></a>
+            <a class="clear"href="delete_date.php">Usuń dane</a>
             <a href="kalendarzDzien.php?date=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>" class="changeDate">Zmień datę jazdy</a>
             
     </form>
