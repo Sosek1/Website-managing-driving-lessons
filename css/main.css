@@ -2233,7 +2233,7 @@ nav .burger.open .bar3 {
     -ms-grid-column-span: 1;
     grid-area: 4/3/4/4;
   }
-  .info {
+  .info2 {
     margin: 25px;
     font-size: 30px;
   }
@@ -2275,7 +2275,7 @@ nav .burger.open .bar3 {
     -ms-grid-column-span: 1;
     grid-area: 4/3/4/4;
   }
-  .info {
+  .info2 {
     margin: 30px;
     font-size: 30px;
   }
