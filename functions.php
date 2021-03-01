@@ -30,11 +30,11 @@ function writerozliczdz($godzina){
 function writetydzien($dzien, $godzina){
     echo '<a class="record" href="panel.php?d='.$dzien.'&h='.$godzina.'"><div class="dublet"></div><div class="dublet"></div></a>';
 }
-function writetydzienznaleziono(){
-    echo '<a class="record"style= "background-color:red"><div class="dublet"></div><div class="dublet"></div></a>';
+function writetydzienznaleziono($id){
+    echo '<a class="record"style= "background-color:red" href=info.php?id='.$id.'><div class="dublet"></div><div class="dublet"></div></a>';
 }
-function writetydzienznalezionodublet(){
-    echo '<a class="record"><div class="dublet"style= "background-color:red"></div><div class="dublet" style= "background-color:green"></div></a>';
+function writetydzienznalezionodublet($id){
+    echo '<a class="record" href=info.php?id='.$id.'><div class="dublet"style= "background-color:red"></div><div class="dublet" style= "background-color:green"></div></a>';
 }
 function writegodzina($godzina){
     echo '<a class="record"><p>'.$godzina.':00</p></a>';
@@ -171,5 +171,18 @@ function retkat($kat){
     return $k;
 }
 
-
+function retplace($place){
+    switch($place){
+        case 1:
+            $p = 'Miasto';
+            break;
+        case 2:
+            $p = 'Plac';
+            break;
+        case 3:
+            $p = 'Miasto/plac';
+            break;        
+    }
+    return $p;
+}
 ?>
