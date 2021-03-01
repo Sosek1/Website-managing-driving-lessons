@@ -2245,9 +2245,9 @@ nav .burger.open .bar3 {
         grid-template-columns: 1fr 1fr 1fr;
     -ms-grid-rows: 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr;
-    height: 50vh;
+    min-height: 30vh;
     width: 70vw;
-    margin: 100px auto;
+    margin: 0 auto;
   }
   .informationContainer textarea {
     height: 30px;

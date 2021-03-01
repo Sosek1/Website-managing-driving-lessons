@@ -112,9 +112,9 @@
     .informationContainer {
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr;
-        height: 50vh;
+        min-height: 30vh;
         width: 70vw;
-        margin: 100px auto;
+        margin: 0 auto;
 
         textarea {
             height: 30px;
