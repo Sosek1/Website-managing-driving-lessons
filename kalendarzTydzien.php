@@ -233,12 +233,14 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                 while($ilp<$iledz){
                                     $i = 6;
                                     $dzrow=$dzien->fetch_assoc();
+                                    $idj = $dzrow['id'];
                                     $dj = $dzrow['data_jazdy'];
                                     $miejsce = $dzrow['miejsce'];                   
                                     while($i < 22){
                                         $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $mon), date("d", $mon), date("y", $mon)));
                                         if($godz == $dj){
                                             $pon[] = $i;
+                                            $ponid[] = $idj;
                                             if($miejsce == 2 ){$dpon[] = $i;}
                                             
                                             break;
@@ -262,12 +264,14 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                 while($ilp<$iledz){
                                     $i = 6;
                                     $dzrow=$dzien->fetch_assoc();
-                                    $dj = $dzrow['data_jazdy'];
+                                    $idjw = $dzrow['id'];
+                                    $dj = $dzrow['data_jazdy']; 
+                                    $miejsce = $dzrow['miejsce'];                   
                                     while($i < 22){
                                         $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $tue), date("d", $tue), date("y", $tue)));
                                         if($godz == $dj){
-                                            
                                             $wto[] = $i;
+                                            $wtoid[] = $idjw;
                                             if($miejsce == 2 ){$dwto[] = $i;}
 
                                             break;
@@ -291,11 +295,14 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                 while($ilp<$iledz){
                                     $i = 6;
                                     $dzrow=$dzien->fetch_assoc();
-                                    $dj = $dzrow['data_jazdy'];                         
+                                    $idjs = $dzrow['id'];
+                                    $dj = $dzrow['data_jazdy'];
+                                    $miejsce = $dzrow['miejsce'];  
                                     while($i < 22){
                                         $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $wen), date("d", $wen), date("y", $wen)));
                                         if($godz == $dj){
                                             $sro[] = $i;
+                                            $sroid[] = $idjs;
                                             if($miejsce == 2 ){$dsro[] = $i;}
                                             break;
                                         }
@@ -318,11 +325,14 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                 while($ilp<$iledz){
                                     $i = 6;
                                     $dzrow=$dzien->fetch_assoc();
-                                    $dj = $dzrow['data_jazdy'];                         
+                                    $idjc = $dzrow['id'];
+                                    $dj = $dzrow['data_jazdy'];
+                                    $miejsce = $dzrow['miejsce'];  
                                     while($i < 22){
                                         $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $th), date("d", $th), date("y", $th)));
                                         if($godz == $dj){
                                             $czw[] = $i;
+                                            $czwid[] = $idjc;
                                             if($miejsce == 2 ){$dczw[] = $i;}
                                             break;
                                         }
@@ -345,11 +355,14 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                 while($ilp<$iledz){
                                     $i = 6;
                                     $dzrow=$dzien->fetch_assoc();
-                                    $dj = $dzrow['data_jazdy'];                         
+                                    $idjp = $dzrow['id'];
+                                    $dj = $dzrow['data_jazdy'];
+                                    $miejsce = $dzrow['miejsce'];                                                            
                                     while($i < 22){
                                         $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $fr), date("d", $fr), date("y", $fr)));
                                         if($godz == $dj){
                                             $pia[] = $i;
+                                            $piaid[] = $idjp;
                                             if($miejsce == 2 ){$dpia[] = $i;}
                                             break;
                                         }
@@ -372,11 +385,14 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                 while($ilp<$iledz){
                                     $i = 6;
                                     $dzrow=$dzien->fetch_assoc();
-                                    $dj = $dzrow['data_jazdy'];                         
+                                    $idjs = $dzrow['id'];
+                                    $dj = $dzrow['data_jazdy'];
+                                    $miejsce = $dzrow['miejsce'];                                                           
                                     while($i < 22){
                                         $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $st), date("d", $st), date("y", $st)));
                                         if($godz == $dj){
                                             $sob[] = $i;
+                                            $sobid[] = $idjs;
                                             if($miejsce == 2 ){$dsob[] = $i;}
                                             break;
                                         }
@@ -399,11 +415,14 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                 while($ilp<$iledz){
                                     $i = 6;
                                     $dzrow=$dzien->fetch_assoc();
-                                    $dj = $dzrow['data_jazdy'];                         
+                                    $idjn = $dzrow['id'];
+                                    $dj = $dzrow['data_jazdy'];
+                                    $miejsce = $dzrow['miejsce'];  
                                     while($i < 22){
                                         $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, date("m", $sd), date("d", $sd), date("y", $sd)));
                                         if($godz == $dj){
                                             $nie[] = $i;
+                                            $nieid[] = $idjn;
                                             if($miejsce == 2 ){$dnie[] = $i;}
                                             break;
                                         }
@@ -436,12 +455,12 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                     if($dpon[$dp]==$i){
                                         $dp++;
                                         if($pon[$p]==$i){
-                                            writetydzienznaleziono(); 
+                                            writetydzienznaleziono($ponid[$p]); 
                                         }else{
-                                            writetydzienznalezionodublet();
+                                            writetydzienznalezionodublet($ponid[$p]);
                                         }
                                     }else{
-                                        writetydzienznaleziono();
+                                        writetydzienznaleziono($ponid[$p]);
                                     }
                                 }else {
                                     writetydzien($mon, $i);
@@ -455,12 +474,12 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                     if($dwto[$dw]==$i){
                                         $dw++;
                                         if($wto[$w]==$i){
-                                            writetydzienznaleziono(); 
+                                            writetydzienznaleziono($wtoid[$w]); 
                                         }else{
-                                            writetydzienznalezionodublet();
+                                            writetydzienznalezionodublet($wtoid[$w]);
                                         }
                                     }else{
-                                        writetydzienznaleziono();
+                                        writetydzienznaleziono($wtoid[$w]);
                                     }
                                 }else {
                                     writetydzien($tue, $i);
@@ -474,12 +493,12 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                     if($dsro[$ds]==$i){
                                         $ds++;
                                         if($sro[$s]==$i){
-                                            writetydzienznaleziono(); 
+                                            writetydzienznaleziono($sroid[$s]); 
                                         }else{
-                                            writetydzienznalezionodublet();
+                                            writetydzienznalezionodublet($sroid[$s]);
                                         }
                                     }else{
-                                        writetydzienznaleziono();
+                                        writetydzienznaleziono($sroid[$s]);
                                     }
                                 }else {
                                     writetydzien($wen, $i);
@@ -493,12 +512,12 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                     if($dczw[$dc]==$i){
                                         $dc++;
                                         if($czw[$c]==$i){
-                                            writetydzienznaleziono(); 
+                                            writetydzienznaleziono($czwid[$c]); 
                                         }else{
-                                            writetydzienznalezionodublet();
+                                            writetydzienznalezionodublet($czwid[$c]);
                                         }
                                     }else{
-                                        writetydzienznaleziono();
+                                        writetydzienznaleziono($czwid[$c]);
                                     }
                                 }else {
                                     writetydzien($th, $i);
@@ -512,12 +531,12 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                     if($dpia[$dpi]==$i){
                                         $dp++;
                                         if($pia[$pi]==$i){
-                                            writetydzienznaleziono(); 
+                                            writetydzienznaleziono($piaid[$pi]); 
                                         }else{
-                                            writetydzienznalezionodublet();
+                                            writetydzienznalezionodublet($piaid[$pi]);
                                         }
                                     }else{
-                                        writetydzienznaleziono();
+                                        writetydzienznaleziono($piaid[$pi]);
                                     }
                                 }else {
                                     writetydzien($fr, $i);
@@ -531,12 +550,12 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                     if($dsob[$dso]==$i){
                                         $dso++;
                                         if($sob[$so]==$i){
-                                            writetydzienznaleziono(); 
+                                            writetydzienznaleziono($sobid[$so]); 
                                         }else{
-                                            writetydzienznalezionodublet();
+                                            writetydzienznalezionodublet($sobid[$so]);
                                         }
                                     }else{
-                                        writetydzienznaleziono();
+                                        writetydzienznaleziono($sobid[$so]);
                                     }
                                 }else {
                                     writetydzien($st, $i);
@@ -550,12 +569,12 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                     if($dnie[$dn]==$i){
                                         $dn++;
                                         if($nie[$n]==$i){
-                                            writetydzienznaleziono(); 
+                                            writetydzienznaleziono($nieid[$n]); 
                                         }else{
-                                            writetydzienznalezionodublet();
+                                            writetydzienznalezionodublet($nieid[$n]);
                                         }
                                     }else{
-                                        writetydzienznaleziono();
+                                        writetydzienznaleziono($nieid[$n]);
                                     }
                                 }else {
                                     writetydzien($sd, $i);

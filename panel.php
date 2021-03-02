@@ -231,14 +231,14 @@ if($czyinsert){
         if($czyzwalidowano && $czyinsert){
             echo "save";
             if(isset($_SESSION['old_id_j'])){
-               // $old = $_SESSION['old_id_j'];
+                $old = $_SESSION['old_id_j'];
                 unset($_SESSION['old_id_j']);
-               // $zap = 'DELETE FROM jazdy WHERE id="'.$old.'"';
-                //$_SESSION['error'] = $zap; 
-               // $rezu=$conn->query($zap);
-               // if(!$rezu){
-               // }else{
-                //}
+                $zap = 'DELETE FROM jazdy WHERE id="'.$old.'"';
+                $_SESSION['error'] = $zap; 
+                $rezu=$conn->query($zap);
+                if(!$rezu){
+                }else{
+               }
             }
             $i=0;
             while($i<$dlugosc){
