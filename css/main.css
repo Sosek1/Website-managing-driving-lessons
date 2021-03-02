@@ -1471,6 +1471,12 @@ nav .burger.open .bar3 {
   border-radius: 6px;
 }
 
+.box .loginPanel .submit:focus {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
 .box .loginPanel ::-webkit-input-placeholder {
   color: #9b9696;
   font-size: 15px;
@@ -1614,7 +1620,17 @@ nav .burger.open .bar3 {
   text-decoration: none !important;
 }
 
-.hoursForm {
+.containerR .additionalInfo2 {
+  width: 100%;
+  height: 100%;
+  color: #000;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  border: 2px solid #000;
+  border-radius: 6px;
+}
+
+.hoursform {
   width: 150px;
   height: 40px;
   background-color: #fff;
@@ -1628,8 +1644,8 @@ nav .burger.open .bar3 {
   .containerR {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-    -ms-grid-rows: (1fr)[12];
-        grid-template-rows: repeat(12, 1fr);
+    -ms-grid-rows: (1fr)[16];
+        grid-template-rows: repeat(16, 1fr);
     width: 100vw;
   }
   .containerR .headingR {
@@ -1673,7 +1689,15 @@ nav .burger.open .bar3 {
   .containerR .fas {
     font-size: 20px;
   }
-  .hoursForm {
+  .containerR .additionalInfo2 {
+    -ms-grid-row: 10;
+    -ms-grid-row-span: 5;
+    -ms-grid-column: 1;
+    grid-area: 10/1/15/1;
+    padding: 5px;
+    font-size: 15px;
+  }
+  .hoursform {
     margin: 10px auto;
   }
 }
@@ -1682,8 +1706,8 @@ nav .burger.open .bar3 {
   .containerR {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-    -ms-grid-rows: (1fr)[12];
-        grid-template-rows: repeat(12, 1fr);
+    -ms-grid-rows: (1fr)[16];
+        grid-template-rows: repeat(16, 1fr);
     width: 60vw;
   }
   .containerR .headingR {
@@ -1727,7 +1751,15 @@ nav .burger.open .bar3 {
   .containerR .fas {
     font-size: 25px;
   }
-  .hoursForm {
+  .containerR .additionalInfo2 {
+    -ms-grid-row: 10;
+    -ms-grid-row-span: 5;
+    -ms-grid-column: 1;
+    grid-area: 10/1/15/1;
+    padding: 5px;
+    font-size: 15px;
+  }
+  .hoursform {
     margin: 10px auto;
   }
 }
@@ -1796,7 +1828,15 @@ nav .burger.open .bar3 {
   .containerR .fas {
     font-size: 30px;
   }
-  .hoursForm {
+  .containerR .additionalInfo2 {
+    -ms-grid-row: 4;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-area: 4/2/4/3;
+    padding: 5px;
+    font-size: 20px;
+  }
+  .hoursform {
     margin: 30px 0 30px 30px;
   }
 }
@@ -2311,6 +2351,18 @@ nav .burger.open .bar3 {
 .backToCalendar i {
   font-size: 20px;
   color: #fff;
+}
+
+.overflow {
+  overflow: hidden;
+}
+
+input:focus {
+  outline: none;
+}
+
+textarea:focus {
+  outline: none;
 }
 
 @media screen and (min-width: 200px) {

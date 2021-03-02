@@ -198,13 +198,14 @@ if($con){
                     <option value="4">Inne</option>
                 </select>
             </div>
+            <input type="text" placeholder="Wydatek..." class="expenses"name="wydatki" >
+            <input type="text" placeholder="Wpłata..." class="payment" name="wplata" >
             <div class="traningForm">
                 <p class="text">Formularz szkoleniowy</p>
                 <select class="custom-select">
                 </select>
             </div>
-            <input type="text" placeholder="Wpłata..." class="payment" name="wplata" >
-            <input type="text" placeholder="Wydatek..." class="expenses"name="wydatki" >
+            <textarea placeholder="Napisz coś..."class="additionalInfo2"></textarea>
             <button type="submit" class="settleRide">
                 <p>Rozlicz jazdę</p>
             </button>

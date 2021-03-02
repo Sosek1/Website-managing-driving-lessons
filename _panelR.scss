@@ -65,9 +65,18 @@
     a {
         text-decoration: none !important;
     }
+
+    .additionalInfo2 {
+        width: 100%;
+        height: 100%;
+        color: $second-color;
+        justify-self: center;
+        border: 2px solid $second-color;
+        border-radius: 6px;
+    }
 }
 
-.hoursForm {
+.hoursform {
     width: 150px;
     height: 40px;
     background-color: $first-color;
@@ -80,7 +89,7 @@
 @include media-sm {
     .containerR {
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(12, 1fr);
+        grid-template-rows: repeat(16, 1fr);
         width: 100vw;
 
         .headingR {
@@ -121,9 +130,15 @@
         .fas {
             font-size: 20px;
         }
+
+        .additionalInfo2 {
+            grid-area: 10/1/15/1;
+            padding: 5px;
+            font-size: 15px;
+        }
     }
 
-    .hoursForm {
+    .hoursform {
         margin: 10px auto;
     }
 }
@@ -131,7 +146,7 @@
 @include media-md {
     .containerR {
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(12, 1fr);
+        grid-template-rows: repeat(16, 1fr);
         width: 60vw;
 
         .headingR {
@@ -172,9 +187,15 @@
         .fas {
             font-size: 25px;
         }
+
+        .additionalInfo2 {
+            grid-area: 10/1/15/1;
+            padding: 5px;
+            font-size: 15px;
+        }
     }
 
-    .hoursForm {
+    .hoursform {
         margin: 10px auto;
     }
 }
@@ -235,9 +256,15 @@
         .fas {
             font-size: 30px;
         }
+
+        .additionalInfo2 {
+            grid-area: 4/2/4/3;
+            padding: 5px;
+            font-size: 20px;
+        }
     }
 
-    .hoursForm {
+    .hoursform {
         margin: 30px 0 30px 30px;
     }
 }

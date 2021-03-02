@@ -31,6 +31,18 @@
     }
 }
 
+.overflow {
+    overflow: hidden;
+}
+
+input:focus {
+    outline: none;
+}
+
+textarea:focus {
+    outline: none;
+}
+
 @include media-sm {
     .backToCalendar {
         display: flex;

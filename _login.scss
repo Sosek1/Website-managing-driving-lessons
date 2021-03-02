@@ -36,7 +36,10 @@
             background-color: $second-color;
             color: $first-color;
             border-radius: 6px;
+        }
 
+        .submit:focus {
+            appearance: none;
         }
 
         ::placeholder {
