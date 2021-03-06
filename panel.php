@@ -423,7 +423,6 @@ if(isset($_SESSION['error'])){
             <button type="submit" class="save">zapisz</button>
             <a class="clear"href="delete_date.php">Usuń dane</a>
             <a href="kalendarzDzien.php?date=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>" class="changeDate">Zmień datę jazdy</a>
-            
     </form>
     
     <a href="#" class="backToCalendar">

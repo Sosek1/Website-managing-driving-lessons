@@ -96,6 +96,7 @@ if($conn->connect_errno!=0){}else{
         <textarea class="place"><?php echo retplace($miejsce);?></textarea>
         <textarea class="motorcycle"><?php echo $pojname.' | '.$pojres;?></textarea>
         <textarea class="additionalInfo"><?php echo $info;?></textarea>
+        <a href="#" class="phoneNumber2 delete">12345678</a>
         <a href="mod.php?id=<?php echo $idj;?>" class="edit">Edytuj</a>
         <a href="delete.php?id=<?php echo $idj;?>" class="delete">Usuń</a>
         <?php //<a href="#" class="addDouble">Dodaj dublet</a> ?>

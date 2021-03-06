@@ -84,6 +84,22 @@
     border-radius: 6px;
     font-size: 15px;
     text-align: center;
+
+    input {
+        width: 100%;
+        height: 100%;
+        padding: 5px;
+        font-size: 15px;
+        border: 1px solid $second-color;
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+    input[type="number"i] {
+        background-color: $first-color;
+    }
 }
 
 @include media-sm {
