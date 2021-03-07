@@ -12,6 +12,7 @@ if(isset($_GET['id'])){
 }
 
 $conn = new mysqli($host, $db_user, $db_pass, $db_name);
+$conn->query("SET NAMES 'utf8'");
 if($conn->connect_errno!=0){}else{
     $zap = 'SELECT * FROM jazdy WHERE id = '.$idj;
     $rezu=$conn->query($zap);
