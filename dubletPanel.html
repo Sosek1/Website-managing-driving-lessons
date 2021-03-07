@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel ustalania jazd</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link href="https://fonts.googleapis.com/css2
+    ?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2e3d9b3214.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <img src="css/MotoLka.png">
+        </div>
+        <ul class="list">
+            <li><a href="kalendarzTydzien.php">Kalendarz</a></li>
+            <li><a href="panel.html">Panel jazd</a></li>
+            <li><a href="panelRozliczania.html">Rozliczenie jazdy</a></li>
+            <li><a href="szukaj.html">Szukaj</a></li>
+        </ul>
+        <div class="burger">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+    </nav>
+
+    <form method="post" class="container">
+        <h1 class="heading">Panel ustalania jazd</h1>
+        <div class="datePlace">
+            <p class="date"></p>
+        </div>
+        <div class="search">
+            <input type="text" class="searchInput" name="szukaj">
+            <label><input type="submit" value="" style="border-style:none;"><i class="fas fa-search"></i></label>
+        </div>
+        <input type="text" name="addname" class="name2 border " placeholder="Imię...">
+        <input type="text" name="addsurname" class="surname border " placeholder="Nazwisko...">
+        <input type="tel" name="addnrtel" class="phoneNumber border " placeholder="Numer telefonu...">
+        <div class="chooseCategory">
+            <p class="text">Kategoria</p>
+            <select class="custom-select" name="addkat">
+                <option value="1">AM</option>
+                <option value="2">A1</option>
+                <option value="3">A2</option>
+                <option value="4">A</option>
+            </select>
+        </div>
+        <div class="chooseHour">
+            <p class="text">Liczba godzin</p>
+            <select class="custom-select" name="addhours">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+        <div class="chooseCar">
+            <p class="text"> Pojazd</p>
+            <select class="custom-select" name="addpojazd">
+        </div>
+
+        <label class="city">
+            <input type="radio" id="1" name="addplace" value="1">
+            <span class="checkmark"></span>
+            <h1>Miasto</h1>
+        </label>
+
+        <label class="place">
+            <input type="radio" id="2" name="addplace" value="2">
+            <span class="checkmark"></span>
+            <h1>Plac</h1>
+        </label>
+
+        <label class="cityPlace">
+            <input type="radio" id="3" name="addplace" value="3">
+            <span class="checkmark"></span>
+            <h1>Miasto/Plac</h1>
+        </label>
+
+        <textarea class="info" placeholder="Napisz coś..." name="addinfo"></textarea>
+        <button type="submit" class="save">zapisz</button>
+        <a class="clear" href="delete_date.php">Usuń dane</a>
+        <a href="#" class="changeDate">Zmień datę
+            jazdy</a>
+
+    </form>
+
+    <script src="burger.js"></script>
+</body>
+
+</html>
