@@ -219,6 +219,13 @@
         transform: rotate(45deg);
     }
 
+    .dateInput {
+        border: 2px solid $second-color;
+        width: 140px;
+        height: 50px;
+        padding: 5px;
+    }
+
     .save,
     .changeDate {
         border-radius: 6px;
@@ -350,6 +357,12 @@
             align-self: center;
         }
 
+        .dateInput {
+            grid-area: 11/1/12/1;
+            align-self: center;
+            justify-self: center;
+        }
+
         .info {
             grid-area: 13/1/18/1;
             width: 100%;
@@ -463,6 +476,10 @@
             align-self: center;
         }
 
+        .dateInput {
+            grid-area: 8/2/8/3;
+        }
+
         .info {
             grid-area: 9/1/13/4;
             width: 100%;
@@ -565,6 +582,10 @@
 
         .chooseHour {
             grid-area: 3/3/3/4;
+        }
+
+        .dateInput {
+            grid-area: 4/1/4/2;
         }
 
         .city,

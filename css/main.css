@@ -913,6 +913,13 @@ nav .burger.open .bar3 {
   transform: rotate(45deg);
 }
 
+.container .dateInput {
+  border: 2px solid #000;
+  width: 140px;
+  height: 50px;
+  padding: 5px;
+}
+
 .container .save,
 .container .changeDate {
   border-radius: 6px;
@@ -1077,6 +1084,17 @@ nav .burger.open .bar3 {
         -ms-grid-row-align: center;
         align-self: center;
   }
+  .container .dateInput {
+    -ms-grid-row: 11;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    grid-area: 11/1/12/1;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    -ms-grid-column-align: center;
+        justify-self: center;
+  }
   .container .info {
     -ms-grid-row: 13;
     -ms-grid-row-span: 5;
@@ -1226,6 +1244,12 @@ nav .burger.open .bar3 {
         -ms-grid-row-align: center;
         align-self: center;
   }
+  .container .dateInput {
+    -ms-grid-row: 8;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-area: 8/2/8/3;
+  }
   .container .info {
     -ms-grid-row: 9;
     -ms-grid-row-span: 4;
@@ -1358,6 +1382,12 @@ nav .burger.open .bar3 {
     -ms-grid-column: 3;
     -ms-grid-column-span: 1;
     grid-area: 3/3/3/4;
+  }
+  .container .dateInput {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-area: 4/1/4/2;
   }
   .container .city,
   .container .place,
@@ -2289,6 +2319,12 @@ nav .burger.open .bar3 {
     -ms-grid-column-span: 1;
     grid-area: 4/3/4/4;
   }
+  .informationContainer .phoneNumber2 {
+    -ms-grid-row: 3;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-area: 3/2/3/3;
+  }
   .info2 {
     margin: 25px;
     font-size: 30px;
@@ -2330,6 +2366,12 @@ nav .burger.open .bar3 {
     -ms-grid-column: 3;
     -ms-grid-column-span: 1;
     grid-area: 4/3/4/4;
+  }
+  .informationContainer .phoneNumber2 {
+    -ms-grid-row: 3;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-area: 3/2/3/3;
   }
   .info2 {
     margin: 30px;
