@@ -179,7 +179,7 @@ if($conn->connect_errno!=0){
                     echo '&h=6"><i class="fas fa-plus"></i></a>';
                 }
                 if($jest){
-                    echo '</label><label class="info"><a href="#"><i class="fas fa-info"></i></a></label><label class="edit">';
+                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
                     echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
                     $jest = false;            
@@ -236,8 +236,9 @@ if($conn->connect_errno!=0){
                     echo '&h=7"><i class="fas fa-plus"></i></a>';
                 }
                 if($jest){
-                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
+                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
                     $jest = false;            
                 }
             }
@@ -291,8 +292,9 @@ if($conn->connect_errno!=0){
                     echo '&h=8"><i class="fas fa-plus"></i></a>';
                 }
                 if($jest){
-                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
+                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
                     $jest = false;            
                 }
             }
@@ -346,8 +348,9 @@ if($conn->connect_errno!=0){
                     echo '&h=9"><i class="fas fa-plus"></i></a>';
                 }
                 if($jest){
-                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
+                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
                     $jest = false;            
                 }
             }
@@ -401,8 +404,9 @@ if($conn->connect_errno!=0){
                     echo '&h=10"><i class="fas fa-plus"></i></a>';
                 }
                 if($jest){
-                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
+                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
                     $jest = false;            
                 }
             }
@@ -456,8 +460,9 @@ if($conn->connect_errno!=0){
                     echo '&h=11"><i class="fas fa-plus"></i></a>';
                 }
                 if($jest){
-                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
+                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
                     $jest = false;            
                 }
             }
@@ -511,8 +516,9 @@ if($conn->connect_errno!=0){
                     echo '&h=12"><i class="fas fa-plus"></i></a>';
                 }
                 if($jest){
-                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
+                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
                     $jest = false;            
                 }
             }
@@ -566,8 +572,9 @@ if($conn->connect_errno!=0){
                     echo '&h=13"><i class="fas fa-plus"></i></a>';
                 }
                 if($jest){
-                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
+                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
                     $jest = false;            
                 }
             }
@@ -621,8 +628,9 @@ if($conn->connect_errno!=0){
                     echo '&h=14"><i class="fas fa-plus"></i></a>';
                 }
                 if($jest){
-                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
+                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
                     $jest = false;            
                 }
             }
@@ -676,8 +684,9 @@ if($conn->connect_errno!=0){
                     echo '&h=15"><i class="fas fa-plus"></i></a>';
                 }
                 if($jest){
-                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
+                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
                     $jest = false;            
                 }
             }
@@ -731,8 +740,9 @@ if($conn->connect_errno!=0){
                     echo '&h=16"><i class="fas fa-plus"></i></a>';
                 }
                 if($jest){
-                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
+                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
                     $jest = false;            
                 }
             }
@@ -786,8 +796,9 @@ if($conn->connect_errno!=0){
                     echo '&h=17"><i class="fas fa-plus"></i></a>';
                 }
                 if($jest){
-                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
+                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
                     $jest = false;            
                 }
             }
@@ -841,8 +852,9 @@ if($conn->connect_errno!=0){
                     echo '&h=18"><i class="fas fa-plus"></i></a>';
                 }
                 if($jest){
-                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
+                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
                     $jest = false;            
                 }
             }
@@ -896,8 +908,9 @@ if($conn->connect_errno!=0){
                     echo '&h=19"><i class="fas fa-plus"></i></a>';
                 }
                 if($jest){
-                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
+                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
                     $jest = false;            
                 }
             }
@@ -951,8 +964,9 @@ if($conn->connect_errno!=0){
                     echo '&h=20"><i class="fas fa-plus"></i></a>';
                 }
                 if($jest){
-                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
+                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
                     $jest = false;            
                 }
             }
@@ -1006,8 +1020,9 @@ if($conn->connect_errno!=0){
                     echo '&h=21"><i class="fas fa-plus"></i></a>';
                 }
                 if($jest){
-                    echo '</label><label class="edit"><a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
+                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
+                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
+                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
                     $jest = false;            
                 }
             }

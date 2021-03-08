@@ -175,7 +175,8 @@ if($czyinsert){
             $_SESSION['error']="Zły pojazd dla tego kursanta!";
         }
         $dataa=date("Y-m-d H:i:s", mktime($godzina, 0, 0, $msc, $day, $ye));
-        $zap = 'SELECT * FROM jazdy WHERE id_pojazdu ='.$pojazd.' AND data_jazdy=\''.$dataa.'\'';
+        $zap = 'SELECT * FROM jazdy WHERE id_pojazdu ='.$pojazd.' AND data_jazdy=\''.$dataa.'\' AND id IS NOT ='.$old;
+        echo $zap;
         $poj=$conn->query($zap);
         if(!$poj){}else{
             $ile=$poj->num_rows;                
@@ -244,7 +245,7 @@ if($czyinsert){
             while($i<$dlugosc){
                 $idinstruktora = $_SESSION['id'];
                 $dataa=date("Y-m-d H:i:s", mktime($godzina+$i, 0, 0, $msc, $day, $ye));
-                $zap = 'INSERT INTO jazdy VALUES(NULL, '.$idinstruktora.', '.$idd.', '.$pojazd.', \''.$dataa.'\', NULL, '.$place.', "'.$info.'")';
+                $zap = 'INSERT INTO jazdy VALUES(NULL, '.$idinstruktora.', '.$idd.', '.$pojazd.', \''.$dataa.'\', NULL, '.$place.', "'.$info.'", NULL)';
                 echo $zap;
                 if($conn->query($zap)){
                             
