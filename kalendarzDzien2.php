@@ -115,8 +115,9 @@ $rozliczono = false;
                 if(!$rezu){
                 }else{
                     $ile = $rezu->num_rows;
-                    $i = 6;
+                    $i = 5;
                     $ill = 0;
+                    $ppp = 0;
                     if($ile > 0){
                         while ($ill < $ile){
                             $jazdarow = $rezu->fetch_assoc();
@@ -135,22 +136,29 @@ $rozliczono = false;
                                 $tel = $osobarow['nrtel'];
                                 $kat = $osobarow['kat'];
                             }
-                            while($i<22){
+                            while($i<21){
+                                $i++; 
                                 $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, $msc, $day, $ye));
                                 if($godz == $g){
                                     writedzienzosoba($i, $imie, $nazwisko, $kat, $tel, $dzien, $idj, $dublet, $rozliczono, true);
                                     break;
+                                    echo $i;
+                                }if($godz < $g){
+                                    $i = $i-2;
+                                    echo 'ss'; 
                                 }else{
                                     writedzien($i, $dzien);
+                                    break;
                                 }
-                                $i++;                            
+                           
                             }
                             $ill++;
                         }
-                    }
-                    while($i<22){
-                        writedzien($i, $dzien);
+                    }                        
+
+                    while($i<21){
                         $i++;
+                        writedzien($i, $dzien);
 
                     }
                     
