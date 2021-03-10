@@ -51,7 +51,7 @@ if($conn->connect_errno!=0){
 }else{
     $con=true;
 }
-
+$rozliczono = false;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -106,47 +106,55 @@ if($conn->connect_errno!=0){
             $kat;
             if($con){
                 $i = 5;
-                while($i<21){
-                    $i++;
-                    $dzp=date("Y-m-d H:i:s", mktime($i, 0, 0, $msc, $day, $ye));
-                    $id=$_SESSION['id'];
-                    $zap = 'SELECT * FROM jazdy WHERE data_jazdy="'.$dzp.'" and id_instruktora='.$id.'';
-                    $rezu=$conn->query($zap);
-                    if(!$rezu){
-                    }else{
-                        $ile = $rezu->num_rows;
-                        $d=0;
-                        while($ile>$d){  
-                            $idosoba = $row['id_kursanta'];
-                            $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
+                $dzp=date("Y-m-d H:i:s", mktime(0, 0, 0, $msc, $day, $ye));
+                $dzk=date("Y-m-d H:i:s", mktime(23, 0, 0, $msc, $day, $ye));
+                $id=$_SESSION['id'];
+                $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" AND data_jazdy<"'.$dzk.'" and id_instruktora='.$id.' ORDER BY data_jazdy, dublet ASC';
+                echo $zap;
+                $rezu=$conn->query($zap);
+                if(!$rezu){
+                }else{
+                    $ile = $rezu->num_rows;
+                    $i = 6;
+                    $ill = 0;
+                    if($ile > 0){
+                        while ($ill < $ile){
+                            $jazdarow = $rezu->fetch_assoc();
+                            $g = $jazdarow['data_jazdy'];  
+                            $idk = $jazdarow['id_kursanta'];
+                            $idj = $jazdarow['id'];
+                            $dublet = $jazdarow['dublet'];
+                            $zap = 'SELECT * FROM kursanci WHERE id='.$idk.'';
+                            $osoba=$conn->query($zap);
                             if(!$osoba){
-                                }else{
-                                    $ile = $osoba->num_rows;
-                                    if($ile>0){
-                                        $osobarow = $osoba->fetch_assoc();
-                                        $imie = $osobarow['imie'];
-                                        $nazwisko = $osobarow['surname'];
-                                            $kat = $osobarow['kat'];
-                                            $tel = $osobarow['nrtel'];
-                                            writedzienzosoba($i, $imie, $nazwisko, $kat, $tel, $dza);
-                                        }
-                                        $row = $rezu->fetch_assoc();
-                                    }
-                                }else{
-                                    writedzien($i, $dza);
-                                }
-                                $i++;
+                            }else{
+                                $ileo = $osoba->num_rows;
+                                $osobarow = $osoba->fetch_assoc();
+                                $imie = $osobarow['imie'];
+                                $nazwisko = $osobarow['surname'];
+                                $tel = $osobarow['nrtel'];
+                                $kat = $osobarow['kat'];
                             }
-                        }else{
-                            $i = 6;
                             while($i<22){
-                                writedzien($i, $dza);
-                                $i++;
+                                $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, $msc, $day, $ye));
+                                if($godz == $g){
+                                    writedzienzosoba($i, $imie, $nazwisko, $kat, $tel, $dzien, $idj, $dublet, $rozliczono, true);
+                                    break;
+                                }else{
+                                    writedzien($i, $dzien);
+                                }
+                                $i++;                            
                             }
+                            $ill++;
                         }
                     }
+                    while($i<22){
+                        writedzien($i, $dzien);
+                        $i++;
+
+                    }
+                    
                 }
-                
             }
 
 

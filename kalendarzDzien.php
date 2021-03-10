@@ -188,6 +188,7 @@ if($conn->connect_errno!=0){
             ?>
 
         </div>
+        
         <div class="table"
         <?php 
             if($con){
