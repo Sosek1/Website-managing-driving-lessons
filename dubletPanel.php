@@ -7,6 +7,7 @@ if(!isset($_SESSION['logIn'])){
     header('Location: index.php');
     exit();
 }
+$_SESSION['dublettt']=true;
 $czyzwalidowano = true;
 if(isset($_GET['d'])){
     $dzien=$_GET['d'];
@@ -60,16 +61,14 @@ if(isset($_POST['addpojazd'])){
     $_SESSION['adpojazd'] = $_POST['addpojazd'];
     $pojazd = $_POST['addpojazd'];
 }
-if(isset($_POST['addplace'])){
-    $_SESSION['adplace'] = $_POST['addplace'];
-    $place = $_POST['addplace'];
-}else if(isset($_POST['addname'])){
-    $_SESSION['error'] = "Nie podano miejsca jazdy!";
-    $czyzwalidowano = false;
-}
+
 if(isset($_POST['addinfo'])){
     $_SESSION['adinfo'] = $_POST['addinfo'];
     $info = $_POST['addinfo'];
+}
+if(isset($_POST['adddata2'])){
+    $_SESSION['addata2'] = $_POST['adddata2'];
+    $data2 = $_POST['adddata2'];
 }
 if(isset($_POST['szukaj'])){
     $zap = $_POST['szukaj'];
@@ -244,8 +243,20 @@ if($czyinsert){
             $i=0;
             while($i<$dlugosc){
                 $idinstruktora = $_SESSION['id'];
+                $zap = 'INSERT INTO dublety VALUES(NULL, '.$idinstruktora.', \''.$data2.'\')';
+                if($conn->query($zap)){                         
+                }
+                $zap = 'SELECT id FROM dublety WHERE dzien > "'.$dz.'"';
+                $dublettttt=$conn->query($zap);
+                if(!$dublettttt){}else{
+                    $ile=$dublettttt->num_rows;
+                    if($ile>0){
+                        $dubrow = $dublettttt->fetch_assoc();
+                        $iddubletu = $dubrow['id'];
+                    }
+                }
                 $dataa=date("Y-m-d H:i:s", mktime($godzina+$i, 0, 0, $msc, $day, $ye));
-                $zap = 'INSERT INTO jazdy VALUES(NULL, '.$idinstruktora.', '.$idd.', '.$pojazd.', \''.$dataa.'\', NULL, '.$place.', "'.$info.'", NULL)';
+                $zap = 'INSERT INTO jazdy VALUES(NULL, '.$idinstruktora.', '.$idd.', '.$pojazd.', \''.$dataa.'\', NULL, 2 , "'.$info.'", '.$iddubletu.')';
                 echo $zap;
                 if($conn->query($zap)){
                             
@@ -318,53 +329,96 @@ if(isset($_SESSION['error'])){
     <form class="container">
         <h1 class="heading">Panel dubletów</h1>
         <div class="datePlace">
-            <div class="prev2">
-                <i class="fas fa-angle-left"></i>
-            </div>
             <p class="date"><?php echo date("Y-m-d H:i", mktime($godzina+$i, 0, 0, $msc, $day, $ye));?></p>
-            <div class="next2">
-                <i class="fas fa-angle-right"></i>
-            </div>
         </div>
         <div class="search">
             <input type="text" class="searchInput" name="szukaj">
             <label><input type="submit" value="" style="border-style:none;"><i class="fas fa-search"></i></label>
         </div>
-        <input type="text" class="name2 border " placeholder="Imię...">
-        <input type="text" class="surname border " placeholder="Nazwisko...">
-        <input type="text" class="phoneNumber border " placeholder="Numer telefonu...">
+        <input type="text" name="addname" class="name2 border " placeholder="Imię..."<?php if(isset($_SESSION['adname'])){echo 'value="'.$_SESSION['adname'].'"';}?>>
+        <input type="text" name="addsurname" class="surname border " placeholder="Nazwisko..."<?php if(isset($_SESSION['adsurname'])){echo 'value="'.$_SESSION['adsurname'].'"';}?>>
+        <input type="text" name="addnrtel" class="phoneNumber border " placeholder="Numer telefonu..."<?php if(isset($_SESSION['adnrtel'])){echo 'value="'.$_SESSION['adnrtel'].'"';}?>>
         <div class="chooseCategory">
-            <p class="text">Kategoria</p>
-            <select class="custom-select">
-                <option value="1">AM</option>
-                <option value="2">A1</option>
-                <option value="3">A2</option>
-                <option value="4">A</option>
-            </select>
-        </div>
+                <p class="text">Kategoria</p>
+                <select class="custom-select" name="addkat">
+                    <option value="1"<?php if(isset($_SESSION['adkat'])){if($_SESSION['adkat']==1){echo 'selected="selected"';}}?>>AM</option>
+                    <option value="2"<?php if(isset($_SESSION['adkat'])){if($_SESSION['adkat']==2){echo 'selected="selected"';}}?>>A1</option>
+                    <option value="3"<?php if(isset($_SESSION['adkat'])){if($_SESSION['adkat']==3){echo 'selected="selected"';}}?>>A2</option>
+                    <option value="4"<?php if(isset($_SESSION['adkat'])){if($_SESSION['adkat']==4){echo 'selected="selected"';}}?>>A</option>
+                </select>
+            </div>
         <div class="chooseHour">
             <p class="text">Liczba godzin</p>
             <select class="custom-select">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
+                <option value="1"<?php if(isset($_SESSION['adhours'])){if($_SESSION['adhours']==1){echo 'selected="selected"';}}?>>1</option>
+                <option value="2"<?php if(isset($_SESSION['adhours'])){if($_SESSION['adhours']==2){echo 'selected="selected"';}}?>>2</option>
+                <option value="3"<?php if(isset($_SESSION['adhours'])){if($_SESSION['adhours']==3){echo 'selected="selected"';}}?>>3</option>
             </select>
         </div>
         <div class="chooseCar">
-            <p class="text"> Pojazd</p>
-            <select class="custom-select">
-                <option value="1">AM</option>
-                <option value="2">A1</option>
-                <option value="3">A2</option>
-                <option value="4">A</option>
-            </select>
-        </div>
+                <p class="text"> Pojazd</p>
+                <select class="custom-select" name="addpojazd">
+                    <?php
+                    $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
+                    if(isset($_SESSION['adid'])){
+
+                        if($conn->connect_errno!=0){
+
+                        }else{
+                            $id = $_SESSION['adid'];
+                            $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$id'");
+
+                            if(!$osoba){}else{
+                                $ile=$rezu->num_rows;
+                                if($ile>0){
+                                    $osobarow = $osoba->fetch_assoc();
+                                    $katosoba = $osobarow['kat'];
+                                }
+                            }
+                        }
+                    }
+                    if(!isset($katosoba)){
+                        $katosoba=5;
+                    }
+
+                    $rezu=$conn->query("SELECT * FROM pojazdy WHERE kat<='$katosoba'");
+
+                    if(!$rezu){}else{
+                        $ile=$rezu->num_rows;
+                        if($ile>0){
+                            $i = 1;
+                            while($i<=$ile){
+                                $pojazdrow = $rezu->fetch_assoc();
+                                $pojname = $pojazdrow['nazwa'];
+                                $pojid = $pojazdrow['id'];
+                                $pojkat = $pojazdrow['kat'];
+                                $pojrej = $pojazdrow['rejestracja'];
+                                if(isset($_SESSION['adpojazd'])){
+                                    if($_SESSION['adpojazd']==$i){
+                                        echo '<option value="'.$pojid.'" selected="selected">'.retkat($pojkat).' | '.$pojname.' | '.$pojrej.'</option>';
+                                    }else{
+                                        echo '<option value='.$pojid.'>'.retkat($pojkat).' | '.$pojname.' | '.$pojrej.'</option>';
+                                    }
+                                }else{
+                                    echo '<option value='.$pojid.'>'.retkat($pojkat).' | '.$pojname.' | '.$pojrej.'</option>';
+                                }
+
+                                $i++;
+                            }
+                                
+                        }
+                        $conn -> close();       
+                    }
+                    ?>
+                </select>
+            </div>
+
+
         Data 2:
-        <input type="date" class="dateInput">
-        <textarea class="info" placeholder="Napisz coś..."></textarea>
-        <button class="save">zapisz</button>
-        <a class="clear" href="delete_date.php">Usuń dane</a>
-        <a href="#" class="changeDate">Zmień datę jazdy</a>
+        <input type="date" name="data2" class="dateInput">
+        <textarea class="info" name="addinfo" placeholder="Napisz coś..."></textarea>
+        <button class="save" type="submit">zapisz</button>
+        <button class="clear" onclick="header(Location: delete_date.php)">Usuń dane</button>       
         </div>
     </form>
 

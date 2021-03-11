@@ -2,10 +2,12 @@
 session_start();
 require_once "connect.php";
 require "functions.php";
-
 if(!isset($_SESSION['logIn'])){
     header('Location: index.php');
     exit();
+}
+if(isset($_SESSION['dublettt'])){
+    unset($_SESSION['dublettt']);
 }
 $czyzwalidowano = true;
 if(isset($_GET['d'])){
@@ -422,12 +424,11 @@ if(isset($_SESSION['error'])){
             
             <textarea class="info" placeholder="Napisz coś..." name="addinfo"></textarea>
             <button type="submit" class="save">zapisz</button>
-            <!-- <a class="clear"href="delete_date.php">Usuń dane</a> -->
-            <button class="clear" onclick="header(Location: delete.php)"></button>
+            <button class="clear" onclick="header(Location: delete_date.php)"></button>
             <a href="kalendarzDzien.php?date=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>" class="changeDate">Zmień datę jazdy</a>
     </form>
     
-    <a href="#" class="backToCalendar">
+    <a href="kalendarzTydzien.php" class="backToCalendar">
         <i class="fas fa-calendar-day"></i>
     </a>
 

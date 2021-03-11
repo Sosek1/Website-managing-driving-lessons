@@ -54,6 +54,8 @@ if($conn->connect_errno!=0){}else{
     }
 
 }
+$data = strtotime($godz);
+$godzina = date("h", $data);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -100,7 +102,9 @@ if($conn->connect_errno!=0){}else{
         <a href="#" class="phoneNumber2 delete">12345678</a>
         <a href="mod.php?id=<?php echo $idj;?>" class="edit">Edytuj</a>
         <a href="delete.php?id=<?php echo $idj;?>" class="delete">Usuń</a>
-        <?php //<a href="#" class="addDouble">Dodaj dublet</a> ?>
+        <?php if($miejsce==2){
+            echo '<a href="dubletPanel.php?d='.$data.'&h='.$godzina.'" class="addDouble">Dodaj dublet</a> ';
+        }?>
     </form>
     <a href="kalendarzTydzien.php" class="backToCalendar">
         <i class="fas fa-calendar-day"></i>

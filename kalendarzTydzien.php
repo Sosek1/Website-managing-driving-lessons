@@ -162,9 +162,6 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
             <div class="record">
                 <p class="hour">21:00</p>
             </div>
-            <div class="record">
-                <p class="hour">22:00</p>
-            </div>
         </div>
         <div class="weekContainer">
             <div class="calendar">
@@ -526,6 +523,7 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                 writetydzien($th, $i);
                             }
                             if(isset($pia)){
+                                echo 'ss';
                                 if($pia[$pi]==$i){
                                     $pi++;
                                     if($dpia[$dpi]==$i){
@@ -584,7 +582,8 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                             }
                         $i++;
                         }
-                    }?>
+                    }
+                    echo $pi;?>
                     
                 </div>
         </div>

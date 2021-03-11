@@ -90,7 +90,11 @@ if(isset($_GET['szuk'])){
                             }
                         
                         }
-                        echo '<a class="choose" href=\'panel.php?id='.$osobarow['id'].'\'>Wybierz</a></div>';
+                        if(isset($_SESSION['dublettt'])){
+                            echo '<a class="choose" href=\'dubletPanel.php?id='.$osobarow['id'].'\'>Wybierz</a></div>';
+                        }else{
+                            echo '<a class="choose" href=\'panel.php?id='.$osobarow['id'].'\'>Wybierz</a></div>';
+                        }
                         $i=$i+1;
                     }
                 }else{

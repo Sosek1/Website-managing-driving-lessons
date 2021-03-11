@@ -6,7 +6,7 @@ if(!isset($_SESSION['logIn'])){
     header('Location: index.php');
     exit();
 }
-unset($_SESSION['old_id_j']);
+
 if(isset($_GET['date'])==true){
     $dzien = $_GET['date'];
 }else{
@@ -41,16 +41,9 @@ if(isset($_GET['date'])==true){
         }
     }
 }
-
-$id = $_SESSION['id'];
-$czyjest = true;
-
-
-
 $day = date('d', $dzien);
 $msc = date('m', $dzien);
 $ye = date('y', $dzien);
-
 $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
 $conn->query("SET NAMES 'utf8'");
 if($conn->connect_errno!=0){
@@ -58,7 +51,7 @@ if($conn->connect_errno!=0){
 }else{
     $con=true;
 }
-
+$rozliczono = false;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,7 +73,7 @@ if($conn->connect_errno!=0){
         <ul class="list">
             <li><a href="kalendarzTydzien.php">Kalendarz</a></li>
             <li><a href="panel.php">Panel jazd</a></li>
-            <li><a href="rozliczDzien.php">Rozliczenie jazdy</a></li>
+            <li><a href="panelRozliczania.php">Rozliczenie jazdy</a></li>
             <li><a href="szukaj.php">Szukaj</a></li>
             <li><a href="logout.php">
             <i class="fas fa-sign-out-alt"></i>
@@ -94,945 +87,97 @@ if($conn->connect_errno!=0){
     </nav>
 
     <h1 class="name">Cześć, <?php echo $_SESSION['user_name'];?></h1>
-    <?php
-    if($con){
-        $dz=date("Y-m-d H:i:s", mktime(0, 0, 0, $msc, $day, $ye));
-        $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$dz.'" and id_instruktora='.$id.'';
-        $rezu=$conn->query($zap);
-        if(!$rezu){
-        }else{
-            $ile = $rezu->num_rows;
-            if($ile==0){
-                $czywszystkorozliczone = false;
-            }else{
-                $czywszystkorozliczone = true;
-                echo '<h1 class="name">Rozliczono</h1>';
-            }   
-
-        }
-    }
-   
-    ?>
     <a href="kalendarzTydzien.php"><button class="dayWeek">Tydzień</button></a>
 
     <div class="arrowBox">
         <div class="prev">
             <a href="kalendarzDzien.php?move=0"><i class="fas fa-arrow-left"></i></a>
         </div>
-        <a class="date3" href="kalendarzDzien.php?move=1"><?php echo date("d ", $dzien).retmiesiac($dzien).retdzien($dzien);?></a>
+        <a class="date3" href="kalendarzDzien.php?move=1"><?php echo date("d.M", $dzien);?></a>
         <div class="next">
             <a href="kalendarzDzien.php?move=2"><i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
 
     <div class="dayContainer">
-        <div class="table"
         <?php 
             $imie;
             $nazwisko;
             $kat;
             if($con){
-                $zap=date("Y-m-d H:i:s", mktime(6, 0, 0, $msc, $day, $ye));
+                $i = 5;
+                $dzp=date("Y-m-d H:i:s", mktime(0, 0, 0, $msc, $day, $ye));
+                $dzk=date("Y-m-d H:i:s", mktime(23, 0, 0, $msc, $day, $ye));
                 $id=$_SESSION['id'];
-                $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
+                $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" AND data_jazdy<"'.$dzk.'" and id_instruktora='.$id.' ORDER BY data_jazdy, dublet ASC';
+                $rezu=$conn->query($zap);
                 if(!$rezu){
                 }else{
                     $ile = $rezu->num_rows;
-                    if($ile>0){
-                        $row = $rezu->fetch_assoc();
-                        $idosoba = $row['id_kursanta'];
-                        $id_jazdy = $row['id'];
-                        $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
-                        if(!$osoba){
-                        }else{
-                            $ile = $osoba->num_rows;
-                            if($ile>0){
+                    $i = 5;
+                    $ill = 0;
+                    $ppp = 0;
+                    if($ile > 0){
+                        while ($ill < $ile){
+                            $jazdarow = $rezu->fetch_assoc();
+                            $g = $jazdarow['data_jazdy'];  
+                            $idk = $jazdarow['id_kursanta'];
+                            $idj = $jazdarow['id'];
+                            $dublet = $jazdarow['dublet'];
+                            $miejsce = $jazdarow['miejsce'];
+                            if($miejsce==2){
+                                $czydublet = true;
+                            }else{
+                                $czydublet = false;
+                            }
+                            $zap = 'SELECT * FROM kursanci WHERE id='.$idk.'';
+                            $osoba=$conn->query($zap);
+                            if(!$osoba){
+                            }else{
+                                $ileo = $osoba->num_rows;
                                 $osobarow = $osoba->fetch_assoc();
                                 $imie = $osobarow['imie'];
                                 $nazwisko = $osobarow['surname'];
+                                $tel = $osobarow['nrtel'];
                                 $kat = $osobarow['kat'];
                             }
+                            while($i<21){
+                                $i++; 
+                                $godz=date("Y-m-d H:i:s", mktime($i, 0, 0, $msc, $day, $ye));
+
+                                if($godz == $g){
+                                    $last = $godz;
+                                    writedzienzosoba($i, $imie, $nazwisko, $kat, $tel, $dzien, $idj, $dublet, $rozliczono, $czydublet);
+                                    break;
+                                }else if($g == $last){
+                                    $i = $i-1;
+                                    writedzienzosoba($i, $imie, $nazwisko, $kat, $tel, $dzien, $idj, $dublet, $rozliczono, false);
+                                    break;
+                                }else{
+                                    writedzien($i, $dzien);
+                                }
+                        
+                            }
+                            $ill++;
                         }
-                        echo 'style= "background-color:red"';
+                    }                        
+
+                    while($i<21){
+                        $i++;
+                        writedzien($i, $dzien);
+
                     }
+                    
                 }
             }
-        ?>>
-            <div class="hour">6:00</div>
-            <div class="data">
-            <?php 
-                if(isset($imie)){
-                    echo "<i>".$imie." ".$nazwisko."</i>";
-                    unset($imie);
-                    unset($nazwisko);
-                    unset($kat);
-                    $jest = true;                }
-            ?>
-                </div>
+
+
+
             
-
-            <?php 
-            if(!$czywszystkorozliczone){
-                if($dublet || true){
-                    echo '<label class="addRide"><a href="panel.php?d=';
-                    echo mktime(0, 0, 0, $msc, $day, $ye);
-                    echo '&h=6"><i class="fas fa-plus"></i></a>';
-                }
-                if($jest){
-                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
-                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                    echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-                    $jest = false;            
-                }
-            }
-            ?>
-
-        </div>
-        
-        <div class="table"
-        <?php 
-            if($con){
-                $zap=date("Y-m-d H:i:s", mktime(7, 0, 0, $msc, $day, $ye));
-                $id=$_SESSION['id'];
-                $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
-                if(!$rezu){
-                }else{
-                    $ile = $rezu->num_rows;
-                    if($ile>0){
-                        $row = $rezu->fetch_assoc();
-                        $idosoba = $row['id_kursanta'];
-                        $id_jazdy = $row['id'];
-                        $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
-                        if(!$osoba){
-                        }else{
-                            $ile = $osoba->num_rows;
-                            if($ile>0){
-                                $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['imie'];
-                                $nazwisko = $osobarow['surname'];
-                                $kat = $osobarow['kat'];
-                            }
-                        }
-                        echo 'style= "background-color:red"';
-                    }
-                }
-            }
         ?>
-            ><div class="hour">7:00</div>
-            <div class="data">
-            <?php 
-                if(isset($imie)){
-                    echo "<i>".$imie." ".$nazwisko."</i>";
-                    unset($imie);
-                    unset($nazwisko);
-                    unset($kat);
-                    $jest = true;                }
-            ?>
-                </div>
-                <?php 
-            if(!$czywszystkorozliczone){
-                if($dublet || true){
-                    echo '<label class="addRide"><a href="panel.php?d=';
-                    echo mktime(0, 0, 0, $msc, $day, $ye);
-                    echo '&h=7"><i class="fas fa-plus"></i></a>';
-                }
-                if($jest){
-                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
-                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-                    $jest = false;            
-                }
-            }
-            ?>
-        </div>
-        <div class="table"
-        <?php 
-            if($con){
-                $zap=date("Y-m-d H:i:s", mktime(8, 0, 0, $msc, $day, $ye));
-                $id=$_SESSION['id'];
-                $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
-                if(!$rezu){
-                }else{
-                    $ile = $rezu->num_rows;
-                    if($ile>0){
-                        $row = $rezu->fetch_assoc();
-                        $idosoba = $row['id_kursanta'];
-                        $id_jazdy = $row['id'];
-                        $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
-                        if(!$osoba){
-                        }else{
-                            $ile = $osoba->num_rows;
-                            if($ile>0){
-                                $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['imie'];
-                                $nazwisko = $osobarow['surname'];
-                                $kat = $osobarow['kat'];
-                            }
-                        }
-                        echo 'style= "background-color:red"';
-                    }
-                }
-            }
-        ?>>
-            <div class="hour">8:00</div>
-            <div class="data">
-            <?php 
-                if(isset($imie)){
-                    echo "<i>".$imie." ".$nazwisko."</i>";
-                    unset($imie);
-                    unset($nazwisko);
-                    unset($kat);
-                    $jest = true;                }
-            ?>
-                </div>
-                <?php 
-            if(!$czywszystkorozliczone){
-                if($dublet || true){
-                    echo '<label class="addRide"><a href="panel.php?d=';
-                    echo mktime(0, 0, 0, $msc, $day, $ye);
-                    echo '&h=8"><i class="fas fa-plus"></i></a>';
-                }
-                if($jest){
-                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
-                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-                    $jest = false;            
-                }
-            }
-            ?>
-        </div>
-        <div class="table"
-        <?php 
-            if($con){
-                $zap=date("Y-m-d H:i:s", mktime(9, 0, 0, $msc, $day, $ye));
-                $id=$_SESSION['id'];
-                $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
-                if(!$rezu){
-                }else{
-                    $ile = $rezu->num_rows;
-                    if($ile>0){
-                        $row = $rezu->fetch_assoc();
-                        $idosoba = $row['id_kursanta'];
-                        $id_jazdy = $row['id'];
-                        $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
-                        if(!$osoba){
-                        }else{
-                            $ile = $osoba->num_rows;
-                            if($ile>0){
-                                $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['imie'];
-                                $nazwisko = $osobarow['surname'];
-                                $kat = $osobarow['kat'];
-                            }
-                        }
-                        echo 'style= "background-color:red"';
-                    }
-                }
-            }
-        ?>>
-            <div class="hour">9:00</div>
-            <div class="data">
-            <?php 
-                if(isset($imie)){
-                    echo "<i>".$imie." ".$nazwisko."</i>";
-                    unset($imie);
-                    unset($nazwisko);
-                    unset($kat);
-                    $jest = true;                }
-            ?>
-                </div>
-                <?php 
-            if(!$czywszystkorozliczone){
-                if($dublet || true){
-                    echo '<label class="addRide"><a href="panel.php?d=';
-                    echo mktime(0, 0, 0, $msc, $day, $ye);
-                    echo '&h=9"><i class="fas fa-plus"></i></a>';
-                }
-                if($jest){
-                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
-                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-                    $jest = false;            
-                }
-            }
-            ?>
-        </div>
-        <div class="table"
-        <?php 
-            if($con){
-                $zap=date("Y-m-d H:i:s", mktime(10, 0, 0, $msc, $day, $ye));
-                $id=$_SESSION['id'];
-                $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
-                if(!$rezu){
-                }else{
-                    $ile = $rezu->num_rows;
-                    if($ile>0){
-                        $row = $rezu->fetch_assoc();
-                        $idosoba = $row['id_kursanta'];
-                        $id_jazdy = $row['id'];
-                        $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
-                        if(!$osoba){
-                        }else{
-                            $ile = $osoba->num_rows;
-                            if($ile>0){
-                                $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['imie'];
-                                $nazwisko = $osobarow['surname'];
-                                $kat = $osobarow['kat'];
-                            }
-                        }
-                        echo 'style= "background-color:red"';
-                    }
-                }
-            }
-        ?>>
-            <div class="hour">10:00</div>
-            <div class="data">
-            <?php 
-                if(isset($imie)){
-                    echo "<i>".$imie." ".$nazwisko."</i>";
-                    unset($imie);
-                    unset($nazwisko);
-                    unset($kat);
-                    $jest = true;                }
-            ?>
-                </div>
-                <?php 
-            if(!$czywszystkorozliczone){
-                if($dublet || true){
-                    echo '<label class="addRide"><a href="panel.php?d=';
-                    echo mktime(0, 0, 0, $msc, $day, $ye);
-                    echo '&h=10"><i class="fas fa-plus"></i></a>';
-                }
-                if($jest){
-                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
-                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-                    $jest = false;            
-                }
-            }
-            ?>
-        </div>
-        <div class="table"
-        <?php 
-            if($con){
-                $zap=date("Y-m-d H:i:s", mktime(11, 0, 0, $msc, $day, $ye));
-                $id=$_SESSION['id'];
-                $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
-                if(!$rezu){
-                }else{
-                    $ile = $rezu->num_rows;
-                    if($ile>0){
-                        $row = $rezu->fetch_assoc();
-                        $idosoba = $row['id_kursanta'];
-                        $id_jazdy = $row['id'];
-                        $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
-                        if(!$osoba){
-                        }else{
-                            $ile = $osoba->num_rows;
-                            if($ile>0){
-                                $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['imie'];
-                                $nazwisko = $osobarow['surname'];
-                                $kat = $osobarow['kat'];
-                            }
-                        }
-                        echo 'style= "background-color:red"';
-                    }
-                }
-            }
-        ?>>
-            <div class="hour">11:00</div>
-            <div class="data">
-            <?php 
-                if(isset($imie)){
-                    echo "<i>".$imie." ".$nazwisko."</i>";
-                    unset($imie);
-                    unset($nazwisko);
-                    unset($kat);
-                    $jest = true;                }
-            ?>
-                </div>
-                <?php 
-            if(!$czywszystkorozliczone){
-                if($dublet || true){
-                    echo '<label class="addRide"><a href="panel.php?d=';
-                    echo mktime(0, 0, 0, $msc, $day, $ye);
-                    echo '&h=11"><i class="fas fa-plus"></i></a>';
-                }
-                if($jest){
-                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
-                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-                    $jest = false;            
-                }
-            }
-            ?>
-        </div>
-        <div class="table"
-        <?php 
-            if($con){
-                $zap=date("Y-m-d H:i:s", mktime(12, 0, 0, $msc, $day, $ye));
-                $id=$_SESSION['id'];
-                $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
-                if(!$rezu){
-                }else{
-                    $ile = $rezu->num_rows;
-                    if($ile>0){
-                        $row = $rezu->fetch_assoc();
-                        $idosoba = $row['id_kursanta'];
-                        $id_jazdy = $row['id'];
-                        $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
-                        if(!$osoba){
-                        }else{
-                            $ile = $osoba->num_rows;
-                            if($ile>0){
-                                $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['imie'];
-                                $nazwisko = $osobarow['surname'];
-                                $kat = $osobarow['kat'];
-                            }
-                        }
-                        echo 'style= "background-color:red"';
-                    }
-                }
-            }
-        ?>>
-            <div class="hour">12:00</div>
-            <div class="data">
-            <?php 
-                if(isset($imie)){
-                    echo "<i>".$imie." ".$nazwisko."</i>";
-                    unset($imie);
-                    unset($nazwisko);
-                    unset($kat);
-                    $jest = true;                }
-            ?>
-                </div>
-                <?php 
-            if(!$czywszystkorozliczone){
-                if($dublet || true){
-                    echo '<label class="addRide"><a href="panel.php?d=';
-                    echo mktime(0, 0, 0, $msc, $day, $ye);
-                    echo '&h=12"><i class="fas fa-plus"></i></a>';
-                }
-                if($jest){
-                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
-                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-                    $jest = false;            
-                }
-            }
-            ?>
-        </div>
-        <div class="table"
-        <?php 
-            if($con){
-                $zap=date("Y-m-d H:i:s", mktime(13, 0, 0, $msc, $day, $ye));
-                $id=$_SESSION['id'];
-                $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
-                if(!$rezu){
-                }else{
-                    $ile = $rezu->num_rows;
-                    if($ile>0){
-                        $row = $rezu->fetch_assoc();
-                        $idosoba = $row['id_kursanta'];
-                        $id_jazdy = $row['id'];
-                        $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
-                        if(!$osoba){
-                        }else{
-                            $ile = $osoba->num_rows;
-                            if($ile>0){
-                                $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['imie'];
-                                $nazwisko = $osobarow['surname'];
-                                $kat = $osobarow['kat'];
-                            }
-                        }
-                        echo 'style= "background-color:red"';
-                    }
-                }
-            }
-        ?>>
-            <div class="hour">13:00</div>
-            <div class="data">
-            <?php 
-                if(isset($imie)){
-                    echo "<i>".$imie." ".$nazwisko."</i>";
-                    unset($imie);
-                    unset($nazwisko);
-                    unset($kat);
-                    $jest = true;                }
-            ?>
-                </div>
-                <?php 
-            if(!$czywszystkorozliczone){
-                if($dublet || true){
-                    echo '<label class="addRide"><a href="panel.php?d=';
-                    echo mktime(0, 0, 0, $msc, $day, $ye);
-                    echo '&h=13"><i class="fas fa-plus"></i></a>';
-                }
-                if($jest){
-                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
-                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-                    $jest = false;            
-                }
-            }
-            ?>
-        </div>
-        <div class="table"
-        <?php 
-            if($con){
-                $zap=date("Y-m-d H:i:s", mktime(14, 0, 0, $msc, $day, $ye));
-                $id=$_SESSION['id'];
-                $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
-                if(!$rezu){
-                }else{
-                    $ile = $rezu->num_rows;
-                    if($ile>0){
-                        $row = $rezu->fetch_assoc();
-                        $idosoba = $row['id_kursanta'];
-                        $id_jazdy = $row['id'];
-                        $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
-                        if(!$osoba){
-                        }else{
-                            $ile = $osoba->num_rows;
-                            if($ile>0){
-                                $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['imie'];
-                                $nazwisko = $osobarow['surname'];
-                                $kat = $osobarow['kat'];
-                            }
-                        }
-                        echo 'style= "background-color:red"';
-                    }
-                }
-            }
-        ?>>
-            <div class="hour">14:00</div>
-            <div class="data">
-            <?php 
-                if(isset($imie)){
-                    echo "<i>".$imie." ".$nazwisko."</i>";
-                    unset($imie);
-                    unset($nazwisko);
-                    unset($kat);
-                    $jest = true;                }
-            ?>
-                </div>
-                <?php 
-            if(!$czywszystkorozliczone){
-                if($dublet || true){
-                    echo '<label class="addRide"><a href="panel.php?d=';
-                    echo mktime(0, 0, 0, $msc, $day, $ye);
-                    echo '&h=14"><i class="fas fa-plus"></i></a>';
-                }
-                if($jest){
-                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
-                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-                    $jest = false;            
-                }
-            }
-            ?>
-        </div>
-        <div class="table"
-        <?php 
-            if($con){
-                $zap=date("Y-m-d H:i:s", mktime(15, 0, 0, $msc, $day, $ye));
-                $id=$_SESSION['id'];
-                $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
-                if(!$rezu){
-                }else{
-                    $ile = $rezu->num_rows;
-                    if($ile>0){
-                        $row = $rezu->fetch_assoc();
-                        $idosoba = $row['id_kursanta'];
-                        $id_jazdy = $row['id'];
-                        $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
-                        if(!$osoba){
-                        }else{
-                            $ile = $osoba->num_rows;
-                            if($ile>0){
-                                $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['imie'];
-                                $nazwisko = $osobarow['surname'];
-                                $kat = $osobarow['kat'];
-                            }
-                        }
-                        echo 'style= "background-color:red"';
-                    }
-                }
-            }
-        ?>>
-            <div class="hour">15:00</div>
-            <div class="data">
-            <?php 
-                if(isset($imie)){
-                    echo "<i>".$imie." ".$nazwisko."</i>";
-                    unset($imie);
-                    unset($nazwisko);
-                    unset($kat);
-                    $jest = true;                }
-            ?>
-                </div>
-                <?php 
-            if(!$czywszystkorozliczone){
-                if($dublet || true){
-                    echo '<label class="addRide"><a href="panel.php?d=';
-                    echo mktime(0, 0, 0, $msc, $day, $ye);
-                    echo '&h=15"><i class="fas fa-plus"></i></a>';
-                }
-                if($jest){
-                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
-                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-                    $jest = false;            
-                }
-            }
-            ?>
-        </div>
-        <div class="table"
-        <?php 
-            if($con){
-                $zap=date("Y-m-d H:i:s", mktime(16, 0, 0, $msc, $day, $ye));
-                $id=$_SESSION['id'];
-                $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
-                if(!$rezu){
-                }else{
-                    $ile = $rezu->num_rows;
-                    if($ile>0){
-                        $row = $rezu->fetch_assoc();
-                        $idosoba = $row['id_kursanta'];
-                        $id_jazdy = $row['id'];
-                        $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
-                        if(!$osoba){
-                        }else{
-                            $ile = $osoba->num_rows;
-                            if($ile>0){
-                                $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['imie'];
-                                $nazwisko = $osobarow['surname'];
-                                $kat = $osobarow['kat'];
-                            }
-                        }
-                        echo 'style= "background-color:red"';
-                    }
-                }
-            }
-        ?>>
-            <div class="hour">16:00</div>
-            <div class="data">
-            <?php 
-                if(isset($imie)){
-                    echo "<i>".$imie." ".$nazwisko."</i>";
-                    unset($imie);
-                    unset($nazwisko);
-                    unset($kat);
-                    $jest = true;                }
-            ?>
-                </div>
-                <?php 
-            if(!$czywszystkorozliczone){
-                if($dublet || true){
-                    echo '<label class="addRide"><a href="panel.php?d=';
-                    echo mktime(0, 0, 0, $msc, $day, $ye);
-                    echo '&h=16"><i class="fas fa-plus"></i></a>';
-                }
-                if($jest){
-                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
-                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-                    $jest = false;            
-                }
-            }
-            ?>
-        </div>
-        <div class="table"
-        <?php 
-            if($con){
-                $zap=date("Y-m-d H:i:s", mktime(17, 0, 0, $msc, $day, $ye));
-                $id=$_SESSION['id'];
-                $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
-                if(!$rezu){
-                }else{
-                    $ile = $rezu->num_rows;
-                    if($ile>0){
-                        $row = $rezu->fetch_assoc();
-                        $idosoba = $row['id_kursanta'];
-                        $id_jazdy = $row['id'];
-                        $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
-                        if(!$osoba){
-                        }else{
-                            $ile = $osoba->num_rows;
-                            if($ile>0){
-                                $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['imie'];
-                                $nazwisko = $osobarow['surname'];
-                                $kat = $osobarow['kat'];
-                            }
-                        }
-                        echo 'style= "background-color:red"';
-                    }
-                }
-            }
-        ?>>
-            <div class="hour">17:00</div>
-            <div class="data">
-            <?php 
-                if(isset($imie)){
-                    echo "<i>".$imie." ".$nazwisko."</i>";
-                    unset($imie);
-                    unset($nazwisko);
-                    unset($kat);
-                    $jest = true;                }
-            ?>
-                </div>
-                <?php 
-            if(!$czywszystkorozliczone){
-                if($dublet || true){
-                    echo '<label class="addRide"><a href="panel.php?d=';
-                    echo mktime(0, 0, 0, $msc, $day, $ye);
-                    echo '&h=17"><i class="fas fa-plus"></i></a>';
-                }
-                if($jest){
-                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
-                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-                    $jest = false;            
-                }
-            }
-            ?>
-        </div>
-        <div class="table"
-        <?php 
-            if($con){
-                $zap=date("Y-m-d H:i:s", mktime(18, 0, 0, $msc, $day, $ye));
-                $id=$_SESSION['id'];
-                $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
-                if(!$rezu){
-                }else{
-                    $ile = $rezu->num_rows;
-                    if($ile>0){
-                        $row = $rezu->fetch_assoc();
-                        $idosoba = $row['id_kursanta'];
-                        $id_jazdy = $row['id'];
-                        $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
-                        if(!$osoba){
-                        }else{
-                            $ile = $osoba->num_rows;
-                            if($ile>0){
-                                $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['imie'];
-                                $nazwisko = $osobarow['surname'];
-                                $kat = $osobarow['kat'];
-                            }
-                        }
-                        echo 'style= "background-color:red"';
-                    }
-                }
-            }
-        ?>>
-            <div class="hour">18:00</div>
-            <div class="data">
-            <?php 
-                if(isset($imie)){
-                    echo "<i>".$imie." ".$nazwisko."</i>";
-                    unset($imie);
-                    unset($nazwisko);
-                    unset($kat);
-                    $jest = true;                }
-            ?>
-                </div>
-                <?php 
-            if(!$czywszystkorozliczone){
-                if($dublet || true){
-                    echo '<label class="addRide"><a href="panel.php?d=';
-                    echo mktime(0, 0, 0, $msc, $day, $ye);
-                    echo '&h=18"><i class="fas fa-plus"></i></a>';
-                }
-                if($jest){
-                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
-                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-                    $jest = false;            
-                }
-            }
-            ?>
-        </div>
-        <div class="table"
-        <?php 
-            if($con){
-                $zap=date("Y-m-d H:i:s", mktime(19, 0, 0, $msc, $day, $ye));
-                $id=$_SESSION['id'];
-                $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
-                if(!$rezu){
-                }else{
-                    $ile = $rezu->num_rows;
-                    if($ile>0){
-                        $row = $rezu->fetch_assoc();
-                        $idosoba = $row['id_kursanta'];
-                        $id_jazdy = $row['id'];
-                        $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
-                        if(!$osoba){
-                        }else{
-                            $ile = $osoba->num_rows;
-                            if($ile>0){
-                                $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['imie'];
-                                $nazwisko = $osobarow['surname'];
-                                $kat = $osobarow['kat'];
-                            }
-                        }
-                        echo 'style= "background-color:red"';
-                    }
-                }
-            }
-        ?>>
-            <div class="hour">19:00</div>
-            <div class="data">
-            <?php 
-                if(isset($imie)){
-                    echo "<i>".$imie." ".$nazwisko."</i>";
-                    unset($imie);
-                    unset($nazwisko);
-                    unset($kat);
-                    $jest = true;                }
-            ?>
-                </div>
-                <?php 
-            if(!$czywszystkorozliczone){
-                if($dublet || true){
-                    echo '<label class="addRide"><a href="panel.php?d=';
-                    echo mktime(0, 0, 0, $msc, $day, $ye);
-                    echo '&h=19"><i class="fas fa-plus"></i></a>';
-                }
-                if($jest){
-                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
-                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-                    $jest = false;            
-                }
-            }
-            ?>
-        </div>
-        <div class="table"
-        <?php 
-            if($con){
-                $zap=date("Y-m-d H:i:s", mktime(20, 0, 0, $msc, $day, $ye));
-                $id=$_SESSION['id'];
-                $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
-                if(!$rezu){
-                }else{
-                    $ile = $rezu->num_rows;
-                    if($ile>0){
-                        $row = $rezu->fetch_assoc();
-                        $idosoba = $row['id_kursanta'];
-                        $id_jazdy = $row['id'];
-                        $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
-                        if(!$osoba){
-                        }else{
-                            $ile = $osoba->num_rows;
-                            if($ile>0){
-                                $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['imie'];
-                                $nazwisko = $osobarow['surname'];
-                                $kat = $osobarow['kat'];
-                            }
-                        }
-                        echo 'style= "background-color:red"';
-                    }
-                }
-            }
-        ?>>
-            <div class="hour">20:00</div>
-            <div class="data">
-            <?php 
-                if(isset($imie)){
-                    echo "<i>".$imie." ".$nazwisko."</i>";
-                    unset($imie);
-                    unset($nazwisko);
-                    unset($kat);
-                    $jest = true;                }
-            ?>
-                </div>
-                <?php 
-            if(!$czywszystkorozliczone){
-                if($dublet || true){
-                    echo '<label class="addRide"><a href="panel.php?d=';
-                    echo mktime(0, 0, 0, $msc, $day, $ye);
-                    echo '&h=20"><i class="fas fa-plus"></i></a>';
-                }
-                if($jest){
-                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
-                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-                    $jest = false;            
-                }
-            }
-            ?>
-        </div>
-        <div class="table"
-        <?php 
-            if($con){
-                $zap=date("Y-m-d H:i:s", mktime(21, 0, 0, $msc, $day, $ye));
-                $id=$_SESSION['id'];
-                $rezu=$conn->query("SELECT * FROM jazdy WHERE data_jazdy='$zap'and id_instruktora='$id'");
-                if(!$rezu){
-                }else{
-                    $ile = $rezu->num_rows;
-                    if($ile>0){
-                        $row = $rezu->fetch_assoc();
-                        $idosoba = $row['id_kursanta'];
-                        $id_jazdy = $row['id'];
-                        $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
-                        if(!$osoba){
-                        }else{
-                            $ile = $osoba->num_rows;
-                            if($ile>0){
-                                $osobarow = $osoba->fetch_assoc();
-                                $imie = $osobarow['imie'];
-                                $nazwisko = $osobarow['surname'];
-                                $kat = $osobarow['kat'];
-                            }
-                        }
-                        echo 'style= "background-color:red"';
-                    }
-                }
-            }
-        ?>>
-            <div class="hour">21:00</div>
-            <div class="data">
-            <?php 
-                if(isset($imie)){
-                    echo "<i>".$imie." ".$nazwisko."</i>";
-                    unset($imie);
-                    unset($nazwisko);
-                    unset($kat);
-                    $jest = true;                }
-            ?>
-                </div>
-                <?php 
-            if(!$czywszystkorozliczone){
-                if($dublet || true){
-                    echo '<label class="addRide"><a href="panel.php?d=';
-                    echo mktime(0, 0, 0, $msc, $day, $ye);
-                    echo '&h=21"><i class="fas fa-plus"></i></a>';
-                }
-                if($jest){
-                    echo '</label><label class="info"><a href="info.php?id='.$id_jazdy.'"><i class="fas fa-info"></i></a></label><label class="edit">';
-                    echo '<a href="mod.php?id='.$id_jazdy.'"><i class="fas fa-edit"></i></a></label><label class="delete">';
-                     echo '<a href="delete.php?id='.$id_jazdy.'"><i class="fas fa-trash-alt"></i></a></label>';
-                    $jest = false;            
-                }
-            }
-            ?>
-        </div>
-        
     </div>
-    
-    <a class="settle" style="text-decoration:none;"href="rozliczDzien.php?date=<?php echo $dzien;?>">Rozlicz</a>
+
+    <div class="settle">Rozlicz</div>
 
 </body>
 <script src="burger.js"></script>

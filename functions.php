@@ -1,6 +1,6 @@
 <?php
 function writedzienzosoba($godzina, $imie, $nazwisko, $kat, $tel, $datee, $id, $dublet, $roz, $czydublet){
-    echo '<div class="table" style= "background-color:red"><div class="hour">'.$godzina.':00</div><div class="data">';
+    echo '<div class="table" style="background-color:red"><div class="hour" >'.$godzina.':00</div><div class="data">';
     if(!is_null($dublet)){
         echo "DUBLET !!";
     }
@@ -19,9 +19,10 @@ function writedzienzosoba($godzina, $imie, $nazwisko, $kat, $tel, $datee, $id, $
    
     
     if($czydublet){
-        echo '<label class="addRide" style= "background-color:green"><a href="panel.php?d=';
-        echo mktime(0, 0, 0, $msc, $day, $ye);
+        echo '<label class="addRide" style= "background-color:green"><a href="dubletPanel.php?d='.$datee;
         echo '&h='.$godzina.'"><i class="fas fa-plus"></i></a></label>';
+    }else{
+        echo '<label class="addRide" style= "background-color:red"></label>';  
     }
     echo '<label class="info"><a href="info.php?id='.$id.'"><i class="fas fa-info"></i></a></label>';
 
