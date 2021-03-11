@@ -945,7 +945,6 @@ nav .burger.open .bar3 {
 .container .clear {
   border-radius: 6px;
   background-color: #000;
-  border: 1px solid #000;
   font-size: 15px;
   color: #fff;
   display: -webkit-box;
@@ -961,6 +960,14 @@ nav .burger.open .bar3 {
   transition: linear .1s;
   text-decoration: none;
   text-align: center;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 1px solid #000;
+}
+
+.container .clear:focus {
+  outline: none;
 }
 
 .container .changeDate {
@@ -2376,6 +2383,149 @@ nav .burger.open .bar3 {
   .info2 {
     margin: 30px;
     font-size: 30px;
+  }
+}
+
+.listContainer {
+  margin: 52px auto;
+  border: 2px solid #000;
+  border-radius: 6px;
+  min-height: 50vh;
+}
+
+.listContainer .name3 {
+  font-weight: 400;
+}
+
+.listContainer .rideList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 90%;
+  height: 80%;
+  padding: 0;
+}
+
+.listContainer .rideList li {
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.listContainer .rideList li p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+}
+
+.listContainer .rideList li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 80%;
+  font-size: 12px;
+  background-color: #000;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+}
+
+@media screen and (min-width: 200px) {
+  .listContainer {
+    width: 90%;
+  }
+  .listContainer .name3 {
+    font-size: 20px;
+    margin: 10px;
+  }
+  .listContainer .rideList {
+    margin: 10px auto;
+  }
+  .listContainer .rideList li {
+    font-size: 15px;
+    margin-top: 20px;
+  }
+  .listContainer .rideList li p {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .listContainer .rideList li a {
+    width: 80px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .listContainer {
+    width: 60%;
+  }
+  .listContainer .name3 {
+    font-size: 30px;
+    margin: 20px;
+  }
+  .listContainer .rideList {
+    margin: 20px;
+  }
+  .listContainer .rideList li {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+  .listContainer .rideList li p {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .listContainer .rideList li a {
+    text-align: center;
+    width: 140px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .listContainer {
+    width: 60%;
+  }
+  .listContainer .name3 {
+    font-size: 30px;
+    margin: 20px;
+  }
+  .listContainer .rideList {
+    margin: 20px;
+  }
+  .listContainer .rideList li {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+  .listContainer .rideList li p {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .listContainer .rideList li a {
+    text-align: center;
+    width: 140px;
   }
 }
 

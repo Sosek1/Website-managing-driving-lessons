@@ -1,0 +1,131 @@
+.listContainer {
+    margin: 52px auto;
+    border: 2px solid $second-color;
+    border-radius: 6px;
+    min-height: 50vh;
+
+    .name3 {
+        font-weight: 400;
+    }
+
+    .rideList {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        height: 80%;
+        padding: 0;
+
+        li {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            p {
+                display: flex;
+                text-align: center;
+            }
+
+            a {
+                @include center;
+                height: 80%;
+                font-size: 12px;
+                background-color: $second-color;
+                border-radius: 6px;
+                text-decoration: none;
+                color: $first-color;
+                text-align: center;
+            }
+
+        }
+    }
+}
+
+
+
+@include media-sm {
+    .listContainer {
+        width: 90%;
+
+        .name3 {
+            font-size: 20px;
+            margin: 10px;
+        }
+
+        .rideList {
+            margin: 10px auto;
+
+            li {
+                font-size: 15px;
+                margin-top: 20px;
+
+                p {
+                    flex-direction: column;
+                }
+
+                a {
+                    width: 80px;
+                }
+            }
+        }
+    }
+}
+
+
+@include media-md {
+    .listContainer {
+        width: 60%;
+
+        .name3 {
+            font-size: 30px;
+            margin: 20px;
+        }
+
+        .rideList {
+            margin: 20px;
+
+            li {
+                font-size: 20px;
+                margin-top: 20px;
+
+                p {
+                    flex-direction: row;
+                }
+
+                a {
+                    text-align: center;
+                    width: 140px;
+                }
+            }
+        }
+    }
+}
+
+@include media-xl {
+    .listContainer {
+        width: 60%;
+
+        .name3 {
+            font-size: 30px;
+            margin: 20px;
+        }
+
+        .rideList {
+            margin: 20px;
+
+            li {
+                font-size: 20px;
+                margin-top: 20px;
+
+                p {
+                    flex-direction: row;
+                }
+
+                a {
+                    text-align: center;
+                    width: 140px;
+                }
+            }
+        }
+    }
+}
