@@ -413,11 +413,9 @@ if(isset($_SESSION['error'])){
                 </select>
             </div>
 
-
-        Data 2:
-        <input type="date" name="data2" class="dateInput">
+        <input type="datetime-local" name="data2" class="dateInput">
         <textarea class="info" name="addinfo" placeholder="Napisz coś..."></textarea>
-        <button class="save" type="submit">zapisz</button>
+        <button class="save" type="submit">Zapisz</button>
         <button class="clear" onclick="header(Location: delete_date.php)">Usuń dane</button>       
         </div>
     </form>
