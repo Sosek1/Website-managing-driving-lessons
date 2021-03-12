@@ -51,7 +51,6 @@ if($conn->connect_errno!=0){
 }else{
     $con=true;
 }
-$rozliczono = false;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -87,6 +86,25 @@ $rozliczono = false;
     </nav>
 
     <h1 class="name">Cześć, <?php echo $_SESSION['user_name'];?></h1>
+    <?php
+    if($con){
+        $dz=date("Y-m-d H:i:s", mktime(0, 0, 0, $msc, $day, $ye));
+        $zap = 'SELECT * FROM rozliczeniaDnia WHERE dzien="'.$dz.'" and id_instruktora='.$id.'';
+        $rezu=$conn->query($zap);
+        if(!$rezu){
+        }else{
+            $ile = $rezu->num_rows;
+            if($ile==0){
+                $rozliczono = false;
+            }else{
+                $rozliczono = true;
+                echo '<h1 class="name">Rozliczono</h1>';
+            }   
+
+        }
+    }
+   
+    ?>
     <a href="kalendarzTydzien.php"><button class="dayWeek">Tydzień</button></a>
 
     <div class="arrowBox">
@@ -94,9 +112,11 @@ $rozliczono = false;
             <a href="kalendarzDzien.php?move=0"><i class="fas fa-arrow-left"></i></a>
         </div>
         <a class="date3" href="kalendarzDzien.php?move=1"><?php echo date("d.M", $dzien);?></a>
+        <a href="kalendarzDzien.php?move=2">
         <div class="next">
-            <a href="kalendarzDzien.php?move=2"><i class="fas fa-arrow-right"></i></a>
+            <i class="fas fa-arrow-right"></i>
         </div>
+        </a>
     </div>
 
     <div class="dayContainer">

@@ -66,17 +66,29 @@ if(isset($_POST['addinfo'])){
     $_SESSION['adinfo'] = $_POST['addinfo'];
     $info = $_POST['addinfo'];
 }
-if(isset($_POST['adddata2'])){
-    $_SESSION['addata2'] = $_POST['adddata2'];
-    $data2 = $_POST['adddata2'];
-}
+
 if(isset($_POST['szukaj'])){
     $zap = $_POST['szukaj'];
+    echo $zap;
     if(!$zap==""){
         echo '<meta http-equiv="Refresh" content="0; url=szukaj.php?szuk='.$zap.'">';
         exit();
     }
 }
+if(isset($_POST['adddata2'])){
+    $_SESSION['addata2'] = $_POST['adddata2'];
+    $data2 = $_POST['adddata2'];
+    echo $data2;
+    $date2 = DateTime::createFromFormat('Y-m-d\TH:i', $data2);
+    if($date2){
+        $data2 = $date2->format('Y-m-d H:i:s');
+    }else{
+        $data2 = date("Y-m-d H:i:s", mktime($godzina, 0, 0, $msc, $day, $ye));
+    }
+}else{
+    $data2 = date("Y-m-d H:i:s", mktime($godzina, 0, 0, $msc, $day, $ye));
+}
+
 $id;
 $conn = new mysqli($host, $db_user, $db_pass, $db_name);
 $conn->query("SET NAMES 'utf8'");
@@ -155,7 +167,7 @@ if($czyinsert){
         if(isset($_SESSION['old_id_j'])){
             $old = $_SESSION['old_id_j'];
         }else{
-            $old = -1;
+            $old = 0;
         }
         
         
@@ -169,13 +181,13 @@ if($czyinsert){
                 $katpoj = $pojrow['kat'];
             }
         }
+
         if($katpoj>$kat){
             $czyzwalidowano=false;
             $_SESSION['error']="Zły pojazd dla tego kursanta!";
         }
         $dataa=date("Y-m-d H:i:s", mktime($godzina, 0, 0, $msc, $day, $ye));
-        $zap = 'SELECT * FROM jazdy WHERE id_pojazdu ='.$pojazd.' AND data_jazdy=\''.$dataa.'\' AND id IS NOT ='.$old;
-        echo $zap;
+        $zap = 'SELECT * FROM jazdy WHERE id_pojazdu = '.$pojazd.' AND data_jazdy=\''.$dataa.'\'';
         $poj=$conn->query($zap);
         if(!$poj){}else{
             $ile=$poj->num_rows;                
@@ -229,24 +241,17 @@ if($czyinsert){
 
 
         if($czyzwalidowano && $czyinsert){
-            echo "save";
-            if(isset($_SESSION['old_id_j'])){
-                $old = $_SESSION['old_id_j'];
-                unset($_SESSION['old_id_j']);
-                $zap = 'DELETE FROM jazdy WHERE id="'.$old.'"';
-                $_SESSION['error'] = $zap; 
-                $rezu=$conn->query($zap);
-                if(!$rezu){
-                }else{
-               }
-            }
             $i=0;
+            echo $dlugosc;
             while($i<$dlugosc){
+                echo "save";
                 $idinstruktora = $_SESSION['id'];
-                $zap = 'INSERT INTO dublety VALUES(NULL, '.$idinstruktora.', \''.$data2.'\')';
+                $zap = 'INSERT INTO dublety VALUES(NULL, '.$idinstruktora.', \' '.$data2.' \')';
+                echo $zap;
                 if($conn->query($zap)){                         
                 }
-                $zap = 'SELECT id FROM dublety WHERE dzien > "'.$dz.'"';
+                $zap = 'SELECT id FROM dublety WHERE data_pap = "'.$data2.'" AND id_instruktora='.$idinstruktora;
+                echo $zap;
                 $dublettttt=$conn->query($zap);
                 if(!$dublettttt){}else{
                     $ile=$dublettttt->num_rows;
@@ -275,8 +280,10 @@ if($czyinsert){
             unset($_SESSION['adhours']);
             unset($_SESSION['adinfo']); 
             //header("Location: kalendarzDzien.php");
-            echo '<meta http-equiv="refresh" content="0; url=kalendarzDzien.php">';
+            //echo '<meta http-equiv="refresh" content="0; url=kalendarzDzien.php?date='.$dzien.'">';
 
+        }else{
+            echo 'XD';
         }
 
     }else{
@@ -326,7 +333,7 @@ if(isset($_SESSION['error'])){
         </div>
     </nav>
 
-    <form class="container">
+    <form class="container" method='post'>
         <h1 class="heading">Panel dubletów</h1>
         <div class="datePlace">
             <p class="date"><?php echo date("Y-m-d H:i", mktime($godzina+$i, 0, 0, $msc, $day, $ye));?></p>
@@ -347,9 +354,9 @@ if(isset($_SESSION['error'])){
                     <option value="4"<?php if(isset($_SESSION['adkat'])){if($_SESSION['adkat']==4){echo 'selected="selected"';}}?>>A</option>
                 </select>
             </div>
-        <div class="chooseHour">
+        <div class="chooseHour" >
             <p class="text">Liczba godzin</p>
-            <select class="custom-select">
+            <select class="custom-select" name="addhours">
                 <option value="1"<?php if(isset($_SESSION['adhours'])){if($_SESSION['adhours']==1){echo 'selected="selected"';}}?>>1</option>
                 <option value="2"<?php if(isset($_SESSION['adhours'])){if($_SESSION['adhours']==2){echo 'selected="selected"';}}?>>2</option>
                 <option value="3"<?php if(isset($_SESSION['adhours'])){if($_SESSION['adhours']==3){echo 'selected="selected"';}}?>>3</option>
@@ -413,7 +420,7 @@ if(isset($_SESSION['error'])){
                 </select>
             </div>
 
-        <input type="datetime-local" name="data2" class="dateInput">
+        <input type="datetime-local" name="adddata2" class="dateInput" autocomplete="on">
         <textarea class="info" name="addinfo" placeholder="Napisz coś..."></textarea>
         <button class="save" type="submit">Zapisz</button>
         <button class="clear" onclick="header(Location: delete_date.php)">Usuń dane</button>       

@@ -220,7 +220,7 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                     if($con){
                         $dzp=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $mon), date("d", $mon), date("y", $mon)));
                         $dzk=date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $mon), date("d", $mon), date("y", $mon)));
-                        $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.'';
+                        $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.' AND dublet IS NULL ORDER BY data_jazdy ASC';
                         $dzien=$conn->query($zap);
                         if(!$dzien){
                         }else{
@@ -251,7 +251,7 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                         }
                         $dzp=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $tue), date("d", $tue), date("y", $tue)));
                         $dzk=date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $tue), date("d", $tue), date("y", $tue)));
-                        $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.'';
+                        $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.' AND dublet IS NULL ORDER BY data_jazdy ASC';
                         $dzien=$conn->query($zap);
                         if(!$dzien){
                         }else{
@@ -282,7 +282,7 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                         }
                         $dzp=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $wen), date("d", $wen), date("y", $wen)));
                         $dzk=date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $wen), date("d", $wen), date("y", $wen)));
-                        $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.'';
+                        $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.' AND dublet IS NULL ORDER BY data_jazdy ASC';
                         $dzien=$conn->query($zap);
                         if(!$dzien){
                         }else{
@@ -312,7 +312,7 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                         }
                         $dzp=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $th), date("d", $th), date("y", $th)));
                         $dzk=date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $th), date("d", $th), date("y", $th)));
-                        $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.'';
+                        $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.' AND dublet IS NULL ORDER BY data_jazdy ASC';
                         $dzien=$conn->query($zap);
                         if(!$dzien){
                         }else{
@@ -342,7 +342,7 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                         }
                         $dzp=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $fr), date("d", $fr), date("y", $fr)));
                         $dzk=date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $fr), date("d", $fr), date("y", $fr)));
-                        $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.'';
+                        $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.' AND dublet IS NULL ORDER BY data_jazdy ASC';
                         $dzien=$conn->query($zap);
                         if(!$dzien){
                         }else{
@@ -372,7 +372,7 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                         }
                         $dzp=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $st), date("d", $st), date("y", $st)));
                         $dzk=date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $st), date("d", $st), date("y", $st)));
-                        $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.'';
+                        $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.' AND dublet IS NULL ORDER BY data_jazdy ASC';
                         $dzien=$conn->query($zap);
                         if(!$dzien){
                         }else{
@@ -402,7 +402,7 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                         }
                         $dzp=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $sd), date("d", $sd), date("y", $sd)));
                         $dzk=date("Y-m-d H:i:s", mktime(23, 0, 0, date("m", $sd), date("d", $sd), date("y", $sd)));
-                        $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.'';
+                        $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy < "'.$dzk.'" and id_instruktora='.$id.' AND dublet IS NULL ORDER BY data_jazdy ASC';
                         $dzien=$conn->query($zap);
                         if(!$dzien){
                         }else{
@@ -448,17 +448,17 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                         while($i<22){
                             if(isset($pon)){
                                 if($pon[$p]==$i){
-                                    $p++;
                                     if($dpon[$dp]==$i){
-                                        $dp++;
-                                        if($pon[$p]==$i){
+                                        if($pon[$p+1]==$i){
                                             writetydzienznaleziono($ponid[$p]); 
                                         }else{
                                             writetydzienznalezionodublet($ponid[$p]);
                                         }
+                                        $dp++;
                                     }else{
                                         writetydzienznaleziono($ponid[$p]);
                                     }
+                                    $p++;
                                 }else {
                                     writetydzien($mon, $i);
                                 }
@@ -467,17 +467,17 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                             }
                             if(isset($wto)){
                                 if($wto[$w]==$i){
-                                    $w++;
                                     if($dwto[$dw]==$i){
-                                        $dw++;
-                                        if($wto[$w]==$i){
+                                        if($wto[$w+1]==$i){
                                             writetydzienznaleziono($wtoid[$w]); 
                                         }else{
                                             writetydzienznalezionodublet($wtoid[$w]);
                                         }
+                                        $dw++;
                                     }else{
                                         writetydzienznaleziono($wtoid[$w]);
                                     }
+                                    $w++;
                                 }else {
                                     writetydzien($tue, $i);
                                 }
@@ -486,17 +486,17 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                             }
                             if(isset($sro)){
                                 if($sro[$s]==$i){
-                                    $s++;
                                     if($dsro[$ds]==$i){
-                                        $ds++;
-                                        if($sro[$s]==$i){
+                                        if($sro[$s+1]==$i){
                                             writetydzienznaleziono($sroid[$s]); 
                                         }else{
                                             writetydzienznalezionodublet($sroid[$s]);
                                         }
+                                        $ds++;
                                     }else{
                                         writetydzienznaleziono($sroid[$s]);
                                     }
+                                    $s++;
                                 }else {
                                     writetydzien($wen, $i);
                                 }
@@ -505,17 +505,17 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                             }
                             if(isset($czw)){
                                 if($czw[$c]==$i){
-                                    $c++;
                                     if($dczw[$dc]==$i){
-                                        $dc++;
-                                        if($czw[$c]==$i){
+                                        if($czw[$c+1]==$i){
                                             writetydzienznaleziono($czwid[$c]); 
                                         }else{
                                             writetydzienznalezionodublet($czwid[$c]);
                                         }
+                                        $dc++;
                                     }else{
                                         writetydzienznaleziono($czwid[$c]);
                                     }
+                                    $c++;
                                 }else {
                                     writetydzien($th, $i);
                                 }
@@ -523,19 +523,18 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                 writetydzien($th, $i);
                             }
                             if(isset($pia)){
-                                echo 'ss';
                                 if($pia[$pi]==$i){
-                                    $pi++;
                                     if($dpia[$dpi]==$i){
-                                        $dp++;
-                                        if($pia[$pi]==$i){
+                                        if($pia[$pi+1]==$i){
                                             writetydzienznaleziono($piaid[$pi]); 
                                         }else{
                                             writetydzienznalezionodublet($piaid[$pi]);
                                         }
+                                        $dpi++;
                                     }else{
                                         writetydzienznaleziono($piaid[$pi]);
                                     }
+                                    $pi++;
                                 }else {
                                     writetydzien($fr, $i);
                                 }
@@ -544,17 +543,17 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                             }
                             if(isset($sob)){
                                 if($sob[$so]==$i){
-                                    $so++;
                                     if($dsob[$dso]==$i){
-                                        $dso++;
-                                        if($sob[$so]==$i){
+                                        if($sob[$so+1]==$i){
                                             writetydzienznaleziono($sobid[$so]); 
                                         }else{
                                             writetydzienznalezionodublet($sobid[$so]);
                                         }
+                                        $dso++;
                                     }else{
                                         writetydzienznaleziono($sobid[$so]);
                                     }
+                                    $so++;
                                 }else {
                                     writetydzien($st, $i);
                                 }
@@ -563,17 +562,17 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                             }
                             if(isset($nie)){
                                 if($nie[$n]==$i){
-                                    $n++;
                                     if($dnie[$dn]==$i){
-                                        $dn++;
-                                        if($nie[$n]==$i){
+                                        if($nie[$n+1]==$i){
                                             writetydzienznaleziono($nieid[$n]); 
                                         }else{
                                             writetydzienznalezionodublet($nieid[$n]);
                                         }
+                                        $dn++;
                                     }else{
                                         writetydzienznaleziono($nieid[$n]);
                                     }
+                                    $n++;
                                 }else {
                                     writetydzien($sd, $i);
                                 }
