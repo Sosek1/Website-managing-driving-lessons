@@ -582,7 +582,7 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                         $i++;
                         }
                     }
-                    echo $pi;?>
+                    ?>
                     
                 </div>
         </div>
