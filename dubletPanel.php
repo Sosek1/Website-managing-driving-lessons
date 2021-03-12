@@ -320,7 +320,7 @@ if(isset($_SESSION['error'])){
         <ul class="list">
             <li><a href="kalendarzTydzien.php">Kalendarz</a></li>
             <li><a href="panel.php">Panel jazd</a></li>
-            <li><a href="panelRozliczania.php">Rozliczenie jazdy</a></li>
+            <li><a href="rozliczDzien.php">Rozliczenie jazdy</a></li>
             <li><a href="szukaj.php">Szukaj</a></li>
             <li><a href="logout.php">
                     <i class="fas fa-sign-out-alt"></i>
@@ -426,7 +426,9 @@ if(isset($_SESSION['error'])){
         <button class="clear" onclick="header(Location: delete_date.php)">Usuń dane</button>       
         </div>
     </form>
-
+    <a href="kalendarzTydzien.php" class="backToCalendar">
+        <i class="fas fa-calendar-day"></i>
+    </a>
     <script src="burger.js"></script>
 </body>
 

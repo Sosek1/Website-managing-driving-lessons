@@ -110,7 +110,7 @@ if($conn->connect_errno!=0){
 
         }
     }
-
+    $_SESSION['dataroz'] = $dzien;
 
     ?>
     <div class="arrowBox">
@@ -175,14 +175,15 @@ if($conn->connect_errno!=0){
             }
         ?>
     </div>
-
-    <form class="hoursform">
-        <input type="number" min="0" max="10">
+    
+    Teoria:
+    <form class="hoursform"<?php if($czywszystkorozliczone){ echo 'method="post" action="rozlicz.php"';}?>>
+        <input type="number" name ="teoria" min="0" max="10">
+        <button type="submit" style="color:#fff;text-decoration:none;"class="settle">Rozlicz</button>
     </form>
 
-    <a style="color:#fff;text-decoration:none;"class="settle"<?php if($czywszystkorozliczone){ echo 'href=rozlicz.php?data='.$dzien;}?>>Rozlicz</a>
 
-    <a href="#" class="backToCalendar">
+    <a href="kalendarzTydzien.php" class="backToCalendar">
         <i class="fas fa-calendar-day"></i>
     </a>
 

@@ -210,7 +210,7 @@ if($con){
                 <p>Rozlicz jazdę</p>
             </button>
     </form>
-    <a href="#" class="backToCalendar">
+    <a href="kalendarzTydzien.php" class="backToCalendar">
         <i class="fas fa-calendar-day"></i>
     </a>
     <script src="burger.js"></script>

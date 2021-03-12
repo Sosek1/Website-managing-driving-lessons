@@ -5,6 +5,13 @@ require "functions.php";
 $id = $_SESSION['id'];
 if(isset($_GET['data'])){
     $dzien = $_GET['data'];
+}else if($_SESSION['dataroz']){
+    $dzien = $_SESSION['dataroz'];
+}
+if(isset($_POST['teoria'])){
+    $teoria = $_POST['teoria'];
+}else{
+    $teoria = 0;
 }
 $ilejaz;
 $wydatki=0;
@@ -61,7 +68,7 @@ if($conn->connect_errno!=0){
             $i++;
         }
     }
-    $zapp = 'INSERT INTO rozliczeniaDnia VALUES(NULL, '.$id.', "'.$dz.'", NULL, '.$ilejaz.', '.$wydatki.', '.$wplaty.')';
+    $zapp = 'INSERT INTO rozliczeniaDnia VALUES(NULL, '.$id.', "'.$dz.'", NULL, '.$ilejaz.', '.$wydatki.', '.$wplaty.', '.$teoria.')';
     if($conn->query($zapp)){
                 
     }

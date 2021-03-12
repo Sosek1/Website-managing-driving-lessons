@@ -79,14 +79,14 @@ if(isset($_GET['szuk'])){
                         }else if($osobarow['kat']==6){
                             echo "B";
                         }
-                        echo '</div> <i class="fas fa-clock"></i><div class="drivenHours">';
+                        echo '</div> <a href ="showRides.php?id='.$osobarow['id'].'"><i class="fas fa-clock"></i><div class="drivenHours">';
                         $ilejazd=$conn->query('SELECT id FROM jazdy WHERE id_kursanta = \''.$osobarow['id'].'\'');
                         if(!$ilejazd){}else{
                             $ilee=$ilejazd->num_rows;
                             if($ilee>0){
-                                echo $ilee." g. </div>";
+                                echo $ilee." g. </div></a>";
                             }else{
-                                echo "0 g.</div>";
+                                echo "0 g.</div></a>";
                             }
                         
                         }
@@ -105,7 +105,7 @@ if(isset($_GET['szuk'])){
         }
     ?>
 
-<a href="#" class="backToCalendar">
+<a href="kalendarzTydzien.php" class="backToCalendar">
         <i class="fas fa-calendar-day"></i>
 </a>
 <script src="burger.js"></script>
