@@ -373,7 +373,7 @@ if(isset($_SESSION['error'])){
 
                         }else{
                             $id = $_SESSION['adid'];
-                            $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$id'");
+                            $osoba=$conn->query("SELECT * FROM kursanci ");//WHERE id='$adid'");
 
                             if(!$osoba){}else{
                                 $ile=$rezu->num_rows;
@@ -388,7 +388,7 @@ if(isset($_SESSION['error'])){
                         $katosoba=5;
                     }
 
-                    $rezu=$conn->query("SELECT * FROM pojazdy WHERE kat<='$katosoba'");
+                    $rezu=$conn->query("SELECT * FROM pojazdy WHERE kat<='$katosoba' ORDER BY kat, nazwa ASC");
 
                     if(!$rezu){}else{
                         $ile=$rezu->num_rows;
