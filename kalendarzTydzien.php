@@ -558,7 +558,7 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
                                     writetydzien($st, $i);
                                 }
                             }else{
-                                writetydzien($mon, $i);
+                                writetydzien($st, $i);
                             }
                             if(isset($nie)){
                                 if($nie[$n]==$i){
