@@ -77,7 +77,6 @@ if($conn->connect_errno!=0){
         <img src="css/MotoLka.png">
         </div>
         <ul class="list">
-            <li><a href="kalendarzTydzien.php">Kalendarz</a></li>
             <li><a href="panel.php">Panel jazd</a></li>
             <li><a href="rozliczDzien.php">Rozliczenie jazdy</a></li>
             <li><a href="szukaj.php">Szukaj</a></li>
@@ -176,8 +175,9 @@ if($conn->connect_errno!=0){
         ?>
     </div>
     
-    Teoria:
+   
     <form class="hoursform"<?php if($czywszystkorozliczone){ echo 'method="post" action="rozlicz.php"';}?>>
+        <label style="font-size:20px;">Teoria </label>
         <input type="number" name ="teoria" min="0" max="10">
         <button type="submit" style="color:#fff;text-decoration:none;"class="settle">Rozlicz</button>
     </form>

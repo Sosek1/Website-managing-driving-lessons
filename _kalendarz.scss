@@ -62,7 +62,6 @@
     min-height: auto;
 
     .table {
-        height: 8vh;
         width: 100%;
         border: 1px solid $second-color;
         border-radius: 6px;
@@ -85,6 +84,7 @@
             display: flex;
             align-items: center;
             justify-content: space-around;
+            text-align: center;
         }
 
         .addRide {
@@ -251,6 +251,10 @@
     .dayContainer {
         align-items: center;
         margin: 0 20px;
+
+        .table {
+            height: 10vh;
+        }
     }
 
     .calendarWrapper {
@@ -298,6 +302,10 @@
     .dayContainer {
         align-items: flex-start;
         margin: 0 30px;
+
+        .table {
+            height: 10vh;
+        }
     }
 
     .calendarWrapper {
@@ -325,6 +333,12 @@
     .arrowBox {
         .date3 {
             font-size: 20px;
+        }
+    }
+
+    .dayContainer {
+        .table {
+            height: 8vh;
         }
     }
 

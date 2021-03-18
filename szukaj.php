@@ -32,7 +32,6 @@ if(isset($_GET['szuk'])){
         <img src="css/MotoLka.png">
         </div>
         <ul class="list">
-            <li><a href="kalendarzTydzien.php">Kalendarz</a></li>
             <li><a href="panel.php">Panel jazd</a></li>
             <li><a href="rozliczDzien.php">Rozliczenie jazdy</a></li>
             <li><a href="szukaj.php">Szukaj</a></li>
@@ -79,7 +78,7 @@ if(isset($_GET['szuk'])){
                         }else if($osobarow['kat']==6){
                             echo "B";
                         }
-                        echo '</div> <a href ="showRides.php?id='.$osobarow['id'].'"><i class="fas fa-clock"></i><div class="drivenHours">';
+                        echo '</div> <a style="text-decoration:none; color:#000;"href ="showRides.php?id='.$osobarow['id'].'"><i class="fas fa-clock"></i><div class="drivenHours">';
                         $ilejazd=$conn->query('SELECT id FROM jazdy WHERE id_kursanta = \''.$osobarow['id'].'\'');
                         if(!$ilejazd){}else{
                             $ilee=$ilejazd->num_rows;

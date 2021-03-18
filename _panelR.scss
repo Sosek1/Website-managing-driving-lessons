@@ -77,8 +77,13 @@
 }
 
 .hoursform {
-    width: 150px;
-    height: 40px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px;
     background-color: $first-color;
     color: $second-color;
     border-radius: 6px;
@@ -86,8 +91,8 @@
     text-align: center;
 
     input {
-        width: 100%;
-        height: 100%;
+        width: 140px;
+        height: 50px;
         padding: 5px;
         font-size: 15px;
         border: 1px solid $second-color;
@@ -153,10 +158,6 @@
             font-size: 15px;
         }
     }
-
-    .hoursform {
-        margin: 10px auto;
-    }
 }
 
 @include media-md {
@@ -209,10 +210,6 @@
             padding: 5px;
             font-size: 15px;
         }
-    }
-
-    .hoursform {
-        margin: 10px auto;
     }
 }
 
@@ -278,9 +275,5 @@
             padding: 5px;
             font-size: 20px;
         }
-    }
-
-    .hoursform {
-        margin: 30px 0 30px 30px;
     }
 }

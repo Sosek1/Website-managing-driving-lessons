@@ -70,7 +70,6 @@ if($conn->connect_errno!=0){
         <img src="css/MotoLka.png">
         </div>
         <ul class="list">
-            <li><a href="kalendarzTydzien.php">Kalendarz</a></li>
             <li><a href="panel.php">Panel jazd</a></li>
             <li><a href="rozliczDzien.php">Rozliczenie jazdy</a></li>
             <li><a href="szukaj.php">Szukaj</a></li>
@@ -112,7 +111,7 @@ if($conn->connect_errno!=0){
             <a href="kalendarzDzien.php?move=0"><i class="fas fa-arrow-left"></i></a>
         </div>
         <a class="date3" href="kalendarzDzien.php?move=1"><?php echo date("d.M", $dzien);?></a>
-        <a href="kalendarzDzien.php?move=2">
+        <a href="kalendarzDzien.php?move=2" style="text-decoration:none;">
         <div class="next">
             <i class="fas fa-arrow-right"></i>
         </div>

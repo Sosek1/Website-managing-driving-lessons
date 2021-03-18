@@ -302,7 +302,6 @@ if(isset($_SESSION['error'])){
         <img src="css/MotoLka.png">
         </div>
         <ul class="list">
-            <li><a href="kalendarzTydzien.php">Kalendarz</a></li>
             <li><a href="panel.php">Panel jazd</a></li>
             <li><a href="rozliczDzien.php">Rozliczenie jazdy</a></li>
             <li><a href="szukaj.php">Szukaj</a></li>

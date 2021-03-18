@@ -348,7 +348,6 @@ nav .burger.open .bar3 {
 }
 
 .dayContainer .table {
-  height: 8vh;
   width: 100%;
   border: 1px solid #000;
   border-radius: 6px;
@@ -385,6 +384,7 @@ nav .burger.open .bar3 {
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  text-align: center;
 }
 
 .dayContainer .table .addRide {
@@ -597,6 +597,9 @@ nav .burger.open .bar3 {
             align-items: center;
     margin: 0 20px;
   }
+  .dayContainer .table {
+    height: 10vh;
+  }
   .calendarWrapper {
     height: 150vh;
     margin: 0 20px;
@@ -638,6 +641,9 @@ nav .burger.open .bar3 {
             align-items: flex-start;
     margin: 0 30px;
   }
+  .dayContainer .table {
+    height: 10vh;
+  }
   .calendarWrapper {
     height: 60vh;
     margin: 0 30px;
@@ -658,6 +664,9 @@ nav .burger.open .bar3 {
 @media screen and (min-width: 1200px) {
   .arrowBox .date3 {
     font-size: 20px;
+  }
+  .dayContainer .table {
+    height: 8vh;
   }
   .calendar .record {
     width: auto;
@@ -1668,8 +1677,20 @@ nav .burger.open .bar3 {
 }
 
 .hoursform {
-  width: 150px;
-  height: 40px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 200px;
   background-color: #fff;
   color: #000;
   border-radius: 6px;
@@ -1678,8 +1699,8 @@ nav .burger.open .bar3 {
 }
 
 .hoursform input {
-  width: 100%;
-  height: 100%;
+  width: 140px;
+  height: 50px;
   padding: 5px;
   font-size: 15px;
   border: 1px solid #000;
@@ -1750,9 +1771,6 @@ nav .burger.open .bar3 {
     padding: 5px;
     font-size: 15px;
   }
-  .hoursform {
-    margin: 10px auto;
-  }
 }
 
 @media screen and (min-width: 800px) {
@@ -1811,9 +1829,6 @@ nav .burger.open .bar3 {
     grid-area: 10/1/15/1;
     padding: 5px;
     font-size: 15px;
-  }
-  .hoursform {
-    margin: 10px auto;
   }
 }
 
@@ -1888,9 +1903,6 @@ nav .burger.open .bar3 {
     grid-area: 4/2/4/3;
     padding: 5px;
     font-size: 20px;
-  }
-  .hoursform {
-    margin: 30px 0 30px 30px;
   }
 }
 
@@ -2550,7 +2562,7 @@ nav .burger.open .bar3 {
       -ms-flex-pack: center;
           justify-content: center;
   position: fixed;
-  bottom: 5%;
+  top: 10%;
   right: 5%;
   border-radius: 100px;
   background-color: #000;
