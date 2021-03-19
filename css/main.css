@@ -1367,6 +1367,9 @@
   background-color: #000;
   color: #fff;
   border-radius: 6px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 .box .loginPanel .submit:focus {
@@ -1806,6 +1809,9 @@
   width: 5%;
   height: 100%;
   position: relative;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 .searchFor .loupe input {
