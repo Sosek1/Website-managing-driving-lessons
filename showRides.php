@@ -53,7 +53,7 @@ if($conn->connect_errno!=0){}else{
         </a>
         <ul class="menu">
             <li>
-                <a href="_szukaj.scss">
+                <a href="szukaj.php">
                     <i class="fas fa-search"></i>
                 </a>
             </li>
