@@ -297,23 +297,22 @@ if(isset($_SESSION['error'])){
 
 <body>
 
-    <nav>
-        <div class="logo">
-        <img src="css/MotoLka.png">
-        </div>
-        <ul class="list">
-            <li><a href="panel.php">Panel jazd</a></li>
-            <li><a href="rozliczDzien.php">Rozliczenie jazdy</a></li>
-            <li><a href="szukaj.php">Szukaj</a></li>
-            <li><a href="logout.php">
-            <i class="fas fa-sign-out-alt"></i>
-            </a></li>
+<nav class="topbar">
+        <a href="kalendarzTydzien.php" class="logo">
+            <img src="css/MotoLka.png" alt="motoelka logo">
+        </a>
+        <ul class="menu">
+            <li>
+                <a href="_szukaj.scss">
+                    <i class="fas fa-search"></i>
+                </a>
+            </li>
+            <li>
+                <a href="logout.php">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </li>
         </ul>
-        <div class="burger">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-        </div>
     </nav>
 
     <form method="post" class="container">
@@ -422,16 +421,14 @@ if(isset($_SESSION['error'])){
             </label>
             
             <textarea class="info" placeholder="Napisz coś..." name="addinfo"></textarea>
-            <button type="submit" class="save">zapisz</button>
-            <button class="clear" onclick="header(Location: delete_date.php)"></button>
+            <button type="submit" class="save">Zapisz</button>
+            <button class="clear" onclick="header(Location: delete_date.php)">Usuń</button>
             <a href="kalendarzDzien.php?date=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>" class="changeDate">Zmień datę jazdy</a>
     </form>
     
     <a href="kalendarzTydzien.php" class="backToCalendar">
         <i class="fas fa-calendar-day"></i>
     </a>
-
-    <script src="burger.js"></script>
 </body>
 
 </html>

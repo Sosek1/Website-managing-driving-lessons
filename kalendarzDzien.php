@@ -65,23 +65,22 @@ if($conn->connect_errno!=0){
 </head>
 
 <body>
-    <nav>
-        <div class="logo">
-        <img src="css/MotoLka.png">
-        </div>
-        <ul class="list">
-            <li><a href="panel.php">Panel jazd</a></li>
-            <li><a href="rozliczDzien.php">Rozliczenie jazdy</a></li>
-            <li><a href="szukaj.php">Szukaj</a></li>
-            <li><a href="logout.php">
-            <i class="fas fa-sign-out-alt"></i>
-            </a></li>
+<nav class="topbar">
+        <a href="kalendarzTydzien.php" class="logo">
+            <img src="css/MotoLka.png" alt="motoelka logo">
+        </a>
+        <ul class="menu">
+            <li>
+                <a href="_szukaj.scss">
+                    <i class="fas fa-search"></i>
+                </a>
+            </li>
+            <li>
+                <a href="logout.php">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </li>
         </ul>
-        <div class="burger">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-        </div>
     </nav>
 
     <h1 class="name">Cześć, <?php echo $_SESSION['user_name'];?></h1>
@@ -111,11 +110,10 @@ if($conn->connect_errno!=0){
             <a href="kalendarzDzien.php?move=0"><i class="fas fa-arrow-left"></i></a>
         </div>
         <a class="date3" href="kalendarzDzien.php?move=1"><?php echo date("d.M", $dzien);?></a>
-        <a href="kalendarzDzien.php?move=2" style="text-decoration:none;">
+       
         <div class="next">
-            <i class="fas fa-arrow-right"></i>
+            <a href="kalendarzDzien.php?move=2" style="text-decoration:none;"><i class="fas fa-arrow-right"></i></a>
         </div>
-        </a>
     </div>
 
     <div class="dayContainer">
@@ -199,7 +197,6 @@ if($conn->connect_errno!=0){
     <div class="settle">Rozlicz</div>
 
 </body>
-<script src="burger.js"></script>
 <?php
 $conn -> close();
 ?>

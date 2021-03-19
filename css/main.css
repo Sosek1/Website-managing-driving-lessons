@@ -1,46 +1,48 @@
-nav {
-  background-color: #000;
-  position: relative;
-}
-
-nav .logo {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  margin-left: 20px;
-}
-
-nav .logo img {
-  width: 100%;
-  height: 100%;
-}
-
-nav .list {
-  position: absolute;
+.topbar {
+  height: 10vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  z-index: 3;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #000;
 }
 
-nav .list li {
-  list-style: none;
+.topbar .logo {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-nav .list li a {
-  text-decoration: none;
-  color: #fff;
+.topbar .menu {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  list-style-type: none;
 }
 
-nav .burger {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  margin-right: 20px;
+.topbar .menu li {
+  height: 100%;
+  width: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -49,218 +51,68 @@ nav .burger {
           justify-content: center;
 }
 
-nav .burger .bar1,
-nav .burger .bar2,
-nav .burger .bar3 {
-  width: 25px;
-  height: 2px;
-  background: #fff;
+.topbar .menu li a {
+  text-decoration: none;
 }
 
-nav .burger .bar1 {
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-
-nav .burger .bar2 {
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  margin: 3px 3px;
-}
-
-nav .burger .bar3 {
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-
-nav .burger.open {
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-
-nav .burger.open .bar1 {
-  -webkit-transform: rotate(45deg) translate(4px, 2px);
-          transform: rotate(45deg) translate(4px, 2px);
-}
-
-nav .burger.open .bar2 {
-  opacity: 0;
-}
-
-nav .burger.open .bar3 {
-  -webkit-transform: rotate(-45deg) translate(6px, -3px);
-          transform: rotate(-45deg) translate(6px, -3px);
+.topbar .menu li a i {
+  color: #fff;
 }
 
 @media screen and (min-width: 200px) {
-  nav {
-    height: 15vh;
+  .topbar .logo {
+    width: 40%;
+    padding: 10px;
   }
-  nav .logo {
-    height: 70px;
+  .topbar .logo img {
+    height: 90%;
+  }
+  .topbar .menu {
     width: 60%;
   }
-  nav .burger {
-    height: 50px;
-    width: 50px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+  .topbar .menu li {
+    margin-right: 10px;
   }
-  nav .list {
-    height: 90vh;
-    width: 100%;
-    right: 0;
-    top: 100%;
-    -webkit-transform: translateX(-200%);
-            transform: translateX(-200%);
-    background-color: #000;
-    -webkit-transition: linear .2s;
-    transition: linear .2s;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  nav .list li {
-    height: 70px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  nav .list li a {
-    font-size: 20px;
-  }
-  nav .list li a i {
-    font-size: 20px;
-    color: #fff;
-  }
-  nav .showNav {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+  .topbar .menu li i {
+    font-size: 15px;
   }
 }
 
 @media screen and (min-width: 800px) {
-  nav {
-    height: 10vh;
+  .topbar .logo {
+    width: 30%;
+    padding: 10px;
   }
-  nav .logo {
-    height: 50px;
-    width: 20%;
+  .topbar .logo img {
+    height: 80%;
   }
-  nav .burger {
-    height: 50px;
-    width: 50px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+  .topbar .menu {
+    width: 70%;
   }
-  nav .list {
-    height: 90vh;
-    width: 100%;
-    right: 0;
-    top: 100%;
-    -webkit-transform: translateX(-200%);
-            transform: translateX(-200%);
-    background-color: #000;
-    -webkit-transition: linear .2s;
-    transition: linear .2s;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+  .topbar .menu li {
+    margin-right: 10px;
   }
-  nav .list li {
-    height: 70px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  nav .list li a {
+  .topbar .menu li i {
     font-size: 20px;
-  }
-  nav .showNav {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
   }
 }
 
-@media screen and (min-width: 1200px) {
-  nav {
-    height: 10vh;
+@media screen and (min-width: 800px) {
+  .topbar .logo {
+    width: 30%;
+    padding: 10px 0 10px 20px;
   }
-  nav .logo {
-    height: calc(100% - 40px);
-    width: 10%;
+  .topbar .logo img {
+    height: 90%;
   }
-  nav .list {
-    height: calc(100% - 40px);
-    width: 60%;
-    top: 50%;
-    right: 0;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
+  .topbar .menu {
+    width: 80%;
+  }
+  .topbar .menu li {
     margin-right: 20px;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
   }
-  nav .list a {
-    font-size: 18px;
-  }
-  nav .burger {
-    display: none;
+  .topbar .menu li i {
+    font-size: 20px;
   }
 }
 
@@ -1698,7 +1550,26 @@ nav .burger.open .bar3 {
   text-align: center;
 }
 
-.hoursform input {
+.hoursform .hoursAmount {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.hoursform .hoursAmount h1 {
+  font-weight: 400;
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.hoursform .hoursAmount input {
   width: 140px;
   height: 50px;
   padding: 5px;
@@ -1706,11 +1577,11 @@ nav .burger.open .bar3 {
   border: 1px solid #000;
 }
 
-.hoursform input:focus {
+.hoursform .hoursAmount input:focus {
   outline: none;
 }
 
-.hoursform input[type="number" i] {
+.hoursform .hoursAmount input[type="number" i] {
   background-color: #fff;
 }
 
@@ -2562,7 +2433,7 @@ nav .burger.open .bar3 {
       -ms-flex-pack: center;
           justify-content: center;
   position: fixed;
-  top: 10%;
+  top: 17vh;
   right: 5%;
   border-radius: 100px;
   background-color: #000;

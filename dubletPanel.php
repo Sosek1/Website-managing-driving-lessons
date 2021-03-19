@@ -313,24 +313,22 @@ if(isset($_SESSION['error'])){
 </head>
 
 <body>
-    <nav>
-        <div class="logo">
-            <img src="css/MotoLka.png">
-        </div>
-        <ul class="list">
-            <li><a href="kalendarzTydzien.php">Kalendarz</a></li>
-            <li><a href="panel.php">Panel jazd</a></li>
-            <li><a href="rozliczDzien.php">Rozliczenie jazdy</a></li>
-            <li><a href="szukaj.php">Szukaj</a></li>
-            <li><a href="logout.php">
+<nav class="topbar">
+        <a href="kalendarzTydzien.php" class="logo">
+            <img src="css/MotoLka.png" alt="motoelka logo">
+        </a>
+        <ul class="menu">
+            <li>
+                <a href="_szukaj.scss">
+                    <i class="fas fa-search"></i>
+                </a>
+            </li>
+            <li>
+                <a href="logout.php">
                     <i class="fas fa-sign-out-alt"></i>
-                </a></li>
+                </a>
+            </li>
         </ul>
-        <div class="burger">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-        </div>
     </nav>
 
     <form class="container" method='post'>
@@ -429,7 +427,6 @@ if(isset($_SESSION['error'])){
     <a href="kalendarzTydzien.php" class="backToCalendar">
         <i class="fas fa-calendar-day"></i>
     </a>
-    <script src="burger.js"></script>
 </body>
 
 </html>

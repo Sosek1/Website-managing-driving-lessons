@@ -27,25 +27,24 @@ if(isset($_GET['szuk'])){
 </head>
 
 <body>
-    <nav>
-        <div class="logo">
-        <img src="css/MotoLka.png">
-        </div>
-        <ul class="list">
-            <li><a href="panel.php">Panel jazd</a></li>
-            <li><a href="rozliczDzien.php">Rozliczenie jazdy</a></li>
-            <li><a href="szukaj.php">Szukaj</a></li>
-            <li><a href="logout.php">
-            <i class="fas fa-sign-out-alt"></i>
-            </a></li>
+<nav class="topbar">
+        <a href="kalendarzTydzien.php" class="logo">
+            <img src="css/MotoLka.png" alt="motoelka logo">
+        </a>
+        <ul class="menu">
+            <li>
+                <a href="_szukaj.scss">
+                    <i class="fas fa-search"></i>
+                </a>
+            </li>
+            <li>
+                <a href="logout.php">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </li>
         </ul>
-        <div class="burger">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-        </div>
     </nav>
-
+    
     <form class="searchFor" method="GET">
         <input type="text" placeholder="Szukaj..."name="szuk">
         <label class="loupe"><input type="submit" value=""><i class="fas fa-search"></i></label>
@@ -78,7 +77,7 @@ if(isset($_GET['szuk'])){
                         }else if($osobarow['kat']==6){
                             echo "B";
                         }
-                        echo '</div> <a style="text-decoration:none; color:#000;"href ="showRides.php?id='.$osobarow['id'].'"><i class="fas fa-clock"></i><div class="drivenHours">';
+                        echo '</div> <a style="text-decoration:none; color:#000;`"href ="showRides.php?id='.$osobarow['id'].'"><i class="fas fa-clock"></i><div class="drivenHours">';
                         $ilejazd=$conn->query('SELECT id FROM jazdy WHERE id_kursanta = \''.$osobarow['id'].'\'');
                         if(!$ilejazd){}else{
                             $ilee=$ilejazd->num_rows;
@@ -107,7 +106,6 @@ if(isset($_GET['szuk'])){
 <a href="kalendarzTydzien.php" class="backToCalendar">
         <i class="fas fa-calendar-day"></i>
 </a>
-<script src="burger.js"></script>
 </body>
 
 </html>

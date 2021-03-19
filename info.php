@@ -71,22 +71,22 @@ $godzina = date("h", $data);
 </head>
 
 <body>
-    <nav>
-        <div class="logo">
-            <img src="css/MotoLka.png">
-        </div>
-        <ul class="list">
-            <li><a href="panel.php">Panel jazd</a></li>
-            <li><a href="rozliczDzien.php">Rozliczenie jazdy</a></li>
-            <li><a href="szukaj.php">Szukaj</a></li>
-            <i class="fas fa-sign-out-alt"></i>
-            </a></li>
+<nav class="topbar">
+        <a href="kalendarzTydzien.php" class="logo">
+            <img src="css/MotoLka.png" alt="motoelka logo">
+        </a>
+        <ul class="menu">
+            <li>
+                <a href="_szukaj.scss">
+                    <i class="fas fa-search"></i>
+                </a>
+            </li>
+            <li>
+                <a href="logout.php">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </li>
         </ul>
-        <div class="burger">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-        </div>
     </nav>
 
     <h1 class="info2">Informacje o jezdzie</h1>
@@ -108,7 +108,6 @@ $godzina = date("h", $data);
     <a href="kalendarzTydzien.php" class="backToCalendar">
         <i class="fas fa-calendar-day"></i>
     </a>
-    <script src="burger.js"></script>
 </body>
 
 </html>

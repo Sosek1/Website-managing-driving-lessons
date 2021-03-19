@@ -1,226 +1,113 @@
 @import 'mixins';
 
-nav {
+.topbar {
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     background-color: $second-color;
-    position: relative;
 
     .logo {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-        margin-left: 20px;
-
-        img {
-            width: 100%;
-            height: 100%;
-        }
+        height: 100%;
+        display: flex;
+        align-items: center;
     }
 
-    .list {
-        position: absolute;
+    .menu {
+        height: 100%;
         display: flex;
-        z-index: 3;
+        align-items: center;
+        justify-content: flex-end;
+        list-style-type: none;
 
         li {
-            list-style: none;
+            height: 100%;
+            width: 50px;
+            @include center;
 
             a {
                 text-decoration: none;
-                color: $first-color;
-            }
-        }
-    }
 
-    .burger {
-        position: absolute;
-        top: 50%;
-        right: 0;
-        transform: translateY(-50%);
-        margin-right: 20px;
-        align-items: center;
-        justify-content: center;
-
-        .bar1,
-        .bar2,
-        .bar3 {
-            width: 25px;
-            height: 2px;
-            background: $first-color;
-
-        }
-
-        & .bar1 {
-            -webkit-transition: all 0.3s ease-in-out;
-            -moz-transition: all 0.3s ease-in-out;
-            -o-transition: all 0.3s ease-in-out;
-            transition: all 0.3s ease-in-out;
-        }
-
-        & .bar2 {
-            -webkit-transition: all 0.3s ease-in-out;
-            -moz-transition: all 0.3s ease-in-out;
-            -o-transition: all 0.3s ease-in-out;
-            transition: all 0.3s ease-in-out;
-            margin: 3px 3px;
-        }
-
-        & .bar3 {
-            -webkit-transition: all 0.3s ease-in-out;
-            -moz-transition: all 0.3s ease-in-out;
-            -o-transition: all 0.3s ease-in-out;
-            transition: all 0.3s ease-in-out;
-        }
-    }
-
-    .burger.open {
-        -webkit-transition: all 0.3s ease-in-out;
-        -moz-transition: all 0.3s ease-in-out;
-        -o-transition: all 0.3s ease-in-out;
-        transition: all 0.3s ease-in-out;
-
-        & .bar1 {
-            transform: rotate(45deg) translate(4px, 2px);
-        }
-
-        & .bar2 {
-            opacity: 0;
-        }
-
-        & .bar3 {
-            transform: rotate(-45deg) translate(6px, -3px);
-        }
-    }
-}
-
-@include media-sm {
-    nav {
-        height: 15vh;
-
-        .logo {
-            height: 70px;
-            width: 60%;
-        }
-
-        .burger {
-            height: 50px;
-            width: 50px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .list {
-            height: 90vh;
-            width: 100%;
-            right: 0;
-            top: 100%;
-            transform: translateX(-200%);
-            background-color: $second-color;
-            transition: linear .2s;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-
-            li {
-                height: 70px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                a {
-                    font-size: 20px;
-
-                    i {
-                        font-size: 20px;
-                        color: $first-color;
-                    }
+                i {
+                    color: $first-color;
                 }
             }
         }
+    }
 
-        .showNav {
-            transform: translateX(0);
+}
+
+@include media-sm {
+    .topbar {
+        .logo {
+            width: 40%;
+            padding: 10px;
+
+            img {
+                height: 90%;
+            }
+        }
+
+        .menu {
+            width: 60%;
+
+            li {
+                margin-right: 10px;
+
+                i {
+                    font-size: 15px;
+                }
+            }
         }
     }
 }
 
 @include media-md {
-    nav {
-        height: 10vh;
-
+    .topbar {
         .logo {
-            height: 50px;
-            width: 20%
+            width: 30%;
+            padding: 10px;
+
+            img {
+                height: 80%;
+            }
         }
 
-        .burger {
-            height: 50px;
-            width: 50px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .list {
-            height: 90vh;
-            width: 100%;
-            right: 0;
-            top: 100%;
-            transform: translateX(-200%);
-            background-color: $second-color;
-            transition: linear .2s;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        .menu {
+            width: 70%;
 
             li {
-                height: 70px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                margin-right: 10px;
 
-                a {
+                i {
                     font-size: 20px;
                 }
             }
         }
-
-        .showNav {
-            transform: translateX(0);
-        }
     }
 }
 
-@include media-xl {
-    nav {
-        height: 10vh;
-
+@include media-md {
+    .topbar {
         .logo {
-            height: calc(100% - 40px);
-            width: 10%;
-        }
+            width: 30%;
+            padding: 10px 0 10px 20px;
 
-        .list {
-            height: calc(100% - 40px);
-            width: 60%;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-            margin-right: 20px;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-around;
-
-            a {
-                font-size: 18px;
+            img {
+                height: 90%;
             }
         }
 
-        .burger {
-            display: none;
+        .menu {
+            width: 80%;
+
+            li {
+                margin-right: 20px;
+
+                i {
+                    font-size: 20px;
+                }
+            }
         }
     }
 }

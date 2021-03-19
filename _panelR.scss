@@ -90,20 +90,31 @@
     font-size: 15px;
     text-align: center;
 
-    input {
-        width: 140px;
-        height: 50px;
-        padding: 5px;
-        font-size: 15px;
-        border: 1px solid $second-color;
-    }
+    .hoursAmount {
+        height: 100%;
+        @include center;
 
-    input:focus {
-        outline: none;
-    }
+        h1 {
+            font-weight: 400;
+            font-size: 20px;
+            margin-right: 20px;
+        }
 
-    input[type="number"i] {
-        background-color: $first-color;
+        input {
+            width: 140px;
+            height: 50px;
+            padding: 5px;
+            font-size: 15px;
+            border: 1px solid $second-color;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        input[type="number"i] {
+            background-color: $first-color;
+        }
     }
 }
 
@@ -276,4 +287,6 @@
             font-size: 20px;
         }
     }
+
+    .hoursform {}
 }
