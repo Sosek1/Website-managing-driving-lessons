@@ -76,7 +76,7 @@ if($conn->connect_errno!=0){
                 </a>
             </li>
             <li>
-                <a href="_szukaj.scss">
+                <a href="szukaj.php">
                     <i class="fas fa-search"></i>
                 </a>
             </li>
@@ -199,7 +199,7 @@ if($conn->connect_errno!=0){
         ?>
     </div>
 
-    <div class="settle">Rozlicz</div>
+    <div class="settle"><a style="text-decoration:none; color:#000;" href="rozliczDzien.php?date=<?php echo mktime(0,0,0,$msc, $day,$ye);?>">Rozlicz</div>
 
 </body>
 <?php

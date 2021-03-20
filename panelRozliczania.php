@@ -77,7 +77,7 @@ if($con){
             header('Location: rozliczDzien.php');
             exit();
         }else{
-            $zap = 'INSERT INTO rozliczeniaJazd VALUES(NULL, \''.$idu.'\', \''.$idj.'\', \''.$tank.'\', '.$zrea.', NULL)';
+            $zap = 'INSERT INTO rozliczeniaJazd VALUES(NULL, \''.$idu.'\', \''.$ido.'\', \''.$idj.'\', \''.$tank.'\', '.$zrea.', NULL, "'.$data.'")';
             if($conn->query($zap)){}
             if($tank==2){
                 $zap = 'SELECT * FROM jazdy WHERE id="'.$idj.'';
