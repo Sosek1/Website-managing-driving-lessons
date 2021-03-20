@@ -661,7 +661,7 @@ if($conn->connect_errno!=0){echo $conn->connect_error;}else{
         </div>
     </div>
     
-    <div class="settle"><a style="text-decoration:none; color:#000;" href="rozliczDzien.php">Rozlicz</div>
+    <div class="settle"><a style="text-decoration:none; color:#FFFFFF;" href="rozliczDzien.php">Rozlicz</div>
 </body>
 <?php
 $conn->close();
