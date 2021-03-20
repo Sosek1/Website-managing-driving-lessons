@@ -114,7 +114,7 @@ if($conn->connect_errno!=0){
         <div class="prev">
             <a href="kalendarzDzien.php?move=0"><i class="fas fa-arrow-left"></i></a>
         </div>
-        <a class="date3" href="kalendarzDzien.php?move=1"><?php echo date("d.M", $dzien);?></a>
+        <a class="date3" href="kalendarzDzien.php?move=1"><?php echo date("d ", $dzien).retmiesiac($dzien).retdzien($dzien);?></a>
        
         <div class="next">
             <a href="kalendarzDzien.php?move=2" style="text-decoration:none;"><i class="fas fa-arrow-right"></i></a>
