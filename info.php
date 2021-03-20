@@ -10,7 +10,7 @@ $idu = $_SESSION['id'];
 if(isset($_GET['id'])){
     $idj = $_GET['id'];
 }
-
+$idi = $_SESSION['id'];
 $conn = new mysqli($host, $db_user, $db_pass, $db_name);
 $conn->query("SET NAMES 'utf8'");
 if($conn->connect_errno!=0){}else{
@@ -52,10 +52,26 @@ if($conn->connect_errno!=0){}else{
             }
         }
     }
-
+    $data = strtotime($godz);
+    $godzina = date("h", $data);
+    $zap = 'SELECT id FROM jazdy WHERE id_instruktora = '.$idi.' AND data_jazdy="'.$godz.'"';
+    $rezu=$conn->query($zap);
+    if(!$rezu){
+    }else{
+        $ile = $rezu->num_rows;
+        if($ile==1){
+            if($miejsce==2){
+                $czydublet = true;
+            }else{
+                $czydublet = false;
+            }
+        }else{
+            $czydublet = false;
+        }
+    }
 }
-$data = strtotime($godz);
-$godzina = date("h", $data);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -106,7 +122,7 @@ $godzina = date("h", $data);
         <a href="#" class="phoneNumber2 delete">12345678</a>
         <a href="mod.php?id=<?php echo $idj;?>" class="edit">Edytuj</a>
         <a href="delete.php?id=<?php echo $idj;?>" class="delete">Usuń</a>
-        <?php if($miejsce==2){
+        <?php if($czydublet){
             echo '<a href="dubletPanel.php?d='.$data.'&h='.$godzina.'" class="addDouble">Dodaj dublet</a> ';
         }?>
     </form>

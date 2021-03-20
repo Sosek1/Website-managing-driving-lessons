@@ -280,7 +280,7 @@ if($czyinsert){
             unset($_SESSION['adhours']);
             unset($_SESSION['adinfo']); 
             //header("Location: kalendarzDzien.php");
-            //echo '<meta http-equiv="refresh" content="0; url=kalendarzDzien.php?date='.$dzien.'">';
+            echo '<meta http-equiv="refresh" content="0; url=kalendarzDzien.php?date='.$dzien.'">';
 
         }else{
             echo 'XD';

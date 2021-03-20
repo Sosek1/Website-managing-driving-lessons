@@ -4,18 +4,8 @@ function writedzienzosoba($godzina, $imie, $nazwisko, $kat, $tel, $datee, $id, $
     if(!is_null($dublet)){
         echo "DUBLET !!";
     }
-    echo $imie." ".$nazwisko." Nr telefonu:".$tel."  Kategoria:";
-    if($kat==1){
-        echo "AM</div>";
-    }else if($kat==2){
-        echo "A1</div>";
-    }else if($kat==3){
-        echo "A2</div>";
-    }else if($kat==4){
-        echo "A</div>";
-    }else if($kat==6){
-        echo "B</div>";
-    }
+    echo $imie." ".$nazwisko."</div>";
+    
    
     
     if($czydublet){
