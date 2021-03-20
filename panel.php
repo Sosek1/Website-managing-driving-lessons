@@ -303,6 +303,11 @@ if(isset($_SESSION['error'])){
         </a>
         <ul class="menu">
             <li>
+                <a href="kalendarzTydzien.php">
+                    <i class="fas fa-calendar-day"></i>
+                </a>
+            </li>
+            <li>
                 <a href="szukaj.php">
                     <i class="fas fa-search"></i>
                 </a>
@@ -426,9 +431,9 @@ if(isset($_SESSION['error'])){
             <a href="kalendarzDzien.php?date=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>" class="changeDate">Zmień datę jazdy</a>
     </form>
     
-    <a href="kalendarzTydzien.php" class="backToCalendar">
+    <!-- <a href="kalendarzTydzien.php" class="backToCalendar">
         <i class="fas fa-calendar-day"></i>
-    </a>
+    </a> -->
 </body>
 
 </html>

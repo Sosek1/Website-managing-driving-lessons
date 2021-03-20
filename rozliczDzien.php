@@ -78,6 +78,11 @@ if($conn->connect_errno!=0){
         </a>
         <ul class="menu">
             <li>
+                <a href="kalendarzTydzien.php">
+                    <i class="fas fa-calendar-day"></i>
+                </a>
+            </li>
+            <li>
                 <a href="szukaj.php">
                     <i class="fas fa-search"></i>
                 </a>
@@ -184,9 +189,9 @@ if($conn->connect_errno!=0){
     </form>
 
 
-    <a href="kalendarzTydzien.php" class="backToCalendar">
+    <!-- <a href="kalendarzTydzien.php" class="backToCalendar">
         <i class="fas fa-calendar-day"></i>
-    </a>
+    </a> -->
 
 </body>
 <?php

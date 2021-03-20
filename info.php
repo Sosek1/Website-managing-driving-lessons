@@ -77,6 +77,11 @@ $godzina = date("h", $data);
         </a>
         <ul class="menu">
             <li>
+                <a href="kalendarzTydzien.php">
+                    <i class="fas fa-calendar-day"></i>
+                </a>
+            </li>
+            <li>
                 <a href="szukaj.php">
                     <i class="fas fa-search"></i>
                 </a>
@@ -105,9 +110,9 @@ $godzina = date("h", $data);
             echo '<a href="dubletPanel.php?d='.$data.'&h='.$godzina.'" class="addDouble">Dodaj dublet</a> ';
         }?>
     </form>
-    <a href="kalendarzTydzien.php" class="backToCalendar">
+    <!-- <a href="kalendarzTydzien.php" class="backToCalendar">
         <i class="fas fa-calendar-day"></i>
-    </a>
+    </a> -->
 </body>
 
 </html>
