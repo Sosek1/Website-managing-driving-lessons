@@ -75,7 +75,7 @@ if($conn->connect_errno!=0){}else{
         <ol class="rideList">
         <?php
             if($con){
-                $zap = 'SELECT data_jazdy, id FROM jazdy WHERE id_kursanta = '.$idk;
+                $zap = 'SELECT data_jazdy, id FROM jazdy WHERE id_kursanta = '.$idk.' ORDER BY data_jazdy ASC';
                 $jazda=$conn->query($zap);
                 if(!$jazda){
                 }else{
@@ -89,7 +89,25 @@ if($conn->connect_errno!=0){}else{
                             $data = strtotime($godz);
                             $godz = date('H:00', $data);
                             $data = date("d.m.y", $data);
-                            echo '<li><p clas="date3">Data:  <span> '.$data.'</span></p><p class="hour3">Godzina:  <span> '.$godz.'</span></p>';
+                            $zap = 'SELECT id,zrealizowano FROM rozliczeniaJazd WHERE id_jazdy = '.$idj;
+                            $zrea=$conn->query($zap);
+                            if(!$zrea){
+                            }else{
+                                $ilezrea = $jazda->num_rows;
+                                if($ilezrea>0){
+                                    $zrearow = $zrea->fetch_assoc();
+                                    $zrealizowana = $zrearow['zrealizowano'];
+                                    if($zrealizowana == 2){
+                                        $czyzrea = 'Nie zrealizowano';
+                                    }else{
+                                        $czyzrea = '';
+                                    }
+                                    
+                                }else{
+                                    $czyzrea = 'Nie rozliczono / Nie odbyła się';
+                                }
+                            }
+                            echo '<li><p clas="date3">Data:  <span> '.$data.'</span></p><p class="hour3">Godzina:  <span> '.$godz.'  '.$czyzrea.'</span> </p>';
                             echo '<a href=info.php?id='.$idj.'>Zobacz wiecej</a></li>';
                             $i++;
                         }

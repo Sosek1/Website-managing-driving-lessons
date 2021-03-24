@@ -151,8 +151,15 @@ function retmiesiac($dzien){
     }
     return $ms;
 }
-function retdayofweek(){
-    return date("w", strtotime('now'));
+function retdayofweek($data){
+    $now = strtotime("now");
+    $do=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $data), date("d", $data), date("y", $data)));
+    $dn=date("Y-m-d H:i:s", mktime(0, 0, 0, date("m", $now), date("d", $now), date("y", $now)));
+    if($do==$dn){
+        return date("w", $now);
+    }else{
+        return 0;
+    }   
 }
 function retkat($kat){
     switch ($kat){

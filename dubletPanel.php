@@ -244,14 +244,11 @@ if($czyinsert){
             $i=0;
             echo $dlugosc;
             while($i<$dlugosc){
-                echo "save";
                 $idinstruktora = $_SESSION['id'];
                 $zap = 'INSERT INTO dublety VALUES(NULL, '.$idinstruktora.', \' '.$data2.' \')';
-                echo $zap;
                 if($conn->query($zap)){                         
                 }
                 $zap = 'SELECT id FROM dublety WHERE data_pap = "'.$data2.'" AND id_instruktora='.$idinstruktora;
-                echo $zap;
                 $dublettttt=$conn->query($zap);
                 if(!$dublettttt){}else{
                     $ile=$dublettttt->num_rows;
@@ -262,7 +259,6 @@ if($czyinsert){
                 }
                 $dataa=date("Y-m-d H:i:s", mktime($godzina+$i, 0, 0, $msc, $day, $ye));
                 $zap = 'INSERT INTO jazdy VALUES(NULL, '.$idinstruktora.', '.$idd.', '.$pojazd.', \''.$dataa.'\', NULL, 2 , "'.$info.'", '.$iddubletu.')';
-                echo $zap;
                 if($conn->query($zap)){
                             
                 }else{
@@ -283,7 +279,6 @@ if($czyinsert){
             echo '<meta http-equiv="refresh" content="0; url=kalendarzDzien.php?date='.$dzien.'">';
 
         }else{
-            echo 'XD';
         }
 
     }else{
@@ -423,7 +418,6 @@ if(isset($_SESSION['error'])){
                 </select>
             </div>
 
-        <input type="datetime-local" name="adddata2" class="dateInput" autocomplete="on">
         <textarea class="info" name="addinfo" placeholder="Napisz coś..."></textarea>
         <button class="save" type="submit">Zapisz</button>
         <button class="clear" onclick="header(Location: delete_date.php)">Usuń dane</button>       

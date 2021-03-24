@@ -1,4 +1,5 @@
 <?php
+session_start();
 unset($_SESSION['d']);
 unset($_SESSION['h']);
 unset($_SESSION['adid']);

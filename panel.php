@@ -62,13 +62,12 @@ if(isset($_POST['addpojazd'])){
     $_SESSION['adpojazd'] = $_POST['addpojazd'];
     $pojazd = $_POST['addpojazd'];
 }
+
 if(isset($_POST['addplace'])){
     $_SESSION['adplace'] = $_POST['addplace'];
     $place = $_POST['addplace'];
-}else if(isset($_POST['addname'])){
-    $_SESSION['error'] = "Nie podano miejsca jazdy!";
-    $czyzwalidowano = false;
 }
+
 if(isset($_POST['addinfo'])){
     $_SESSION['adinfo'] = $_POST['addinfo'];
     $info = $_POST['addinfo'];
@@ -178,7 +177,6 @@ if($czyinsert){
         }
         $dataa=date("Y-m-d H:i:s", mktime($godzina, 0, 0, $msc, $day, $ye));
         $zap = 'SELECT * FROM jazdy WHERE id_pojazdu ='.$pojazd.' AND data_jazdy=\''.$dataa.'\' AND id IS NOT ='.$old;
-        echo $zap;
         $poj=$conn->query($zap);
         if(!$poj){}else{
             $ile=$poj->num_rows;                
@@ -232,7 +230,6 @@ if($czyinsert){
 
 
         if($czyzwalidowano && $czyinsert){
-            echo "save";
             if(isset($_SESSION['old_id_j'])){
                 $old = $_SESSION['old_id_j'];
                 unset($_SESSION['old_id_j']);
@@ -248,7 +245,6 @@ if($czyinsert){
                 $idinstruktora = $_SESSION['id'];
                 $dataa=date("Y-m-d H:i:s", mktime($godzina+$i, 0, 0, $msc, $day, $ye));
                 $zap = 'INSERT INTO jazdy VALUES(NULL, '.$idinstruktora.', '.$idd.', '.$pojazd.', \''.$dataa.'\', NULL, '.$place.', "'.$info.'", NULL)';
-                echo $zap;
                 if($conn->query($zap)){
                             
                 }else{
@@ -266,7 +262,7 @@ if($czyinsert){
             unset($_SESSION['adhours']);
             unset($_SESSION['adinfo']); 
             //header("Location: kalendarzDzien.php");
-            echo '<meta http-equiv="refresh" content="0; url=kalendarzDzien.php">';
+            echo '<meta http-equiv="refresh" content="0; url=kalendarzDzien.php?date='.$dzien.'">';
 
         }
 
@@ -408,29 +404,28 @@ if(isset($_SESSION['error'])){
             </div>
             
             <label class="city" >
-            <input type="radio" id="1" name="addplace"value="1" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'checked';}}?>>
+            <input type="radio" id="1" name="addplace"value="1">
             <span class="checkmark"></span>
                 <h1>Miasto</h1>
             </label>
 
             <label class="place" >
-            <input type="radio" id="2" name="addplace"value="2" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'checked';}}?>>
+            <input type="radio" id="2" name="addplace"value="2" checked>
             <span class="checkmark"></span>
                 <h1>Plac</h1>
             </label>
 
             <label class="cityPlace" >
-            <input type="radio" id="3" name="addplace"value="3" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'checked';}}?>>
+            <input type="radio" id="3" name="addplace"value="3">
             <span class="checkmark"></span>
                 <h1>Miasto/Plac</h1>
             </label>
             
             <textarea class="info" placeholder="Napisz coś..." name="addinfo"></textarea>
             <button type="submit" class="save">Zapisz</button>
-            <button class="clear" onclick="header(Location: delete_date.php)">Usuń</button>
+            <a href="delete_date.php" class="clear">Usuń</a>
             <a href="kalendarzDzien.php?date=<?php echo mktime(0, 0, 0, $msc, $day, $ye);?>" class="changeDate">Zmień datę jazdy</a>
     </form>
-    
     <!-- <a href="kalendarzTydzien.php" class="backToCalendar">
         <i class="fas fa-calendar-day"></i>
     </a> -->

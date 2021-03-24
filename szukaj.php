@@ -82,14 +82,15 @@ if(isset($_GET['szuk'])){
                         }else if($osobarow['kat']==6){
                             echo "B";
                         }
-                        echo '</div> <a style="text-decoration:none; color:#000;`"href ="showRides.php?id='.$osobarow['id'].'"><i class="fas fa-clock"></i><div class="drivenHours">';
-                        $ilejazd=$conn->query('SELECT id FROM jazdy WHERE id_kursanta = \''.$osobarow['id'].'\'');
+                        echo '</div> <a style="text-decoration:none; color:#000;"href ="showRides.php?id='.$osobarow['id'].'"><i class="fas fa-clock"></i></a><div class="drivenHours">';
+                        $zap = 'SELECT id FROM rozliczeniaJazd WHERE id_kursanta = \''.$osobarow['id'].'\' AND zrealizowano = 1';
+                        $ilejazd=$conn->query($zap);
                         if(!$ilejazd){}else{
                             $ilee=$ilejazd->num_rows;
                             if($ilee>0){
-                                echo $ilee." g. </div></a>";
+                                echo $ilee." g. </div>";
                             }else{
-                                echo "0 g.</div></a>";
+                                echo "0 g.</div>";
                             }
                         
                         }
