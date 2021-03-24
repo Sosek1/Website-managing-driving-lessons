@@ -66,9 +66,6 @@ if(isset($_POST['addpojazd'])){
 if(isset($_POST['addplace'])){
     $_SESSION['adplace'] = $_POST['addplace'];
     $place = $_POST['addplace'];
-}else {
-    $_SESSION['error'] = "Nie podano miejsca jazdy!";
-    $czyzwalidowano = false;
 }
 
 if(isset($_POST['addinfo'])){
@@ -265,7 +262,7 @@ if($czyinsert){
             unset($_SESSION['adhours']);
             unset($_SESSION['adinfo']); 
             //header("Location: kalendarzDzien.php");
-            echo '<meta http-equiv="refresh" content="0; url=kalendarzDzien.php">';
+            echo '<meta http-equiv="refresh" content="0; url=kalendarzDzien.php?date='.$dzien.'">';
 
         }
 
@@ -407,19 +404,19 @@ if(isset($_SESSION['error'])){
             </div>
             
             <label class="city" >
-            <input type="radio" id="1" name="addplace"value="1" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'checked';}}?>>
+            <input type="radio" id="1" name="addplace"value="1">
             <span class="checkmark"></span>
                 <h1>Miasto</h1>
             </label>
 
             <label class="place" >
-            <input type="radio" id="2" name="addplace"value="2" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'checked';}}?>>
+            <input type="radio" id="2" name="addplace"value="2" checked>
             <span class="checkmark"></span>
                 <h1>Plac</h1>
             </label>
 
             <label class="cityPlace" >
-            <input type="radio" id="3" name="addplace"value="3" <?php if(isset($_SESSION['adplace'])){if($_SESSION['adplace']==1){echo 'checked';}}?>>
+            <input type="radio" id="3" name="addplace"value="3">
             <span class="checkmark"></span>
                 <h1>Miasto/Plac</h1>
             </label>
