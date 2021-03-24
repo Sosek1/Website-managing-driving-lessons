@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wolne</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link href="https://fonts.googleapis.com/css2
+    ?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2e3d9b3214.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="topbar">
+        <a href="kalendarzTydzien.php" class="logo">
+            <img src="css/MotoLka.png" alt="motoelka logo">
+        </a>
+        <ul class="menu">
+            <li>
+                <a href="kalendarzTydzien.php">
+                    <i class="fas fa-calendar-day"></i>
+                </a>
+            </li>
+            <li>
+                <a href="szukaj.php">
+                    <i class="fas fa-search"></i>
+                </a>
+            </li>
+            <li>
+                <a href="logout.php">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <h1 class="addFree">Dodaj wolne</h1>
+    <form class="freeForm">
+        <input class="chooseDate" type="date">
+        <label class="chooseDay">
+            <h1>Cały dzień</h1>
+            <input type="checkBox">
+            <span class="checkmark2"></span>
+        </label>
+        <input type="time" class="chooseTime">
+        <input type="time" class="chooseTime">
+        <textarea class="additionalInfo" placeholder="Napisz coś..."></textarea>
+        <button class="saveFree">Zapisz</button>
+    </form>
+</body>
+
+</html>

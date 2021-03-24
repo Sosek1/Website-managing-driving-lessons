@@ -329,8 +329,8 @@
   display: grid;
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
-  -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .calendarWrapper .hoursContainer .record {
@@ -367,8 +367,8 @@
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .calendarWrapper .weekContainer .calendar .record {
@@ -2415,6 +2415,224 @@
   .listContainer .rideList li a {
     text-align: center;
     width: 140px;
+  }
+}
+
+.addFree {
+  font-weight: 400;
+  margin-top: 30px;
+}
+
+.freeForm {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  min-height: 60vh;
+  overflow-x: hidden;
+}
+
+.freeForm .chooseDate,
+.freeForm .chooseTime,
+.freeForm .chooseDay,
+.freeForm .saveFree {
+  width: 200px;
+  height: 40px;
+}
+
+.freeForm .chooseDay {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  border: 1px solid #000;
+}
+
+.freeForm .chooseDay h1 {
+  width: 80%;
+  font-weight: 400;
+  font-size: 15px;
+  text-align: center;
+}
+
+.freeForm .chooseDay input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.freeForm .checkmark2 {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+}
+
+.freeForm .chooseDay input:checked ~ .checkmark2 {
+  background-color: #fff;
+}
+
+.freeForm .checkmark2:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.freeForm .chooseDay input:checked ~ .checkmark2:after {
+  display: block;
+}
+
+.freeForm .chooseDay .checkmark2:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid #000;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.freeForm input[type="time" i] {
+  padding: 0 20px 0 20px;
+  font-size: 20px;
+}
+
+.freeForm .additionalInfo {
+  border-radius: 6px;
+}
+
+.freeForm ::-webkit-input-placeholder {
+  font-size: 15px;
+  padding: 10px;
+}
+
+.freeForm :-ms-input-placeholder {
+  font-size: 15px;
+  padding: 10px;
+}
+
+.freeForm ::-ms-input-placeholder {
+  font-size: 15px;
+  padding: 10px;
+}
+
+.freeForm ::placeholder {
+  font-size: 15px;
+  padding: 10px;
+}
+
+.freeForm .additionalInfo:focus {
+  outline: none;
+}
+
+.freeForm .saveFree {
+  color: #fff;
+  font-size: 15px;
+  background-color: #000;
+  border: none;
+  border-radius: 6px;
+}
+
+@media screen and (min-width: 200px) {
+  .addFree {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 30px;
+  }
+  .freeForm {
+    width: 100%;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+  }
+  .freeForm .additionalInfo {
+    width: 80vw;
+    height: 90%;
+    -ms-grid-row: 5;
+    -ms-grid-row-span: 3;
+    -ms-grid-column: 1;
+    grid-area: 5/1/8/1;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .addFree {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 30px;
+  }
+  .freeForm {
+    width: 100%;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+  }
+  .freeForm .additionalInfo {
+    width: 60vw;
+    height: 90%;
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: 3/1/4/3;
+  }
+  .freeForm .saveFree {
+    -ms-grid-row: 4;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: 4/1/5/3;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .freeForm {
+    width: 90vw;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: 2/1/3/3;
+  }
+  .freeForm .additionalInfo {
+    width: 500px;
+    height: 200px;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: 2/1/3/3;
+  }
+  .freeForm .saveFree {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-area: 3/1/3/2;
   }
 }
 
