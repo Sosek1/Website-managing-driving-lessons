@@ -6,6 +6,7 @@ session_start();
 require_once "connect.php";
 try{
     $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
+    $conn->query("SET NAMES 'utf8'");
     if($conn->connect_errno!=0){
         throw new Exception(mysqli_connect_errno());
     }else{
