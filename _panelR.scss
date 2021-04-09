@@ -3,7 +3,7 @@
 .containerR {
     display: grid;
     min-height: 50vh;
-    margin: 25px auto 10px auto;
+    margin: 0 auto;
     grid-gap: 10px;
     overflow-x: hidden;
 
@@ -67,7 +67,6 @@
     }
 
     .additionalInfo2 {
-        width: 100%;
         height: 100%;
         color: $second-color;
         justify-self: center;
@@ -92,11 +91,9 @@
 
     .hoursAmount {
         height: 100%;
-        @include center;
 
         h1 {
             font-weight: 400;
-            font-size: 20px;
             margin-right: 20px;
         }
 
@@ -123,6 +120,8 @@
         grid-template-columns: 1fr;
         grid-template-rows: repeat(16, 1fr);
         width: 100vw;
+        margin-top: 25px;
+        margin-bottom: 25px;
 
         .headingR {
             font-size: 25px;
@@ -164,15 +163,34 @@
         }
 
         .additionalInfo2 {
+            width: 80%;
             grid-area: 10/1/15/1;
             padding: 5px;
             font-size: 15px;
         }
     }
+
+    .hoursForm {
+        @include center;
+
+        h1 {
+            font-size: 15px;
+        }
+
+        input {
+            width: 100px;
+            height: 40px;
+        }
+    }
+
 }
 
 @include media-md {
     .containerR {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         grid-template-columns: 1fr;
         grid-template-rows: repeat(16, 1fr);
         width: 60vw;
@@ -217,15 +235,30 @@
         }
 
         .additionalInfo2 {
+            width: 90%;
             grid-area: 10/1/15/1;
             padding: 5px;
             font-size: 15px;
         }
     }
+
+    .hoursForm {
+        @include center;
+
+        input {
+            width: 140px;
+            height: 50px;
+        }
+    }
 }
 
 @include media-xl {
+
     .containerR {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(5, 1fr);
         width: 70vw;
@@ -282,11 +315,23 @@
         }
 
         .additionalInfo2 {
+            width: 100%;
             grid-area: 4/2/4/3;
             padding: 5px;
             font-size: 20px;
         }
     }
 
-    .hoursform {}
+    .hoursform {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-left: 30px;
+
+        input {
+            width: 140px;
+            height: 50px;
+        }
+
+    }
 }

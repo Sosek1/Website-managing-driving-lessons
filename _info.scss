@@ -1,7 +1,7 @@
-.info2 {
-    text-align: center;
-    font-weight: 400;
-}
+// .info2 {
+//     text-align: center;
+//     font-weight: 400;
+// }
 
 .informationContainer {
     display: grid;
@@ -62,63 +62,24 @@
 
     }
 
-    .info2 {
-        margin: 20px;
-        font-size: 20px;
-    }
+    // .info2 {
+    //     margin: 20px;
+    //     font-size: 20px;
+    // }
 }
 
 @include media-md {
 
     .informationContainer {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: 0 auto;
+        transform: translate(-50%, -50%);
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr;
         height: 50vh;
         width: 80vw;
-        margin: 50px auto;
-
-        textarea {
-            height: 25px;
-            width: 80%;
-            font-size: 15px;
-        }
-
-        .additionalInfo {
-            height: 80px;
-        }
-
-        .edit {
-            grid-area: 4/1/4/2;
-        }
-
-        .delete {
-            grid-area: 4/2/4/3;
-        }
-
-        .addDouble {
-            grid-area: 4/3/4/4;
-        }
-
-        .phoneNumber2 {
-            grid-area: 3/2/3/3;
-        }
-
-    }
-
-    .info2 {
-        margin: 25px;
-        font-size: 30px;
-    }
-}
-
-@include media-xl {
-
-    .informationContainer {
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr;
-        min-height: 30vh;
-        width: 70vw;
-        margin: 0 auto;
 
         textarea {
             height: 30px;
@@ -148,9 +109,56 @@
 
     }
 
-    .info2 {
-        margin: 30px;
-        font-size: 30px;
+    // .info2 {
+    //     margin: 25px;
+    //     font-size: 30px;
+    // }
+}
+
+@include media-xl {
+
+    .informationContainer {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: 0 auto;
+        transform: translate(-50%, -50%);
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        min-height: 30vh;
+        width: 70vw;
+
+        textarea {
+            height: 30px;
+            width: 80%;
+            font-size: 20px;
+        }
+
+        .additionalInfo {
+            height: 80px;
+        }
+
+        .edit {
+            grid-area: 4/1/4/2;
+        }
+
+        .delete {
+            grid-area: 4/2/4/3;
+        }
+
+        .addDouble {
+            grid-area: 4/3/4/4;
+        }
+
+        .phoneNumber2 {
+            grid-area: 3/2/3/3;
+        }
+
     }
+
+    // .info2 {
+    //     margin: 30px;
+    //     font-size: 30px;
+    // }
 
 }
