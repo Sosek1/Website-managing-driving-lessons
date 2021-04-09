@@ -53,7 +53,7 @@ if($conn->connect_errno!=0){}else{
         }
     }
     $data = strtotime($godz);
-    $godzina = date("h", $data);
+    $godzina = date("H", $data);
     $zap = 'SELECT id FROM jazdy WHERE id_instruktora = '.$idi.' AND data_jazdy="'.$godz.'"';
     $rezu=$conn->query($zap);
     if(!$rezu){

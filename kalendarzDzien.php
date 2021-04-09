@@ -8,7 +8,9 @@ if(!isset($_SESSION['logIn'])){
 }
 
 if(isset($_GET['date'])==true){
+    $_SESSION['data_dzien'] = $_GET['date'];
     $dzien = $_GET['date'];
+    $_SESSION['comove']=true;
 }else{
     if($_SESSION['comove']==false){
         unset($_SESSION['move']);
@@ -19,13 +21,18 @@ if(isset($_GET['date'])==true){
                 $_SESSION['moveweek']=$_SESSION['moveweek']-1;
                 }else if($_GET['move']==1){
                     unset($_SESSION['moveweek']);
+                    unset($_SESSION['data_dzien']);
                 }else if($_GET['move']==2){
                     $_SESSION['moveweek']=$_SESSION['moveweek']+1;
                 }
 
         }
     }
-    $dzien=strtotime("now");
+    if(isset($_SESSION['data_dzien'])){
+        $dzien = $_SESSION['data_dzien'];
+    }else{
+        $dzien=strtotime("now");
+    }
     if(isset($_SESSION['moveweek'])){
         $moved = 0;
         if($_SESSION['moveweek']>0){
@@ -205,4 +212,5 @@ if($conn->connect_errno!=0){
 <?php
 $conn -> close();
 ?>
+<!-- version 1.1 beta -->
 </html>

@@ -57,6 +57,7 @@ if(isset($_SESSION['moveweek'])){
    }
 }
 $conn = new mysqli($host, $db_user, $db_pass, $db_name);
+$conn->query("SET NAMES 'utf8'");
 if($conn->connect_errno!=0){echo $conn->connect_error;}else{
     $con = true;
 }
