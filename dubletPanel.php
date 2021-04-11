@@ -245,10 +245,10 @@ if($czyinsert){
             echo $dlugosc;
             while($i<$dlugosc){
                 $idinstruktora = $_SESSION['id'];
-                $zap = 'INSERT INTO dublety VALUES(NULL, '.$idinstruktora.', \' '.$data2.' \')';
+                $zap = 'INSERT INTO dublety VALUES(NULL, '.$idinstruktora.', \'  '.$dataa.' \')';
                 if($conn->query($zap)){                         
                 }
-                $zap = 'SELECT id FROM dublety WHERE data_pap = "'.$data2.'" AND id_instruktora='.$idinstruktora;
+                $zap = 'SELECT id FROM dublety WHERE data_pap = "'.$dataa.'" AND id_instruktora='.$idinstruktora;
                 $dublettttt=$conn->query($zap);
                 if(!$dublettttt){}else{
                     $ile=$dublettttt->num_rows;
