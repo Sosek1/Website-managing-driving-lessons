@@ -1,0 +1,162 @@
+.adminNav {
+    height: 100px;
+    background-color: $second-color;
+}
+
+.adminH {
+    width: 90vw;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px auto;
+
+    h1 {
+        font-weight: 400;
+    }
+}
+
+.adminJazdyContainer {
+    width: 90vw;
+    min-height: auto;
+    margin: 0 auto;
+    overflow-x: auto;
+    border-right: 1px solid $second-color;
+    border-left: 1px solid $second-color;
+
+    .adminJazdyContainer2 {
+        height: 100%;
+
+        .adminJazdyOptions {
+            width: 100%;
+            height: 80px;
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            border: 1px solid $second-color;
+
+            h2 {
+                @include center;
+                width: 100%;
+                height: 100%;
+                font-weight: 600;
+                border-right: 1px solid $second-color;
+            }
+        }
+
+
+
+        .adminDataTable {
+            width: 100%;
+            height: 80px;
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            margin: 0 auto;
+            border-bottom: 1px solid $second-color;
+            border-right: 1px solid $second-color;
+            border-left: 1px solid $second-color;
+
+            div {
+                @include center;
+                width: 100%;
+                height: 100%;
+                font-weight: 400;
+                border-right: 1px solid $second-color;
+            }
+        }
+    }
+
+}
+
+@include media-sm {
+    .adminH {
+        h1 {
+            font-size: 20px;
+        }
+
+        select {
+            width: 130px;
+            height: 30px;
+        }
+    }
+
+    .adminJazdyContainer2 {
+        width: 700px;
+    }
+
+    .adminJazdyOptions {
+        h2 {
+            font-size: 18px;
+        }
+    }
+
+    .adminDataTable {
+        div {
+            font-size: 15px;
+        }
+    }
+}
+
+@include media-md {
+    .adminH {
+        h1 {
+            font-size: 25px;
+        }
+
+        select {
+            width: 130px;
+            height: 40px;
+        }
+    }
+
+    .adminJazdyContainer2 {
+        width: 100%;
+    }
+
+    .adminJazdyOptions {
+        h2 {
+            font-size: 20px;
+        }
+    }
+
+    .adminDataTable {
+        div {
+            font-size: 18px;
+        }
+    }
+
+}
+
+@include media-xl {
+    .adminH {
+        h1 {
+            font-size: 30px;
+        }
+
+        select {
+            width: 150px;
+            height: 50px;
+        }
+    }
+
+    .adminJazdyContainer2 {
+        width: 100%;
+    }
+
+    .adminJazdyOptions {
+        h2 {
+            font-size: 25px;
+        }
+    }
+
+    .adminDataTable {
+        div {
+            font-size: 20px;
+        }
+    }
+}

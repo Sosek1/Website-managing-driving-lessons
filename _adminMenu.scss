@@ -1,0 +1,126 @@
+@import 'mixins';
+
+nav {
+
+    background-color: $second-color;
+    position: relative;
+
+    .logo {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        margin-left: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .list {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        z-index: 3;
+
+        a {
+            color: $first-color;
+            text-decoration: none;
+        }
+    }
+
+    .burger {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        margin-right: 20px;
+
+        i {
+            color: $first-color;
+            font-size: 25px;
+        }
+    }
+}
+
+@include media-sm {
+    nav {
+        height: 15vh;
+
+        .logo {
+            height: 90%;
+            width: 45%;
+
+            img {
+                height: 60%;
+            }
+        }
+
+        .burger {
+            height: 50px;
+            width: 50px;
+            @include center;
+        }
+
+        .list {
+            height: 85vh;
+            width: 100%;
+            right: 0;
+            top: 100%;
+            transform: translateX(-100%);
+            flex-direction: column;
+            justify-content: center;
+            background-color: $second-color;
+
+            li {
+                margin-top: 30px;
+                font-size: 20px;
+            }
+        }
+
+        .showNav {
+            transform: translateX(0);
+        }
+    }
+}
+
+@include media-xl {
+    nav {
+        height: 10vh;
+
+        .logo {
+            height: calc(100% - 40px);
+            width: 40%;
+            height: 80%;
+
+            img {
+                height: 80%;
+            }
+        }
+
+        .list {
+            height: calc(100% - 40px);
+            width: 80%;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            margin-right: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+
+            li {
+                @include center;
+                margin-right: 30px;
+                margin-top: 0;
+                font-size: 20px;
+            }
+        }
+
+        .burger {
+            display: none;
+        }
+
+    }
+
+}
