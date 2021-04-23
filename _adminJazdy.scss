@@ -1,3 +1,4 @@
+//styles similar in most of admin subpages
 .adminNav {
     height: 100px;
     background-color: $second-color;
@@ -16,7 +17,8 @@
     }
 }
 
-.adminJazdyContainer {
+//styles for this subpage
+.adminContainer {
     width: 90vw;
     min-height: auto;
     margin: 0 auto;
@@ -24,7 +26,7 @@
     border-right: 1px solid $second-color;
     border-left: 1px solid $second-color;
 
-    .adminJazdyContainer2 {
+    .adminContainer2 {
         height: 100%;
 
         .adminJazdyOptions {
@@ -48,7 +50,7 @@
 
 
 
-        .adminDataTable {
+        .adminJazdyTable {
             width: 100%;
             height: 80px;
             display: grid;
@@ -74,6 +76,8 @@
 }
 
 @include media-sm {
+
+    //styles similar in most of admin subpages
     .adminH {
         h1 {
             font-size: 20px;
@@ -85,9 +89,12 @@
         }
     }
 
-    .adminJazdyContainer2 {
+    .adminContainer2 {
         width: 700px;
     }
+
+    //styles for this subpage
+
 
     .adminJazdyOptions {
         h2 {
@@ -95,7 +102,7 @@
         }
     }
 
-    .adminDataTable {
+    .adminJazdyTable {
         div {
             font-size: 15px;
         }
@@ -103,6 +110,9 @@
 }
 
 @include media-md {
+
+    //styles similar in most of admin subpages
+
     .adminH {
         h1 {
             font-size: 25px;
@@ -114,9 +124,11 @@
         }
     }
 
-    .adminJazdyContainer2 {
+    .adminContainer2 {
         width: 100%;
     }
+
+    //styles for this subpage
 
     .adminJazdyOptions {
         h2 {
@@ -124,7 +136,7 @@
         }
     }
 
-    .adminDataTable {
+    .adminJazdyTable {
         div {
             font-size: 18px;
         }
@@ -133,6 +145,9 @@
 }
 
 @include media-xl {
+
+    //styles similar in most of admin subpages
+
     .adminH {
         h1 {
             font-size: 30px;
@@ -144,9 +159,11 @@
         }
     }
 
-    .adminJazdyContainer2 {
+    .adminContainer2 {
         width: 100%;
     }
+
+    //styles for this subpage
 
     .adminJazdyOptions {
         h2 {
@@ -154,7 +171,7 @@
         }
     }
 
-    .adminDataTable {
+    .adminJazdyTable {
         div {
             font-size: 20px;
         }

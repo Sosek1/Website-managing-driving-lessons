@@ -2341,6 +2341,27 @@
   min-height: 50vh;
 }
 
+.listContainer .selectArea {
+  height: 10%;
+  width: 100%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.listContainer .selectArea .select {
+  height: 80%;
+  width: 100px;
+  border: 1px solid #000;
+}
+
 .listContainer .name3 {
   font-weight: 400;
 }
@@ -2425,6 +2446,11 @@
 
 @media screen and (min-width: 800px) {
   .listContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     width: 60%;
   }
   .listContainer .name3 {
@@ -2452,6 +2478,11 @@
 
 @media screen and (min-width: 1200px) {
   .listContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     width: 60%;
   }
   .listContainer .name3 {
@@ -2501,7 +2532,7 @@
   font-weight: 400;
 }
 
-.adminJazdyContainer {
+.adminContainer {
   width: 90vw;
   min-height: auto;
   margin: 0 auto;
@@ -2510,11 +2541,11 @@
   border-left: 1px solid #000;
 }
 
-.adminJazdyContainer .adminJazdyContainer2 {
+.adminContainer .adminContainer2 {
   height: 100%;
 }
 
-.adminJazdyContainer .adminJazdyContainer2 .adminJazdyOptions {
+.adminContainer .adminContainer2 .adminJazdyOptions {
   width: 100%;
   height: 80px;
   display: -ms-grid;
@@ -2530,7 +2561,7 @@
   border: 1px solid #000;
 }
 
-.adminJazdyContainer .adminJazdyContainer2 .adminJazdyOptions h2 {
+.adminContainer .adminContainer2 .adminJazdyOptions h2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2546,7 +2577,7 @@
   border-right: 1px solid #000;
 }
 
-.adminJazdyContainer .adminJazdyContainer2 .adminDataTable {
+.adminContainer .adminContainer2 .adminJazdyTable {
   width: 100%;
   height: 80px;
   display: -ms-grid;
@@ -2565,7 +2596,7 @@
   border-left: 1px solid #000;
 }
 
-.adminJazdyContainer .adminJazdyContainer2 .adminDataTable div {
+.adminContainer .adminContainer2 .adminJazdyTable div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2589,13 +2620,13 @@
     width: 130px;
     height: 30px;
   }
-  .adminJazdyContainer2 {
+  .adminContainer2 {
     width: 700px;
   }
   .adminJazdyOptions h2 {
     font-size: 18px;
   }
-  .adminDataTable div {
+  .adminJazdyTable div {
     font-size: 15px;
   }
 }
@@ -2608,13 +2639,13 @@
     width: 130px;
     height: 40px;
   }
-  .adminJazdyContainer2 {
+  .adminContainer2 {
     width: 100%;
   }
   .adminJazdyOptions h2 {
     font-size: 20px;
   }
-  .adminDataTable div {
+  .adminJazdyTable div {
     font-size: 18px;
   }
 }
@@ -2627,13 +2658,13 @@
     width: 150px;
     height: 50px;
   }
-  .adminJazdyContainer2 {
+  .adminContainer2 {
     width: 100%;
   }
   .adminJazdyOptions h2 {
     font-size: 25px;
   }
-  .adminDataTable div {
+  .adminJazdyTable div {
     font-size: 20px;
   }
 }
@@ -2789,6 +2820,331 @@ nav .burger i {
   }
   nav .burger {
     display: none;
+  }
+}
+
+.adminUsersOptions {
+  width: 100%;
+  height: 80px;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  border: 1px solid #000;
+}
+
+.adminUsersOptions h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-weight: 600;
+  border-right: 1px solid #000;
+}
+
+.adminUsersTable {
+  width: 100%;
+  height: 80px;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  margin: 0 auto;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  border-left: 1px solid #000;
+}
+
+.adminUsersTable div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-weight: 400;
+  border-right: 1px solid #000;
+}
+
+.adminUsersTable div h3 {
+  font-weight: 400;
+  margin-right: 5px;
+}
+
+.adminUsersTable div a {
+  text-decoration: none;
+}
+
+.adminUsersTable div a i {
+  color: #000;
+}
+
+.addUserBtn {
+  width: 90vw;
+  margin: 30px auto;
+  height: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.addUserBtn .btn {
+  font-size: 15px;
+  text-decoration: none;
+  background-color: #000;
+  color: #fff;
+  border-radius: 6px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media screen and (min-width: 200px) {
+  .adminUsersOptions h2 {
+    font-size: 18px;
+  }
+  .adminUsersTable div {
+    font-size: 15px;
+  }
+  .adminUsersTable div h3 {
+    font-size: 15px;
+  }
+  .adminUsersTable div i {
+    font-size: 18px;
+  }
+  .addUserBtn {
+    height: 60px;
+  }
+  .addUserBtn .btn {
+    width: 100px;
+    height: 40px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .adminUsersOptions h2 {
+    font-size: 20px;
+  }
+  .adminUsersTable div {
+    font-size: 18px;
+  }
+  .adminUsersTable div h3 {
+    font-size: 18px;
+  }
+  .adminUsersTable div i {
+    font-size: 20px;
+  }
+  .addUserBtn {
+    height: 70px;
+  }
+  .addUserBtn .btn {
+    width: 150px;
+    height: 50px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .adminUsersOptions h2 {
+    font-size: 25px;
+  }
+  .adminUsersTable div {
+    font-size: 20px;
+  }
+  .adminUsersTable div h3 {
+    font-size: 20px;
+  }
+  .adminUsersTable div i {
+    font-size: 22px;
+  }
+  .addUserBtn {
+    height: 70px;
+  }
+  .addUserBtn .btn {
+    width: 150px;
+    height: 50px;
+  }
+}
+
+.adminPupilsOptions {
+  width: 100%;
+  height: 80px;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  border: 1px solid #000;
+}
+
+.adminPupilsOptions h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-weight: 600;
+  text-align: center;
+  border-right: 1px solid #000;
+}
+
+.adminPupilsTable {
+  width: 100%;
+  height: 80px;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  margin: 0 auto;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  border-left: 1px solid #000;
+}
+
+.adminPupilsTable div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-weight: 400;
+  border-right: 1px solid #000;
+}
+
+.adminPupilsTable div h3 {
+  font-weight: 400;
+  margin-right: 5px;
+}
+
+.adminPupilsTable div a {
+  text-decoration: none;
+}
+
+.adminPupilsTable div a i {
+  color: #000;
+}
+
+@media screen and (min-width: 200px) {
+  .adminPupilsOptions h2 {
+    font-size: 16px;
+  }
+  .adminPupilsTable div {
+    font-size: 15px;
+  }
+  .adminPupilsTable div h3 {
+    font-size: 15px;
+  }
+  .adminPupilsTable div i {
+    font-size: 18px;
+  }
+  .addUserBtn {
+    height: 60px;
+  }
+  .addUserBtn .btn {
+    width: 100px;
+    height: 40px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .adminPupilsOptions h2 {
+    font-size: 20px;
+  }
+  .adminPupilsTable div {
+    font-size: 17px;
+  }
+  .adminPupilsTable div h3 {
+    font-size: 18px;
+  }
+  .adminPupilsTable div i {
+    font-size: 20px;
+  }
+  .addUserBtn {
+    height: 70px;
+  }
+  .addUserBtn .btn {
+    width: 150px;
+    height: 50px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .adminPupilsOptions h2 {
+    font-size: 25px;
+  }
+  .adminPupilsTable div {
+    font-size: 20px;
+  }
+  .adminPupilsTable div h3 {
+    font-size: 20px;
+  }
+  .adminPupilsTable div i {
+    font-size: 22px;
+  }
+  .addUserBtn {
+    height: 70px;
+  }
+  .addUserBtn .btn {
+    width: 150px;
+    height: 50px;
   }
 }
 

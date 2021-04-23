@@ -4,6 +4,21 @@
     border-radius: 6px;
     min-height: 50vh;
 
+    .selectArea {
+        height: 10%;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        .select {
+            height: 80%;
+            width: 100px;
+            border: 1px solid $second-color;
+        }
+    }
+
     .name3 {
         font-weight: 400;
     }
@@ -74,6 +89,10 @@
 
 @include media-md {
     .listContainer {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         width: 60%;
 
         .name3 {
@@ -103,6 +122,10 @@
 
 @include media-xl {
     .listContainer {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         width: 60%;
 
         .name3 {
