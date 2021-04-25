@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .topbar {
   height: 10vh;
   display: -webkit-box;
@@ -3145,6 +3146,375 @@ nav .burger i {
   .addUserBtn .btn {
     width: 150px;
     height: 50px;
+  }
+}
+
+.adminRozliczeniaOptions {
+  width: 100%;
+  height: 80px;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  border: 1px solid #000;
+}
+
+.adminRozliczeniaOptions h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-weight: 600;
+  text-align: center;
+  border-right: 1px solid #000;
+}
+
+.adminWpłatyOptions {
+  width: 100%;
+  height: 80px;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  border: 1px solid #000;
+}
+
+.adminWpłatyOptions h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-weight: 600;
+  text-align: center;
+  border-right: 1px solid #000;
+}
+
+.adminRozliczeniaTable {
+  width: 100%;
+  height: 80px;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  margin: 0 auto;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  border-left: 1px solid #000;
+}
+
+.adminRozliczeniaTable div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-weight: 400;
+  border-right: 1px solid #000;
+}
+
+.adminRozliczeniaTable div h3 {
+  font-weight: 400;
+  margin-right: 5px;
+}
+
+.adminRozliczeniaTable div a {
+  text-decoration: none;
+}
+
+.adminRozliczeniaTable div a i {
+  color: #000;
+}
+
+.adminWpłatyTable {
+  width: 100%;
+  height: 80px;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  margin: 0 auto;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  border-left: 1px solid #000;
+}
+
+.adminWpłatyTable div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-weight: 400;
+  border-right: 1px solid #000;
+}
+
+.adminWpłatyTable div h3 {
+  font-weight: 400;
+  margin-right: 5px;
+}
+
+.adminWpłatyTable div a {
+  text-decoration: none;
+}
+
+.adminWpłatyTable div a i {
+  color: #000;
+}
+
+@media screen and (min-width: 200px) {
+  .adminRozliczeniaOptions h2 {
+    font-size: 16px;
+  }
+  .adminRozliczeniaTable div {
+    font-size: 15px;
+  }
+  .adminRozliczeniaTable div h3 {
+    font-size: 15px;
+  }
+  .adminRozliczeniaTable div i {
+    font-size: 18px;
+  }
+  .adminWpłatyOptions h2 {
+    font-size: 16px;
+  }
+  .adminWpłatyTable div {
+    font-size: 15px;
+  }
+  .adminWpłatyTable div h3 {
+    font-size: 15px;
+  }
+  .adminWpłatyTable div i {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .adminRozliczeniaOptions h2 {
+    font-size: 20px;
+  }
+  .adminRozliczeniaTable div {
+    font-size: 17px;
+  }
+  .adminRozliczeniaTable div h3 {
+    font-size: 18px;
+  }
+  .adminRozliczeniaTable div i {
+    font-size: 20px;
+  }
+  .adminWpłatyOptions h2 {
+    font-size: 20px;
+  }
+  .adminWpłatyTable div {
+    font-size: 17px;
+  }
+  .adminWpłatyTable div h3 {
+    font-size: 18px;
+  }
+  .adminWpłatyTable div i {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .adminRozliczeniaOptions h2 {
+    font-size: 25px;
+  }
+  .adminRozliczeniaTable div {
+    font-size: 20px;
+  }
+  .adminRozliczeniaTable div h3 {
+    font-size: 20px;
+  }
+  .adminRozliczeniaTable div i {
+    font-size: 22px;
+  }
+  .adminWpłatyOptions h2 {
+    font-size: 25px;
+  }
+  .adminWpłatyTable div {
+    font-size: 20px;
+  }
+  .adminWpłatyTable div h3 {
+    font-size: 20px;
+  }
+  .adminWpłatyTable div i {
+    font-size: 22px;
+  }
+}
+
+.adminWolneOptions {
+  width: 100%;
+  height: 80px;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  border: 1px solid #000;
+}
+
+.adminWolneOptions h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-weight: 600;
+  text-align: center;
+  border-right: 1px solid #000;
+}
+
+.adminWolneTable {
+  width: 100%;
+  height: 80px;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  margin: 0 auto;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  border-left: 1px solid #000;
+}
+
+.adminWolneTable div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-weight: 400;
+  border-right: 1px solid #000;
+}
+
+.adminWolneTable div h3 {
+  font-weight: 400;
+  margin-right: 5px;
+}
+
+.adminWolneTable div a {
+  text-decoration: none;
+}
+
+.adminWolneTable div a i {
+  color: #000;
+}
+
+@media screen and (min-width: 200px) {
+  .adminWolneOptions h2 {
+    font-size: 16px;
+  }
+  .adminWolneTable div {
+    font-size: 15px;
+  }
+  .adminWolneTable div h3 {
+    font-size: 15px;
+  }
+  .adminWolneTable div i {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .adminWolneOptions h2 {
+    font-size: 20px;
+  }
+  .adminWolneTable div {
+    font-size: 17px;
+  }
+  .adminWolneTable div h3 {
+    font-size: 18px;
+  }
+  .adminWolneTable div i {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .adminWolneOptions h2 {
+    font-size: 25px;
+  }
+  .adminWolneTable div {
+    font-size: 20px;
+  }
+  .adminWolneTable div h3 {
+    font-size: 20px;
+  }
+  .adminWolneTable div i {
+    font-size: 22px;
   }
 }
 
