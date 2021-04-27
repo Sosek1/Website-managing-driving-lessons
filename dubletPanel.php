@@ -6,6 +6,11 @@ require "functions.php";
 if(!isset($_SESSION['logIn'])){
     header('Location: index.php');
     exit();
+}else{
+    if($_SESSION['admin']){
+        header('Location: adminUsers.php');
+        exit();
+    }
 }
 $_SESSION['dublettt']=true;
 $czyzwalidowano = true;

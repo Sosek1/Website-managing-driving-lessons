@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-
-
 require_once "connect.php";
 try{
     $conn = @new mysqli($host, $db_user, $db_pass, $db_name);
@@ -26,6 +24,12 @@ try{
                     $_SESSION['logIn'] = true;                                    
                     $_SESSION['id'] = $wiersz['id'];
                     $_SESSION['user_name'] = $wiersz['name'];
+                    $kat = $wiersz['kat'];
+                    if($kat = 20){
+                        $_SESSION['admin']=true;
+                    }else{
+                        $_SESSION['admin']=false;
+                    }
                     unset($_SESSION['blad']);
                     $rezu->free_result();
                     header('Location: kalendarzTydzien.php');
