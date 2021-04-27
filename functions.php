@@ -43,7 +43,7 @@ function writetydzienznalezionodublet($id){
 function writegodzina($godzina){
     echo '<a class="record"><p>'.$godzina.':00</p></a>';
 }
-function writerozlicz($godzina, $id, $imie, $nazwisko, $kat, $tel, $datee, $rozliczono){
+function writerozlicz($godzina, $id, $imie, $nazwisko, $kat, $tel, $datee, $rozliczono, $dublet){
     echo '<div class="table" style= "';
     if($rozliczono){
         echo 'background-color:green';
@@ -51,6 +51,9 @@ function writerozlicz($godzina, $id, $imie, $nazwisko, $kat, $tel, $datee, $rozl
         echo 'background-color:red';
     }
     echo '"><div class="hour">'.$godzina.':00</div><div class="data">';
+    if(false==(is_null($dublet))){
+        echo "DUBLET  ";
+    }
     echo $imie." ".$nazwisko." Nr telefonu:".$tel."  Kategoria:";
     if($kat==1){
         echo "AM";

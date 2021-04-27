@@ -120,7 +120,7 @@ if($conn->connect_errno!=0){
         <div class="prev">
             <a href="rozliczDzien.php?move=0"><i class="fas fa-arrow-left"></i></a>
         </div>
-        <a class="date3" href="rozliczDzien.php?move=1"><?php echo date("d.M", $dzien);?></a>
+        <a class="date3" href="rozliczDzien.php?move=1"><?php echo date("d ", $dzien).retmiesiac($dzien).retdzien($dzien);?></a>
         <div class="next">
             <a href="rozliczDzien.php?move=2"><i class="fas fa-arrow-right"></i></a>
         </div>
@@ -132,50 +132,52 @@ if($conn->connect_errno!=0){
             $nazwisko;
             $kat;
             if($con){
-                $i = 5;
-                while($i<21){
-                    $i++;
-                    $dzp=date("Y-m-d H:i:s", mktime($i, 0, 0, $msc, $day, $ye));
-                    $id=$_SESSION['id'];
-                    $zap = 'SELECT * FROM jazdy WHERE data_jazdy="'.$dzp.'" and id_instruktora='.$id.'';
-                    $rezu=$conn->query($zap);
-                    if(!$rezu){
-                    }else{
-                        $ile = $rezu->num_rows;
-                        $d=0;
-                        while($ile>$d){
-                            $d++;
-                            $row = $rezu->fetch_assoc();
-                            $idosoba = $row['id_kursanta'];
-                            $idj = $row['id'];
-                            $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
-                            if(!$osoba){
+                $dzp=date("Y-m-d H:i:s", mktime(0, 0, 0, $msc, $day, $ye));
+                $dzk=date("Y-m-d H:i:s", mktime(23, 0, 0, $msc, $day, $ye));
+                $idisnt=$_SESSION['id'];
+                $zap = 'SELECT * FROM jazdy WHERE data_jazdy>"'.$dzp.'" and data_jazdy<"'.$dzk.'" and id_instruktora='.$idisnt.' ORDER BY data_jazdy, dublet ASC';
+                $rezu=$conn->query($zap);
+                if(!$rezu){
+                }else{
+                    $ile = $rezu->num_rows;
+                    $d=0;
+                    while($ile>$d){
+                        $d++;
+                        $drow = $rezu->fetch_assoc();
+                        $idosoba = $drow['id_kursanta'];
+                        $idj = $drow['id'];
+                        $godzina = date("H", strtotime($drow['data_jazdy']));
+                        $dublet = $drow['dublet'];
+                        $osoba=$conn->query("SELECT * FROM kursanci WHERE id='$idosoba'");
+                        if(!$osoba){
+                        }else{
+                            $ileo = $osoba->num_rows;
+                            if($ileo>0){
+                                $osobarow = $osoba->fetch_assoc();
+                                $imie = $osobarow['imie'];
+                                $nazwisko = $osobarow['surname'];
+                                $kat = $osobarow['kat'];
+                                $tel = $osobarow['nrtel'];
+                            }
+                        }
+                        $jazdy=$conn->query("SELECT * FROM rozliczeniaJazd WHERE id_jazdy='$idj'");
+                        if(!$jazdy){
+                        }else{
+                            $ilej = $jazdy->num_rows;
+                            if($ilej>0){
+                                writerozlicz($godzina, $idj, $imie, $nazwisko, $kat, $tel, $dza, true, $dublet);
                             }else{
-                                $ileo = $osoba->num_rows;
-                                if($ileo>0){
-                                    $osobarow = $osoba->fetch_assoc();
-                                    $imie = $osobarow['imie'];
-                                    $nazwisko = $osobarow['surname'];
-                                    $kat = $osobarow['kat'];
-                                    $tel = $osobarow['nrtel'];
-                                    $jazdy=$conn->query("SELECT * FROM rozliczeniaJazd WHERE id_jazdy='$idj'");
-                                    if(!$jazdy){
-                                    }else{
-                                        $ile = $jazdy->num_rows;
-                                        if($ile>0){
-                                            writerozlicz($i, $idj, $imie, $nazwisko, $kat, $tel, $dza, true);
-                                        }else{
-                                            writerozlicz($i, $idj, $imie, $nazwisko, $kat, $tel, $dza, false);
-                                            $czywszystkorozliczone=false;
-                                        }
-                                    }
-                                }else{
-                                }
+                                writerozlicz($godzina, $idj, $imie, $nazwisko, $kat, $tel, $dza, false, $dublet);
+                                $czywszystkorozliczone=false;
                             }
                         }
                     }
                 }
             }
+            
+                    
+                
+            
         ?>
     </div>
     
