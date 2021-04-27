@@ -5,6 +5,11 @@ require "functions.php";
 if(!isset($_SESSION['logIn'])){
     header('Location: index.php');
     exit();
+}else{
+    if($_SESSION['admin']){
+        header('Location: adminUsers.php');
+        exit();
+    }
 }
 $id = $_SESSION['id'];
 if($_SESSION['comove']==true){

@@ -5,6 +5,11 @@ require "functions.php";
 if(!isset($_SESSION['logIn'])){
     header('Location: index.php');
     exit();
+}else{
+    if($_SESSION['admin']){
+        header('Location: adminUsers.php');
+        exit();
+    }
 }
 $idu = $_SESSION['id'];
 if(isset($_GET['id'])){
