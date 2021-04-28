@@ -25,7 +25,7 @@ try{
                     $_SESSION['id'] = $wiersz['id'];
                     $_SESSION['user_name'] = $wiersz['name'];
                     $kat = $wiersz['kat'];
-                    if($kat = 20){
+                    if($kat == 20){
                         $_SESSION['admin']=true;
                     }else{
                         $_SESSION['admin']=false;
