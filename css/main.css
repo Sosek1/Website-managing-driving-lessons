@@ -2670,12 +2670,12 @@
   }
 }
 
-nav {
+.navAdmin {
   background-color: #000;
   position: relative;
 }
 
-nav .logo {
+.navAdmin .logo {
   position: absolute;
   top: 50%;
   left: 0;
@@ -2693,7 +2693,7 @@ nav .logo {
           justify-content: flex-start;
 }
 
-nav .list {
+.navAdmin .list {
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2705,12 +2705,12 @@ nav .list {
   z-index: 3;
 }
 
-nav .list a {
+.navAdmin .list a {
   color: #fff;
   text-decoration: none;
 }
 
-nav .burger {
+.navAdmin .burger {
   position: absolute;
   top: 50%;
   right: 0;
@@ -2719,23 +2719,23 @@ nav .burger {
   margin-right: 20px;
 }
 
-nav .burger i {
+.navAdmin .burger i {
   color: #fff;
   font-size: 25px;
 }
 
 @media screen and (min-width: 200px) {
-  nav {
+  .navAdmin {
     height: 15vh;
   }
-  nav .logo {
+  .navAdmin .logo {
     height: 90%;
     width: 45%;
   }
-  nav .logo img {
+  .navAdmin .logo img {
     height: 60%;
   }
-  nav .burger {
+  .navAdmin .burger {
     height: 50px;
     width: 50px;
     display: -webkit-box;
@@ -2748,7 +2748,7 @@ nav .burger i {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  nav .list {
+  .navAdmin .list {
     height: 85vh;
     width: 100%;
     right: 0;
@@ -2764,29 +2764,29 @@ nav .burger i {
             justify-content: center;
     background-color: #000;
   }
-  nav .list li {
+  .navAdmin .list li {
     margin-top: 30px;
     font-size: 20px;
   }
-  nav .showNav {
+  .navAdmin .showNav {
     -webkit-transform: translateX(0);
             transform: translateX(0);
   }
 }
 
 @media screen and (min-width: 1200px) {
-  nav {
+  .navAdmin {
     height: 10vh;
   }
-  nav .logo {
+  .navAdmin .logo {
     height: calc(100% - 40px);
     width: 40%;
     height: 80%;
   }
-  nav .logo img {
+  .navAdmin .logo img {
     height: 80%;
   }
-  nav .list {
+  .navAdmin .list {
     height: calc(100% - 40px);
     width: 80%;
     top: 50%;
@@ -2805,7 +2805,7 @@ nav .burger i {
         -ms-flex-pack: end;
             justify-content: flex-end;
   }
-  nav .list li {
+  .navAdmin .list li {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2819,7 +2819,7 @@ nav .burger i {
     margin-top: 0;
     font-size: 20px;
   }
-  nav .burger {
+  .navAdmin .burger {
     display: none;
   }
 }
