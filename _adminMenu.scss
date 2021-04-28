@@ -1,6 +1,6 @@
 @import 'mixins';
 
-nav {
+.navAdmin {
 
     background-color: $second-color;
     position: relative;
@@ -44,7 +44,7 @@ nav {
 }
 
 @include media-sm {
-    nav {
+    .navAdmin {
         height: 15vh;
 
         .logo {
@@ -85,7 +85,7 @@ nav {
 }
 
 @include media-xl {
-    nav {
+    .navAdmin {
         height: 10vh;
 
         .logo {
