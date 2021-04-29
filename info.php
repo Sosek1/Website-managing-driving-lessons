@@ -115,7 +115,6 @@ if($conn->connect_errno!=0){}else{
         </ul>
     </nav>
 
-    <h1 class="info2">Informacje o jezdzie</h1>
     <form class="informationContainer">
         <textarea class="name2"><?php echo $imie;?></textarea>
         <textarea class="surname"><?php echo $nazwisko;?></textarea>

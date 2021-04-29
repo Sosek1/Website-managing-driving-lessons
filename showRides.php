@@ -76,14 +76,13 @@ if($conn->connect_errno!=0){}else{
     </nav>
 
     <div class="listContainer">
-        <div class="selectArea">
+        
+        <h1 class="name3"><?php echo $name.' Kategoria: '.retkat($kat);?></h1>
         <select class="select">
             <option value="Wszystkie"></option>
             <option value="Rozliczone"></option>
             <option value="Nierozliczone"></option>
         </select>
-        </div>
-        <h1 class="name3"><?php echo $name.' Kategoria: '.retkat($kat);?></h1>
         <ol class="rideList">
         <?php
             if($con){

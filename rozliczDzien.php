@@ -192,7 +192,7 @@ if($conn->connect_errno!=0){
         <h1>Teoria(ilosć godzin)</h1>
         <input type="number" name ="teoria" min="0" max="10">
     </div>
-        <button type="submit" style="color:#fff;text-decoration:none;"class="settle">Rozlicz</button>
+        <button type="submit" style="color:#fff;text-decoration:none;"class="settle2">Rozlicz</button>
     </form>
 
 

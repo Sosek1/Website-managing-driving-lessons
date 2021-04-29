@@ -4,19 +4,8 @@
     border-radius: 6px;
     min-height: 50vh;
 
-    .selectArea {
-        height: 10%;
-        width: 100%;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-
-        .select {
-            height: 80%;
-            width: 100px;
-            border: 1px solid $second-color;
-        }
+    .select {
+        border: 1px solid $second-color;
     }
 
     .name3 {
@@ -67,6 +56,14 @@
             margin: 10px;
         }
 
+        .select {
+            height: 40px;
+            width: 120px;
+            font-size: 15px;
+            margin: 10px;
+        }
+
+
         .rideList {
             margin: 10px auto;
 
@@ -100,6 +97,13 @@
             margin: 20px;
         }
 
+        .select {
+            height: 30px;
+            width: 150px;
+            font-size: 20px;
+            margin: 20px;
+        }
+
         .rideList {
             margin: 20px;
 
@@ -130,6 +134,14 @@
 
         .name3 {
             font-size: 30px;
+            margin: 20px;
+        }
+
+
+        .select {
+            height: 30px;
+            width: 150px;
+            font-size: 20px;
             margin: 20px;
         }
 
