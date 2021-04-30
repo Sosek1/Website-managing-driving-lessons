@@ -1567,7 +1567,8 @@
 }
 
 .hoursform .hoursAmount {
-  height: 100%;
+  width: 100%;
+  width: 50%;
 }
 
 .hoursform .hoursAmount h1 {
@@ -1589,6 +1590,21 @@
 
 .hoursform .hoursAmount input[type="number" i] {
   background-color: #fff;
+}
+
+.hoursform .settle2 {
+  font-size: 15px;
+  background-color: #000;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 @media screen and (min-width: 200px) {
@@ -1644,10 +1660,10 @@
   }
   .containerR .additionalInfo2 {
     width: 80%;
-    -ms-grid-row: 10;
+    -ms-grid-row: 11;
     -ms-grid-row-span: 5;
     -ms-grid-column: 1;
-    grid-area: 10/1/15/1;
+    grid-area: 11/1/16/1;
     padding: 5px;
     font-size: 15px;
   }
@@ -1662,12 +1678,19 @@
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .hoursForm h1 {
+  .hoursForm .hoursAmount h1 {
     font-size: 15px;
+    margin: 15px 0;
   }
-  .hoursForm input {
+  .hoursForm .hoursAmount input {
     width: 100px;
     height: 40px;
+    margin: 15px 0;
+  }
+  .settle2 {
+    width: 100px;
+    height: 40px;
+    margin: 15px 0;
   }
 }
 
@@ -1727,10 +1750,10 @@
   }
   .containerR .additionalInfo2 {
     width: 90%;
-    -ms-grid-row: 10;
+    -ms-grid-row: 11;
     -ms-grid-row-span: 5;
     -ms-grid-column: 1;
-    grid-area: 10/1/15/1;
+    grid-area: 11/1/16/1;
     padding: 5px;
     font-size: 15px;
   }
@@ -1745,9 +1768,19 @@
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .hoursForm input {
+  .hoursForm .hoursAmount h1 {
+    font-size: 15px;
+    margin: 15px 0;
+  }
+  .hoursForm .hoursAmount input {
     width: 140px;
     height: 50px;
+    margin: 15px 0;
+  }
+  .settle2 {
+    width: 150px;
+    height: 50px;
+    margin: 15px 0;
   }
 }
 
@@ -1822,10 +1855,12 @@
   }
   .containerR .additionalInfo2 {
     width: 100%;
+    height: 80%;
     -ms-grid-row: 4;
+    -ms-grid-row-span: 2;
     -ms-grid-column: 2;
-    -ms-grid-column-span: 1;
-    grid-area: 4/2/4/3;
+    -ms-grid-column-span: 2;
+    grid-area: 4/2/6/4;
     padding: 5px;
     font-size: 20px;
   }
@@ -1844,6 +1879,31 @@
   .hoursform input {
     width: 140px;
     height: 50px;
+  }
+  .hoursForm {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .hoursForm .hoursAmount h1 {
+    font-size: 15px;
+    margin: 20px 0;
+  }
+  .hoursForm .hoursAmount input {
+    width: 140px;
+    height: 40px;
+    margin: 20px 0;
+  }
+  .settle2 {
+    width: 150px;
+    height: 50px;
+    margin: 20px 0;
   }
 }
 
@@ -2224,8 +2284,9 @@
     -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     min-height: 80vh;
-    width: 80vw;
-    margin: 0 auto 20px auto;
+    min-width: 80vw;
+    margin: 20px auto;
+    padding-bottom: 30px;
   }
   .informationContainer textarea {
     height: 30px;
@@ -2242,7 +2303,6 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: 0 auto;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
     -ms-grid-columns: 1fr 1fr 1fr;
@@ -2251,6 +2311,7 @@
         grid-template-rows: 1fr 1fr 1fr 1fr;
     height: 50vh;
     width: 80vw;
+    padding-bottom: 30px;
   }
   .informationContainer textarea {
     height: 30px;
@@ -2342,24 +2403,7 @@
   min-height: 50vh;
 }
 
-.listContainer .selectArea {
-  height: 10%;
-  width: 100%;
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-
-.listContainer .selectArea .select {
-  height: 80%;
-  width: 100px;
+.listContainer .select {
   border: 1px solid #000;
 }
 
@@ -2427,6 +2471,12 @@
     font-size: 20px;
     margin: 10px;
   }
+  .listContainer .select {
+    height: 40px;
+    width: 120px;
+    font-size: 15px;
+    margin: 10px;
+  }
   .listContainer .rideList {
     margin: 10px auto;
   }
@@ -2456,6 +2506,12 @@
   }
   .listContainer .name3 {
     font-size: 30px;
+    margin: 20px;
+  }
+  .listContainer .select {
+    height: 30px;
+    width: 150px;
+    font-size: 20px;
     margin: 20px;
   }
   .listContainer .rideList {
@@ -2488,6 +2544,12 @@
   }
   .listContainer .name3 {
     font-size: 30px;
+    margin: 20px;
+  }
+  .listContainer .select {
+    height: 30px;
+    width: 150px;
+    font-size: 20px;
     margin: 20px;
   }
   .listContainer .rideList {
