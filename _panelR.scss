@@ -90,12 +90,13 @@
     text-align: center;
 
     .hoursAmount {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
         width: 100%;
-        width: 50%;
 
         h1 {
             font-weight: 400;
-            margin-right: 20px;
         }
 
         input {
@@ -104,7 +105,6 @@
             padding: 5px;
             font-size: 15px;
             border: 1px solid $second-color;
-
         }
 
         input:focus {
@@ -120,6 +120,7 @@
         font-size: 15px;
         background-color: $second-color;
         color: $first-color;
+        border: 1px solid $second-color;
         @include center;
     }
 }
@@ -180,27 +181,25 @@
     }
 
     .hoursForm {
-        @include center;
 
         .hoursAmount {
             h1 {
                 font-size: 15px;
-                margin: 15px 0;
+                margin-left: 10px;
             }
 
             input {
-                width: 100px;
-                height: 40px;
-                margin: 15px 0;
+                width: 80px;
+                height: 30px;
+                margin-left: 20px;
             }
-
         }
     }
 
     .settle2 {
         width: 100px;
         height: 40px;
-        margin: 15px 0;
+        margin: 15px 20px;
     }
 }
 
@@ -264,18 +263,16 @@
     }
 
     .hoursForm {
-        @include center;
-
         .hoursAmount {
             h1 {
-                font-size: 15px;
-                margin: 15px 0;
+                font-size: 20px;
+                margin-left: 20px;
             }
 
             input {
                 width: 140px;
                 height: 50px;
-                margin: 15px 0;
+                margin-left: 10px;
             }
 
         }
@@ -284,7 +281,7 @@
     .settle2 {
         width: 150px;
         height: 50px;
-        margin: 15px 0;
+        margin: 15px 20px;
     }
 }
 
@@ -359,31 +356,17 @@
         }
     }
 
-    .hoursform {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        margin-left: 30px;
-
-        input {
-            width: 140px;
-            height: 50px;
-        }
-    }
-
     .hoursForm {
-        @include center;
-
         .hoursAmount {
             h1 {
-                font-size: 15px;
-                margin: 20px 0;
+                font-size: 20px;
+                margin-left: 20px;
             }
 
             input {
                 width: 140px;
                 height: 40px;
-                margin: 20px 0;
+                margin-left: 10px;
             }
 
         }
@@ -392,7 +375,7 @@
     .settle2 {
         width: 150px;
         height: 50px;
-        margin: 20px 0;
+        margin: 20px 20px;
     }
 
 }

@@ -1567,13 +1567,20 @@
 }
 
 .hoursform .hoursAmount {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   width: 100%;
-  width: 50%;
 }
 
 .hoursform .hoursAmount h1 {
   font-weight: 400;
-  margin-right: 20px;
 }
 
 .hoursform .hoursAmount input {
@@ -1596,6 +1603,7 @@
   font-size: 15px;
   background-color: #000;
   color: #fff;
+  border: 1px solid #000;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1667,30 +1675,19 @@
     padding: 5px;
     font-size: 15px;
   }
-  .hoursForm {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
   .hoursForm .hoursAmount h1 {
     font-size: 15px;
-    margin: 15px 0;
+    margin-left: 10px;
   }
   .hoursForm .hoursAmount input {
-    width: 100px;
-    height: 40px;
-    margin: 15px 0;
+    width: 80px;
+    height: 30px;
+    margin-left: 20px;
   }
   .settle2 {
     width: 100px;
     height: 40px;
-    margin: 15px 0;
+    margin: 15px 20px;
   }
 }
 
@@ -1757,30 +1754,19 @@
     padding: 5px;
     font-size: 15px;
   }
-  .hoursForm {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
   .hoursForm .hoursAmount h1 {
-    font-size: 15px;
-    margin: 15px 0;
+    font-size: 20px;
+    margin-left: 20px;
   }
   .hoursForm .hoursAmount input {
     width: 140px;
     height: 50px;
-    margin: 15px 0;
+    margin-left: 10px;
   }
   .settle2 {
     width: 150px;
     height: 50px;
-    margin: 15px 0;
+    margin: 15px 20px;
   }
 }
 
@@ -1864,46 +1850,19 @@
     padding: 5px;
     font-size: 20px;
   }
-  .hoursform {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-    margin-left: 30px;
-  }
-  .hoursform input {
-    width: 140px;
-    height: 50px;
-  }
-  .hoursForm {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
   .hoursForm .hoursAmount h1 {
-    font-size: 15px;
-    margin: 20px 0;
+    font-size: 20px;
+    margin-left: 20px;
   }
   .hoursForm .hoursAmount input {
     width: 140px;
     height: 40px;
-    margin: 20px 0;
+    margin-left: 10px;
   }
   .settle2 {
     width: 150px;
     height: 50px;
-    margin: 20px 0;
+    margin: 20px 20px;
   }
 }
 
