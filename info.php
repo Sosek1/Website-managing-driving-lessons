@@ -7,7 +7,7 @@ if(!isset($_SESSION['logIn'])){
     exit();
 }else{
     if($_SESSION['admin']){
-        header('Location: adminUsers.php');
+        header('Location: adminKursanci.php');
         exit();
     }
 }

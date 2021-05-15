@@ -3,6 +3,11 @@ session_start();
 if(!isset($_SESSION['logIn'])){
     header('Location: index.php');
     exit();
+}else{
+    if($_SESSION['admin']){
+        header('Location: adminKursanci.php');
+        exit();
+    }
 }
 require_once "connect.php";
 if(isset($_GET['szuk'])){
