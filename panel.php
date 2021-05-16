@@ -130,7 +130,7 @@ if($czyinsert){
                     $nrtel = $osobarow['nrtel'];
                 }else{
                     if($podtel){
-                        $zap = 'INSERT INTO kursanci VALUES(NULL, \''.$name.'\', \''.$surname.'\', \''.$name." ".$surname.'\', '.$nrtel.', \''.$kat.'\')';
+                        $zap = 'INSERT INTO kursanci VALUES(NULL, \''.$name.'\', \''.$surname.'\', \''.$name." ".$surname.'\', '.$nrtel.', \''.$kat.'\', 0)';
                         if($conn->query($zap)){
                                     
                         }else{

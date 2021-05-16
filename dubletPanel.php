@@ -99,8 +99,8 @@ $conn = new mysqli($host, $db_user, $db_pass, $db_name);
 $conn->query("SET NAMES 'utf8'");
 if($conn->connect_errno!=0){
     $con=false;
-    echo $conn->connect_errno;
-    echo $conn->connect_error;
+    //echo $conn->connect_errno;
+    //echo $conn->connect_error;
 }else{
     $con = true;
     if(isset($_SESSION['adid'])){
