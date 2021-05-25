@@ -74,6 +74,10 @@ if($conn->connect_errno!=0){}else{
             $czydublet = false;
         }
     }
+    if(!isset($_SESSION['dublety'])){
+        $czydublet = false;
+    }
+    
 }
 
 

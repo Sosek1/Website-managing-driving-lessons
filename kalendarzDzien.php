@@ -159,7 +159,7 @@ if($conn->connect_errno!=0){
                             $idj = $jazdarow['id'];
                             $dublet = $jazdarow['dublet'];
                             $miejsce = $jazdarow['miejsce'];
-                            if($miejsce==2){
+                            if($miejsce==2 && isset($_SESSION['dublety'])){
                                 $czydublet = true;
                             }else{
                                 $czydublet = false;
