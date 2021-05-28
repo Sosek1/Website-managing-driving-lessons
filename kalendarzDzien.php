@@ -16,6 +16,7 @@ if(isset($_GET['date'])==true){
     $_SESSION['data_dzien'] = $_GET['date'];
     $dzien = $_GET['date'];
     $_SESSION['comove']=true;
+    unset($_SESSION['moveweek']);
 }else{
     if($_SESSION['comove']==false){
         unset($_SESSION['move']);
