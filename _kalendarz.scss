@@ -86,7 +86,18 @@
             justify-content: space-around;
             text-align: center;
         }
+        .problem {
+            height: 100%;
+            width: 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
+            i {
+                font-size: 15px;
+                color: yellow;
+            }
+        }
         .addRide {
             height: 100%;
             width: 10%;

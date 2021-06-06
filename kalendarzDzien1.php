@@ -175,6 +175,7 @@ if($conn->connect_errno!=0){
             
 
             <?php 
+           // <label onClick="alert()"class="problem"><a href="#"><i class="fas fa-exclamation-triangle"></i></a></label>
             if(!$czywszystkorozliczone){
                 if($dublet || true){
                     echo '<label class="addRide"><a href="panel.php?d=';
@@ -1035,8 +1036,12 @@ if($conn->connect_errno!=0){
         
     </div>
     
-    <a class="settle" style="text-decoration:none;"href="rozliczDzien.php?date=<?php echo $dzien;?>">Rozlicz</a>
-
+    <a class="settle" style="text-decoration:none;"href="rozliczDzien.php?date=<?php echo $dzien;?>">Rozlicz</a>    
+    <script>
+        const alert = () => {
+            alert("Daj tu jakąś zmienną z problemem wgl ciekawe czy się da")
+        }
+    </script>
 </body>
 <?php
 $conn -> close();

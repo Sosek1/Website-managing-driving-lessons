@@ -240,6 +240,25 @@
   text-align: center;
 }
 
+.dayContainer .table .problem {
+  height: 100%;
+  width: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.dayContainer .table .problem i {
+  font-size: 15px;
+  color: yellow;
+}
+
 .dayContainer .table .addRide {
   height: 100%;
   width: 10%;
@@ -1594,7 +1613,7 @@
 }
 
 .hoursform .hoursAmount input[type="number" i] {
-  background-color: #000;
+  background-color: #fff;
 }
 
 .hoursform .settle2 {
@@ -2494,10 +2513,10 @@
 @media screen and (min-width: 1200px) {
   .listContainer {
     position: absolute;
-    top: 50%;
+    top: 10%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
     width: 60%;
   }
   .listContainer .name3 {
