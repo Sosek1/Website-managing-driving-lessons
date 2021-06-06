@@ -30,6 +30,10 @@ try{
                     }else{
                         $_SESSION['admin']=false;
                     }
+                    $dublet = $wiersz['dublety'];
+                    if($dublet > 0){
+                        $_SESSION['dublety'] = $dublet;
+                    }
                     unset($_SESSION['blad']);
                     $rezu->free_result();
                     header('Location: kalendarzTydzien.php');

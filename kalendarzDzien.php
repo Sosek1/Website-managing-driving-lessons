@@ -16,6 +16,7 @@ if(isset($_GET['date'])==true){
     $_SESSION['data_dzien'] = $_GET['date'];
     $dzien = $_GET['date'];
     $_SESSION['comove']=true;
+    unset($_SESSION['moveweek']);
 }else{
     if($_SESSION['comove']==false){
         unset($_SESSION['move']);
@@ -159,7 +160,7 @@ if($conn->connect_errno!=0){
                             $idj = $jazdarow['id'];
                             $dublet = $jazdarow['dublet'];
                             $miejsce = $jazdarow['miejsce'];
-                            if($miejsce==2){
+                            if($miejsce==2 && isset($_SESSION['dublety'])){
                                 $czydublet = true;
                             }else{
                                 $czydublet = false;
