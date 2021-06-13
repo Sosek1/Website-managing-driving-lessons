@@ -53,6 +53,12 @@
     }
 }
 
+.addPaymentSelect{
+    width:130px;
+    height:30px;
+}
+
+
 @include media-sm {
     .adminWpłatyOptions {
         h2 {
@@ -72,6 +78,10 @@
                 font-size: 18px;
             }
         }
+    }
+
+    .addPaymentHeading{
+        font-size:16px;
     }
 }
 
@@ -95,6 +105,10 @@
             }
         }
     }
+
+    .addPaymentHeading{
+        font-size:18px;
+    }
 }
 
 @include media-xl {
@@ -116,5 +130,8 @@
                 font-size: 22px;
             }
         }
+    }
+    .addPaymentHeading{
+        font-size:20px;
     }
 }

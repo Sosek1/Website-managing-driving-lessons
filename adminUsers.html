@@ -33,14 +33,21 @@
         </div>
     </nav>
 
-    <div class="adminH">
+    <div class="adminH" id="adminHeading">
         <h1>Instruktorzy</h1>
-        <select>
-            <option>idk</option>
-            <option>co</option>
-        </select>
+        <div class="selectWrapper">
+            <select>
+                <option>idk</option>
+                <option>co</option>
+            </select>
+            <select>
+                <option>Wszyscy</option>
+                <option>Administrator</option>
+                <option>Instruktor</option>
+            </select>
+        </div>
     </div>
-    <div class="adminContainer">
+    <div class="adminContainer" id="container">
         <div class="adminContainer2">
             <div class="adminUsersOptions">
                 <h2>Imię</h2>
@@ -57,7 +64,7 @@
                 <div>Mordo</div>
                 <div>
                     <h3>Hasło</h3>
-                    <a href="#">
+                    <a href="#" onclick="showForm()">
                         <i class="fas fa-tools"></i>
                     </a>
                 </div>
@@ -78,10 +85,31 @@
             </form>
         </div>
     </div>
-    <div class="addUserBtn">
+    <div class="addUserBtn" id="btn" onclick="showForm()">
         <a class="btn" href="#">Dodaj</a>
     </div>
+    <form class="addCursant" id="addCursant">
+        <i onclick="closeForm()" class="fas fa-times"></i>
+        <input placeholder="Imię">
+        <input placeholder="Nazwisko">
+        <input placeholder="Email">
+        <select name="category" class="cursantCategory">
+            <Option>Motory</Option>
+            <Option>Samochody</Option>
+        </select>
+        <select name="role" class="cursantCategory">
+            <Option>Admin</Option>
+            <Option>Instruktor</Option>
+        </select>
+        <button class="addCursantButton">Dodaj</button>
+    </form>
+    <form class="addCursant" id="changePassword">
+        <i onclick="closeForm()" class="fas fa-times"></i>
+        <input placeholder="Nowe hasło">
+        <button class="addCursantButton">Zmień</button>
+    </form>
     <script src="scripts/menu.js"></script>
+    <script src="scripts/addCursantForm.js"></script>
 </body>
 
 </html>

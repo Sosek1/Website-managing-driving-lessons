@@ -33,14 +33,14 @@
         </div>
     </nav>
 
-    <div class="adminH">
+    <div class="adminH" id="adminHeading">
         <h1>Wpłaty</h1>
         <select>
             <option>idk</option>
             <option>co</option>
         </select>
     </div>
-    <div class="adminContainer">
+    <div class="adminContainer" id="container">
         <div class="adminContainer2">
             <div class="adminWpłatyOptions">
                 <h2>Kursant</h2>
@@ -61,7 +61,20 @@
             </form>
         </div>
     </div>
+    <div class="addUserBtn" id="btn" onclick="showForm()">
+        <a class="btn" href="#">Dodaj</a>
+    </div>
+    <form class="addCursant" id="addCursant">
+        <i onclick="closeForm()" class="fas fa-times"></i>
+        <h1 class="addPaymentHeading">Lista kursantów</h1>
+        <select class="addPaymentSelect">
+            <option></option>
+        </select>
+        <input placeholder="wielkość wpłaty ">
+        <button class="addCursantButton">Dodaj</button>
+    </form>
     <script src="scripts/menu.js"></script>
+    <script src="scripts/addCursantForm.js"></script>
 </body>
 
 </html>

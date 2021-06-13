@@ -15,6 +15,16 @@
     h1 {
         font-weight: 400;
     }
+
+    .selectWrapper{
+        display:flex;
+        select{
+            margin:5px;
+        }
+        .ridesCalendar{
+            margin:5px;
+        }
+    }
 }
 
 //styles for this subpage
@@ -73,6 +83,13 @@
         }
     }
 
+    .calendarInfo{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+    }
+
 }
 
 @include media-sm {
@@ -83,9 +100,15 @@
             font-size: 20px;
         }
 
-        select {
-            width: 130px;
-            height: 30px;
+        select,.ridesCalendar,.calendarInfo {
+            width: 100px;
+            height: 20px;
+        }
+
+       
+        .selectWrapper{
+            display:flex;
+            flex-direction: column;
         }
     }
 
@@ -118,9 +141,12 @@
             font-size: 25px;
         }
 
-        select {
+        select,.ridesCalendar,.calendarInfo {
             width: 130px;
-            height: 40px;
+            height: 30px;
+        }
+        .selectWrapper{
+            flex-direction: row;
         }
     }
 
@@ -153,10 +179,14 @@
             font-size: 30px;
         }
 
-        select {
+        .selectWrapper{
+            flex-direction: row;
+        }
+
+        select,.ridesCalendar,.calendarInfo {
             width: 150px;
             height: 50px;
-        }
+        }     
     }
 
     .adminContainer2 {
