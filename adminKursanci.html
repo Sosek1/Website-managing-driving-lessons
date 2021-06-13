@@ -33,15 +33,15 @@
         </div>
     </nav>
 
-    <div class="adminH">
+    <div class="adminH" id="adminHeading">
         <h1>Kursanci</h1>
         <select>
             <option>idk</option>
             <option>co</option>
         </select>
     </div>
-    <div class="adminContainer">
-        <div class="adminContainer2">
+    <div class="adminContainer" id="container">
+        <div class="adminKursanciContainer2">
             <div class="adminPupilsOptions">
                 <h2>Imię </h2>
                 <h2>Nazwisko</h2>
@@ -49,6 +49,8 @@
                 <h2>Jazdy zrealizowane</h2>
                 <h2>Jazdy niezrealizowane</h2>
                 <h2>Ukończony kurs</h2>
+                <h2>Suma wpłat</h2>
+                <h2>Edytuj/Usuń/Zakończ</h3>
             </div>
             <form class="adminPupilsTable">
                 <div>Siema</div>
@@ -56,7 +58,18 @@
                 <div>Słychać</div>
                 <div>Mordo</div>
                 <div>U ciebie</div>
-                <div>es</div>
+                <div class="finishCourse">
+                    <select name="finishedCourse" class="finishedCourseSelect">
+                        <option>Tak</option>
+                        <option>Nie</option>
+                    </select>
+                </div>
+                <div>sieema</div>
+                <div class="editIconsContainer">
+                    <i class="fas fa-edit"></i>
+                    <i class="fas fa-trash-alt"></i>
+                    <i class="fas fa-times"></i>
+                </div>
             </form>
             <form class="adminPupilsTable">
                 <div>Siema</div>
@@ -64,14 +77,32 @@
                 <div>Słychać</div>
                 <div>Mordo</div>
                 <div>U ciebie</div>
-                <div>es</div>
+                <div class="finishCourse">
+                    <select name="finishedCourse" class="finishedCourseSelect">
+                        <option>Tak</option>
+                        <option>Nie</option>
+                    </select>
+                </div>
+                <div></div>
             </form>
         </div>
     </div>
-    <div class="addUserBtn">
+    <div class="addUserBtn" id="btn" onclick="showForm()">
         <a class="btn" href="#">Dodaj</a>
     </div>
-    <script src="menu.js"></script>
+    <form class="addCursant" id="addCursant">
+        <i onclick="closeForm()" class="fas fa-times"></i>
+        <input placeholder="Imię">
+        <input placeholder="Nazwisko">
+        <input placeholder="Email">
+        <select name="category" class="cursantCategory">
+            <Option>A1</Option>
+            <Option>A</Option>
+        </select>
+        <button class="addCursantButton">Dodaj</button>
+    </form>
+    <script src="scripts/menu.js"></script>
+    <script src="scripts/addCursantForm.js"></script>
 </body>
 
 </html>

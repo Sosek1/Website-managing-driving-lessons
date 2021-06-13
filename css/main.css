@@ -3041,6 +3041,10 @@
   }
 }
 
+.adminKursanciContainer2 {
+  width: 100%;
+}
+
 .adminPupilsOptions {
   width: 100%;
   height: 80px;
@@ -3050,8 +3054,8 @@
       -ms-flex-align: center;
           align-items: center;
   justify-items: center;
-  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   -ms-grid-rows: 1fr;
       grid-template-rows: 1fr;
   border: 1px solid #000;
@@ -3083,14 +3087,25 @@
       -ms-flex-align: center;
           align-items: center;
   justify-items: center;
-  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   -ms-grid-rows: 1fr;
       grid-template-rows: 1fr;
   margin: 0 auto;
   border-bottom: 1px solid #000;
   border-right: 1px solid #000;
   border-left: 1px solid #000;
+}
+
+.adminPupilsTable .finishCourse {
+  width: 100%;
+  height: 100%;
+  border-right: 1px solid #000;
+}
+
+.adminPupilsTable .finishCourse select {
+  width: 80%;
+  height: 50%;
 }
 
 .adminPupilsTable div {
@@ -3122,9 +3137,85 @@
   color: #000;
 }
 
+.adminPupilsTable .editIconsContainer {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-size: 20px;
+  border-right: 1px solid #000;
+}
+
+.adminPupilsTable .editIconsContainer i {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.addCursant {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 6px;
+}
+
+.addCursant i {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin: 5px 10px 0 0;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.addCursant input {
+  height: 30px;
+  padding: 5px;
+  border-bottom: 1px solid #000;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.addCursant button {
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 6px;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+.addCursant .cursantCategory {
+  width: 100px;
+  height: 30px;
+}
+
 @media screen and (min-width: 200px) {
+  .adminKursanciContainer2 {
+    width: 1300px;
+  }
   .adminPupilsOptions h2 {
-    font-size: 16px;
+    font-size: 15px;
   }
   .adminPupilsTable div {
     font-size: 15px;
@@ -3142,11 +3233,18 @@
     width: 100px;
     height: 40px;
   }
+  .addCursant {
+    width: 80%;
+    height: 300px;
+  }
 }
 
 @media screen and (min-width: 800px) {
+  .adminKursanciContainer2 {
+    width: 1500px;
+  }
   .adminPupilsOptions h2 {
-    font-size: 20px;
+    font-size: 18px;
   }
   .adminPupilsTable div {
     font-size: 17px;
@@ -3164,11 +3262,18 @@
     width: 150px;
     height: 50px;
   }
+  .addCursant {
+    width: 300px;
+    height: 300px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
+  .adminKursanciContainer2 {
+    width: 1700px;
+  }
   .adminPupilsOptions h2 {
-    font-size: 25px;
+    font-size: 18px;
   }
   .adminPupilsTable div {
     font-size: 20px;
@@ -3185,6 +3290,10 @@
   .addUserBtn .btn {
     width: 150px;
     height: 50px;
+  }
+  .addCursant {
+    width: 300px;
+    height: 300px;
   }
 }
 
