@@ -19,6 +19,11 @@ if($conn->connect_errno!=0){
 }else{
     $con = true;
 }
+if(isset($_POST['kat'])){
+    $setkat = $_POST['kat'];
+}else{
+    $setkat = 0;
+}
 ?>
 
 
@@ -61,12 +66,12 @@ if($conn->connect_errno!=0){
         <h1>Kursanci</h1>
         <form method="post">
         <select name="kat" onchange="this.form.submit()">
-            <option value ="0">WSZYSTKIE</option>
-            <option value ="1">AM</option>
-            <option value ="2">A1</option>
-            <option value ="3">A2</option>
-            <option value ="4">A</option>
-            <option value ="5">B</option>
+            <option value ="0" <?php if($setkat==0){echo "selected";}?>>WSZYSTKIE</option>
+            <option value ="1" <?php if($setkat==1){echo "selected";}?>>AM</option>
+            <option value ="2" <?php if($setkat==2){echo "selected";}?>>A1</option>
+            <option value ="3" <?php if($setkat==3){echo "selected";}?>>A2</option>
+            <option value ="4" <?php if($setkat==4){echo "selected";}?>>A</option>
+            <option value ="5" <?php if($setkat==5){echo "selected";}?>>B</option>
         </select>
         </form>
     </div>
@@ -81,16 +86,13 @@ if($conn->connect_errno!=0){
                 <h2>Ukończony kurs</h2>
         </div>
             <?if($con){
-                if(isset($_POST['kat'])){
-                    $kurkat = $_POST['kat'];
-                    if($kurkat==0){
+                
+                    if($setkat==0){
                         $zap = 'SELECT * FROM kursanci';
                     }else{
-                        $zap = 'SELECT * FROM kursanci WHERE kat ='.$kurkat;
+                        $zap = 'SELECT * FROM kursanci WHERE kat ='.$setkat;
                     }
-                }else{
-                    $zap = 'SELECT * FROM kursanci';
-                }
+
                 $kur=$conn->query($zap);
                 if(!$kur){}else{
                     $ile=$kur->num_rows;
@@ -116,6 +118,8 @@ if($conn->connect_errno!=0){
                             }
                             writekursant($imie, $nazw, $tel, $ilej, $ilejn, $uko);
                         }
+                    }else{
+                        echo '<h1> BRAK KURSANTÓW </h1>';
                     }
                 }
             }
