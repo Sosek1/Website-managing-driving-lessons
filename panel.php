@@ -191,7 +191,7 @@ if($czyinsert){
             }
         }
         if($dlugosc>1 && $godzina+1<22){
-            $dataa=date("Y-m-d H:i:s", mktime($godzina, 0, 0, $msc, $day, $ye));
+            $dataa=date("Y-m-d H:i:s", mktime($godzina+1, 0, 0, $msc, $day, $ye));
             $zap = 'SELECT * FROM jazdy WHERE id_pojazdu ='.$pojazd.' AND data_jazdy=\''.$dataa.'\'';
             $poj=$conn->query($zap);
             if(!$poj){}else{
@@ -205,7 +205,7 @@ if($czyinsert){
             $_SESSION['error']="Jazda nie może trwać po 22!";
         }
         if($dlugosc>2 && $godzina+2<22){
-            $dataa=date("Y-m-d H:i:s", mktime($godzina, 0, 0, $msc, $day, $ye));
+            $dataa=date("Y-m-d H:i:s", mktime($godzina+2, 0, 0, $msc, $day, $ye));
             $zap = 'SELECT * FROM jazdy WHERE id_pojazdu ='.$pojazd.' AND data_jazdy=\''.$dataa.'\'';
             $poj=$conn->query($zap);
             if(!$poj){}else{
