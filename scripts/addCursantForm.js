@@ -8,7 +8,6 @@
         const showForm = () => {
             if (!show) {
                 form.style.display = "flex";
-                // form2.style.display = "flex";
                 toBlur.forEach(element => {
                     element.style.filter = "blur(4px)"
                 });
@@ -18,7 +17,24 @@
         const closeForm = () => {
             if (!show) {
                 form.style.display = "none";
-                // form2.style.display = "none";
+                toBlur.forEach(element => {
+                    element.style.filter = "blur(0)"
+                });
+            }
+        }
+
+        const showForm2 = () => {
+            if (!show) {
+                form2.style.display = "flex";
+                toBlur.forEach(element => {
+                    element.style.filter = "blur(4px)"
+                });
+            }
+        }
+
+        const closeForm2 = () => {
+            if (!show) {
+                form2.style.display = "none";
                 toBlur.forEach(element => {
                     element.style.filter = "blur(0)"
                 });
